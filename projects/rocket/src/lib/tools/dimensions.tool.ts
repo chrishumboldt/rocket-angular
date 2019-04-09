@@ -2,6 +2,7 @@
  * @author Chris Humboldt
  */
 
+import { rocketDOM } from './dom.tool';
 import { rocketIs } from './is.tool';
 import { rocketString } from './strings.tool';
 
@@ -51,21 +52,16 @@ function getWidthOrHeight(element: any, type: string): number {
    if (element === window) {
       type = rocketString.uppercase.first(type);
       returnValue = (
-         window['inner' + type]
-         || document.documentElement['client' + type]
-         || document.body['client' + type]
+         window[`inner${type}`]
+         || document.documentElement[`client${type}`]
+         || document.body[`client${type}`]
       );
-   /**
-    * Check if string selector.
-    */
    } else {
-      // TODO!!!!
+      /**
+       * Check if string selector.
+       */
       if (rocketIs.string(element)) {
-         // element = Rocket.dom.select(elm);
-         // if (elm.length < 1) return false;
-         //
-         // // Continue
-         // elm = elm[0];
+         element = rocketDOM.element(element);
       }
 
       if (element.getClientRects().length) {

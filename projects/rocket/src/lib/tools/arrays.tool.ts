@@ -5,7 +5,7 @@
 import { rocketIs } from './is.tool';
 
 /**
- * Clean and array of null values.
+ * Clean an array.
  *
  * @param {any} input
  */
@@ -17,13 +17,7 @@ function arrayClean(input: any, hardClean = false): any[] {
        */
       return [];
    } else {
-      if (!hardClean) {
-         /**
-          * A soft clean filters out NULL entries. Undefined is considered an
-          * acceptable entry in the array.
-          */
-         return input.filter((item: any) => item !== null);
-      } else {
+      if (hardClean) {
          /**
           * A hard clean only accepts populated values that are defined.
           */
@@ -34,6 +28,12 @@ function arrayClean(input: any, hardClean = false): any[] {
                && item.length > 0
             );
          });
+      } else {
+         /**
+          * A soft clean filters out NULL entries. Undefined is considered an
+          * acceptable entry in the array.
+          */
+         return input.filter((item: any) => item !== null);
       }
    }
 }
