@@ -134,6 +134,41 @@
           }
         }
       }
+    },
+    "rocket": {
+      "root": "projects/rocket",
+      "sourceRoot": "projects/rocket/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/rocket/tsconfig.lib.json",
+            "project": "projects/rocket/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/rocket/src/test.ts",
+            "tsConfig": "projects/rocket/tsconfig.spec.json",
+            "karmaConfig": "projects/rocket/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/rocket/tsconfig.lib.json",
+              "projects/rocket/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "rocket-angular"

@@ -1,0 +1,179 @@
+/**
+ * @author Chris Humboldt
+ */
+
+import { rocketIs } from './is.tool';
+
+/**
+ * Format a byte string into a human readable string.
+ * As per Aliceljm:
+ * http://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
+ *
+ * @param {string} bytes
+ * @param {number} decimals
+ */
+function formatBytes(bytes: string, decimals: number = 2): string {
+   if (typeof bytes !== 'number' || bytes == 0) {
+      return '0 Byte';
+   }
+
+   let k = 1000;
+   let dm = decimals + 1;
+   let sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+   let i = Math.floor(Math.log(bytes) / Math.log(k));
+
+   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+}
+
+/**
+ * Lowercase the whole string.
+ *
+ * @param {string} string
+ */
+function lowercaseAll(string: string): string {
+   return (rocketIs.string(string)) ? string.toLowerCase() : string;
+}
+
+/**
+ * Lowercase the first letter of the string.
+ *
+ * @param {string} string
+ */
+function lowercaseFirst(string: string): string {
+   if (rocketIs.string(string)) {
+      return `${string.charAt(0).toLowerCase()}${string.slice(1)}`;
+   } else {
+      return string;
+   }
+}
+
+/**
+ * Lowercase the last letter of the string.
+ *
+ * @param {string} string
+ */
+function lowercaseLast(string: string): string {
+   if (rocketIs.string(string)) {
+      return `${string.slice(0, string.length - 1)}${string.charAt(string.length - 1).toLowerCase()}`;
+   } else {
+      return string;
+   }
+}
+
+/**
+ * Remove the first character of a string.
+ *
+ * @param {string} string
+ */
+function removeFirst(string: string): string {
+   return (rocketIs.string(string)) ? string.substring(1) : string;
+}
+
+/**
+ * Remove the first and last characters of a string.
+ *
+ * @param {string} string
+ */
+function removeFirstAndLast(string: string): string {
+   if (rocketIs.string(string)) {
+      return string.substring(1, string.length - 1);
+   } else {
+      return string;
+   }
+}
+
+/**
+ * Remove the last character of a string.
+ *
+ * @param {string} string
+ */
+function removeLast(string: string): string {
+   if (rocketIs.string(string)) {
+      return string.substring(0, string.length - 1);
+   } else {
+      return string;
+   }
+}
+
+/**
+ * Remove all the spaces from a string.
+ *
+ * @param {string} string
+ */
+function removeSpaces(string: string): string {
+   return (rocketIs.string(string)) ? string.replace(/ /g, '') : string;
+}
+
+/**
+ * Trim a string.
+ *
+ * @param {string} string
+ */
+function stringTrim(string: string): string {
+   if (rocketIs.string(string)) {
+      return string.replace(/^ /, '').replace(/ +$/, '');
+   } else {
+      return string;
+   }
+}
+
+/**
+ * Uppercase the whole string.
+ *
+ * @param {string} string
+ */
+function uppercaseAll(string: string): string {
+   return (rocketIs.string(string)) ? string.toUpperCase() : string;
+}
+
+/**
+ * Uppercase the first letter of the string.
+ *
+ * @param {string} string
+ */
+function uppercaseFirst(string: string): string {
+   if (rocketIs.string(string)) {
+      return `${string.charAt(0).toUpperCase()}${string.slice(1)}`;
+   } else {
+      return string;
+   }
+}
+
+/**
+ * Uppercase the last letter of the string.
+ *
+ * @param {string} string
+ */
+function uppercaseLast(string: string): string {
+   if (rocketIs.string(string)) {
+      return `${string.slice(0, string.length - 1)}${string.charAt(string.length - 1).toUpperCase()}`;
+   } else {
+      return string;
+   }
+}
+
+/**
+ * Export.
+ */
+export const rocketString = {
+   format: {
+      bytes: formatBytes
+   },
+   remove: {
+      first: removeFirst,
+      firstAndLast: removeFirstAndLast,
+      last: removeLast,
+      spaces: removeSpaces
+   },
+   lowercase: {
+      all: lowercaseAll,
+      first: lowercaseFirst,
+      last: lowercaseLast
+   },
+   trim: stringTrim,
+   uppercase: {
+      all: uppercaseAll,
+      first: uppercaseFirst,
+      last: uppercaseLast
+   }
+};
