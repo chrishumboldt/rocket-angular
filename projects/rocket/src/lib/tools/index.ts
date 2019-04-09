@@ -4,21 +4,13 @@
 
 import { rocketArray } from './arrays.tool';
 import { rocketClone } from './clone.tool';
-import { rocketError, rocketLog } from './development.tool';
+import { rocketError, rocketLog, rocketWarning } from './development.tool';
 import { rocketDimension } from './dimensions.tool';
 import { rocketDOM } from './dom.tool';
+import { rocketExists } from './exists.tool';
 import { rocketHas } from './has.tool';
 import { rocketIs } from './is.tool';
 import { rocketString } from './strings.tool';
-
-/**
- * Exported stores.
- */
-export * from './colours.tool';
-export * from './extensions.tool';
-export { RegEx } from './regular-expressions.tool';
-export * from './states.tool';
-export * from './time.tool';
 
 /**
  * Rocket scoped functions.
@@ -29,8 +21,10 @@ export const Rocket = {
    dimension: rocketDimension,
    dom: rocketDOM,
    error: rocketError,
+   exists: rocketExists,
    has: rocketHas,
    is: rocketIs,
    log: rocketLog,
-   string: rocketString
+   string: rocketString,
+   warning: rocketWarning
 };

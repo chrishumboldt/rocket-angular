@@ -2,7 +2,5 @@
  * @author Chris Humboldt
  */
 
-/**
- * The Rocket tool set exposed.
- */
-export * from './lib/tools';
+export * from './lib/stores';
+export * from './lib/tools/index';

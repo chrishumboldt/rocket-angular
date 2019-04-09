@@ -2,14 +2,15 @@
  * @author Chris Humboldt
  */
 
+import { RegEx } from '../stores';
 import { rocketExists } from './exists.tool';
 import { imageExtensionList } from './extensions.tool';
-import { RegEx, regExTest } from './regular-expressions.tool';
+import { regExTest } from './regular-expressions.tool';
 
 /**
  * Determine if an input is an array.
  *
- * @param {any} check
+ * @param check
  */
 function isArray(check: any): boolean {
    return (typeof check === 'object' && check instanceof Array);
@@ -18,7 +19,7 @@ function isArray(check: any): boolean {
 /**
  * Determine if an input is a boolean.
  *
- * @param {any} check
+ * @param check
  */
 function isBoolean(check: any): boolean {
    return (typeof check === 'boolean');
@@ -39,7 +40,7 @@ function isBrowser(): boolean {
 /**
  * Determine if a string is a colour.
  *
- * @param {string} check
+ * @param check
  */
 function isColour(check: string): boolean {
    return regExTest(check, RegEx.COLOUR);
@@ -48,7 +49,7 @@ function isColour(check: string): boolean {
 /**
  * Determine is something is a date.
  *
- * @param {string} check
+ * @param check
  */
 function isDate(check: string): boolean {
    return regExTest(check, RegEx.DATE);
@@ -57,7 +58,7 @@ function isDate(check: string): boolean {
 /**
  * Determine if the input is an element.
  *
- * @param {any} check
+ * @param check
  */
 function isElement(check: any): boolean {
    return (rocketExists(check)) ? (check.nodeType && check.nodeType === 1) : false;
@@ -66,7 +67,7 @@ function isElement(check: any): boolean {
 /**
  * Determine if the input is in an email format.
  *
- * @param {string} check
+ * @param check
  */
 function isEmail(check: string): boolean {
    return regExTest(check, RegEx.EMAIL);
@@ -75,7 +76,7 @@ function isEmail(check: string): boolean {
 /**
  * Determine if the input is a function.
  *
- * @param {any} check
+ * @param check
  */
 function isFunction(check: any): boolean {
    return (typeof check === 'function');
@@ -85,8 +86,8 @@ function isFunction(check: any): boolean {
  * Determine if the input is an image, by checking against the image
  * extension list.
  *
- * @param {any} check
- * @param {string[]} allowedTypes
+ * @param check
+ * @param allowedTypes
  */
 function isImage(check: any, allowedTypes: string[] = imageExtensionList): boolean {
    /**
@@ -103,7 +104,7 @@ function isImage(check: any, allowedTypes: string[] = imageExtensionList): boole
 /**
  * Determine if the input is an integer.
  *
- * @param {any} check
+ * @param check
  */
 function isInteger(check: any): boolean {
    return (check ^ 0) === check;
@@ -112,7 +113,7 @@ function isInteger(check: any): boolean {
 /**
  * Determine if the input is JSON.
  *
- * @param {any} check
+ * @param check
  */
 function isJSON(check: any): boolean {
    if (typeof check !== 'object') {
@@ -129,7 +130,7 @@ function isJSON(check: any): boolean {
 /**
  * Determine if the input is a number.
  *
- * @param {any} check
+ * @param check
  */
 function isNumber(check: any): boolean {
    return (typeof check === 'number' && !isNaN(check));
@@ -138,7 +139,7 @@ function isNumber(check: any): boolean {
 /**
  * Determine if the input is an object.
  *
- * @param {any} check
+ * @param check
  */
 function isObject(check: any): boolean {
    return (typeof check === 'object');
@@ -147,7 +148,7 @@ function isObject(check: any): boolean {
 /**
  * Determine if the input is in a password format.
  *
- * @param {any} check
+ * @param check
  */
 function isPassword(check: string): boolean {
    return regExTest(check, RegEx.PASSWORD);
@@ -156,7 +157,7 @@ function isPassword(check: string): boolean {
 /**
  * Determine if the input is a string.
  *
- * @param {any} check
+ * @param check
  */
 function isString(check: any) {
    return (typeof check === 'string');
@@ -165,7 +166,7 @@ function isString(check: any) {
 /**
  * Determine if the input is in a time format.
  *
- * @param {string} check
+ * @param check
  */
 function isTime(check: string): boolean {
    return regExTest(check, RegEx.TIME);
@@ -185,7 +186,7 @@ function isTouch() {
 /**
  * Determine if the input is in a url format.
  *
- * @param {string} check
+ * @param check
  */
 function isURL(check: string): boolean {
    return regExTest(check, RegEx.URL);

@@ -7,9 +7,9 @@ import { rocketIs } from './is.tool';
 /**
  * Clean an array.
  *
- * @param {any} input
+ * @param input
  */
-function arrayClean(input: any, hardClean = false): any[] {
+function arrayClean(input: any, hardClean: boolean = false): any[] {
    if (!rocketIs.array(input)) {
       /**
        * If the input is not an array then assume that the array is empty.
@@ -25,7 +25,7 @@ function arrayClean(input: any, hardClean = false): any[] {
             return (
                item !== null
                && item !== undefined
-               && item.length > 0
+               && (rocketIs.string(item) ? item.length > 1 : true)
             );
          });
       } else {
@@ -41,8 +41,8 @@ function arrayClean(input: any, hardClean = false): any[] {
 /**
  * Make an array from the input value.
  *
- * @param {any} input
- * @param {boolean} makeUnique
+ * @param input
+ * @param makeUnique
  */
 function arrayMake(input: any, makeUnique: boolean = false): any[] {
    let returnArray = [];
@@ -76,7 +76,7 @@ function arrayMake(input: any, makeUnique: boolean = false): any[] {
 /**
  * Make an array unique meaning that no value repeats.
  *
- * @param {any[]} input
+ * @param input
  */
 function arrayUnique(input: any[]): any[] {
    /**

@@ -2,14 +2,14 @@
  * @author Chris Humboldt
  */
 
- export enum State {
-    ACTIVE = 'active',
-    CLOSED = 'closed',
-    HIDDEN = 'hidden',
-    INACTIVE = 'inactive',
-    OPEN = 'open',
-    TOGGLED = 'toggled',
-    VISIBLE = 'visible'
+export enum State {
+   ACTIVE = 'active',
+   CLOSED = 'closed',
+   HIDDEN = 'hidden',
+   INACTIVE = 'inactive',
+   OPEN = 'open',
+   TOGGLED = 'toggled',
+   VISIBLE = 'visible'
 }
 
 export enum OpposingState {

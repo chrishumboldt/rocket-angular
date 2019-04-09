@@ -8,8 +8,8 @@ import { rocketIs } from './is.tool';
 /**
  * Check if an element has a class name.
  *
- * @param {string} check
- * @param {Element} element
+ * @param check
+ * @param element
  */
 function hasClass(check: string, element: Element): boolean {
    return (' ' + element.className + ' ').indexOf(' ' + check + ' ') > -1;
@@ -18,8 +18,8 @@ function hasClass(check: string, element: Element): boolean {
 /**
  * Check to see if a string fullfills the allowed extensions check.
  *
- * @param {string} check
- * @param {string[]} allowedTypes
+ * @param check
+ * @param allowedTypes
  */
 function hasExtension(check: string, allowedTypes: string[] = extensionList): boolean {
    /**
@@ -36,7 +36,7 @@ function hasExtension(check: string, allowedTypes: string[] = extensionList): bo
 /**
  * Check to see if a string has any spaces.
  *
- * @param {string} check
+ * @param check
  */
 function hasSpaces(check: string): boolean {
    return /\s/.test(check);

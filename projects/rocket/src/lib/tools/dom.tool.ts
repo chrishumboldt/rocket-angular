@@ -2,22 +2,13 @@
  * @author Chris Humboldt
  */
 
+import { SelectorType } from '../stores';
 import { rocketArray } from './arrays.tool';
 import { rocketError } from './development.tool';
 import { rocketExists } from './exists.tool';
 import { rocketGet } from './gets.tool';
 import { rocketIs } from './is.tool';
 import { rocketString } from './strings.tool';
-
-/**
- * Selectors types used by the DOM selectors.
- */
-export enum SelectorType {
-   GET_ELEMENT_BY_ID,
-   GET_ELEMENT_BY_TAG,
-   UNKNOWN,
-   QUERY_SELECTOR_ALL,
-}
 
 /**
  * Return the elements of a web client should they be available.
@@ -41,8 +32,8 @@ if (typeof window != undefined) {
  * Set the height of an element based on the width but apply a ration
  * multiplier if desired.
  *
- * @param {any} selector
- * @param {number} multiplier
+ * @param selector
+ * @param multiplier
  */
 function domRatio(selector: any, multiplier: number = 1): void {
    const elements = domSelect(selector);
@@ -58,7 +49,7 @@ function domRatio(selector: any, multiplier: number = 1): void {
 /**
  * Remove DOM elements from the client.
  *
- * @param {any} selector
+ * @param selector
  */
 function domRemove(selector: any): void {
    /**
@@ -82,7 +73,7 @@ function domRemove(selector: any): void {
 /**
  * Remove a single DOM element from the client.
  *
- * @param {HTMLElement} element
+ * @param element
  */
 function domRemoveItem(element: HTMLElement): void {
    if (rocketIs.element(element) && rocketIs.element(element.parentNode)) {
@@ -96,7 +87,7 @@ function domRemoveItem(element: HTMLElement): void {
  * Even an ID selector will return an array as the user has requested
  * this particular method type. It's important to maintain consistency.
  *
- * @param {any} selector
+ * @param selector
  */
 function domSelect(selector: any): HTMLElement[] {
    let elementList = [];
@@ -171,7 +162,7 @@ function domSelect(selector: any): HTMLElement[] {
 /**
  * Select elements by string input.
  *
- * @param {string} selector
+ * @param selector
  */
 function domSelectByString(selector: string): HTMLElement[] {
    let elementList = [];
@@ -216,7 +207,7 @@ function domSelectByString(selector: string): HTMLElement[] {
  * element is required. The below uses a more performant
  * code block to complete this action.
  *
- * @param {any} selector
+ * @param selector
  */
 function domSelectElement(selector: any): HTMLElement {
    /**

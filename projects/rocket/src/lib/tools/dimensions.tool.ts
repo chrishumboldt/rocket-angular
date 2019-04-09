@@ -9,7 +9,7 @@ import { rocketString } from './strings.tool';
 /**
  * Get the height of an element.
  *
- * @param {any} element
+ * @param element
  */
 function getHeight(element: any): number {
    return getWidthOrHeight(element, 'height');
@@ -18,7 +18,7 @@ function getHeight(element: any): number {
 /**
  * Get the width of an element.
  *
- * @param {any} element
+ * @param element
  */
 function getWidth(element: any): number {
    return getWidthOrHeight(element, 'width');
@@ -27,8 +27,8 @@ function getWidth(element: any): number {
 /**
  * Get the width or height of an element.
  *
- * @param {any} element
- * @param {string} type
+ * @param element
+ * @param type
  */
 function getWidthOrHeight(element: any, type: string): number {
    /**

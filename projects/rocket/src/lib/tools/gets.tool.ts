@@ -2,14 +2,14 @@
  * @author Chris Humboldt
  */
 
-import { SelectorType } from './dom.tool';
+import { RegEx, SelectorType } from '../stores';
 import { rocketHas } from './has.tool';
-import { RegEx, regExTest } from './regular-expressions.tool';
+import { regExTest } from './regular-expressions.tool';
 
 /**
  * Get the extension of a string.
  *
- * @param {string} string
+ * @param string
  */
 function getExtension(string: string): string {
    return string.split('.').pop().toLowerCase();
@@ -18,7 +18,7 @@ function getExtension(string: string): string {
 /**
  * Get the index of a node within its parent.
  *
- * @param {any} node
+ * @param node
  */
 function getIndex(node: any): number {
    return [].indexOf.call(node.parentNode.children, node);
@@ -28,7 +28,7 @@ function getIndex(node: any): number {
  * Get the selector type based on a string version of the seleector. Used
  * mainly when using the DOM tools.
  *
- * @param {string} selector
+ * @param selector
  */
 function getSelectorType(selector: string): SelectorType {
    if (
