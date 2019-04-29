@@ -2,13 +2,15 @@
  * @author Chris Humboldt
  */
 
-import { rocketIs } from './is.tool';
+import { RocketIs } from './is.tool';
 
 /**
  * Log out a message to the console.
+ *
+ * @param message
  */
-export function rocketLog(message: any): void {
-   if ((rocketIs.browser() && (!window || !window.console))) {
+export function RocketLog(message: any): void {
+   if ((RocketIs.browser() && (!window || !window.console))) {
       return;
    } else {
       console.log(message);
@@ -17,9 +19,11 @@ export function rocketLog(message: any): void {
 
 /**
  * Log out an error message to the console.
+ *
+ * @param message
  */
-export function rocketError(message: any): void {
-   if ((rocketIs.browser() && (!window || !window.console)) || !rocketIs.browser()) {
+export function RocketError(message: any): void {
+   if ((RocketIs.browser() && (!window || !window.console)) || !RocketIs.browser()) {
       return;
    } else {
       throw new Error(message);
@@ -28,9 +32,11 @@ export function rocketError(message: any): void {
 
 /**
  * Log out a warning message to the console.
+ *
+ * @param message
  */
-export function rocketWarning(message: any): void {
-   if ((rocketIs.browser() && (!window || !window.console))) {
+export function RocketWarning(message: any): void {
+   if ((RocketIs.browser() && (!window || !window.console))) {
       return;
    } else {
       console.warn(message);

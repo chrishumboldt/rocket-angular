@@ -2,7 +2,7 @@
  * @author Chris Humboldt
  */
 
-import { rocketIs } from './is.tool';
+import { RocketIs } from './is.tool';
 
 /**
  * Format a byte string into a human readable string.
@@ -31,7 +31,7 @@ function formatBytes(bytes: string, decimals: number = 2): string {
  * @param string
  */
 function lowercaseAll(string: string): string {
-   return (rocketIs.string(string)) ? string.toLowerCase() : string;
+   return (RocketIs.string(string)) ? string.toLowerCase() : string;
 }
 
 /**
@@ -40,7 +40,7 @@ function lowercaseAll(string: string): string {
  * @param string
  */
 function lowercaseFirst(string: string): string {
-   if (rocketIs.string(string)) {
+   if (RocketIs.string(string)) {
       return `${string.charAt(0).toLowerCase()}${string.slice(1)}`;
    } else {
       return string;
@@ -53,7 +53,7 @@ function lowercaseFirst(string: string): string {
  * @param string
  */
 function lowercaseLast(string: string): string {
-   if (rocketIs.string(string)) {
+   if (RocketIs.string(string)) {
       return `${string.slice(0, string.length - 1)}${string.charAt(string.length - 1).toLowerCase()}`;
    } else {
       return string;
@@ -66,7 +66,7 @@ function lowercaseLast(string: string): string {
  * @param string
  */
 function removeFirst(string: string): string {
-   return (rocketIs.string(string)) ? string.substring(1) : string;
+   return (RocketIs.string(string)) ? string.substring(1) : string;
 }
 
 /**
@@ -75,7 +75,7 @@ function removeFirst(string: string): string {
  * @param string
  */
 function removeFirstAndLast(string: string): string {
-   if (rocketIs.string(string)) {
+   if (RocketIs.string(string)) {
       return string.substring(1, string.length - 1);
    } else {
       return string;
@@ -88,7 +88,7 @@ function removeFirstAndLast(string: string): string {
  * @param string
  */
 function removeLast(string: string): string {
-   if (rocketIs.string(string)) {
+   if (RocketIs.string(string)) {
       return string.substring(0, string.length - 1);
    } else {
       return string;
@@ -101,7 +101,7 @@ function removeLast(string: string): string {
  * @param string
  */
 function removeSpaces(string: string): string {
-   return (rocketIs.string(string)) ? string.replace(/ /g, '') : string;
+   return (RocketIs.string(string)) ? string.replace(/ /g, '') : string;
 }
 
 /**
@@ -110,7 +110,7 @@ function removeSpaces(string: string): string {
  * @param string
  */
 function stringTrim(string: string): string {
-   if (rocketIs.string(string)) {
+   if (RocketIs.string(string)) {
       return string.replace(/^ /, '').replace(/ +$/, '');
    } else {
       return string;
@@ -123,7 +123,7 @@ function stringTrim(string: string): string {
  * @param string
  */
 function uppercaseAll(string: string): string {
-   return (rocketIs.string(string)) ? string.toUpperCase() : string;
+   return (RocketIs.string(string)) ? string.toUpperCase() : string;
 }
 
 /**
@@ -132,7 +132,7 @@ function uppercaseAll(string: string): string {
  * @param string
  */
 function uppercaseFirst(string: string): string {
-   if (rocketIs.string(string)) {
+   if (RocketIs.string(string)) {
       return `${string.charAt(0).toUpperCase()}${string.slice(1)}`;
    } else {
       return string;
@@ -145,7 +145,7 @@ function uppercaseFirst(string: string): string {
  * @param string
  */
 function uppercaseLast(string: string): string {
-   if (rocketIs.string(string)) {
+   if (RocketIs.string(string)) {
       return `${string.slice(0, string.length - 1)}${string.charAt(string.length - 1).toUpperCase()}`;
    } else {
       return string;
@@ -153,9 +153,9 @@ function uppercaseLast(string: string): string {
 }
 
 /**
- * Export.
+ * Exports.
  */
-export const rocketString = {
+export const RocketString = {
    format: {
       bytes: formatBytes
    },

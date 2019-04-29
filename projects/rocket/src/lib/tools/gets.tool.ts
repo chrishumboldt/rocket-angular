@@ -3,7 +3,7 @@
  */
 
 import { RegEx, SelectorType } from '../stores';
-import { rocketHas } from './has.tool';
+import { RocketHas } from './has.tool';
 import { regExTest } from './regular-expressions.tool';
 
 /**
@@ -33,7 +33,7 @@ function getIndex(node: any): number {
 function getSelectorType(selector: string): SelectorType {
    if (
       selector.indexOf('.') > -1
-      || rocketHas.spaces(selector)
+      || RocketHas.spaces(selector)
       || regExTest(selector, RegEx.ATTRIBUTE)
    ) {
       /**

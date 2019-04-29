@@ -3,12 +3,12 @@
  */
 
 import { SelectorType } from '../stores';
-import { rocketArray } from './arrays.tool';
-import { rocketError } from './development.tool';
-import { rocketExists } from './exists.tool';
+import { RocketArray } from './arrays.tool';
+import { RocketError } from './development.tool';
+import { RocketExists } from './exists.tool';
 import { rocketGet } from './gets.tool';
-import { rocketIs } from './is.tool';
-import { rocketString } from './strings.tool';
+import { RocketIs } from './is.tool';
+import { RocketString } from './strings.tool';
 
 /**
  * Return the elements of a web client should they be available.
@@ -55,11 +55,11 @@ function domRemove(selector: any): void {
    /**
     * Catch if the elements does not exist and simply kill the execution.
     */
-   if (!rocketExists(selector)) {
+   if (!RocketExists(selector)) {
       return;
    }
 
-   if (rocketIs.string(selector)) {
+   if (RocketIs.string(selector)) {
       const elementList = domSelect(selector);
 
       elementList.forEach((item: HTMLElement) => {
@@ -76,7 +76,7 @@ function domRemove(selector: any): void {
  * @param element
  */
 function domRemoveItem(element: HTMLElement): void {
-   if (rocketIs.element(element) && rocketIs.element(element.parentNode)) {
+   if (RocketIs.element(element) && RocketIs.element(element.parentNode)) {
       element.parentNode.removeChild(element);
    }
 }
@@ -95,17 +95,17 @@ function domSelect(selector: any): HTMLElement[] {
    /**
     * Determine the selection type.
     */
-   if (rocketIs.string(selector)) {
+   if (RocketIs.string(selector)) {
       /**
        * String selectors are returned via another function.
        */
       elementList = elementList.concat(domSelectByString(selector));
-   } else if (rocketIs.element(selector)) {
+   } else if (RocketIs.element(selector)) {
       /**
        * The selector is already and element so just added it in and return.
        */
       elementList.push(selector);
-   } else if (rocketIs.array(selector)) {
+   } else if (RocketIs.array(selector)) {
       /**
        * An array requires inspecting each item in the array.
        */
@@ -115,12 +115,12 @@ function domSelect(selector: any): HTMLElement[] {
        * Iterate over the selectors and determine the type.
        */
       selector.forEach((item: any) => {
-         if (rocketIs.string(item)) {
+         if (RocketIs.string(item)) {
             /**
              * The array item is a string.
              */
             stringSelectors += `${item},`;
-         } else if (rocketIs.element(item)) {
+         } else if (RocketIs.element(item)) {
             /**
              * The array item is an element.
              */
@@ -134,7 +134,7 @@ function domSelect(selector: any): HTMLElement[] {
       if (stringSelectors.length > 0) {
          elementList = elementList.concat(domSelectByString(stringSelectors));
       }
-   } else if (rocketIs.object(selector)) {
+   } else if (RocketIs.object(selector)) {
       /**
        * An object has a few conditions that needs to be checked.
        */
@@ -143,7 +143,7 @@ function domSelect(selector: any): HTMLElement[] {
       } else {
          selector = Array.prototype.slice.call(selector);
 
-         if (rocketIs.array(selector) && selector.length > 0) {
+         if (RocketIs.array(selector) && selector.length > 0) {
             elementList = selector;
          }
       }
@@ -156,7 +156,7 @@ function domSelect(selector: any): HTMLElement[] {
    /**
     * Now return the resulting element list.
     */
-   return rocketArray.clean(rocketArray.unique(elementList), true);
+   return RocketArray.clean(RocketArray.unique(elementList), true);
 }
 
 /**
@@ -170,9 +170,9 @@ function domSelectByString(selector: string): HTMLElement[] {
    /**
     * Catch an empty selector.
     */
-   if (selector && rocketIs.string(selector)) {
-      const selectorSplit = rocketArray.clean(
-         selector.split(',').map(rocketString.trim),
+   if (selector && RocketIs.string(selector)) {
+      const selectorSplit = RocketArray.clean(
+         selector.split(',').map(RocketString.trim),
          true
       );
 
@@ -214,13 +214,13 @@ function domSelectElement(selector: any): HTMLElement {
     * Catch non-web client sessions.
     */
    if (typeof document == undefined) {
-      rocketError('You can only select an element within an html client.');
+      RocketError('You can only select an element within an html client.');
       return undefined;
    }
    /**
     * Determine the selector condition.
     */
-   if (rocketIs.string(selector)) {
+   if (RocketIs.string(selector)) {
       /**
        * Work with a string selector input.
        */
@@ -231,13 +231,13 @@ function domSelectElement(selector: any): HTMLElement {
          default:
             return document.querySelector(selector);
       }
-   } else if (rocketIs.element(selector)) {
+   } else if (RocketIs.element(selector)) {
       /**
        * If the selector is an element than who knows why this function is being
        * called but just return the element back.
        */
       return selector;
-   } else if (rocketIs.object(selector)) {
+   } else if (RocketIs.object(selector)) {
       /**
        * An object was detected so handle this use case properly.
        */
@@ -252,7 +252,7 @@ function domSelectElement(selector: any): HTMLElement {
           */
          selector = Array.prototype.slice.call(selector);
 
-         if (rocketIs.array(selector) && selector.length > 0) {
+         if (RocketIs.array(selector) && selector.length > 0) {
             return selector[0];
          }
       }
@@ -267,7 +267,7 @@ function domSelectElement(selector: any): HTMLElement {
 /**
  * Export.
  */
-export const rocketDOM = {
+export const RocketDOM = {
    body: domBody,
    element: domSelectElement,
    head: domHead,

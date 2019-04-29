@@ -2,7 +2,7 @@
  * @author Chris Humboldt
  */
 
-import { rocketIs } from './is.tool';
+import { RocketIs } from './is.tool';
 
 /**
  * Clean an array.
@@ -10,7 +10,7 @@ import { rocketIs } from './is.tool';
  * @param input
  */
 function arrayClean(input: any, hardClean: boolean = false): any[] {
-   if (!rocketIs.array(input)) {
+   if (!RocketIs.array(input)) {
       /**
        * If the input is not an array then assume that the array is empty.
        * This is an acceptable "soft" fail.
@@ -25,7 +25,7 @@ function arrayClean(input: any, hardClean: boolean = false): any[] {
             return (
                item !== null
                && item !== undefined
-               && (rocketIs.string(item) ? item.length > 1 : true)
+               && (RocketIs.string(item) ? item.length > 1 : true)
             );
          });
       } else {
@@ -50,19 +50,19 @@ function arrayMake(input: any, makeUnique: boolean = false): any[] {
    /**
     * Determine what the input type is.
     */
-   if (rocketIs.array(input)) {
+   if (RocketIs.array(input)) {
       returnArray = input;
-   } else if (rocketIs.element(input)) {
+   } else if (RocketIs.element(input)) {
       returnArray.push(input);
-   } else if (rocketIs.string(input)) {
+   } else if (RocketIs.string(input)) {
       returnArray = input.split(' ');
-   } else if (rocketIs.object(input)) {
+   } else if (RocketIs.object(input)) {
       /**
        * Try and catch HTMLCollection and NodeList.
        */
       input = Array.prototype.slice.call(input);
 
-      if (rocketIs.array(input) && input.length > 0) {
+      if (RocketIs.array(input) && input.length > 0) {
          returnArray = input;
       }
    }
@@ -70,7 +70,7 @@ function arrayMake(input: any, makeUnique: boolean = false): any[] {
    /**
     * Return the value based on the unique flag.
     */
-   return (makeUnique) ? rocketArray.unique(returnArray) : returnArray;
+   return (makeUnique) ? RocketArray.unique(returnArray) : returnArray;
 }
 
 /**
@@ -83,7 +83,7 @@ function arrayUnique(input: any[]): any[] {
     * Fail softly. Since the function is calling for a unique array, if
     * the input is not an array than just return an empty one.
     */
-   if (!rocketIs.array(input)) {
+   if (!RocketIs.array(input)) {
       return [];
    } else {
       return input.filter((value: any, index: number, self: any) => {
@@ -95,7 +95,7 @@ function arrayUnique(input: any[]): any[] {
 /**
  * Export.
  */
-export const rocketArray = {
+export const RocketArray = {
    clean: arrayClean,
    make: arrayMake,
    unique: arrayUnique

@@ -3,7 +3,7 @@
  */
 
 import { extensionList } from './extensions.tool';
-import { rocketIs } from './is.tool';
+import { RocketIs } from './is.tool';
 
 /**
  * Check if an element has a class name.
@@ -11,12 +11,12 @@ import { rocketIs } from './is.tool';
  * @param check
  * @param element
  */
-function hasClass(check: string, element: Element): boolean {
-   return (' ' + element.className + ' ').indexOf(' ' + check + ' ') > -1;
+function hasClass(check: HTMLElement, classNames: string): boolean {
+   return (' ' + check.className + ' ').indexOf(' ' + classNames + ' ') > -1;
 }
 
 /**
- * Check to see if a string fullfills the allowed extensions check.
+ * Check to see if a string fulfils the allowed extensions check.
  *
  * @param check
  * @param allowedTypes
@@ -26,7 +26,7 @@ function hasExtension(check: string, allowedTypes: string[] = extensionList): bo
     * Make sure the allowed types is an array. This caters for user defined
     * lists. If not fail the check.
     */
-   if (!rocketIs.array(allowedTypes)) {
+   if (!RocketIs.array(allowedTypes)) {
       return false;
    } else {
       return (allowedTypes.indexOf(check.split('.').pop().toLowerCase()) > -1);
@@ -45,7 +45,7 @@ function hasSpaces(check: string): boolean {
 /**
  * Export.
  */
-export const rocketHas = {
+export const RocketHas = {
    class: hasClass,
    spaces: hasSpaces,
    extension: hasExtension

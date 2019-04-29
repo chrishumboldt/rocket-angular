@@ -4,7 +4,8 @@
 
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
 
-import { Rocket, SecondaryColour } from '../tools';
+import { Rocket } from '../tools';
+import { SecondaryColour } from '../stores';
 import { LoaderSize, LoaderType } from './loader.enum';
 
 @Component({

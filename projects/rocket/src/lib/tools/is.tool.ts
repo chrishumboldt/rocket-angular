@@ -3,7 +3,7 @@
  */
 
 import { RegEx } from '../stores';
-import { rocketExists } from './exists.tool';
+import { RocketExists } from './exists.tool';
 import { imageExtensionList } from './extensions.tool';
 import { regExTest } from './regular-expressions.tool';
 
@@ -61,7 +61,7 @@ function isDate(check: string): boolean {
  * @param check
  */
 function isElement(check: any): boolean {
-   return (rocketExists(check)) ? (check.nodeType && check.nodeType === 1) : false;
+   return (RocketExists(check)) ? (check.nodeType && check.nodeType === 1) : false;
 }
 
 /**
@@ -94,7 +94,7 @@ function isImage(check: any, allowedTypes: string[] = imageExtensionList): boole
     * Make sure the allowed types is an array. This caters for user defined
     * lists. If not fail the check.
     */
-   if (!rocketIs.array(allowedTypes)) {
+   if (!RocketIs.array(allowedTypes)) {
       return false;
    } else {
       return (allowedTypes.indexOf(check.split('.').pop().toLowerCase()) > -1);
@@ -176,7 +176,7 @@ function isTime(check: string): boolean {
  * Determine if the client is touch enabled.
  */
 function isTouch() {
-   if (!rocketIs.browser() || !window || !window.console) {
+   if (!RocketIs.browser() || !window || !window.console) {
       return false;
    } else {
       return 'ontouchstart' in window || 'onmsgesturechange' in window;
@@ -195,7 +195,7 @@ function isURL(check: string): boolean {
 /**
  * Export.
  */
-export const rocketIs = {
+export const RocketIs = {
    array: isArray,
    boolean: isBoolean,
    browser: isBrowser,

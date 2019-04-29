@@ -2,29 +2,18 @@
  * @author Chris Humboldt
  */
 
-import { rocketArray } from './arrays.tool';
-import { rocketClone } from './clone.tool';
-import { rocketError, rocketLog, rocketWarning } from './development.tool';
-import { rocketDimension } from './dimensions.tool';
-import { rocketDOM } from './dom.tool';
-import { rocketExists } from './exists.tool';
-import { rocketHas } from './has.tool';
-import { rocketIs } from './is.tool';
-import { rocketString } from './strings.tool';
-
-/**
- * Rocket scoped functions.
- */
-export const Rocket = {
-   array: rocketArray,
-   clone: rocketClone,
-   dimension: rocketDimension,
-   dom: rocketDOM,
-   error: rocketError,
-   exists: rocketExists,
-   has: rocketHas,
-   is: rocketIs,
-   log: rocketLog,
-   string: rocketString,
-   warning: rocketWarning
-};
+export { RocketArray } from './arrays.tool';
+export { RocketClass } from './classes.tools';
+export { RocketClone } from './clone.tool';
+export { RocketConvert } from './convert.tool';
+export { RocketError, RocketLog, RocketWarning } from './development.tool';
+export { RocketDimension } from './dimensions.tool';
+export { RocketDOM } from './dom.tool';
+export { RocketEvent } from './events.tool';
+export { RocketExists } from './exists.tool';
+export { RocketHas } from './has.tool';
+export { RocketId } from './ids.tool';
+export { RocketIs } from './is.tool';
+export { RocketParse } from './parse.tools';
+export { RocketString } from './strings.tool';
+export { RocketTransform } from './transforms.tool';

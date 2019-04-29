@@ -3,4 +3,4 @@
  */
 
 export * from './lib/stores';
-export * from './lib/tools/index';
+export * from './lib/tools';

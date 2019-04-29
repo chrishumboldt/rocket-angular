@@ -3,7 +3,7 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import { Rocket } from 'rocket';
+import { RocketLog, RocketDOM } from 'rocket';
 
 @Component({
    selector: 'app-root',
@@ -11,9 +11,7 @@ import { Rocket } from 'rocket';
    styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-   private tester = 'my-file.xls';
-
    ngOnInit() {
-      Rocket.log(Rocket.is.colour(this.tester));
+      RocketLog(RocketDOM.element('#somethingOne'));
    }
 }

@@ -2,9 +2,9 @@
  * @author Chris Humboldt
  */
 
-import { rocketDOM } from './dom.tool';
-import { rocketIs } from './is.tool';
-import { rocketString } from './strings.tool';
+import { RocketDOM } from './dom.tool';
+import { RocketIs } from './is.tool';
+import { RocketString } from './strings.tool';
 
 /**
  * Get the height of an element.
@@ -35,11 +35,11 @@ function getWidthOrHeight(element: any, type: string): number {
     * If there are any catches return 0 as a safe fallback.
     */
    if (
-      !rocketIs.browser()
+      !RocketIs.browser()
       || !window
       || !window.console
-      || (!rocketIs.element(element) && !rocketIs.string(element) && element !== window)
-      || (rocketIs.string(type) && (type !== 'width' && type !== 'height'))
+      || (!RocketIs.element(element) && !RocketIs.string(element) && element !== window)
+      || (RocketIs.string(type) && (type !== 'width' && type !== 'height'))
    ) {
       return 0;
    }
@@ -50,7 +50,7 @@ function getWidthOrHeight(element: any, type: string): number {
     * Check to see if the element is a window.
     */
    if (element === window) {
-      type = rocketString.uppercase.first(type);
+      type = RocketString.uppercase.first(type);
       returnValue = (
          window[`inner${type}`]
          || document.documentElement[`client${type}`]
@@ -60,8 +60,8 @@ function getWidthOrHeight(element: any, type: string): number {
       /**
        * Check if string selector.
        */
-      if (rocketIs.string(element)) {
-         element = rocketDOM.element(element);
+      if (RocketIs.string(element)) {
+         element = RocketDOM.element(element);
       }
 
       if (element.getClientRects().length) {
@@ -79,7 +79,7 @@ function getWidthOrHeight(element: any, type: string): number {
 /**
  * Export.
  */
-export const rocketDimension = {
+export const RocketDimension = {
    height: getHeight,
    width: getWidth
 }

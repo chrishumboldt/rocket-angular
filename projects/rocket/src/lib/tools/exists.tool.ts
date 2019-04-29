@@ -7,6 +7,6 @@
  *
  * @param check
  */
-export function rocketExists(check: any): boolean {
+export function RocketExists(check: any): boolean {
    return !(typeof check === 'undefined' || check === null || check === false);
 };

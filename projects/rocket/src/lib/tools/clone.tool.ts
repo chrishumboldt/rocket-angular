@@ -2,12 +2,14 @@
  * @author Chris Humboldt
  */
 
-import { rocketHelper } from './helper.tools';
+import { RocketParse } from './parse.tools';
 
 /**
  * Clone the value that is input and return a new item without references
  * to the original value.
+ *
+ * @param input
  */
-export function rocketClone(input: any): any {
-   return rocketHelper.parse.json(JSON.stringify(input));
+export function RocketClone(input: any): any {
+   return RocketParse.json(JSON.stringify(input));
 }
