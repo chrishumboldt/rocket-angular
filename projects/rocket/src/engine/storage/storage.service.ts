@@ -1,7 +1,7 @@
 /**
  * @author Chris Humboldt
  *
- * The storage service wraps all data into on mutable JSON object that then
+ * The storage service wraps all data into one mutable JSON object that then
  * gets stored into local or session storage. This way multiple entries are
  * easily accessible and will not conflict with other storage data generated
  * from other sites / applications.
@@ -44,6 +44,12 @@ export class RocketStorageService {
        * simply a key and bind the value to it.
        */
       if (RocketIs.string(input)) {
+         /**
+          * If there is no storage then create a new object.
+          */
+         if (!storageData) {
+            storageData = {};
+         }
          storageData[input] = value;
       } else if (RocketIs.object(input)) {
          storageData = input;
@@ -148,7 +154,7 @@ export class RocketStorageService {
       /**
        * Make sure that storage is found else return an empty object.
        */
-      return (storageData) ? RocketConvert.toJSON(storageData) : {};
+      return (storageData) ? RocketConvert.toJSON(storageData) : undefined;
    }
 
    /**
@@ -194,18 +200,14 @@ export class RocketStorageService {
       this.rocketConfig.storage$
          .subscribe(
             (storageConfig: StorageConfig) => {
-               let currentStorageData: any;
+               let currentStorageData = this.getStorageData();
 
                /**
                 * Only get data and clean out other data should there be a
                 * storage name. This forces the subscription to ignore the
                 * first emit of the storage configuration.
                 */
-               if (this.storageName) {
-                  /**
-                   * Since we have a storage name, we can go get the data.
-                   */
-                  currentStorageData = this.getStorageData();
+               if (currentStorageData) {
                   /**
                    * Lets delete the current storage.
                    */

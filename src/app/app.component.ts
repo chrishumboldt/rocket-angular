@@ -4,7 +4,7 @@
 
 import { Component, OnInit } from '@angular/core';
 
-import { RocketStorageService } from 'rocket';
+import { RocketLoaderComponent, RocketLog } from 'rocket';
 
 @Component({
    selector: 'app-root',
@@ -12,20 +12,9 @@ import { RocketStorageService } from 'rocket';
    styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-   constructor(
-      private rocketStorage: RocketStorageService
-   ) {}
+   constructor() {}
 
    ngOnInit() {
-      this.rocketStorage.add('Something', 'Cool');
-      this.rocketStorage.add('Coolio', 'Poolio');
-
-      setTimeout(() => {
-         this.rocketStorage.clear('Coolio');
-      }, 2000);
-
-      setTimeout(() => {
-         this.rocketStorage.clear('Something');
-      }, 4000);
+      RocketLog(RocketLoaderComponent);
    }
 }

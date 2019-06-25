@@ -8,11 +8,17 @@ import { BehaviorSubject } from 'rxjs';
 import { RocketIs } from '../is';
 import { StorageConfig } from '../storage/storage.class';
 import { StorageType } from '../stores';
+import { LoaderConfig } from '../../loader/loader.class';
+import { LoaderSize, LoaderType } from '../../loader/loader.enum';
 
 @Injectable({
    providedIn: 'root'
 })
 export class RocketConfigService {
+   /**
+    * Loader config.
+    */
+   private loader = new LoaderConfig();
    /**
     * Web storage.
     */
@@ -22,6 +28,39 @@ export class RocketConfigService {
    });
    private storage = new BehaviorSubject<StorageConfig>(this.storageDefault);
    public storage$ = this.storage.asObservable();
+
+   public getLoaderColour(): string {
+      return this.loader.colour;
+   }
+
+   public getLoaderSize(): LoaderSize {
+      return this.loader.size;
+   }
+
+   public getLoaderType(): LoaderType {
+      return this.loader.type;
+   }
+
+   /**
+    * @param colour
+    */
+   public setLoaderColour(colour: string): void {
+      this.loader.colour = colour;
+   }
+
+   /**
+    * @param size
+    */
+   public setLoaderSize(size: LoaderSize): void {
+      this.loader.size = size;
+   }
+
+   /**
+    * @param type
+    */
+   public setLoaderType(type: LoaderType): void {
+      this.loader.type = type;
+   }
 
    /**
     * @param name

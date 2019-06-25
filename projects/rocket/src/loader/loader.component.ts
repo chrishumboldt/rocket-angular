@@ -4,8 +4,7 @@
 
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
 
-import { Rocket } from '../tools';
-import { SecondaryColour } from '../stores';
+import { RocketConfigService, RocketString, SecondaryColour } from '../engine';
 import { LoaderSize, LoaderType } from './loader.enum';
 
 @Component({
@@ -17,12 +16,15 @@ export class RocketLoaderComponent implements OnInit {
    @Input() private colour: string;
    @Input() private size: string;
    @Input() private type: string;
-
    private classNames = '';
 
    @HostBinding('class') public get setClassNames() {
-      return Rocket.string.trim(this.classNames);
+      return RocketString.trim(this.classNames);
    }
+
+   constructor(
+      private rocketConfig: RocketConfigService
+   ) {}
 
    ngOnInit() {
       this.setColour();
@@ -34,7 +36,7 @@ export class RocketLoaderComponent implements OnInit {
     * Set the colour of the loader. By default it is set to grey blue.
     */
    private setColour(): void {
-      let colourClass: string = SecondaryColour.GREY_BLUE;
+      let colourClass: string = this.rocketConfig.getLoaderColour();
 
       /**
        * Determine if the type is being set.
@@ -52,7 +54,7 @@ export class RocketLoaderComponent implements OnInit {
     * Set the size of the loader. By default it is set to default.
     */
    private setSize(): void {
-      let sizeClass: string = LoaderSize.DEFAULT;
+      let sizeClass: string = this.rocketConfig.getLoaderSize();
 
       /**
        * Determine if the type is being set.
@@ -71,7 +73,7 @@ export class RocketLoaderComponent implements OnInit {
     * default it is set to spinner.
     */
    private setType(): void {
-      let typeClass: string = LoaderType.SPINNER;
+      let typeClass: string = this.rocketConfig.getLoaderType();
 
       /**
        * Determine if the type is being set.
