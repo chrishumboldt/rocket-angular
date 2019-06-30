@@ -1,0 +1,10 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@mixin mod-propel-global() {
+   html._propel {
+      @include global-html();
+      @include global-model();
+   }
+}

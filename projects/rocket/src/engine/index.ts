@@ -18,6 +18,7 @@ export * from './ids';
 export * from './is';
 export * from './random';
 export * from './regular-expressions';
+export * from './setup';
 export * from './storage';
 export * from './stores';
 export * from './strings';

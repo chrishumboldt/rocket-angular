@@ -4,7 +4,7 @@
 
 import { Component, OnInit } from '@angular/core';
 
-import { RocketLoaderComponent, RocketLog } from 'rocket';
+import { RocketSetup } from 'rocket';
 
 @Component({
    selector: 'app-root',
@@ -15,6 +15,6 @@ export class AppComponent implements OnInit {
    constructor() {}
 
    ngOnInit() {
-      RocketLog(RocketLoaderComponent);
+      RocketSetup();
    }
 }

@@ -1,0 +1,62 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@mixin mod-propel-layout() {
+   ._float-none {
+      @include float-none();
+   }
+   ._float-left {
+      @include float(left);
+   }
+   ._float-right {
+      @include float(right);
+   }
+   ._float-clear {
+      @include float-clear();
+   }
+   ._center {
+      @include center();
+   }
+   ._center-vertical {
+      @include center-vertical();
+   }
+   ._valign-top {
+      @include vertical-align(top);
+   }
+   ._valign-middle {
+      @include vertical-align(middle);
+   }
+   ._valign-bottom {
+      @include vertical-align(bottom);
+   }
+
+   /* Limit */
+   ._limit,
+   ._limit-x2-small,
+   ._limit-x-small,
+   ._limit-small,
+   ._limit-minor,
+   ._limit-medium,
+   ._limit-large {
+      @include limit();
+   }
+   ._limit-x2-small {
+      @include width-max(25em);
+   }
+   ._limit-x-small {
+      @include width-max(40em);
+   }
+   ._limit-small {
+      @include width-max(54em);
+   }
+   ._limit-minor {
+      @include width-max(60em);
+   }
+   ._limit-medium {
+      @include width-max(80em);
+   }
+   ._limit-large {
+      @include width-max(90em);
+   }
+}

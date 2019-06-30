@@ -1,0 +1,7 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@mixin cursor($cursor: auto) {
+   cursor: $cursor;
+}

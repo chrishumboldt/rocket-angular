@@ -7,7 +7,7 @@ import { RocketIs } from '../is';
 /**
  * Convert days into milliseconds.
  *
- * @param hours
+ * @param hours - The hours to convert.
  */
 function convertDaysToMilliseconds(days: number): number {
    /**
@@ -23,7 +23,7 @@ function convertDaysToMilliseconds(days: number): number {
 /**
  * Convert hours into milliseconds.
  *
- * @param hours
+ * @param hours - The hours to convert.
  */
 function convertHoursToMilliseconds(hours: number): number {
    /**
@@ -39,7 +39,7 @@ function convertHoursToMilliseconds(hours: number): number {
 /**
  * Convert milliseconds into days.
  *
- * @param milliseconds
+ * @param milliseconds - The milliseconds to convert.
  */
 function convertMillisecondsToDays(milliseconds: number): number {
    /**
@@ -55,7 +55,7 @@ function convertMillisecondsToDays(milliseconds: number): number {
 /**
  * Convert milliseconds into hours.
  *
- * @param milliseconds
+ * @param milliseconds - The milliseconds to convert.
  */
 function convertMillisecondsToHours(milliseconds: number): number {
    /**
@@ -71,7 +71,7 @@ function convertMillisecondsToHours(milliseconds: number): number {
 /**
  * Convert milliseconds into minutes.
  *
- * @param milliseconds
+ * @param milliseconds - The milliseconds to convert.
  */
 function convertMillisecondsToMinutes(milliseconds: number): number {
    /**
@@ -87,7 +87,7 @@ function convertMillisecondsToMinutes(milliseconds: number): number {
 /**
  * Convert milliseconds into seconds.
  *
- * @param milliseconds
+ * @param milliseconds - The milliseconds to convert.
  */
 function convertMillisecondsToSeconds(milliseconds: number): number {
    /**
@@ -103,7 +103,7 @@ function convertMillisecondsToSeconds(milliseconds: number): number {
 /**
  * Convert milliseconds into weeks.
  *
- * @param milliseconds
+ * @param milliseconds - The milliseconds to convert.
  */
 function convertMillisecondsToWeeks(milliseconds: number): number {
    /**
@@ -119,7 +119,7 @@ function convertMillisecondsToWeeks(milliseconds: number): number {
 /**
  * Convert minutes into milliseconds.
  *
- * @param minutes
+ * @param minutes - The minutes to convert.
  */
 function convertMinutesToMilliseconds(minutes: number): number {
    /**
@@ -135,7 +135,7 @@ function convertMinutesToMilliseconds(minutes: number): number {
 /**
  * Convert seconds into milliseconds.
  *
- * @param seconds
+ * @param seconds - The seconds to convert.
  */
 function convertSecondsToMilliseconds(seconds: number): number {
    /**
@@ -151,7 +151,7 @@ function convertSecondsToMilliseconds(seconds: number): number {
 /**
  * Convert to JSON and return a usable object.
  *
- * @param json
+ * @param json - The JSON to convert.
  */
 function convertToJSON(json: any): any {
    if (RocketIs.json(json)) {
@@ -164,7 +164,7 @@ function convertToJSON(json: any): any {
 /**
  * Convert weeks into milliseconds.
  *
- * @param hours
+ * @param hours - The hours to convert.
  */
 function convertWeeksToMilliseconds(weeks: number): number {
    /**

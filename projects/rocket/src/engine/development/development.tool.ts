@@ -7,7 +7,7 @@ import { RocketIs } from '../is';
 /**
  * Log out a message to the console.
  *
- * @param message
+ * @param message - The message to log.
  */
 export function RocketLog(message: any): void {
    if ((RocketIs.browser() && (!window || !window.console))) {
@@ -20,7 +20,7 @@ export function RocketLog(message: any): void {
 /**
  * Log out an error message to the console.
  *
- * @param message
+ * @param message - The message to log.
  */
 export function RocketError(message: any): void {
    if ((RocketIs.browser() && (!window || !window.console)) || !RocketIs.browser()) {
@@ -33,7 +33,7 @@ export function RocketError(message: any): void {
 /**
  * Log out a warning message to the console.
  *
- * @param message
+ * @param message - The message to log.
  */
 export function RocketWarning(message: any): void {
    if ((RocketIs.browser() && (!window || !window.console))) {

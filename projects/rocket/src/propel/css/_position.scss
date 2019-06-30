@@ -1,0 +1,18 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@mixin mod-propel-position() {
+   ._pos-absolute {
+      @include position(absolute);
+   }
+   ._pos-relative {
+      @include position(relative);
+   }
+   ._pos-static {
+      @include position(static);
+   }
+   ._pos-fixed {
+      @include position(fixed);
+   }
+}

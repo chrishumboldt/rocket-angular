@@ -9,7 +9,7 @@ import { RocketString } from '../strings';
 /**
  * Get the height of an element.
  *
- * @param element
+ * @param element - The element to check.
  */
 function getHeight(element: any): number {
    return getWidthOrHeight(element, 'height');
@@ -18,7 +18,7 @@ function getHeight(element: any): number {
 /**
  * Get the width of an element.
  *
- * @param element
+ * @param element - The element to check.
  */
 function getWidth(element: any): number {
    return getWidthOrHeight(element, 'width');
@@ -27,8 +27,8 @@ function getWidth(element: any): number {
 /**
  * Get the width or height of an element.
  *
- * @param element
- * @param type
+ * @param element - The element to check.
+ * @param type - The type to get, like height or width.
  */
 function getWidthOrHeight(element: any, type: string): number {
    /**
@@ -82,4 +82,4 @@ function getWidthOrHeight(element: any, type: string): number {
 export const RocketDimension = {
    height: getHeight,
    width: getWidth
-}
+};

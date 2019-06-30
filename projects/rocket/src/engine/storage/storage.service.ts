@@ -32,27 +32,27 @@ export class RocketStorageService {
    /**
     * Save an input into the default storage.
     *
-    * @param input
-    * @param value
+    * @param name - The name of the storage.
+    * @param value - The value to save into the storage.
     */
-   public add(input: any, value?: any): void {
+   public add(name: any, value?: any): void {
       let storageData = this.getStorageData();
 
       /**
-       * Check the input. If it is an object then replace the entire storage
-       * with the object. If it is a string then assume that the input is
+       * Check the name. If it is an object then replace the entire storage
+       * with the object. If it is a string then assume that the name is
        * simply a key and bind the value to it.
        */
-      if (RocketIs.string(input)) {
+      if (RocketIs.string(name)) {
          /**
           * If there is no storage then create a new object.
           */
          if (!storageData) {
             storageData = {};
          }
-         storageData[input] = value;
-      } else if (RocketIs.object(input)) {
-         storageData = input;
+         storageData[name] = value;
+      } else if (RocketIs.object(name)) {
+         storageData = name;
       }
       /**
        * Save the newly stored data into session storage by default.
@@ -65,7 +65,7 @@ export class RocketStorageService {
     * been deleted in the event that the storage type has changed within
     * the lifecycle of the service and was not detected.
     *
-    * @param exclusions
+    * @param exclusions - Names to exlcude.
     */
    public clear(exclusions?: any): void {
       /**
@@ -126,11 +126,11 @@ export class RocketStorageService {
    /**
     * Get a stored property from the web storage.
     *
-    * @param key
+    * @param name - The name of the storgae value to retrieve.
     */
-   public get(key: string): any {
-      if (RocketIs.string(key)) {
-         return this.getStorageData()[key];
+   public get(name: string): any {
+      if (RocketIs.string(name)) {
+         return this.getStorageData()[name];
       }
    }
 
@@ -160,13 +160,13 @@ export class RocketStorageService {
    /**
     * Remove a stored property from the web storage.
     *
-    * @param key
+    * @param name - The name of the storgae value to remove.
     */
-   public remove(key: string): any {
+   public remove(name: string): any {
       /**
        * Catch.
        */
-      if (!RocketIs.string(key)) {
+      if (!RocketIs.string(name)) {
          return;
       }
 
@@ -175,14 +175,14 @@ export class RocketStorageService {
       /**
        * Remove the key and update the storage again.
        */
-      delete storageData[key];
+      delete storageData[name];
       this.saveStorageData(storageData);
    }
 
    /**
     * Persist an object to web storage.
     *
-    * @param storageData
+    * @param storageData - The data to write to storage.
     */
    private saveStorageData(storageData: any): void {
       if (this.storageType === StorageType.LOCAL) {

@@ -7,7 +7,7 @@ import { RocketIs } from '../is';
 /**
  * Clean an array.
  *
- * @param input
+ * @param input - The array to clean.
  */
 function arrayClean(input: any, hardClean: boolean = false): any[] {
    if (!RocketIs.array(input)) {
@@ -41,8 +41,8 @@ function arrayClean(input: any, hardClean: boolean = false): any[] {
 /**
  * Make an array from the input value.
  *
- * @param input
- * @param makeUnique
+ * @param input - The input value.
+ * @param makeUnique - Determine if the array should be unique.
  */
 function arrayMake(input: any, makeUnique: boolean = false): any[] {
    let returnArray = [];
@@ -70,13 +70,13 @@ function arrayMake(input: any, makeUnique: boolean = false): any[] {
    /**
     * Return the value based on the unique flag.
     */
-   return (makeUnique) ? RocketArray.unique(returnArray) : returnArray;
+   return (makeUnique) ? arrayUnique(returnArray) : returnArray;
 }
 
 /**
  * Make an array unique meaning that no value repeats.
  *
- * @param input
+ * @param input - The array to check.
  */
 function arrayUnique(input: any[]): any[] {
    /**

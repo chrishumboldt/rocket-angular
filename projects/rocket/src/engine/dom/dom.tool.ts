@@ -18,13 +18,13 @@ let domHead: HTMLHeadElement;
 let domHTML: HTMLHtmlElement;
 let domTitle: HTMLTitleElement;
 let domWindow: Window;
-if (typeof document != undefined) {
+if (typeof document !== undefined) {
    domBody = document.getElementsByTagName('body')[0];
    domHead = document.getElementsByTagName('head')[0];
    domHTML = document.getElementsByTagName('html')[0];
    domTitle = document.getElementsByTagName('title')[0];
 }
-if (typeof window != undefined) {
+if (typeof window !== undefined) {
    domWindow = window;
 }
 
@@ -32,8 +32,8 @@ if (typeof window != undefined) {
  * Set the height of an element based on the width but apply a ration
  * multiplier if desired.
  *
- * @param selector
- * @param multiplier
+ * @param selector - The selector of the DOM element.
+ * @param multiplier - How much to multiply the width value by.
  */
 function domRatio(selector: any, multiplier: number = 1): void {
    const elements = domSelect(selector);
@@ -49,7 +49,7 @@ function domRatio(selector: any, multiplier: number = 1): void {
 /**
  * Remove DOM elements from the client.
  *
- * @param selector
+ * @param selector - The selector of the DOM element.
  */
 function domRemove(selector: any): void {
    /**
@@ -73,7 +73,7 @@ function domRemove(selector: any): void {
 /**
  * Remove a single DOM element from the client.
  *
- * @param element
+ * @param element - The selector of the DOM element.
  */
 function domRemoveItem(element: HTMLElement): void {
    if (RocketIs.element(element) && RocketIs.element(element.parentNode)) {
@@ -87,7 +87,7 @@ function domRemoveItem(element: HTMLElement): void {
  * Even an ID selector will return an array as the user has requested
  * this particular method type. It's important to maintain consistency.
  *
- * @param selector
+ * @param selector - The selector of the DOM element.
  */
 function domSelect(selector: any): HTMLElement[] {
    let elementList = [];
@@ -162,7 +162,7 @@ function domSelect(selector: any): HTMLElement[] {
 /**
  * Select elements by string input.
  *
- * @param selector
+ * @param selector - The selector of the DOM element.
  */
 function domSelectByString(selector: string): HTMLElement[] {
    let elementList = [];
@@ -207,13 +207,13 @@ function domSelectByString(selector: string): HTMLElement[] {
  * element is required. The below uses a more performant
  * code block to complete this action.
  *
- * @param selector
+ * @param selector - The selector of the DOM element.
  */
 function domSelectElement(selector: any): HTMLElement {
    /**
     * Catch non-web client sessions.
     */
-   if (typeof document == undefined) {
+   if (typeof document === undefined) {
       RocketError('You can only select an element within an html client.');
       return undefined;
    }

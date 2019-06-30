@@ -7,8 +7,8 @@ import { Characters } from '../stores';
 /**
  * Generate a random integer.
  *
- * @param max
- * @param min
+ * @param max - The max length of the returned string.
+ * @param min - The min length of the returned string.
  */
 function randomInteger(max = 10, min = 1): number {
    return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -17,8 +17,8 @@ function randomInteger(max = 10, min = 1): number {
 /**
  * Generate a random string.
  *
- * @param stringLength
- * @param textOnly
+ * @param stringLength - The desired string length.
+ * @param textOnly - Flag to make text only.
  */
 function randomString(stringLength = 5, textOnly = false): string {
    const characters = (textOnly) ? Characters.ALPHABET : `${Characters.ALPHABET}${Characters.NUMBERS}`;

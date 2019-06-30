@@ -9,16 +9,16 @@ import { RegEx, SelectorType } from '../stores';
 /**
  * Get the extension of a string.
  *
- * @param string
+ * @param input - The input.
  */
-function getExtension(string: string): string {
-   return string.split('.').pop().toLowerCase();
+function getExtension(input: string): string {
+   return input.split('.').pop().toLowerCase();
 }
 
 /**
  * Get the index of a node within its parent.
  *
- * @param node
+ * @param node - The node of the element list.
  */
 function getIndex(node: any): number {
    return [].indexOf.call(node.parentNode.children, node);
@@ -28,7 +28,7 @@ function getIndex(node: any): number {
  * Get the selector type based on a string version of the seleector. Used
  * mainly when using the DOM tools.
  *
- * @param selector
+ * @param selector - The selector of the DOM element.
  */
 function getSelectorType(selector: string): SelectorType {
    if (

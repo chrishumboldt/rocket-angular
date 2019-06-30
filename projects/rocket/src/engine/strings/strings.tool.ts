@@ -9,8 +9,8 @@ import { RocketIs } from '../is';
  * As per Aliceljm:
  * http://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
  *
- * @param bytes
- * @param decimals
+ * @param bytes - The bytes to format.
+ * @param decimals - The amount of decimals places to return.
  */
 function formatBytes(bytes: string, decimals: number = 2): string {
    if (typeof bytes !== 'number' || bytes == 0) {
@@ -28,7 +28,7 @@ function formatBytes(bytes: string, decimals: number = 2): string {
 /**
  * Lowercase the whole string.
  *
- * @param string
+ * @param string - The string modify.
  */
 function lowercaseAll(string: string): string {
    return (RocketIs.string(string)) ? string.toLowerCase() : string;
@@ -37,7 +37,7 @@ function lowercaseAll(string: string): string {
 /**
  * Lowercase the first letter of the string.
  *
- * @param string
+ * @param string - The string modify.
  */
 function lowercaseFirst(string: string): string {
    if (RocketIs.string(string)) {
@@ -50,7 +50,7 @@ function lowercaseFirst(string: string): string {
 /**
  * Lowercase the last letter of the string.
  *
- * @param string
+ * @param string - The string modify.
  */
 function lowercaseLast(string: string): string {
    if (RocketIs.string(string)) {
@@ -63,7 +63,7 @@ function lowercaseLast(string: string): string {
 /**
  * Remove the first character of a string.
  *
- * @param string
+ * @param string - The string modify.
  */
 function removeFirst(string: string): string {
    return (RocketIs.string(string)) ? string.substring(1) : string;
@@ -72,7 +72,7 @@ function removeFirst(string: string): string {
 /**
  * Remove the first and last characters of a string.
  *
- * @param string
+ * @param string - The string modify.
  */
 function removeFirstAndLast(string: string): string {
    if (RocketIs.string(string)) {
@@ -85,7 +85,7 @@ function removeFirstAndLast(string: string): string {
 /**
  * Remove the last character of a string.
  *
- * @param string
+ * @param string - The string modify.
  */
 function removeLast(string: string): string {
    if (RocketIs.string(string)) {
@@ -98,7 +98,7 @@ function removeLast(string: string): string {
 /**
  * Remove all the spaces from a string.
  *
- * @param string
+ * @param string - The string modify.
  */
 function removeSpaces(string: string): string {
    return (RocketIs.string(string)) ? string.replace(/ /g, '') : string;
@@ -107,7 +107,7 @@ function removeSpaces(string: string): string {
 /**
  * Trim a string.
  *
- * @param string
+ * @param string - The string modify.
  */
 function stringTrim(string: string): string {
    if (RocketIs.string(string)) {
@@ -120,7 +120,7 @@ function stringTrim(string: string): string {
 /**
  * Uppercase the whole string.
  *
- * @param string
+ * @param string - The string modify.
  */
 function uppercaseAll(string: string): string {
    return (RocketIs.string(string)) ? string.toUpperCase() : string;
@@ -129,7 +129,7 @@ function uppercaseAll(string: string): string {
 /**
  * Uppercase the first letter of the string.
  *
- * @param string
+ * @param string - The string modify.
  */
 function uppercaseFirst(string: string): string {
    if (RocketIs.string(string)) {
@@ -142,7 +142,7 @@ function uppercaseFirst(string: string): string {
 /**
  * Uppercase the last letter of the string.
  *
- * @param string
+ * @param string - The string modify.
  */
 function uppercaseLast(string: string): string {
    if (RocketIs.string(string)) {

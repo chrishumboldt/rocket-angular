@@ -4,8 +4,8 @@
 
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
 
-import { RocketConfigService, RocketString, SecondaryColour } from '../engine';
-import { LoaderSize, LoaderType } from './loader.enum';
+import { RocketConfigService, RocketString } from '../engine';
+import { LoaderType } from './loader.enum';
 
 @Component({
    selector: 'rocket-loader',
@@ -15,8 +15,10 @@ import { LoaderSize, LoaderType } from './loader.enum';
 export class RocketLoaderComponent implements OnInit {
    @Input() private colour: string;
    @Input() private size: string;
+   @Input() public text: string;
    @Input() private type: string;
    private classNames = '';
+   public parts: number[] = [];
 
    @HostBinding('class') public get setClassNames() {
       return RocketString.trim(this.classNames);
@@ -80,6 +82,21 @@ export class RocketLoaderComponent implements OnInit {
        */
       if (this.type && this.type.length > 0) {
          typeClass = this.type;
+      }
+      /**
+       * Determine the amount of types.
+       */
+      switch (typeClass) {
+         case LoaderType.DOTS:
+            this.parts = [1, 2, 3];
+            break;
+
+         case LoaderType.PULSE:
+            this.parts = [1, 2];
+            break;
+
+         default:
+            this.parts = [1];
       }
       /**
        * Apply the class name.

@@ -9,8 +9,8 @@ import { RocketHas } from '../has';
 import { RocketIs } from '../is';
 
 /**
- * @param elements
- * @param classNames
+ * @param elements - The HTML elements.
+ * @param classNames - The class names to apply.
  */
 function classNameAddExecute(element: HTMLElement, classNames: string[]): void {
    element.className = element.className
@@ -26,8 +26,8 @@ function classNameAddExecute(element: HTMLElement, classNames: string[]): void {
 /**
  * Add a class name to elements.
  *
- * @param elements
- * @param classNames
+ * @param elements - The HTML elements.
+ * @param classNames - The class names to apply.
  */
 function classNameAdds(elements: any, classNames: string): void {
    classNameModification(createElementList(elements), classNames, undefined);
@@ -36,7 +36,7 @@ function classNameAdds(elements: any, classNames: string): void {
 /**
  * Clear the class name attribute from an element.
  *
- * @param elements
+ * @param elements - The elements to clear.
  */
 function classNameClear(elements: any): void {
    let elementList: HTMLElement[];
@@ -62,9 +62,9 @@ function classNameClear(elements: any): void {
 /**
  * Execute class name modifications on elements.
  *
- * @param elements
- * @param classesAdd
- * @param classesRemove
+ * @param elements - The elements to modify.
+ * @param classesAdd - Class names to add.
+ * @param classesRemove - Class names to remove.
  */
 function classNameModification(
    elements: any,
@@ -113,8 +113,8 @@ function classNameModification(
 /**
  * Remove a class name from an elements.
  *
- * @param element
- * @param classNames
+ * @param element - The element to remove from.
+ * @param classNames - The class names.
  */
 function classNameRemoveExecute(
    element: HTMLElement,
@@ -138,8 +138,8 @@ function classNameRemoveExecute(
 /**
  * Remove class names from elements.
  *
- * @param elements
- * @param classNames
+ * @param elements - The elements to remove from.
+ * @param classNames - The class names to remove.
  */
 function classNameRemoves(elements: any, classNames: string): void {
    classNameModification(createElementList(elements), undefined, classNames);
@@ -148,9 +148,9 @@ function classNameRemoves(elements: any, classNames: string): void {
 /**
  * Replace class names on elements.
  *
- * @param elements
- * @param classesAdd
- * @param classesRemove
+ * @param elements - The elements to replace.
+ * @param classesAdd - The class names to add.
+ * @param classesRemove - The class names to remove.
  */
 function classNamesReplace(
    elements: any,
@@ -163,8 +163,8 @@ function classNamesReplace(
 /**
  * Toggle class name on elements.
  *
- * @param elements
- * @param className
+ * @param elements - The elements to toggle.
+ * @param className - The class name to toggle.
  */
 function classNameToggle(
    elements: any,
@@ -195,7 +195,7 @@ function classNameToggle(
 /**
  * Create an elements list.
  *
- * @param elements
+ * @param elements - The elements.
  */
 function createElementList(elements: any): HTMLElement[] {
    if (RocketIs.string(elements)) {

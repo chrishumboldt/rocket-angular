@@ -1,0 +1,73 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@mixin mod-propel-responsive-layout() {
+   ._row {
+      @include row();
+      ._row {
+         @include width(auto);
+      }
+      [class *= "_span-"] {
+         @include position(relative);
+         @include float(left);
+      }
+
+      @for $index from 1 through $column-limit {
+         ._span-#{$index} {
+            @include span-new($index);
+         }
+      }
+
+      @for $index from 1 through ($column-limit - 1) {
+         ._offset-#{$index} {
+            @include offset($index);
+         }
+         ._offset-r-#{$index} {
+            @include offset-right($index);
+         }
+      }
+   }
+   /* Limit */
+   ._limit {
+      @include limit();
+   }
+   /* Large view */
+   @include breakpoint($bp-large) {
+      ._row {
+         @for $index from 1 through $column-limit {
+            ._span-large-#{$index} {
+               @include span-new($index);
+            }
+         }
+
+         @for $index from 1 through ($column-limit - 1) {
+            ._offset-large-#{$index} {
+               @include offset($index);
+            }
+            ._offset-large-r-#{$index} {
+               @include offset-right($index);
+            }
+         }
+      }
+   }
+   /* Small view */
+   @include breakpoint($bp-small) {
+      ._row {
+         @for $index from 1 through $column-limit {
+            ._span-small-#{$index} {
+               @include span-new($index);
+            }
+         }
+
+         @for $index from 1 through ($column-limit - 1) {
+            ._offset-small-#{$index} {
+               @include offset($index);
+            }
+            ._offset-small-r-#{$index} {
+               @include offset-right($index);
+            }
+         }
+      }
+   }
+}

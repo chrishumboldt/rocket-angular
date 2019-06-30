@@ -8,8 +8,8 @@ import { RocketIs } from '../is';
 /**
  * Check if an element has a class name.
  *
- * @param check
- * @param element
+ * @param check - The element to check for.
+ * @param classNames - The class names to check against.
  */
 function hasClass(check: HTMLElement, classNames: string): boolean {
    return (' ' + check.className + ' ').indexOf(' ' + classNames + ' ') > -1;
@@ -18,8 +18,8 @@ function hasClass(check: HTMLElement, classNames: string): boolean {
 /**
  * Check to see if a string fulfils the allowed extensions check.
  *
- * @param check
- * @param allowedTypes
+ * @param check - The string to check for.
+ * @param allowedTypes - The allowed types to check against.
  */
 function hasExtension(check: string, allowedTypes: string[] = extensionList): boolean {
    /**
@@ -36,7 +36,7 @@ function hasExtension(check: string, allowedTypes: string[] = extensionList): bo
 /**
  * Check to see if a string has any spaces.
  *
- * @param check
+ * @param check - The string to test against.
  */
 function hasSpaces(check: string): boolean {
    return /\s/.test(check);

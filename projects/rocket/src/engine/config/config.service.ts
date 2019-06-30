@@ -42,28 +42,28 @@ export class RocketConfigService {
    }
 
    /**
-    * @param colour
+    * @param colour - The loader colour
     */
    public setLoaderColour(colour: string): void {
       this.loader.colour = colour;
    }
 
    /**
-    * @param size
+    * @param size - The loader size.
     */
    public setLoaderSize(size: LoaderSize): void {
       this.loader.size = size;
    }
 
    /**
-    * @param type
+    * @param type - The loader type.
     */
    public setLoaderType(type: LoaderType): void {
       this.loader.type = type;
    }
 
    /**
-    * @param name
+    * @param name - The storage name.
     */
    public setStorageName(name: string): void {
       /**
@@ -81,7 +81,7 @@ export class RocketConfigService {
    }
 
    /**
-    * @param type
+    * @param type - The storage type.
     */
    public setStorageType(type: StorageType): void {
       /**

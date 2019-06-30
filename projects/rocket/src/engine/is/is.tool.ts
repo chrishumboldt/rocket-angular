@@ -10,7 +10,7 @@ import { RegEx } from '../stores';
 /**
  * Determine if an input is an array.
  *
- * @param check
+ * @param check - The array to check.
  */
 function isArray(check: any): boolean {
    return (typeof check === 'object' && check instanceof Array);
@@ -19,7 +19,7 @@ function isArray(check: any): boolean {
 /**
  * Determine if an input is a boolean.
  *
- * @param check
+ * @param check - The boolean to check.
  */
 function isBoolean(check: any): boolean {
    return (typeof check === 'boolean');
@@ -40,7 +40,7 @@ function isBrowser(): boolean {
 /**
  * Determine if a string is a colour.
  *
- * @param check
+ * @param check - The colour string to check.
  */
 function isColour(check: string): boolean {
    return RocketRegExTest(check, RegEx.COLOUR);
@@ -49,7 +49,7 @@ function isColour(check: string): boolean {
 /**
  * Determine is something is a date.
  *
- * @param check
+ * @param check - The date string to check.
  */
 function isDate(check: string): boolean {
    return RocketRegExTest(check, RegEx.DATE);
@@ -58,7 +58,7 @@ function isDate(check: string): boolean {
 /**
  * Determine if the input is an element.
  *
- * @param check
+ * @param check - The element to check.
  */
 function isElement(check: any): boolean {
    return (RocketExists(check)) ? (check.nodeType && check.nodeType === 1) : false;
@@ -67,7 +67,7 @@ function isElement(check: any): boolean {
 /**
  * Determine if the input is in an email format.
  *
- * @param check
+ * @param check - The email string to check.
  */
 function isEmail(check: string): boolean {
    return RocketRegExTest(check, RegEx.EMAIL);
@@ -76,7 +76,7 @@ function isEmail(check: string): boolean {
 /**
  * Determine if the input is a function.
  *
- * @param check
+ * @param check - The function to check.
  */
 function isFunction(check: any): boolean {
    return (typeof check === 'function');
@@ -86,15 +86,15 @@ function isFunction(check: any): boolean {
  * Determine if the input is an image, by checking against the image
  * extension list.
  *
- * @param check
- * @param allowedTypes
+ * @param check - The image string to check.
+ * @param allowedTypes - The allowed type to check against.
  */
 function isImage(check: any, allowedTypes: string[] = imageExtensionList): boolean {
    /**
     * Make sure the allowed types is an array. This caters for user defined
     * lists. If not fail the check.
     */
-   if (!RocketIs.array(allowedTypes)) {
+   if (!isArray(allowedTypes)) {
       return false;
    } else {
       return (allowedTypes.indexOf(check.split('.').pop().toLowerCase()) > -1);
@@ -104,7 +104,7 @@ function isImage(check: any, allowedTypes: string[] = imageExtensionList): boole
 /**
  * Determine if the input is an integer.
  *
- * @param check
+ * @param check - The integer to check.
  */
 function isInteger(check: any): boolean {
    return (check ^ 0) === check;
@@ -113,7 +113,7 @@ function isInteger(check: any): boolean {
 /**
  * Determine if the input is JSON.
  *
- * @param check
+ * @param check - The JSON to check.
  */
 function isJSON(check: any): boolean {
    if (typeof check !== 'object') {
@@ -130,7 +130,7 @@ function isJSON(check: any): boolean {
 /**
  * Determine if the input is a number.
  *
- * @param check
+ * @param check - The number to check.
  */
 function isNumber(check: any): boolean {
    return (typeof check === 'number' && !isNaN(check));
@@ -139,7 +139,7 @@ function isNumber(check: any): boolean {
 /**
  * Determine if the input is an object.
  *
- * @param check
+ * @param check - The object to check.
  */
 function isObject(check: any): boolean {
    return (typeof check === 'object');
@@ -148,7 +148,7 @@ function isObject(check: any): boolean {
 /**
  * Determine if the input is in a password format.
  *
- * @param check
+ * @param check - The password string to check.
  */
 function isPassword(check: string): boolean {
    return RocketRegExTest(check, RegEx.PASSWORD);
@@ -157,7 +157,7 @@ function isPassword(check: string): boolean {
 /**
  * Determine if the input is a string.
  *
- * @param check
+ * @param check - The string to check.
  */
 function isString(check: any) {
    return (typeof check === 'string');
@@ -166,7 +166,7 @@ function isString(check: any) {
 /**
  * Determine if the input is in a time format.
  *
- * @param check
+ * @param check - The time string to check.
  */
 function isTime(check: string): boolean {
    return RocketRegExTest(check, RegEx.TIME);
@@ -186,7 +186,7 @@ function isTouch() {
 /**
  * Determine if the input is in a url format.
  *
- * @param check
+ * @param check - The url string to check.
  */
 function isURL(check: string): boolean {
    return RocketRegExTest(check, RegEx.URL);

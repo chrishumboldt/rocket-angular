@@ -1,0 +1,54 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@mixin mod-propel-background() {
+	._back-pos-left {
+		@include background-position(left);
+	}
+	._back-pos-right {
+		@include background-position(right);
+	}
+	._back-pos-top {
+		@include background-position(top);
+	}
+	._back-pos-bottom {
+		@include background-position(bottom);
+	}
+	._back-pos-center {
+		@include background-position(center);
+	}
+	._back-repeat-none {
+		@include background-repeat(no-repeat);
+	}
+	._back-repeat-vertical {
+		@include background-repeat(repeat-y);
+	}
+	._back-repeat-horizontal {
+		@include background-repeat(repeat-x);
+	}
+	._back-single {
+		@include background-single();
+	}
+	._back-contain {
+		@include background-contain();
+	}
+	._back-cover {
+		@include background-cover();
+	}
+	._back-black {
+		@include background-colour($black);
+	}
+	._back-grey {
+		@include background-colour($grey);
+	}
+	._back-grey-light {
+		@include background-colour($grey-light);
+	}
+	._back-grey-x-light {
+		@include background-colour($grey-x-light);
+	}
+	._back-white {
+		@include background-colour($white);
+	}
+}
