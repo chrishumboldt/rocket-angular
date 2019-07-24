@@ -2,7 +2,7 @@
  * @author Chris Humboldt
  */
 
-export * from './loader.class';
-export * from './loader.component';
-export * from './loader.enum';
-export * from './loader.module';
+export * from './class';
+export * from './component';
+export * from './enum';
+export * from './module';

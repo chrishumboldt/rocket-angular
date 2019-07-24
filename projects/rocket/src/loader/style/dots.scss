@@ -1,0 +1,47 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@import '../../propel/import';
+@import './variables';
+
+:host._type-dots .comp--loader {
+   @include width(76px);
+}
+:host._type-dots .comp--part._number-1,
+:host._type-dots .comp--part._number-2,
+:host._type-dots .comp--part._number-3 {
+   @include position(absolute, top 50% margin-top $dot-size-half);
+   @include square($dot-size);
+   @include border-radius(50%);
+   @include background-colour($grey-blue);
+   @include opacity(0.3);
+   @include animation(rocket-loader-swell, 1s, infinite);
+   @include animation-timing-function;
+}
+:host._type-dots .comp--part._number-1 {
+   @include position-set(left 8px);
+}
+:host._type-dots .comp--part._number-2 {
+   @include position-set(left 50% margin-left $dot-size-half);
+   @include animation-delay(0.15s);
+}
+:host._type-dots .comp--part._number-3 {
+   @include position-set(right 8px);
+   @include animation-delay(0.3s);
+}
+
+@include keyframes(rocket-loader-swell) {
+   0% {
+      @include opacity(0.3);
+      @include transform-scale-3d(1, 1, 1);
+   }
+   35% {
+      @include opacity(1);
+      @include transform-scale-3d(1.3, 1.3, 1.3);
+   }
+   70%, 100% {
+      @include opacity(0.3);
+      @include transform-scale-3d(1, 1, 1);
+   }
+}

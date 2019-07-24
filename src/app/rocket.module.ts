@@ -4,7 +4,7 @@
 
 import { NgModule } from '@angular/core';
 
-import { RocketLoaderModule } from 'rocket';
+import { RocketLoaderModule } from '@rocket';
 
 const importExport = [
    RocketLoaderModule
