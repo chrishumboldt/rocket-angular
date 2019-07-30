@@ -6,10 +6,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 import { RocketIs } from '../../tool';
-import { LoaderConfig } from '../../../loader/class';
-import { LoaderSize, LoaderType } from '../../../loader/enum';
-import { StorageConfig } from '../../class';
-import { StorageType } from '../../store';
+import { LoaderConfig, StorageConfig } from '../../class';
+import { LoaderSize, LoaderType, StorageType } from '../../store';
 
 @Injectable({
    providedIn: 'root'

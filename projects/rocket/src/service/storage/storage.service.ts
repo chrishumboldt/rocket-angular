@@ -10,8 +10,8 @@
 import { Injectable } from '@angular/core';
 
 import { RocketArray, RocketConvert, RocketIs } from '../../tool';
-import { RocketConfigService } from '../config';
 import { StorageConfig } from '../../class';
+import { RocketConfigService } from '../config/config.service';
 import { StorageType } from '../../store';
 
 @Injectable({

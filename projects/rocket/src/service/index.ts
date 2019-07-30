@@ -2,5 +2,5 @@
  * @author Chris Humboldt
  */
 
-export * from './config';
-export * from './storage';
+export * from './config/config.service';
+export * from './storage/storage.service';

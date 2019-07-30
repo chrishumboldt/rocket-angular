@@ -2,8 +2,8 @@
  * @author Chris Humboldt
  */
 
+ import { ValueGenerator } from '../factory';
 import { StorageType } from '../store';
-import { ValueGenerator } from '../factory/value-generator';
 
 export class StorageConfig {
    name: string;

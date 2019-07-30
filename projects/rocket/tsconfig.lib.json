@@ -15,7 +15,27 @@
       "lib": [
          "dom",
          "es2018"
-      ]
+      ],
+      "paths": {
+         "@class": [
+            "projects/rocket/src/class"
+         ],
+         "@class/*": [
+            "projects/rocket/src/class/*"
+         ],
+         "@service": [
+            "projects/rocket/src/service"
+         ],
+         "@service/*": [
+            "projects/rocket/src/service/*"
+         ],
+         "@tool": [
+            "projects/rocket/src/tool"
+         ],
+         "@tool/*": [
+            "projects/rocket/src/tool/*"
+         ]
+      }
    },
    "angularCompilerOptions": {
       "annotateForClosureCompiler": true,

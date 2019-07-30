@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import {
    LoaderType,
    RocketConfigService,
-   RocketSetup
+   RocketDOM
 } from '@rocket';
 
 @Component({
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
    ) {}
 
    ngOnInit() {
-      RocketSetup();
+      RocketDOM.setup();
       this.rocketConfig.setLoaderType(LoaderType.PULSE);
    }
 }

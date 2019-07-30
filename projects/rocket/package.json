@@ -4,6 +4,6 @@
    "peerDependencies": {
       "@angular/common": "^7.2.0",
       "@angular/core": "^7.2.0",
-      "rocket-propel": "^4.0.0",
+      "rocket-propel": "^4.0.0"
    }
 }
