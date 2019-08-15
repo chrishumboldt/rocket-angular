@@ -2,15 +2,7 @@
    "extends": "../tsconfig.json",
    "compilerOptions": {
       "outDir": "../out-tsc/app",
-      "types": [],
-      "paths": {
-         "@rocket": [
-            "dist/rocket"
-         ],
-         "@rocket/*": [
-            "dist/rocket/*"
-         ]
-      }
+      "types": []
    },
    "exclude": [
       "test.ts",

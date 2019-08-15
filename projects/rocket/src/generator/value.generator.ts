@@ -60,7 +60,11 @@ export function ValueGenerator(
  * @param classApply - Apply a class to the set value.
  * @param applyClassToMap - Apply a class to each property of a map.
  */
-function classTheValue(valueToSet: any, classApply: any, applyClassToMap: boolean = false): any {
+function classTheValue(
+   valueToSet: any,
+   classApply: any,
+   applyClassToMap: boolean = false
+): any {
    /**
     * The value and class instance match, so we are happy.
     */
@@ -100,7 +104,12 @@ function classTheValue(valueToSet: any, classApply: any, applyClassToMap: boolea
  * @param property - The name of the class property.
  * @param fallbackValue - Should no value be determined than a fallback value is used.
  */
-function setTheValue(scope: any, input: any, property: any, fallbackValue: any): string {
+function setTheValue(
+   scope: any,
+   input: any,
+   property: any,
+   fallbackValue: any
+): string {
    /**
     * Set the values from the class scope and the input data.
     */

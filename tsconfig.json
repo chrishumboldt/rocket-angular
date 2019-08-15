@@ -18,6 +18,14 @@
       "lib": [
          "es2018",
          "dom"
-      ]
+      ],
+      "paths": {
+         "@rocket": [
+            "dist/rocket"
+         ],
+         "@rocket/*": [
+            "dist/rocket/*"
+         ]
+      }
    }
 }

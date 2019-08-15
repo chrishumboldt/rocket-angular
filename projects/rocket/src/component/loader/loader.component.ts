@@ -39,7 +39,7 @@ export class RocketLoaderComponent implements OnInit {
     * Set the colour of the loader. By default it is set to grey blue.
     */
    private setColour(): void {
-      let colourClass: string = this.rocketConfig.getLoaderColour();
+      let colourClass: string = this.rocketConfig.loader.colour;
 
       /**
        * Determine if the type is being set.
@@ -57,7 +57,7 @@ export class RocketLoaderComponent implements OnInit {
     * Set the size of the loader. By default it is set to default.
     */
    private setSize(): void {
-      let sizeClass: string = this.rocketConfig.getLoaderSize();
+      let sizeClass: string = this.rocketConfig.loader.size;
 
       /**
        * Determine if the type is being set.
@@ -76,7 +76,7 @@ export class RocketLoaderComponent implements OnInit {
     * default it is set to spinner.
     */
    private setType(): void {
-      let typeClass: string = this.rocketConfig.getLoaderType();
+      let typeClass: string = this.rocketConfig.loader.type;
 
       /**
        * Determine if the type is being set.

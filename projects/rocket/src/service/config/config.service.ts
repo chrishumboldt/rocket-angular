@@ -16,28 +16,7 @@ export class RocketConfigService {
    /**
     * Loader config.
     */
-   private loader = new LoaderConfig();
-   /**
-    * Web storage.
-    */
-   private storageDefault = new StorageConfig({
-      name: 'RocketStorage',
-      type: StorageType.SESSION
-   });
-   private storage = new BehaviorSubject<StorageConfig>(this.storageDefault);
-   public storage$ = this.storage.asObservable();
-
-   public getLoaderColour(): string {
-      return this.loader.colour;
-   }
-
-   public getLoaderSize(): LoaderSize {
-      return this.loader.size;
-   }
-
-   public getLoaderType(): LoaderType {
-      return this.loader.type;
-   }
+   public loader = new LoaderConfig();
 
    /**
     * @param colour - The loader colour
@@ -59,6 +38,16 @@ export class RocketConfigService {
    public setLoaderType(type: LoaderType): void {
       this.loader.type = type;
    }
+
+   /**
+    * Web storage.
+    */
+   private storageDefault = new StorageConfig({
+      name: 'RocketStorage',
+      type: StorageType.SESSION
+   });
+   private storage = new BehaviorSubject<StorageConfig>(this.storageDefault);
+   public storage$ = this.storage.asObservable();
 
    /**
     * @param name - The storage name.

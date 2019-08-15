@@ -2,7 +2,7 @@
  * @author Chris Humboldt
  */
 
-import { ValueGenerator } from '../factory';
+import { ValueGenerator } from '../generator';
 import { LoaderSize, LoaderType, SecondaryColour } from '../store';
 
 export class LoaderConfig {
@@ -10,6 +10,9 @@ export class LoaderConfig {
    size: LoaderSize;
    type: LoaderType;
 
+   /**
+    * @param input - The arguments object.
+    */
    constructor(input: any = {}) {
       this.colour = ValueGenerator(this, input, 'colour', SecondaryColour.GREY_BLUE);
       this.size = ValueGenerator(this, input, 'size', LoaderSize.DEFAULT);
