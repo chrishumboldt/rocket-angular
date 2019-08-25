@@ -19,10 +19,10 @@
          "dom"
       ],
       "paths": {
-         "rocket-angular": [
+         "@chrishumboldt/rocket": [
             "dist/rocket"
          ],
-         "rocket-angular/*": [
+         "@chrishumboldt/rocket/*": [
             "dist/rocket/*"
          ]
       }

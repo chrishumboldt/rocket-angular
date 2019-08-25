@@ -3,7 +3,7 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import { LoaderType, RocketConfigService, RocketDOM } from 'rocket-angular';
+import { LoaderType, RocketConfigService, RocketDOM } from '@chrishumboldt/rocket';
 
 @Component({
    selector: 'app-root',
