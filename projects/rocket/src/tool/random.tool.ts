@@ -37,5 +37,5 @@ function randomString(stringLength = 5, textOnly = false): string {
 
 export const RocketRandom = {
    integer: randomInteger,
-   stirng: randomString
+   string: randomString
 };

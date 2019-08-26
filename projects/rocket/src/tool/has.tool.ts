@@ -11,7 +11,7 @@ import { RocketIs } from './is.tool';
  * @param check - The element to check for.
  * @param classNames - The class names to check against.
  */
-function hasClass(check: HTMLElement, classNames: string): boolean {
+function hasClass(check: any, classNames: string): boolean {
    return (' ' + check.className + ' ').indexOf(' ' + classNames + ' ') > -1;
 }
 

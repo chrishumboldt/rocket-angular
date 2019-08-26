@@ -19,3 +19,4 @@ export * from './random.tool';
 export * from './regular-expression.tool';
 export * from './string.tool';
 export * from './transform.tool';
+export * from './url.tool';
