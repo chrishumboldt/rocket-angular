@@ -127,8 +127,12 @@ export class RocketStorageService {
     * @param name - The name of the storgae value to retrieve.
     */
    public get(name: string): any {
-      if (RocketIs.string(name)) {
+      let storageData = this.getStorageData();
+
+      if (storageData && RocketIs.string(name)) {
          return this.getStorageData()[name];
+      } else {
+         return undefined;
       }
    }
 
@@ -173,8 +177,10 @@ export class RocketStorageService {
       /**
        * Remove the key and update the storage again.
        */
-      delete storageData[name];
-      this.saveStorageData(storageData);
+      if (storageData) {
+         delete storageData[name];
+         this.saveStorageData(storageData);
+      }
    }
 
    /**
