@@ -4,7 +4,6 @@
  * Public API Surface of rocket.
  */
 
-export * from './class';
 export * from './component';
 export * from './generator';
 export * from './service';
