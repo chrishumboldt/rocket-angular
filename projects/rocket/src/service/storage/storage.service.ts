@@ -9,23 +9,20 @@
 
 import { Injectable } from '@angular/core';
 
+import { RocketConfigService } from '../../service/config/config.service';
 import { RocketArray, RocketConvert, RocketIs } from '../../tool';
-import { StorageConfig } from '../../class';
-import { RocketConfigService } from '../config/config.service';
 import { StorageType } from '../../store';
 
 @Injectable({
    providedIn: 'root'
 })
 export class RocketStorageService {
-   private storageName: string;
-   private storageType: StorageType;
+   private storageName = this.rocketConfig.storageName;
+   private storageType = this.rocketConfig.storageType;
 
    constructor(
       private rocketConfig: RocketConfigService
-   ) {
-      this.subToStorageConfigs();
-   }
+   ) {}
 
    /**
     * Save an input into the default storage.
@@ -194,41 +191,5 @@ export class RocketStorageService {
       } else {
          sessionStorage.setItem(this.storageName, JSON.stringify(storageData));
       }
-   }
-
-   /**
-    * Subscribe to the storage configurations and set the local name and
-    * type values.
-    */
-   private subToStorageConfigs(): void {
-      this.rocketConfig.storage$
-         .subscribe(
-            (storageConfig: StorageConfig) => {
-               const currentStorageData = this.getStorageData();
-
-               /**
-                * Only get data and clean out other data should there be a
-                * storage name. This forces the subscription to ignore the
-                * first emit of the storage configuration.
-                */
-               if (currentStorageData) {
-                  /**
-                   * Lets delete the current storage.
-                   */
-                  this.deleteStorageData();
-               }
-               /**
-                * Set the storage values in this service.
-                */
-               this.storageName = storageConfig.name;
-               this.storageType = storageConfig.type;
-               /**
-                * Now create the new storage.
-                */
-               if (currentStorageData) {
-                  this.add(currentStorageData);
-               }
-            }
-         );
    }
 }

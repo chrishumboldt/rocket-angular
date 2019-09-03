@@ -2,79 +2,31 @@
  * @author Chris Humboldt
  */
 
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable, Optional } from '@angular/core';
 
-import { RocketIs } from '../../tool';
-import { LoaderConfig, StorageConfig } from '../../class';
-import { LoaderSize, LoaderType, StorageType } from '../../store';
+import { RocketConfig } from '../../config/config';
+import { LoaderSize, LoaderType, SecondaryColour, StorageType } from '../../store';
 
 @Injectable({
    providedIn: 'root'
 })
 export class RocketConfigService {
-   public loader = new LoaderConfig();
-   private storageDefault = new StorageConfig({
-      name: 'RocketStorage',
-      type: StorageType.SESSION
-   });
-   private storage = new BehaviorSubject<StorageConfig>(this.storageDefault);
-   public storage$ = this.storage.asObservable();
+   public loaderColour: any;
+   public loaderSize: LoaderSize;
+   public loaderType: LoaderType;
+   public storageName: string;
+   public storageType: StorageType;
 
-   /**
-    * @param colour - The loader colour
-    */
-   public setLoaderColour(colour: string): void {
-      this.loader.colour = colour;
-   }
-
-   /**
-    * @param size - The loader size.
-    */
-   public setLoaderSize(size: LoaderSize): void {
-      this.loader.size = size;
-   }
-
-   /**
-    * @param type - The loader type.
-    */
-   public setLoaderType(type: LoaderType): void {
-      this.loader.type = type;
-   }
-
-   /**
-    * @param name - The storage name.
-    */
-   public setStorageName(name: string): void {
+   constructor(
+      @Optional() config: RocketConfig
+   ) {
       /**
-       * Catch.
+       * If the configuration is available set the values else default to fallbacks.
        */
-      if (!RocketIs.string(name) || name.length < 1) {
-         return;
-      }
-      /**
-       * Set the new name.
-       */
-      const storage = this.storage.getValue();
-      storage.name = name;
-      this.storage.next(storage);
-   }
-
-   /**
-    * @param type - The storage type.
-    */
-   public setStorageType(type: StorageType): void {
-      /**
-       * Catch.
-       */
-      if (type.length < 1) {
-         return;
-      }
-      /**
-       * Set the new type.
-       */
-      const storage = this.storage.getValue();
-      storage.type = type;
-      this.storage.next(storage);
+      this.loaderColour = (config && config.loaderColour) ? config.loaderColour : SecondaryColour.GREY_BLUE;
+      this.loaderSize = (config && config.loaderSize) ? config.loaderSize : LoaderSize.DEFAULT;
+      this.loaderType = (config && config.loaderType) ? config.loaderType : LoaderType.SPINNER;
+      this.storageName = (config && config.storageName) ? config.storageName : 'RocketStorage';
+      this.storageType = (config && config.storageType) ? config.storageType : StorageType.SESSION;
    }
 }

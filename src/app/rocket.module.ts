@@ -6,12 +6,12 @@ import { NgModule } from '@angular/core';
 
 import { RocketLoaderModule } from '@chrishumboldt/rocket';
 
-const importExport = [
-   RocketLoaderModule
-];
-
 @NgModule({
-   imports: importExport,
-   exports: importExport
+   imports: [
+      RocketLoaderModule
+   ],
+   exports: [
+      RocketLoaderModule
+   ]
 })
 export class RocketModule {}

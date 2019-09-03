@@ -3,19 +3,16 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import { LoaderType, RocketConfigService, RocketDOM } from '@chrishumboldt/rocket';
+import { RocketSetup } from '@chrishumboldt/rocket';
 
 @Component({
    selector: 'app-root',
    templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-   constructor(
-      private configService: RocketConfigService
-   ) {}
+   constructor() {}
 
    ngOnInit() {
-      RocketDOM.setup();
-      this.configService.setLoaderType(LoaderType.DOTS);
+      RocketSetup();
    }
 }

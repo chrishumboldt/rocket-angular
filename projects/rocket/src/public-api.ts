@@ -10,3 +10,4 @@ export * from './generator';
 export * from './service';
 export * from './store';
 export * from './tool';
+export * from './config/config.module';
