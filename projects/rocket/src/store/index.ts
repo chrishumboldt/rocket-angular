@@ -9,6 +9,7 @@ export * from './loader-size.store';
 export * from './loader-type.store';
 export * from './prefix.store';
 export * from './regular-expression.store';
+export * from './request-response.store';
 export * from './selector.store';
 export * from './state.store';
 export * from './storage.store';
