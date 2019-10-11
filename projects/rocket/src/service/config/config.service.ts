@@ -4,14 +4,14 @@
 
 import { Injectable, Optional } from '@angular/core';
 
-import { RocketConfig } from '../../config/config';
+import { RocketConfig } from '../../config/config.class';
 import { LoaderSize, LoaderType, SecondaryColour, StorageType } from '../../store';
 
 @Injectable({
    providedIn: 'root'
 })
 export class RocketConfigService {
-   public loaderColour: any;
+   public loaderColour: string;
    public loaderSize: LoaderSize;
    public loaderType: LoaderType;
    public storageName: string;

@@ -4,7 +4,7 @@
 
 import { ModuleWithProviders, NgModule} from '@angular/core';
 
-import { RocketConfig } from './config';
+import { RocketConfig } from './config.class';
 
 @NgModule()
 export class RocketConfigModule {

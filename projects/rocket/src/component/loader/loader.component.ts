@@ -4,7 +4,7 @@
 
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
 
-import { LoaderType } from '../../store';
+import { LoaderSize, LoaderType } from '../../store';
 import { RocketConfigService } from '../../service';
 import { RocketString } from '../../tool';
 
@@ -15,9 +15,9 @@ import { RocketString } from '../../tool';
 })
 export class RocketLoaderComponent implements OnInit {
    @Input() colour: string;
-   @Input() size: string;
+   @Input() size: LoaderSize;
    @Input() text: string;
-   @Input() type: string;
+   @Input() type: LoaderType;
    private classNames = '';
    public parts: number[] = [];
 
