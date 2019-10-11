@@ -9,7 +9,9 @@ import { RocketConvert } from './convert.tool';
  * to the original value.
  *
  * @param input - The input value that needs to be converted.
+ * @param applyClass - You can apply a class to the cloned object.
  */
-export function RocketClone(input: any): any {
-   return RocketConvert.toJSON(JSON.stringify(input));
+export function RocketClone(input: any, applyClass?: any): any {
+   const convertedJSON = RocketConvert.toJSON(JSON.stringify(input));
+   return (applyClass) ? new applyClass(convertedJSON) : convertedJSON;
 }

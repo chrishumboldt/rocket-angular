@@ -102,16 +102,6 @@ function isImage(check: any, allowedTypes: string[] = imageExtensionList): boole
 }
 
 /**
- * Determine if the input is an integer.
- *
- * @param check - The integer to check.
- */
-function isInteger(check: any): boolean {
-   // return (check ^ 0) === check;
-   return true;
-}
-
-/**
  * Determine if the input is JSON.
  *
  * @param check - The JSON to check.
@@ -194,7 +184,7 @@ function isURL(check: string): boolean {
 }
 
 /**
- * Export.
+ * Exports.
  */
 export const RocketIs = {
    array: isArray,
@@ -207,7 +197,6 @@ export const RocketIs = {
    email: isEmail,
    function: isFunction,
    image: isImage,
-   integer: isInteger,
    json: isJSON,
    number: isNumber,
    object: isObject,

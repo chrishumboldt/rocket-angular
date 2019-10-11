@@ -19,8 +19,7 @@ function classNameAddExecute(element: HTMLElement, classNames: string[]): void {
       .filter((value: string, index: number, array: string[]) => {
          return (array.indexOf(value) === index) && (value !== '');
       })
-      .toString()
-      .replace(/,/g, ' ');
+      .join(' ');
 }
 
 /**
@@ -123,8 +122,7 @@ function classNameRemoveExecute(
    element.className = element.className
       .split(' ')
       .filter((value: string) => classNames.indexOf(value) < 0)
-      .toString()
-      .replace(/,/g, ' ');
+      .join(' ');
 
    /**
     * If the class names is truly empty to a clean clear of the class

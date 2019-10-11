@@ -29,7 +29,34 @@ if (typeof window !== undefined) {
 }
 
 /**
- * Set the height of an element based on the width but apply a ration
+ * Add an element to the dom.
+ *
+ * @param selector - The selector of the DOM element.
+ * @param element - The element to add.
+ */
+function domAdd(selector: any, element: HTMLElement): void {
+   /**
+    * Catch the passed in selector argument and the element itself.
+    */
+   if (!RocketExists(selector) || !RocketIs.element(element)) {
+      return;
+   }
+
+   /**
+    * First retrieve the parent elements and then attach the new element as a child
+    * node to each one in the list.
+    */
+   const parents = domSelect(selector);
+
+   if (parents && parents.length > 0) {
+      parents.forEach((item: HTMLElement) => {
+         item.appendChild(element);
+      });
+   }
+}
+
+/**
+ * Set the height of an element based on the width but apply a ratio
  * multiplier if desired.
  *
  * @param selector - The selector of the DOM element.
@@ -53,7 +80,7 @@ function domRatio(selector: any, multiplier: number = 1): void {
  */
 function domRemove(selector: any): void {
    /**
-    * Catch if the elements does not exist and simply kill the execution.
+    * Catch the passed in selector argument.
     */
    if (!RocketExists(selector)) {
       return;
@@ -268,6 +295,7 @@ function domSelectElement(selector: any): HTMLElement {
  * Export.
  */
 export const RocketDOM = {
+   add: domAdd,
    body: domBody,
    element: domSelectElement,
    head: domHead,

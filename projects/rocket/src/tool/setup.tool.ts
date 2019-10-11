@@ -49,7 +49,7 @@ body {
    /**
     * Attach the new style tag to the header.
     */
-   RocketDOM.html.appendChild(styleTag);
+   RocketDOM.add(RocketDOM.head, styleTag);
    /**
     * Set the touch class.
     */
