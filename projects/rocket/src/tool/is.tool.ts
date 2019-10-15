@@ -119,6 +119,15 @@ function isJSON(check: any): boolean {
 }
 
 /**
+ * Determine if an input is a map.
+ *
+ * @param check - The map to check.
+ */
+function isMap(check: any): boolean {
+   return (typeof check === 'object' && check instanceof Map);
+}
+
+/**
  * Determine if the input is a number.
  *
  * @param check - The number to check.
@@ -198,6 +207,7 @@ export const RocketIs = {
    function: isFunction,
    image: isImage,
    json: isJSON,
+   map: isMap,
    number: isNumber,
    object: isObject,
    password: isPassword,

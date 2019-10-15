@@ -183,7 +183,10 @@ function domSelect(selector: any): HTMLElement[] {
    /**
     * Now return the resulting element list.
     */
-   return RocketArray.clean(RocketArray.unique(elementList), true);
+   return RocketArray.clean({
+      data: RocketArray.unique(elementList),
+      hardClean: true
+   });
 }
 
 /**
@@ -198,10 +201,10 @@ function domSelectByString(selector: string): HTMLElement[] {
     * Catch an empty selector.
     */
    if (selector && RocketIs.string(selector)) {
-      const selectorSplit = RocketArray.clean(
-         selector.split(',').map(RocketString.trim),
-         true
-      );
+      const selectorSplit = RocketArray.clean({
+         data: selector.split(',').map(RocketString.trim),
+         hardClean: true
+      });
 
       /**
        * Iterate over the selector strings and get the elements.

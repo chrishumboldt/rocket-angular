@@ -4,13 +4,24 @@
 
 import { RocketIs } from './is.tool';
 
+interface ArrayCleanOptions {
+   data: any,
+   hardClean?: boolean
+}
+interface ArrayRemoveOptions {
+   index?: number;
+   value?: any;
+}
+
 /**
  * Clean an array.
  *
- * @param input - The array to clean.
+ * @param options - The deconstructed options object.
+ * @param options.data - The array to clean.
+ * @param options.hardClean - A hard clean will clear out all failed data like undefined and null.
  */
-function arrayClean(input: any, hardClean: boolean = false): any[] {
-   if (!RocketIs.array(input)) {
+function arrayClean({data, hardClean = false}: ArrayCleanOptions): any[] {
+   if (!RocketIs.array(data)) {
       /**
        * If the input is not an array then assume that the array is empty.
        * This is an acceptable "soft" fail.
@@ -21,7 +32,7 @@ function arrayClean(input: any, hardClean: boolean = false): any[] {
          /**
           * A hard clean only accepts populated values that are defined.
           */
-         return input.filter((item: any) => {
+         return data.filter((item: any) => {
             return (
                item !== null
                && item !== undefined
@@ -33,7 +44,7 @@ function arrayClean(input: any, hardClean: boolean = false): any[] {
           * A soft clean filters out NULL entries. Undefined is considered an
           * acceptable entry in the array.
           */
-         return input.filter((item: any) => item !== null);
+         return data.filter((item: any) => item !== null);
       }
    }
 }
@@ -74,6 +85,32 @@ function arrayMake(input: any, makeUnique: boolean = false): any[] {
 }
 
 /**
+ * Remove an entry from an array.
+ *
+ * @param input - The input array.
+ * @param options - The deconstructed options object.
+ * @param options.index - The index of the value to remove from the array.
+ * @param options.value - The value to remove from the array.
+ */
+function arrayRemove(input: any[], {index, value}: ArrayRemoveOptions): void {
+   /**
+    * Catch.
+    */
+   if (!RocketIs.array(input)) {
+      return;
+   }
+
+   /**
+    * If we are removing by value then determine the index.
+    */
+   const theIndex = (name) ? input.indexOf(value) : index;
+   /**
+    * Now remove the entry.
+    */
+   input.splice(theIndex, 1);
+}
+
+/**
  * Make an array unique meaning that no value repeats.
  *
  * @param input - The array to check.
@@ -98,5 +135,6 @@ function arrayUnique(input: any[]): any[] {
 export const RocketArray = {
    clean: arrayClean,
    make: arrayMake,
+   remove: arrayRemove,
    unique: arrayUnique
 };

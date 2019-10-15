@@ -4,15 +4,20 @@
 
 import { RocketIs } from './is.tool';
 
+interface FormatBytesOptions {
+   decimals?: number;
+};
+
 /**
  * Format a byte string into a human readable string.
  * As per Aliceljm:
  * http://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
  *
  * @param bytes - The bytes to format.
- * @param decimals - The amount of decimals places to return.
+ * @param options - The deconstructed options object.
+ * @param options.decimals - The amount of decimals places to return.
  */
-function formatBytes(bytes: string, decimals: number = 2): string {
+function formatBytes(bytes: string, {decimals = 2}: FormatBytesOptions): string {
    if (typeof bytes !== 'number' || bytes === 0) {
       return '0 Byte';
    }
@@ -30,8 +35,8 @@ function formatBytes(bytes: string, decimals: number = 2): string {
  *
  * @param inputString - The string modify.
  */
-function lowercaseAll(inputString: string): string {
-   return (RocketIs.string(inputString)) ? inputString.toLowerCase() : inputString;
+function lowercaseAll(inputString: string = ''): string {
+   return inputString.toString().toLowerCase();
 }
 
 /**
@@ -39,12 +44,9 @@ function lowercaseAll(inputString: string): string {
  *
  * @param inputString - The string modify.
  */
-function lowercaseFirst(inputString: string): string {
-   if (RocketIs.string(inputString)) {
-      return `${inputString.charAt(0).toLowerCase()}${inputString.slice(1)}`;
-   } else {
-      return inputString;
-   }
+function lowercaseFirst(inputString: string = ''): string {
+   const asString = inputString.toString();
+   return `${asString.charAt(0).toLowerCase()}${asString.slice(1)}`;
 }
 
 /**
@@ -52,12 +54,9 @@ function lowercaseFirst(inputString: string): string {
  *
  * @param inputString - The string modify.
  */
-function lowercaseLast(inputString: string): string {
-   if (RocketIs.string(inputString)) {
-      return `${inputString.slice(0, inputString.length - 1)}${inputString.charAt(inputString.length - 1).toLowerCase()}`;
-   } else {
-      return inputString;
-   }
+function lowercaseLast(inputString: string = ''): string {
+   const asString = inputString.toString();
+   return `${asString.slice(0, asString.length - 1)}${asString.charAt(asString.length - 1).toLowerCase()}`;
 }
 
 /**
@@ -65,8 +64,8 @@ function lowercaseLast(inputString: string): string {
  *
  * @param inputString - The string modify.
  */
-function removeFirst(inputString: string): string {
-   return (RocketIs.string(inputString)) ? inputString.substring(1) : inputString;
+function removeFirst(inputString: string = ''): string {
+   return inputString.toString().substring(1);
 }
 
 /**
@@ -74,12 +73,9 @@ function removeFirst(inputString: string): string {
  *
  * @param inputString - The string modify.
  */
-function removeFirstAndLast(inputString: string): string {
-   if (RocketIs.string(inputString)) {
-      return inputString.substring(1, inputString.length - 1);
-   } else {
-      return inputString;
-   }
+function removeFirstAndLast(inputString: string = ''): string {
+   const asString = inputString.toString();
+   return asString.substring(1, asString.length - 1);
 }
 
 /**
@@ -87,12 +83,9 @@ function removeFirstAndLast(inputString: string): string {
  *
  * @param inputString - The string modify.
  */
-function removeLast(inputString: string): string {
-   if (RocketIs.string(inputString)) {
-      return inputString.substring(0, inputString.length - 1);
-   } else {
-      return inputString;
-   }
+function removeLast(inputString: string = ''): string {
+   const asString = inputString.toString();
+   return asString.substring(0, asString.length - 1);
 }
 
 /**
@@ -100,8 +93,8 @@ function removeLast(inputString: string): string {
  *
  * @param inputString - The string modify.
  */
-function removeSpaces(inputString: string): string {
-   return (RocketIs.string(inputString)) ? inputString.replace(/ /g, '') : inputString;
+function removeSpaces(inputString: string = ''): string {
+   return inputString.toString().replace(/ /g, '');
 }
 
 /**
@@ -109,12 +102,8 @@ function removeSpaces(inputString: string): string {
  *
  * @param inputString - The string modify.
  */
-function stringTrim(inputString: string): string {
-   if (RocketIs.string(inputString)) {
-      return inputString.replace(/^ /, '').replace(/ +$/, '');
-   } else {
-      return inputString;
-   }
+function stringTrim(inputString: string = ''): string {
+   return inputString.toString().replace(/^ /, '').replace(/ +$/, '');
 }
 
 /**
@@ -122,7 +111,7 @@ function stringTrim(inputString: string): string {
  *
  * @param inputString - The string modify.
  */
-function uppercaseAll(inputString: string): string {
+function uppercaseAll(inputString: string = ''): string {
    return (RocketIs.string(inputString)) ? inputString.toUpperCase() : inputString;
 }
 
@@ -131,12 +120,9 @@ function uppercaseAll(inputString: string): string {
  *
  * @param inputString - The string modify.
  */
-function uppercaseFirst(inputString: string): string {
-   if (RocketIs.string(inputString)) {
-      return `${inputString.charAt(0).toUpperCase()}${inputString.slice(1)}`;
-   } else {
-      return inputString;
-   }
+function uppercaseFirst(inputString: string = ''): string {
+   const asString = inputString.toString();
+   return `${asString.charAt(0).toUpperCase()}${asString.slice(1)}`;
 }
 
 /**
@@ -144,12 +130,9 @@ function uppercaseFirst(inputString: string): string {
  *
  * @param inputString - The string modify.
  */
-function uppercaseLast(inputString: string): string {
-   if (RocketIs.string(inputString)) {
-      return `${inputString.slice(0, inputString.length - 1)}${inputString.charAt(inputString.length - 1).toUpperCase()}`;
-   } else {
-      return inputString;
-   }
+function uppercaseLast(inputString: string = ''): string {
+   const asString = inputString.toString();
+   return `${asString.slice(0, asString.length - 1)}${asString.charAt(asString.length - 1).toUpperCase()}`;
 }
 
 /**

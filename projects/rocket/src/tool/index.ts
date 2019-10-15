@@ -18,6 +18,7 @@ export * from './is.tool';
 export * from './random.tool';
 export * from './regular-expression.tool';
 export * from './setup.tool';
+export * from './sort.tool';
 export * from './string.tool';
 export * from './transform.tool';
 export * from './url.tool';
