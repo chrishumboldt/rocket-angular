@@ -27,18 +27,9 @@ export class AppComponent extends RocketDataHelper implements OnInit {
       /**
        * Create the observable data.
        */
+      this.createData({name: 'starWarsCaracters'});
       this.createData({
          name: 'starWarsStuff',
-         sortBy: 'name',
-         data: [
-            {name: 'Luke SkyWalker', value: 0},
-            {name: 'Emperor Palpatine', value: 1},
-            {name: 'Darth Vader', value: 2},
-            {name: 'Leia Organa', value: 3}
-         ]
-      });
-      this.createData({
-         name: 'starWarsStuff2',
          data: 'Jedi'
       });
 
@@ -46,25 +37,38 @@ export class AppComponent extends RocketDataHelper implements OnInit {
        * Subscribe to both data sets.
        */
       this.subscribeToData({
-         observables: ['starWarsStuff', 'starWarsStuff2'],
+         observables: ['loggedIn', 'starWarsCaracters', 'starWarsStuff'],
          onEmit: (response: any) => RocketLog(response)
       });
 
       /**
        * Update data over time.
        */
+       setTimeout(() => {
+          this.updateData({
+             name: 'starWarsCaracters',
+             sortBy: 'name',
+             data: [
+                {name: 'Luke SkyWalker', value: 0},
+                {name: 'Emperor Palpatine', value: 1},
+                {name: 'Darth Vader', value: 2},
+                {name: 'Leia Organa', value: 3}
+             ]
+          });
+       }, 2000);
+
       setTimeout(() => {
          this.updateData({
-            name: 'starWarsStuff2',
+            name: 'starWarsStuff',
             data: 'Stormtroopers'
          });
       }, 4000);
 
       setTimeout(() => {
          this.updateData({
-            name: 'starWarsStuff2',
-            data: 'sith'
+            name: 'starWarsStuff',
+            data: 'Sith'
          });
-      }, 8000);
+      }, 6000);
    }
 }

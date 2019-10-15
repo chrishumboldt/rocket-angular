@@ -70,7 +70,7 @@ export class RocketStorageService {
          return;
       }
 
-      const exclusionsList = RocketArray.make(exclusions);
+      const exclusionsList = RocketArray.make({data: exclusions});
 
       /**
        * If there are no exclusions then simply delete the web storage

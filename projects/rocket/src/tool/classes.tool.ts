@@ -81,7 +81,7 @@ function classNameModification(
     * Create an array of elements. If the array is empty then kill the
     * function execution.
     */
-   const elementsList: HTMLElement[] = RocketArray.make(elements);
+   const elementsList: HTMLElement[] = RocketArray.make({data: elements});
    if (elementsList.length < 1) {
       return;
    }
@@ -90,9 +90,9 @@ function classNameModification(
     * Since the elements check out create arrays for the classes that need
     * to be added and removed.
     */
-   const classesAddList = RocketArray.make(classesAdd, true);
+   const classesAddList = RocketArray.make({data: classesAdd, unique: true});
    const classesAddAction = (classesAddList.length > 0) ? true : false;
-   const classesRemoveList = RocketArray.make(classesRemove, true);
+   const classesRemoveList = RocketArray.make({data: classesRemove, unique: true});
    const classesRemoveAction = (classesRemoveList.length > 0) ? true : false;
 
    /**

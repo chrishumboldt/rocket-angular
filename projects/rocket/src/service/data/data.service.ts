@@ -3,11 +3,15 @@
  */
 
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
+import { DataName, RocketData } from '../../store';
 import { RocketArray, RocketIs, RocketLog, RocketSort } from '../../tool';
+import { RocketConfigService } from '../config/config.service';
 
-import { AddDataOptions, SortDataOptions, UpdateDataOptions } from './data.interface';
+import { DataEntry } from './data-entry.class';
+import { SortDataOptions, SubscribeToOptions} from './data.interface';
 
 @Injectable({
    providedIn: 'root'
@@ -30,12 +34,19 @@ export class RocketDataService {
     */
    private reservedDataKeys: string[] = [
       'data',
+      DataName.FULL_SCREENS,
       'loader',
-      'loaders',
+      DataName.LOADERS,
       'menu',
-      'menus',
+      DataName.MENUS,
       'storage'
    ];
+
+   constructor(
+      private rocketConfig: RocketConfigService
+   ) {
+      this.initializeData();
+   }
 
    /**
     * Create a new entry in the data store.
@@ -50,14 +61,15 @@ export class RocketDataService {
    public create({
       asObservable = true,
       data,
+      force = false,
       name,
       sortBy,
       sortOrder = 'asc'
-   }: AddDataOptions): void {
+   }: DataEntry): void {
       /**
        * Make sure a date entry isn't being created that uses a reserved data key.
        */
-      if (this.isReserved(name)) {
+      if (!force && this.isReservedName(name)) {
          RocketLog(`ROCKET DATA CREATE: The data key name "${name}" that you submitted is reserved and therefore invalid. Please use a different name.`);
          return;
       }
@@ -137,6 +149,76 @@ export class RocketDataService {
    }
 
    /**
+    * Get the subscriptions based on the provided observables and options. If its one
+    * subscription then return it directly else use a combineLatest and return all of the
+    * observables. This is used predominantly to manage the subscriptions of the data helper
+    * class.
+    *
+    * @param options - The deconstructed options object.
+    * @param options.observables - A single instacne or list of named observables.
+    * @param options.onEmit - Call a function that will handle the data each time it is emitted to this subscriber.
+    * @param options.safeEmit - Only call the onEmit function if there is actual data.
+    */
+   public getSubscriptionFromOptions({
+      observables,
+      onEmit,
+      safeEmit = true
+   }: SubscribeToOptions): Subscription {
+      /**
+       * Sanitise the observables list.
+       */
+      observables = this.sanitiseObservables(observables);
+      /**
+       * Now lets manage the subscription. If its one subscription then subscribe to
+       * it directly else use a combineLatest and subscribe to all of the
+       * observables.
+       */
+      if (observables.length === 1) {
+         return observables[0]
+            .pipe(filter((response: any) => (safeEmit) ? response != undefined : true))
+            .subscribe((response: any) => onEmit(response));
+      } else if (observables.length > 1) {
+         return combineLatest(observables)
+            .pipe(
+               filter((response: any) => {
+                  if (safeEmit) {
+                     /**
+                      * Since we are cleaning the array, we can check the length to
+                      * make sure that all the observables have emited valid data.
+                      */
+                     const cleanResponse = RocketArray.clean({
+                        data: response,
+                        hardClean: true
+                     });
+                     return (cleanResponse.length === observables.length) ? true : false;
+                  } else {
+                     return true;
+                  }
+               })
+            )
+            .subscribe((response: any) => onEmit(response));
+      }
+   }
+
+   /**
+    * On initialization create the data observables configured via the config service.
+    */
+   private initializeData(): void {
+      const initData = [
+         ...this.rocketConfig.initData,
+         new DataEntry({name: DataName.FULL_SCREENS, data: new Map<string, boolean>(), force: true}),
+         new DataEntry({name: DataName.MENUS, data: new Map<string, boolean>(), force: true})
+      ];
+
+      /**
+       * Iterate over the list and create the observables.
+       */
+      initData.forEach((options: DataEntry) => {
+         this.create(options);
+      });
+   }
+
+   /**
     * Check to see if data within the data store is an observable.
     *
     * @param name - The key name of the data in the data store map.
@@ -146,16 +228,58 @@ export class RocketDataService {
    }
 
    /**
-    * Check to see if the desired name is a reserved data key.
+    * Check to see if the desired name is a reserved data key name.
     *
     * @param name - The key name of the data in the data store map.
     */
-   public isReserved(name: string): boolean {
+   public isReservedName(name: string): boolean {
       return this.reservedDataKeys.includes(name);
    }
 
    /**
-    * Determine how to sort the data being passed into the method of this service.
+    * Sanitise the provided observables list and make them ready for subscription.
+    *
+    * @param observables - The observables to sanitise.
+    */
+   public sanitiseObservables(observables: any): Observable<any>[] {
+      /**
+       * Make sure that "observables" is an array. If not then convert it into one.
+       */
+      observables = RocketArray.make({data: observables});
+      /**
+       * Make sure the observables in the array are actually observables.
+       */
+      observables = RocketArray.clean({
+         hardClean: true,
+         data: observables.map((item: any) => {
+            /**
+             * Handle a string entry and make sure the name is not a reserved data key.
+             */
+            if (RocketIs.string(item) && !this.isReservedName(item)) {
+               /**
+                * If no observable is found, then warn the user, create a data entry and return
+                * it. That way subscribers always have some data to work with but this is a
+                * concern and should be managed correctly.
+                */
+               if (!this.exists(item)) {
+                  RocketLog(`ROCKET DATA OBSERVABLE: No observable data with name "${item}" was found, so one has been created. This is not ideal. Create the observable data ahead of time instead.`);
+                  this.create(new DataEntry({name: item, data: RocketData.BLANK}));
+               }
+
+               return this.getObservable(item);
+            } else if (item instanceof Observable) {
+               return item;
+            }
+         })
+      });
+      /**
+       * Return the observable list.
+       */
+      return observables;
+   }
+
+   /**
+    * Determine if and how to sort the data being passed into the method of this service.
     *
     * @param options - The deconstructed options object.
     * @param options.data - The data to sort.
@@ -163,9 +287,6 @@ export class RocketDataService {
     * @param options.sortOrder - The order to sort the data.
     */
    private sortData({data, sortBy, sortOrder = 'asc'}: SortDataOptions): any {
-      /**
-       * Check to see if sorting is required.
-       */
       if (sortBy && sortBy.length > 0) {
          if (RocketIs.array(data)) {
             RocketSort.array(data, {by: sortBy, order: sortOrder});
@@ -173,9 +294,7 @@ export class RocketDataService {
             RocketSort.map(data, {by: sortBy, order: sortOrder});
          }
       }
-      /**
-       * Now return the data.
-       */
+
       return data;
    }
 
@@ -193,17 +312,17 @@ export class RocketDataService {
       name,
       sortBy,
       sortOrder = 'asc'
-   }: UpdateDataOptions): void {
+   }: DataEntry): void {
       /**
-       * Catch.
+       * If the observable does not exist, create it so that it can be managed.
        */
       if (!this.exists(name)) {
-         RocketLog(`ROCKET DATA UPDATE: No data with name "${name}" is available.`);
-         return;
+         RocketLog(`ROCKET DATA UPDATE: No data with name "${name}" was found, so one has been created`);
+         this.create({name, data: RocketData.BLANK});
       }
 
       /**
-       * Check to see if sorting is required.
+       * Sort the data if required.
        */
       const sortedData = this.sortData({data, sortBy, sortOrder});
       /**

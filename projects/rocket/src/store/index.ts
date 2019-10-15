@@ -4,6 +4,7 @@
 
 export * from './character.store';
 export * from './colour.store';
+export * from './data.store';
 export * from './extension.store';
 export * from './loader-size.store';
 export * from './loader-type.store';

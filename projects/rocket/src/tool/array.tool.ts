@@ -8,6 +8,10 @@ interface ArrayCleanOptions {
    data: any,
    hardClean?: boolean
 }
+interface ArrayMakeOptions {
+   data: any;
+   unique?: boolean;
+}
 interface ArrayRemoveOptions {
    index?: number;
    value?: any;
@@ -52,36 +56,37 @@ function arrayClean({data, hardClean = false}: ArrayCleanOptions): any[] {
 /**
  * Make an array from the input value.
  *
- * @param input - The input value.
- * @param makeUnique - Determine if the array should be unique.
+ * @param options - The deconstructed options object.
+ * @param options.data - The data to transform.
+ * @param options.unique - Determine if the array should be unique.
  */
-function arrayMake(input: any, makeUnique: boolean = false): any[] {
+function arrayMake({data, unique = false}: ArrayMakeOptions): any[] {
    let returnArray = [];
 
    /**
     * Determine what the input type is.
     */
-   if (RocketIs.array(input)) {
-      returnArray = input;
-   } else if (RocketIs.element(input)) {
-      returnArray.push(input);
-   } else if (RocketIs.string(input)) {
-      returnArray = input.split(' ');
-   } else if (RocketIs.object(input)) {
+   if (RocketIs.array(data)) {
+      returnArray = data;
+   } else if (RocketIs.element(data)) {
+      returnArray.push(data);
+   } else if (RocketIs.string(data)) {
+      returnArray = data.split(' ');
+   } else if (RocketIs.object(data)) {
       /**
        * Try and catch HTMLCollection and NodeList.
        */
-      input = Array.prototype.slice.call(input);
+      data = Array.prototype.slice.call(data);
 
-      if (RocketIs.array(input) && input.length > 0) {
-         returnArray = input;
+      if (RocketIs.array(data) && data.length > 0) {
+         returnArray = data;
       }
    }
 
    /**
     * Return the value based on the unique flag.
     */
-   return (makeUnique) ? arrayUnique(returnArray) : returnArray;
+   return (unique) ? arrayUnique(returnArray) : returnArray;
 }
 
 /**
