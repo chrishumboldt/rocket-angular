@@ -204,11 +204,7 @@ export class RocketDataService {
     * On initialization create the data observables configured via the config service.
     */
    private initializeData(): void {
-      const initData = [
-         ...this.rocketConfig.initData,
-         new DataEntry({name: DataName.FULL_SCREENS, data: new Map<string, boolean>(), force: true}),
-         new DataEntry({name: DataName.MENUS, data: new Map<string, boolean>(), force: true})
-      ];
+      const initData = [...this.rocketConfig.initData];
 
       /**
        * Iterate over the list and create the observables.
