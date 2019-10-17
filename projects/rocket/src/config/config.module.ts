@@ -8,7 +8,7 @@ import { RocketConfig } from './config.class';
 
 @NgModule()
 export class RocketConfigModule {
-   static forRoot(config: RocketConfig): ModuleWithProviders {
+   static forRoot(config: RocketConfig = {}): ModuleWithProviders {
       return {
          ngModule: RocketConfigModule,
          providers: [

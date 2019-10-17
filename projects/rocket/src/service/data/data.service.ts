@@ -23,7 +23,7 @@ export class RocketDataService {
     * for this service is to keep all the data in one singleton instance as opposed
     * to storing data accross multiple files. It helps keep the application clean.
     */
-   private dataStore = new Map<string, any>();
+   public dataStore = new Map<string, any>();
    /**
     * Keep a record of all observables stored in the data store.
     */
@@ -134,7 +134,7 @@ export class RocketDataService {
       /**
        * Check to see if the data is of type observable.
        */
-      return (this.isObservable(name)) ? theData.getValue() : theData;
+      return (theData && this.isObservable(name)) ? theData.getValue() : theData;
    }
 
    /**
@@ -155,30 +155,30 @@ export class RocketDataService {
     * class.
     *
     * @param options - The deconstructed options object.
-    * @param options.observables - A single instacne or list of named observables.
+    * @param options.name - A single instance or list of named data observables.
     * @param options.onEmit - Call a function that will handle the data each time it is emitted to this subscriber.
     * @param options.safeEmit - Only call the onEmit function if there is actual data.
     */
    public getSubscriptionFromOptions({
-      observables,
+      name,
       onEmit,
       safeEmit = true
    }: SubscribeToOptions): Subscription {
       /**
        * Sanitise the observables list.
        */
-      observables = this.sanitiseObservables(observables);
+      name = this.sanitiseObservables(name);
       /**
        * Now lets manage the subscription. If its one subscription then subscribe to
        * it directly else use a combineLatest and subscribe to all of the
        * observables.
        */
-      if (observables.length === 1) {
-         return observables[0]
+      if (name.length === 1) {
+         return name[0]
             .pipe(filter((response: any) => (safeEmit) ? response != undefined : true))
             .subscribe((response: any) => onEmit(response));
-      } else if (observables.length > 1) {
-         return combineLatest(observables)
+      } else if (name.length > 1) {
+         return combineLatest(name)
             .pipe(
                filter((response: any) => {
                   if (safeEmit) {
@@ -190,7 +190,7 @@ export class RocketDataService {
                         data: response,
                         hardClean: true
                      });
-                     return (cleanResponse.length === observables.length) ? true : false;
+                     return (cleanResponse.length === name.length) ? true : false;
                   } else {
                      return true;
                   }

@@ -9,7 +9,7 @@ export interface SortDataOptions {
 }
 
 export interface SubscribeToOptions {
-   observables: any;
+   name: any;
    onEmit: any;
    safeEmit?: boolean;
 }

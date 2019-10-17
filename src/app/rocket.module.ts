@@ -4,13 +4,15 @@
 
 import { NgModule } from '@angular/core';
 
-import { RocketLoaderModule } from '@chrishumboldt/rocket';
+import { RocketConfigModule, RocketLoaderModule } from '@chrishumboldt/rocket';
 
 @NgModule({
    imports: [
+      RocketConfigModule,
       RocketLoaderModule
    ],
    exports: [
+      RocketConfigModule,
       RocketLoaderModule
    ]
 })

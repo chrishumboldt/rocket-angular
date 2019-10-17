@@ -6,7 +6,8 @@ import { DataEntry } from '../service';
 import { LoaderSize, LoaderType, StorageType } from '../store';
 
 export class RocketConfig {
-   initData: DataEntry[];
+   font?: string;
+   initData?: DataEntry[];
    loaderColour?: any;
    loaderSize?: LoaderSize;
    loaderType?: LoaderType;

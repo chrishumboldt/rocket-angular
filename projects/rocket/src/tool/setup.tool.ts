@@ -7,22 +7,17 @@ import { RocketDOM } from './dom.tool';
 import { RocketHas } from './has.tool';
 import { RocketIs } from './is.tool';
 
-const noTouchClass = 'rocket-no-touch';
-
 /**
  * Setup an application to be "Rocket" ready, meaning add some CSS resets
  * directly onto the html and body tags of the app. Also set the is touch
  * class on the HTML element.
+ *
+ * @param font - The font to apply to the page.
  */
-export function RocketSetup() {
-   /**
-    * Create the style tag first and set the type.
-    */
-   const styleTag = document.createElement('style');
-   /**
-    * Now create the content that will exist within the style tag.
-    */
-   const styleTagContent = document.createTextNode(`
+export function RocketSetup(font = '\'Open Sans\', Helvetica, Arial, sans-serif') {
+   const noTouchClass = 'rocketNoTouch';
+   const styleId = 'rocketStyles';
+   const styleContent = `
 *,
 *:before,
 *:after {
@@ -31,7 +26,7 @@ export function RocketSetup() {
    box-sizing: border-box;
 }
 html {
-   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+   font-family: ${font};
    color: #333;
    background-color: #fff;
    -ms-text-size-adjust: 100%;
@@ -41,15 +36,39 @@ html {
 body {
    margin: 0;
    padding: 0;
-}`);
+}`;
+
    /**
-    * Append the style tag content to the tag itself.
+    * Get the style element.
     */
-   styleTag.appendChild(styleTagContent);
+   const styleElm = RocketDOM.element(`#${styleId}`);
    /**
-    * Attach the new style tag to the header.
+    * Check if the style element exists.
     */
-   RocketDOM.add(RocketDOM.head, styleTag);
+   if (!styleElm) {
+      /**
+       * Create the style tag first and set the id.
+       */
+      const styleTag = document.createElement('style');
+      styleTag.id = styleId;
+      /**
+       * Now create the content that will exist within the style tag.
+       */
+      const styleTagContent = document.createTextNode(styleContent);
+      /**
+       * Append the style tag content to the tag itself.
+       */
+      styleTag.appendChild(styleTagContent);
+      /**
+       * Attach the new style tag to the header.
+       */
+      RocketDOM.add(RocketDOM.head, styleTag);
+   } else {
+      /**
+       * The style element already exists so just replace the existing style content.
+       */
+      styleElm.textContent = styleContent;
+   }
    /**
     * Set the touch class.
     */

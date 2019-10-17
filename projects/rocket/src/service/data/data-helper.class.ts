@@ -26,7 +26,7 @@ export abstract class RocketDataHelper implements OnDestroy {
     * @param options - The options.
     */
    public createData(options: DataEntry): void {
-      this.rocketData.create(options);
+      return this.rocketData.create(options);
    }
 
    /**
@@ -35,7 +35,7 @@ export abstract class RocketDataHelper implements OnDestroy {
     * @param name - The key name of the data in the data store map.
     */
    public getData(name: string): void {
-      this.rocketData.get(name);
+      return this.rocketData.get(name);
    }
 
    /**
@@ -76,6 +76,6 @@ export abstract class RocketDataHelper implements OnDestroy {
     * @param options - The options.
     */
    public updateData(options: DataEntry): void {
-      this.rocketData.update(options);
+      return this.rocketData.update(options);
    }
 }
