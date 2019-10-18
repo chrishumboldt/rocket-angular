@@ -124,7 +124,5 @@ function setTheValue(
       return currentValue;
    } else if (fallbackValue !== undefined) {
       return fallbackValue;
-   } else {
-      return '';
    }
 }
