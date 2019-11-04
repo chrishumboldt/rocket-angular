@@ -1,0 +1,11 @@
+<section
+*ngIf="renderHeader"
+class="mod--paneHeader">
+   <h4 class="mod--paneTitle">{{title}}</h4>
+</section>
+
+<section
+*ngIf="!renderContentOnActive || (renderContentOnActive && active)"
+class="mod--paneContent">
+   <ng-content></ng-content>
+</section>

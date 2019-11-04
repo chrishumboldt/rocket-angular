@@ -3,11 +3,12 @@
  */
 
 export enum DataName {
-   FULL_SCREENS = 'fullScreens',
    LOADERS = 'loaders',
    MENUS = 'menus',
+   PANES = 'panes'
 }
 
 export enum RocketData {
-   BLANK = '__ROCKET_DATA_BLANK__'
+   BLANK = '__ROCKET_DATA_BLANK__',
+   RANDOM_NAME_LENGTH = 10
 }

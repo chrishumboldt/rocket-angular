@@ -4,5 +4,7 @@
 
 export enum Prefix {
    BASIC = 'rocket-',
-   STATE = 'is-'
+   LOG = 'ROCKET MESSAGE: ',
+   SIZE = '_size--',
+   STATE = '_is-'
 }

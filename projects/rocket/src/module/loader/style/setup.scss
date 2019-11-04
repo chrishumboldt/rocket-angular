@@ -1,0 +1,25 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@import './variables';
+
+:host {
+   @include position(relative);
+   @include show();
+   @include padding-vertical($loader-size);
+   @include text-align(center);
+   @include text-colour($grey-blue);
+}
+.mod--loader {
+   @include spacing-none();
+   @include position(relative);
+   @include square($loader-size);
+   @include center();
+   @include animate(all);
+}
+.mod--text {
+   @include show();
+   @include padding-top($space-small);
+   @include text-size(16px);
+}

@@ -29,7 +29,7 @@ function randomString(stringLength = 5, textOnly = false): string {
     * character list.
     */
    for (let i = 0; i < stringLength; i++) {
-      returnString += characters[randomInteger(characters.length)];
+      returnString += characters[randomInteger(characters.length - 1)];
    }
 
    return returnString;

@@ -11,8 +11,18 @@ import { RocketString } from './string.tool';
  *
  * @param element - The element to check.
  */
-function getHeight(element: any): number {
-   return getWidthOrHeight(element, 'height');
+function dimensionHeight(element: any): number {
+   return dimensionWidthOrHeight(element, 'height');
+}
+
+/**
+ * Get the full dimensions of an element.
+ */
+function dimensions(element: any): any {
+   return {
+      height: dimensionHeight(element),
+      width: dimensionWidth(element)
+   };
 }
 
 /**
@@ -20,8 +30,8 @@ function getHeight(element: any): number {
  *
  * @param element - The element to check.
  */
-function getWidth(element: any): number {
-   return getWidthOrHeight(element, 'width');
+function dimensionWidth(element: any): number {
+   return dimensionWidthOrHeight(element, 'width');
 }
 
 /**
@@ -30,7 +40,7 @@ function getWidth(element: any): number {
  * @param element - The element to check.
  * @param type - The type to get, like height or width.
  */
-function getWidthOrHeight(element: any, type: string): number {
+function dimensionWidthOrHeight(element: any, type: string): number {
    /**
     * If there are any catches return 0 as a safe fallback.
     */
@@ -80,6 +90,7 @@ function getWidthOrHeight(element: any, type: string): number {
  * Export.
  */
 export const RocketDimension = {
-   height: getHeight,
-   width: getWidth
+   dimensions,
+   height: dimensionHeight,
+   width: dimensionWidth
 };

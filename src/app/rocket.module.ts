@@ -4,16 +4,27 @@
 
 import { NgModule } from '@angular/core';
 
-import { RocketConfigModule, RocketLoaderModule } from '@chrishumboldt/rocket';
+import {
+   RocketConfigModule,
+   RocketLoaderModule,
+   RocketResponsiveModule,
+   RocketPaneModule
+} from '@chrishumboldt/rocket';
 
 @NgModule({
    imports: [
-      RocketConfigModule,
-      RocketLoaderModule
+      RocketConfigModule.forRoot({
+         storageName: 'coolio'
+      }),
+      RocketLoaderModule,
+      RocketResponsiveModule,
+      RocketPaneModule
    ],
    exports: [
       RocketConfigModule,
-      RocketLoaderModule
+      RocketLoaderModule,
+      RocketResponsiveModule,
+      RocketPaneModule
    ]
 })
 export class RocketModule {}

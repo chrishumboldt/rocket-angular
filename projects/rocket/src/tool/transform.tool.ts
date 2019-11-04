@@ -14,7 +14,7 @@ function enumToArray(theEnum: any, reverse: boolean = true): any[] {
    return Object.keys(theEnum).map((key: string) => {
       return {
          value: (reverse) ? theEnum[key] : key,
-         body: (reverse) ? this.enumKeyToPhrase(key) : theEnum[key]
+         key: (reverse) ? this.enumKeyToPhrase(key) : theEnum[key]
       };
    });
 }
