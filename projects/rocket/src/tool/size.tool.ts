@@ -2,6 +2,8 @@
  * @author Chris Humboldt
  */
 
+import { Size } from '../module/size/size.class';
+
 import { RocketDOM } from './dom.tool';
 import { RocketIs } from './is.tool';
 import { RocketString } from './string.tool';
@@ -11,18 +13,18 @@ import { RocketString } from './string.tool';
  *
  * @param element - The element to check.
  */
-function dimensionHeight(element: any): number {
-   return dimensionWidthOrHeight(element, 'height');
+function sizeHeight(element: any): number {
+   return sizeWidthOrHeight(element, 'height');
 }
 
 /**
- * Get the full dimensions of an element.
+ * Get the full size of an element.
  */
-function dimensions(element: any): any {
-   return {
-      height: dimensionHeight(element),
-      width: dimensionWidth(element)
-   };
+function size(element: any): Size {
+   return new Size({
+      height: sizeHeight(element),
+      width: sizeWidth(element)
+   });
 }
 
 /**
@@ -30,8 +32,8 @@ function dimensions(element: any): any {
  *
  * @param element - The element to check.
  */
-function dimensionWidth(element: any): number {
-   return dimensionWidthOrHeight(element, 'width');
+function sizeWidth(element: any): number {
+   return sizeWidthOrHeight(element, 'width');
 }
 
 /**
@@ -40,7 +42,7 @@ function dimensionWidth(element: any): number {
  * @param element - The element to check.
  * @param type - The type to get, like height or width.
  */
-function dimensionWidthOrHeight(element: any, type: string): number {
+function sizeWidthOrHeight(element: any, type: string): number {
    /**
     * If there are any catches return 0 as a safe fallback.
     */
@@ -89,8 +91,8 @@ function dimensionWidthOrHeight(element: any, type: string): number {
 /**
  * Export.
  */
-export const RocketDimension = {
-   dimensions,
-   height: dimensionHeight,
-   width: dimensionWidth
+export const RocketSize = {
+   size,
+   height: sizeHeight,
+   width: sizeWidth
 };

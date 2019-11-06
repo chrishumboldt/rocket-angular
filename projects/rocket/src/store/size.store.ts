@@ -4,7 +4,7 @@
 
 import { Prefix } from './prefix.store';
 
-export enum Size {
+export enum SizeText {
    SMALL = 'small',
    MEDIUM = 'medium',
    LARGE = 'large'
@@ -13,11 +13,11 @@ export enum Size {
 /**
  * Before export the size classes out we need to generate them.
  */
-const sizeClasses = [];
+const sizeTextClasses = [];
 (function() {
-   Object.keys(Size).forEach((key: string) => {
-      sizeClasses.push(`${Prefix.SIZE}h-${Size[key]}`);
-      sizeClasses.push(`${Prefix.SIZE}w-${Size[key]}`);
+   Object.keys(SizeText).forEach((key: string) => {
+      sizeTextClasses.push(`${Prefix.SIZE}h-${SizeText[key]}`);
+      sizeTextClasses.push(`${Prefix.SIZE}w-${SizeText[key]}`);
    });
 })();
-export const SizeClasses = sizeClasses;
+export const SizeTextClasses = sizeTextClasses;

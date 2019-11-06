@@ -3,8 +3,9 @@
  */
 
 export enum Prefix {
-   BASIC = 'rocket-',
+   BASIC = 'rocket--',
    LOG = 'ROCKET MESSAGE: ',
+   RESIZING = '__ROCKET_RESIZING__',
    SIZE = '_size--',
-   STATE = '_is-'
+   STATE = '_is--'
 }

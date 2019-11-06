@@ -9,7 +9,7 @@ import { LoaderSize, LoaderType, SecondaryColour, StorageType } from '../../stor
 import { RocketSetup } from '../../tool';
 
 import { RocketConfig } from './config.class';
-import { DataEntry } from '../data/data-entry.class';
+import { DataEntry } from '../data/data.class';
 
 @Injectable({
    providedIn: 'root'

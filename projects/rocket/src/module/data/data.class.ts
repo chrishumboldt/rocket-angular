@@ -27,3 +27,15 @@ export class DataEntry {
       }
    }
 }
+
+export class SubscribeToOptions {
+   name: any;
+   onEmit: any;
+   safeEmit?: boolean;
+
+   constructor(input: any = {}) {
+      this.name = ValueGenerator(this, input, 'name', '');
+      this.onEmit = ValueGenerator(this, input, 'onEmit', () => {});
+      this.safeEmit = ValueGenerator(this, input, 'safeEmit', true);
+   }
+}

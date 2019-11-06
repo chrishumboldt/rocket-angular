@@ -7,9 +7,3 @@ export interface SortDataOptions {
    sortBy?: string;
    sortOrder?: string;
 }
-
-export interface SubscribeToOptions {
-   name: any;
-   onEmit: any;
-   safeEmit?: boolean;
-}

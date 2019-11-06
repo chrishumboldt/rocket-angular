@@ -4,7 +4,7 @@
 
 import { LoaderSize, LoaderType, StorageType } from '../../store';
 
-import { DataEntry } from '../data/data-entry.class';
+import { DataEntry } from '../data/data.class';
 
 export class RocketConfig {
    font?: string;
