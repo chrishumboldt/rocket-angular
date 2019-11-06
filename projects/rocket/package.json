@@ -1,8 +1,11 @@
 {
    "name": "@chrishumboldt/rocket",
-   "version": "0.7.1",
+   "version": "0.7.4",
    "peerDependencies": {
       "@angular/common": "^8.2.3",
       "@angular/core": "^8.2.3"
+   },
+   "dependencies": {
+     "css-element-queries": "^1.2.1"
    }
 }
