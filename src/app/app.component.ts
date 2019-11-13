@@ -2,8 +2,8 @@
  * @author Chris Humboldt
  */
 
-import { Component, ElementRef, HostBinding, OnInit } from '@angular/core';
-import { RocketDataService, RocketHelper, RocketLog } from '@chrishumboldt/rocket';
+import { Component, OnInit } from '@angular/core';
+import { RocketDataService, RocketHelper } from '@chrishumboldt/rocket';
 
 @Component({
    selector: 'app-root',
@@ -14,19 +14,12 @@ export class AppComponent extends RocketHelper implements OnInit {
    public result: string;
 
    constructor(
-      public elm: ElementRef,
       public rocketData: RocketDataService
    ) {
-      super(rocketData, elm);
+      super(rocketData);
    }
 
-   @HostBinding('style.display') displayStyle = 'block';
-
    ngOnInit() {
-      this.initResizingListener();
-
-      this.subscribeToResizing((size: any) => {
-         RocketLog(size);
-      });
+      console.log(this.getDataKeys());
    }
 }

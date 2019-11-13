@@ -7,8 +7,7 @@ import { NgModule } from '@angular/core';
 import {
    RocketConfigModule,
    RocketLoaderModule,
-   RocketPaneModule,
-   RocketSizeModule
+   RocketPaneModule
 } from '@chrishumboldt/rocket';
 
 @NgModule({
@@ -17,14 +16,12 @@ import {
          storageName: 'coolio'
       }),
       RocketLoaderModule,
-      RocketPaneModule,
-      RocketSizeModule
+      RocketPaneModule
    ],
    exports: [
       RocketConfigModule,
       RocketLoaderModule,
-      RocketPaneModule,
-      RocketSizeModule
+      RocketPaneModule
    ]
 })
 export class RocketModule {}

@@ -139,6 +139,13 @@ export class RocketDataService {
    }
 
    /**
+    * Get a list of the data store keys.
+    */
+   public getDataStoreKeys(): string[] {
+      return Array.from(this.dataStore.keys());
+   }
+
+   /**
     * Get the observable data from the data store.
     *
     * @param name - The key name of the data in the data store map.

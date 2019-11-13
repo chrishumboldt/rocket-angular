@@ -39,6 +39,19 @@ export abstract class RocketHelper implements OnDestroy {
    }
 
    /**
+    * Get the keys of the data stored in the data service.
+    */
+   public getDataKeys(): string[] {
+      /**
+       * Make sure the observable name is not returned and merely the
+       * behaviour subjects.
+       */
+      return this.rocketData.getDataStoreKeys().filter((item: string) => {
+         return (item.charAt(item.length - 1) !== '$');
+      });
+   }
+
+   /**
     * Subscribe to an observable and react to the responses.
     *
     * @param options - The method options.
