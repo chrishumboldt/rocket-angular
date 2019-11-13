@@ -20,6 +20,4 @@ export * from './module/helper/helper.class';
 export * from './module/loader/loader.module';
 export * from './module/pane/pane.module';
 export * from './module/pane/pane.service';
-export * from './module/size/size.class';
-export * from './module/size/size.module';
 export * from './module/storage/storage.service';
