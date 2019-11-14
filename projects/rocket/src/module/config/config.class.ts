@@ -13,7 +13,6 @@ export class RocketConfig {
    loaderSize?: LoaderSize;
    loaderType?: LoaderType;
    paneRenderContentOnActive?: boolean;
-   paneRenderHeader?: boolean;
    paneStartingLevel?: number;
    responsiveEngine?: boolean;
    sizeSmall?: number;

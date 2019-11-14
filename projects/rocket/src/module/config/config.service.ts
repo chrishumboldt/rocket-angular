@@ -21,7 +21,6 @@ export class RocketConfigService {
    public loaderSize: LoaderSize;
    public loaderType: LoaderType;
    public paneRenderContentOnActive: boolean;
-   public paneRenderHeader: boolean;
    public paneStartingLevel: number;
    public sizeSmall: number;
    public sizeMedium: number;
@@ -37,7 +36,6 @@ export class RocketConfigService {
       this.loaderSize = ValueGenerator(this, config, 'loaderSize', LoaderSize.DEFAULT);
       this.loaderType = ValueGenerator(this, config, 'loaderType', LoaderType.SPINNER);
       this.paneRenderContentOnActive = ValueGenerator(this, config, 'paneRenderContentOnActive', true);
-      this.paneRenderHeader = ValueGenerator(this, config, 'paneRenderHeader', true);
       this.paneStartingLevel = ValueGenerator(this, config, 'paneStartingLevel', 200);
       this.sizeSmall = ValueGenerator(this, config, 'sizeSmall', 350);
       this.sizeMedium = ValueGenerator(this, config, 'sizeMedium', 750);

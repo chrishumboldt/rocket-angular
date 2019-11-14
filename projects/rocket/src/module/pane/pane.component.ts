@@ -27,11 +27,10 @@ import { RocketPaneService } from './pane.service';
 })
 export class RocketPaneComponent extends RocketHelper implements OnDestroy, OnInit {
    public active = false;
+   public contentActive = false;
    @HostBinding('style.zIndex') level = 0;
    @Input() name: string;
    @Input() renderContentOnActive = this.rocketConfig.paneRenderContentOnActive;
-   @Input() renderHeader = this.rocketConfig.paneRenderHeader;
-   @Input() title = 'Pane Component';
    @HostBinding('style.visibility') visibility = State.HIDDEN;
 
    constructor(
@@ -60,6 +59,7 @@ export class RocketPaneComponent extends RocketHelper implements OnDestroy, OnIn
    }
    @HostListener('@slideFromRight.done') onAnimationEnd() {
       if (!this.active) {
+         this.contentActive = false;
          this.level = 0;
          this.visibility = State.HIDDEN;
       }
@@ -90,6 +90,7 @@ export class RocketPaneComponent extends RocketHelper implements OnDestroy, OnIn
                 * chich is managed elsewhere in this class.
                 */
                if (this.active) {
+                  this.contentActive = thisPane.active;
                   this.level = thisPane.level;
                   this.visibility = thisPane.visibility;
                }
