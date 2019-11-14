@@ -8,7 +8,7 @@ import { RocketExists } from './exists.tool';
 import { RocketGet } from './get.tool';
 import { RocketIs } from './is.tool';
 import { RocketString } from './string.tool';
-import { SelectorType } from '../store';
+import { SelectorType } from '../store/selector.store';
 
 /**
  * Return the elements of a web client should they be available.

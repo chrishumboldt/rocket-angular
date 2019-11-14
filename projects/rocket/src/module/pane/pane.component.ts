@@ -11,11 +11,13 @@ import {
    OnInit
 } from '@angular/core';
 
-import { DataName, State, SlideFromRightTrigger } from '../../store';
-
 import { RocketConfigService } from '../config/config.service';
 import { RocketDataService } from '../data/data.service';
 import { RocketHelper } from '../helper/helper.class';
+import { SlideFromRightTrigger } from '../../store/animation.store';
+import { DataName } from '../../store/data.store';
+import { State } from '../../store/state.store';
+
 import { Pane } from './pane.class';
 import { RocketPaneService } from './pane.service';
 

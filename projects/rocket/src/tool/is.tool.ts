@@ -5,7 +5,7 @@
 import { RocketExists } from './exists.tool';
 import { imageExtensionList } from './extension.tool';
 import { RocketRegExTest } from './regular-expression.tool';
-import { RegEx } from '../store';
+import { RegEx } from '../store/regular-expression.store';
 
 /**
  * Determine if an input is an array.

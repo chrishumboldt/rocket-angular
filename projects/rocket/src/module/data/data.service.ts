@@ -6,13 +6,16 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable, Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
-import { DataName, RocketData } from '../../store';
-import { RocketArray, RocketIs, RocketLog, RocketSort } from '../../tool';
-
 import { RocketConfigService } from '../config/config.service';
+import { Pane } from '../pane/pane.class';
+import { DataName, RocketData } from '../../store/data.store';
+import { RocketArray } from '../../tool/array.tool';
+import { RocketIs } from '../../tool/is.tool';
+import { RocketLog } from '../../tool/development.tool';
+import { RocketSort } from '../../tool/sort.tool';
+
 import { DataEntry, SubscribeToOptions } from './data.class';
 import { SortDataOptions } from './data.interface';
-import { Pane } from '../pane/pane.class';
 
 @Injectable({
    providedIn: 'root'

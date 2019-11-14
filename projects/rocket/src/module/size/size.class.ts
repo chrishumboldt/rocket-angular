@@ -2,7 +2,7 @@
  * @author Chris Humboldt
  */
 
-import { ValueGenerator } from '../../generator';
+import { ValueGenerator } from '../../generator/value.generator';
 
 export class Size {
    height: number;

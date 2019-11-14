@@ -4,7 +4,8 @@
 
 import { RocketHas } from './has.tool';
 import { RocketRegExTest } from './regular-expression.tool';
-import { RegEx, SelectorType } from '../store';
+import { RegEx } from '../store/regular-expression.store';
+import { SelectorType } from '../store/selector.store';
 
 /**
  * Get the extension of a string.

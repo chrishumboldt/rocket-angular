@@ -4,12 +4,14 @@
 
 import { Injectable, Optional } from '@angular/core';
 
-import { ValueGenerator } from '../../generator';
-import { LoaderSize, LoaderType, SecondaryColour, StorageType } from '../../store';
-import { RocketSetup } from '../../tool';
+import { DataEntry } from '../data/data.class';
+import { ValueGenerator } from '../../generator/value.generator';
+import { LoaderSize, LoaderType } from '../../store/loader.store';
+import { SecondaryColour } from '../../store/colour.store';
+import { StorageType } from '../../store/storage.store';
+import { RocketSetup } from '../../tool/setup.tool';
 
 import { RocketConfig } from './config.class';
-import { DataEntry } from '../data/data.class';
 
 @Injectable({
    providedIn: 'root'

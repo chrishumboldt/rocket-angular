@@ -9,10 +9,11 @@
 
 import { Injectable } from '@angular/core';
 
-import { StorageType } from '../../store';
-import { RocketArray, RocketConvert, RocketIs } from '../../tool';
-
 import { RocketConfigService } from '../config/config.service';
+import { StorageType } from '../../store/storage.store';
+import { RocketArray } from '../../tool/array.tool';
+import { RocketConvert } from '../../tool/convert.tool';
+import { RocketIs } from '../../tool/is.tool';
 
 @Injectable({
    providedIn: 'root'

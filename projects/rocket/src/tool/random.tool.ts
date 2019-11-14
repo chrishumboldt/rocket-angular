@@ -2,7 +2,7 @@
  * @author Chris Humboldt
  */
 
-import { Characters } from '../store';
+import { Characters } from '../store/character.store';
 
 /**
  * Generate a random integer.

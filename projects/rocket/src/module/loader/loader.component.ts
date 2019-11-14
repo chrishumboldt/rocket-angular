@@ -4,10 +4,9 @@
 
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
 
-import { LoaderSize, LoaderType } from '../../store';
-import { RocketString } from '../../tool';
-
 import { RocketConfigService } from '../config/config.service';
+import { LoaderSize, LoaderType } from '../../store/loader.store';
+import { RocketString } from '../../tool/string.tool';
 
 @Component({
    selector: 'rocket-loader',

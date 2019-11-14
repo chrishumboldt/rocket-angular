@@ -2,9 +2,10 @@
  * @author Chris Humboldt
  */
 
-import { ValueGenerator } from '../../generator';
-import { RocketData, State } from '../../store';
-import { RocketRandom } from '../../tool';
+import { ValueGenerator } from '../../generator/value.generator';
+import { RocketData } from '../../store/data.store';
+import { State } from '../../store/state.store';
+import { RocketRandom } from '../../tool/random.tool';
 
 export class Pane {
    active: boolean;

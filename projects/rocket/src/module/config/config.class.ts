@@ -2,7 +2,8 @@
  * @author Chris Humboldt
  */
 
-import { LoaderSize, LoaderType, StorageType } from '../../store';
+import { LoaderSize, LoaderType } from '../../store/loader.store';
+import { StorageType } from '../../store/storage.store';
 
 import { DataEntry } from '../data/data.class';
 

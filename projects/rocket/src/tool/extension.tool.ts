@@ -2,7 +2,7 @@
  * @author Chris Humboldt
  */
 
-import { Extension, ImageExtension } from '../store';
+import { Extension, ImageExtension } from '../store/extension.store';
 
 /**
  * Export out an extensions list.
