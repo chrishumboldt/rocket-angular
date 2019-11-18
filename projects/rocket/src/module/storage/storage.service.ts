@@ -15,6 +15,11 @@ import { RocketArray } from '../../tool/array.tool';
 import { RocketConvert } from '../../tool/convert.tool';
 import { RocketIs } from '../../tool/is.tool';
 
+interface addOptions {
+   name: string;
+   value: any;
+}
+
 @Injectable({
    providedIn: 'root'
 })
@@ -29,10 +34,11 @@ export class RocketStorageService {
    /**
     * Save an input into the default storage.
     *
-    * @param name - The name of the storage.
-    * @param value - The value to save into the storage.
+    * @param options - The deconstructed options object.
+    * @param options.name - The name of the storage (key).
+    * @param options.value - The value to save into the storage.
     */
-   public add(name: any, value?: any): void {
+   public add({ name, value }: addOptions): void {
       let storageData = this.getStorageData();
 
       /**
@@ -48,13 +54,11 @@ export class RocketStorageService {
             storageData = {};
          }
          storageData[name] = value;
-      } else if (RocketIs.object(name)) {
-         storageData = name;
+         /**
+          * Save the newly stored data into session storage by default.
+          */
+         this.saveStorageData(storageData);
       }
-      /**
-       * Save the newly stored data into session storage by default.
-       */
-      this.saveStorageData(storageData);
    }
 
    /**
