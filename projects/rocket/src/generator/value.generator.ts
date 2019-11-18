@@ -45,7 +45,7 @@ export function ValueGenerator({
    let theValue = setValue({input, fallback});
 
    if (RocketIs.function(transform)) {
-      theValue = transform(theValue).bind(this);
+      theValue = transform(theValue);
    } else if (applyClass) {
       theValue = classValue({input: theValue, applyClass, applyClassToMap});
    }
