@@ -8,15 +8,15 @@ import { RocketIs } from './is.tool';
  * Interfaces.
  */
 interface ArrayCleanOptions {
-   data: any,
+   input: any,
    hardClean?: boolean
 }
 interface ArrayMakeOptions {
-   data: any;
+   input: any;
    unique?: boolean;
 }
 interface ArrayRemoveOptions {
-   data: any[];
+   input: any[];
    index?: number;
    value?: any;
 }
@@ -25,11 +25,11 @@ interface ArrayRemoveOptions {
  * Clean an array.
  *
  * @param options - The deconstructed options object.
- * @param options.data - The array to clean.
+ * @param options.input - The array to clean.
  * @param options.hardClean - A hard clean will clear out all failed data like undefined and null.
  */
-function arrayClean({ data, hardClean = false }: ArrayCleanOptions): any[] {
-   if (!RocketIs.array(data)) {
+function arrayClean({ input, hardClean = false }: ArrayCleanOptions): any[] {
+   if (!RocketIs.array(input)) {
       /**
        * If the input is not an array then assume that the array is empty.
        * This is an acceptable "soft" fail.
@@ -40,7 +40,7 @@ function arrayClean({ data, hardClean = false }: ArrayCleanOptions): any[] {
          /**
           * A hard clean only accepts populated values that are defined.
           */
-         return data.filter((item: any) => {
+         return input.filter((item: any) => {
             return (
                item !== null
                && item !== undefined
@@ -52,7 +52,7 @@ function arrayClean({ data, hardClean = false }: ArrayCleanOptions): any[] {
           * A soft clean filters out NULL entries. Undefined is considered an
           * acceptable entry in the array.
           */
-         return data.filter((item: any) => item !== null);
+         return input.filter((item: any) => item !== null);
       }
    }
 }
@@ -61,29 +61,29 @@ function arrayClean({ data, hardClean = false }: ArrayCleanOptions): any[] {
  * Make an array from the input value.
  *
  * @param options - The deconstructed options object.
- * @param options.data - The data to transform.
+ * @param options.input - The data to transform.
  * @param options.unique - Determine if the array should be unique.
  */
-function arrayMake({ data, unique = false }: ArrayMakeOptions): any[] {
+function arrayMake({ input, unique = false }: ArrayMakeOptions): any[] {
    let returnArray = [];
 
    /**
     * Determine what the input type is.
     */
-   if (RocketIs.array(data)) {
-      returnArray = data;
-   } else if (RocketIs.element(data)) {
-      returnArray.push(data);
-   } else if (RocketIs.string(data)) {
-      returnArray = data.split(' ');
-   } else if (RocketIs.object(data)) {
+   if (RocketIs.array(input)) {
+      returnArray = input;
+   } else if (RocketIs.element(input)) {
+      returnArray.push(input);
+   } else if (RocketIs.string(input)) {
+      returnArray = input.split(' ');
+   } else if (RocketIs.object(input)) {
       /**
        * Try and catch HTMLCollection and NodeList.
        */
-      data = Array.prototype.slice.call(data);
+      input = Array.prototype.slice.call(input);
 
-      if (RocketIs.array(data) && data.length > 0) {
-         returnArray = data;
+      if (RocketIs.array(input) && input.length > 0) {
+         returnArray = input;
       }
    }
 
@@ -97,26 +97,26 @@ function arrayMake({ data, unique = false }: ArrayMakeOptions): any[] {
  * Remove an entry from an array.
  *
  * @param options - The deconstructed options object.
- * @param options.data - The input array.
+ * @param options.input - The input array.
  * @param options.index - The index of the value to remove from the array.
  * @param options.value - The value to remove from the array.
  */
-function arrayRemove({ data = [], index, value }: ArrayRemoveOptions): void {
+function arrayRemove({ input = [], index, value }: ArrayRemoveOptions): void {
    /**
     * Catch.
     */
-   if (!RocketIs.array(data)) {
+   if (!RocketIs.array(input)) {
       return;
    }
 
    /**
     * If we are removing by value then determine the index.
     */
-   const theIndex = (name) ? data.indexOf(value) : index;
+   const theIndex = (name) ? input.indexOf(value) : index;
    /**
     * Now remove the entry.
     */
-   data.splice(theIndex, 1);
+   input.splice(theIndex, 1);
 }
 
 /**

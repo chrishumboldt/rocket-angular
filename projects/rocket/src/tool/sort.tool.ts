@@ -13,13 +13,13 @@ interface CompareObjectValueOptions {
    order?: string
 }
 interface SortArrayOptions {
-   data: any[];
+   input: any[];
    by?: string;
    order?: string;
 }
 interface SortMapOptions {
    by?: string;
-   data: Map<any, any>;
+   input: Map<any, any>;
    order?: string;
 }
 
@@ -27,10 +27,10 @@ interface SortMapOptions {
  * Transform the string into a natural sorting value. This includes removing case
  * and padding all numbers with a zero base.
  *
- * @param value - The value to make sortable.
+ * @param input - The value to make sortable.
  */
-function makeSortableString(value: any): string {
-   return RocketString.lowercase.all(value)
+function makeSortableString(input: any): string {
+   return RocketString.lowercase.all(input)
       .replace(/\d+/g, (digit: any) => digit.padStart(10, '0'));
 }
 
@@ -38,29 +38,29 @@ function makeSortableString(value: any): string {
  * Sort and array of objects in an ascending order.
  *
  * @param options - The deconstructed options object.
- * @param options.data - The array to sort.
+ * @param options.input - The array to sort.
  * @param options.by - The field in the array being sorted.
  * @param options.order - The order of the sort.
  */
-function sortArray({ data = [], by, order = 'asc' }: SortArrayOptions): any[] {
+function sortArray({ input = [], by, order = 'asc' }: SortArrayOptions): any[] {
    /**
-    * Do a few checks on the data first.
+    * Do a few checks on the input first.
     */
-   if (RocketIs.array(data) && data.length > 0) {
+   if (RocketIs.array(input) && input.length > 0) {
       /**
        * Determine if we are sorting an array of objects or simply values.
        */
-      if (RocketIs.object(data[0])) {
-         return data.sort(sortCompareObjectValue({by, order}));
+      if (RocketIs.object(input[0])) {
+         return input.sort(sortCompareObjectValue({by, order}));
       } else {
-         const sortedData = data.sort();
+         const sortedData = input.sort();
          return (order === 'desc') ? sortedData.reverse() : sortedData;
       }
    } else {
       /**
        * There is nothing to sort so just return the existing data.
        */
-      return data;
+      return input;
    }
 }
 
@@ -113,17 +113,17 @@ function sortCompareObjectValue({
  *
  * @param options - The deconstructed options object.
  * @param options.by - The field in the map object being sorted.
- * @param options.data - The map to sort.
+ * @param options.input - The map to sort.
  * @param options.order - The order of the sort.
  */
-function sortMap({ by, data, order = 'asc' }: SortMapOptions): any {
-   const backupMap = new Map(data);
+function sortMap({ by, input, order = 'asc' }: SortMapOptions): any {
+   const backupMap = new Map(input);
    let orderArray: any[] = [];
 
    /**
     * Start by clearing the existing map reference.
     */
-   data.clear();
+   input.clear();
    /**
     * Add to the list to order and then sort that list.
     */
@@ -133,17 +133,17 @@ function sortMap({ by, data, order = 'asc' }: SortMapOptions): any {
          theProperty: (RocketIs.object(value)) ? value[by] : value
       });
    }
-   orderArray = sortArray({data: orderArray, by: 'theProperty', order});
+   orderArray = sortArray({input: orderArray, by: 'theProperty', order});
    /**
     * Use the ordered list to repopulate the original data map.
     */
    orderArray.forEach((item: any) => {
-      data.set(item.key, backupMap.get(item.key));
+      input.set(item.key, backupMap.get(item.key));
    });
    /**
     * Return the reordered data map.
     */
-   return data;
+   return input;
 }
 
 /**

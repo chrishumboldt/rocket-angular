@@ -34,105 +34,105 @@ function formatBytes({ bytes, decimals = 2 }: FormatBytesOptions): string {
 /**
  * Lowercase the whole string.
  *
- * @param inputString - The string modify.
+ * @param input - The string modify.
  */
-function lowercaseAll(inputString: string = ''): string {
-   return inputString.toString().toLowerCase();
+function lowercaseAll(input: string = ''): string {
+   return input.toString().toLowerCase();
 }
 
 /**
  * Lowercase the first letter of the string.
  *
- * @param inputString - The string modify.
+ * @param input - The string modify.
  */
-function lowercaseFirst(inputString: string = ''): string {
-   const asString = inputString.toString();
+function lowercaseFirst(input: string = ''): string {
+   const asString = input.toString();
    return `${asString.charAt(0).toLowerCase()}${asString.slice(1)}`;
 }
 
 /**
  * Lowercase the last letter of the string.
  *
- * @param inputString - The string modify.
+ * @param input - The string modify.
  */
-function lowercaseLast(inputString: string = ''): string {
-   const asString = inputString.toString();
+function lowercaseLast(input: string = ''): string {
+   const asString = input.toString();
    return `${asString.slice(0, asString.length - 1)}${asString.charAt(asString.length - 1).toLowerCase()}`;
 }
 
 /**
  * Remove the first character of a string.
  *
- * @param inputString - The string modify.
+ * @param input - The string modify.
  */
-function removeFirst(inputString: string = ''): string {
-   return inputString.toString().substring(1);
+function removeFirst(input: string = ''): string {
+   return input.toString().substring(1);
 }
 
 /**
  * Remove the first and last characters of a string.
  *
- * @param inputString - The string modify.
+ * @param input - The string modify.
  */
-function removeFirstAndLast(inputString: string = ''): string {
-   const asString = inputString.toString();
+function removeFirstAndLast(input: string = ''): string {
+   const asString = input.toString();
    return asString.substring(1, asString.length - 1);
 }
 
 /**
  * Remove the last character of a string.
  *
- * @param inputString - The string modify.
+ * @param input - The string modify.
  */
-function removeLast(inputString: string = ''): string {
-   const asString = inputString.toString();
+function removeLast(input: string = ''): string {
+   const asString = input.toString();
    return asString.substring(0, asString.length - 1);
 }
 
 /**
  * Remove all the spaces from a string.
  *
- * @param inputString - The string modify.
+ * @param input - The string modify.
  */
-function removeSpaces(inputString: string = ''): string {
-   return inputString.toString().replace(/ /g, '');
+function removeSpaces(input: string = ''): string {
+   return input.toString().replace(/ /g, '');
 }
 
 /**
  * Trim a string.
  *
- * @param inputString - The string modify.
+ * @param input - The string modify.
  */
-function stringTrim(inputString: string = ''): string {
-   return inputString.toString().replace(/^ /, '').replace(/ +$/, '');
+function stringTrim(input: string = ''): string {
+   return input.toString().replace(/^ /, '').replace(/ +$/, '');
 }
 
 /**
  * Uppercase the whole string.
  *
- * @param inputString - The string modify.
+ * @param input - The string modify.
  */
-function uppercaseAll(inputString: string = ''): string {
-   return (RocketIs.string(inputString)) ? inputString.toUpperCase() : inputString;
+function uppercaseAll(input: string = ''): string {
+   return (RocketIs.string(input)) ? input.toUpperCase() : input;
 }
 
 /**
  * Uppercase the first letter of the string.
  *
- * @param inputString - The string modify.
+ * @param input - The string modify.
  */
-function uppercaseFirst(inputString: string = ''): string {
-   const asString = inputString.toString();
+function uppercaseFirst(input: string = ''): string {
+   const asString = input.toString();
    return `${asString.charAt(0).toUpperCase()}${asString.slice(1)}`;
 }
 
 /**
  * Uppercase the last letter of the string.
  *
- * @param inputString - The string modify.
+ * @param input - The string modify.
  */
-function uppercaseLast(inputString: string = ''): string {
-   const asString = inputString.toString();
+function uppercaseLast(input: string = ''): string {
+   const asString = input.toString();
    return `${asString.slice(0, asString.length - 1)}${asString.charAt(asString.length - 1).toUpperCase()}`;
 }
 

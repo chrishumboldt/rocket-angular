@@ -108,7 +108,7 @@ export class RocketDataService {
        */
       if (this.isObservable(name)) {
          this.dataStore.delete(`${name}$`);
-         RocketArray.remove({data: this.dataIsObservable, value: name});
+         RocketArray.remove({input: this.dataIsObservable, value: name});
       }
       /**
        * Now remove the actual data entry.
@@ -197,7 +197,7 @@ export class RocketDataService {
                       * make sure that all the observables have emited valid data.
                       */
                      const cleanResponse = RocketArray.clean({
-                        data: response,
+                        input: response,
                         hardClean: true
                      });
                      return (cleanResponse.length === name.length) ? true : false;
@@ -254,13 +254,13 @@ export class RocketDataService {
       /**
        * Make sure that "observables" is an array. If not then convert it into one.
        */
-      observableNames = RocketArray.make({data: observableNames});
+      observableNames = RocketArray.make({input: observableNames});
       /**
        * Make sure the observables in the array are actually observables.
        */
       observableNames = RocketArray.clean({
          hardClean: true,
-         data: observableNames.map((item: any) => {
+         input: observableNames.map((item: any) => {
             /**
              * Handle a string entry.
              */
@@ -300,9 +300,9 @@ export class RocketDataService {
    private sortData({data, sortBy, sortOrder = 'asc'}: SortDataOptions): any {
       if (sortBy && sortBy.length > 0) {
          if (RocketIs.array(data)) {
-            RocketSort.array({data, by: sortBy, order: sortOrder});
+            RocketSort.array({input: data, by: sortBy, order: sortOrder});
          } else if (RocketIs.map(data)) {
-            RocketSort.map({data, by: sortBy, order: sortOrder});
+            RocketSort.map({input: data, by: sortBy, order: sortOrder});
          }
       }
 

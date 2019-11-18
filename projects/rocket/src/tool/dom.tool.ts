@@ -197,7 +197,7 @@ function domSelect(selector: any): HTMLElement[] {
     * Now return the resulting element list.
     */
    return RocketArray.clean({
-      data: RocketArray.unique(elementList),
+      input: RocketArray.unique(elementList),
       hardClean: true
    });
 }
@@ -215,7 +215,7 @@ function domSelectByString(selector: string): HTMLElement[] {
     */
    if (selector && RocketIs.string(selector)) {
       const selectorSplit = RocketArray.clean({
-         data: selector.split(',').map(RocketString.trim),
+         input: selector.split(',').map(RocketString.trim),
          hardClean: true
       });
 

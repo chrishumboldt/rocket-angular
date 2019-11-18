@@ -7,7 +7,7 @@ import { RocketIs } from './is.tool';
 /**
  * Convert days into milliseconds.
  *
- * @param hours - The hours to convert.
+ * @param days - The hours to convert.
  */
 function convertDaysToMilliseconds(days: number): number {
    /**
