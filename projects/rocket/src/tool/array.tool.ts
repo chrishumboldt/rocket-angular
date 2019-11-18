@@ -4,6 +4,9 @@
 
 import { RocketIs } from './is.tool';
 
+/**
+ * Interfaces.
+ */
 interface ArrayCleanOptions {
    data: any,
    hardClean?: boolean
@@ -13,6 +16,7 @@ interface ArrayMakeOptions {
    unique?: boolean;
 }
 interface ArrayRemoveOptions {
+   data: any[];
    index?: number;
    value?: any;
 }
@@ -24,7 +28,7 @@ interface ArrayRemoveOptions {
  * @param options.data - The array to clean.
  * @param options.hardClean - A hard clean will clear out all failed data like undefined and null.
  */
-function arrayClean({data, hardClean = false}: ArrayCleanOptions): any[] {
+function arrayClean({ data, hardClean = false }: ArrayCleanOptions): any[] {
    if (!RocketIs.array(data)) {
       /**
        * If the input is not an array then assume that the array is empty.
@@ -60,7 +64,7 @@ function arrayClean({data, hardClean = false}: ArrayCleanOptions): any[] {
  * @param options.data - The data to transform.
  * @param options.unique - Determine if the array should be unique.
  */
-function arrayMake({data, unique = false}: ArrayMakeOptions): any[] {
+function arrayMake({ data, unique = false }: ArrayMakeOptions): any[] {
    let returnArray = [];
 
    /**
@@ -92,27 +96,27 @@ function arrayMake({data, unique = false}: ArrayMakeOptions): any[] {
 /**
  * Remove an entry from an array.
  *
- * @param input - The input array.
  * @param options - The deconstructed options object.
+ * @param options.data - The input array.
  * @param options.index - The index of the value to remove from the array.
  * @param options.value - The value to remove from the array.
  */
-function arrayRemove(input: any[], {index, value}: ArrayRemoveOptions): void {
+function arrayRemove({ data = [], index, value }: ArrayRemoveOptions): void {
    /**
     * Catch.
     */
-   if (!RocketIs.array(input)) {
+   if (!RocketIs.array(data)) {
       return;
    }
 
    /**
     * If we are removing by value then determine the index.
     */
-   const theIndex = (name) ? input.indexOf(value) : index;
+   const theIndex = (name) ? data.indexOf(value) : index;
    /**
     * Now remove the entry.
     */
-   input.splice(theIndex, 1);
+   data.splice(theIndex, 1);
 }
 
 /**

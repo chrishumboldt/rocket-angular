@@ -9,10 +9,36 @@ import { RocketHas } from './has.tool';
 import { RocketIs } from './is.tool';
 
 /**
- * @param elements - The HTML elements.
- * @param classNames - The class names to apply.
+ * Interfaces.
  */
-function classNameAddExecute(element: HTMLElement, classNames: string[]): void {
+interface ClassNameFromOptions {
+   from: any;
+   classNames: string;
+}
+interface ClassNameToOptions {
+   to: any;
+   classNames: string;
+}
+interface ClassNameExecuteOptions {
+   element: HTMLElement;
+   classNames: string[];
+}
+interface ClassNameModificationOptions {
+   elements: any;
+   classesAdd?: string;
+   classesRemove?: string;
+}
+interface ClassNameToggleOptions {
+   elements: any;
+   className: string;
+}
+
+/**
+ * @param options - The deconstructed options object.
+ * @param options.classNames - The class names to apply.
+ * @param options.element - The HTML elements.
+ */
+function classNameAddExecute({ classNames, element }: ClassNameExecuteOptions): void {
    element.className = element.className
       .split(' ')
       .concat(classNames)
@@ -25,11 +51,15 @@ function classNameAddExecute(element: HTMLElement, classNames: string[]): void {
 /**
  * Add a class name to elements.
  *
- * @param elements - The HTML elements.
- * @param classNames - The class names to apply.
+ * @param options - The deconstructed options object.
+ * @param options.to - The HTML elements.
+ * @param options.classNames - The class names to apply.
  */
-function classNameAdds(elements: any, classNames: string): void {
-   classNameModification(createElementList(elements), classNames, undefined);
+function classNameAdds({ to, classNames }: ClassNameToOptions): void {
+   classNameModification({
+      elements: createElementList(to),
+      classesAdd: classNames
+   });
 }
 
 /**
@@ -61,15 +91,16 @@ function classNameClear(elements: any): void {
 /**
  * Execute class name modifications on elements.
  *
- * @param elements - The elements to modify.
- * @param classesAdd - Class names to add.
- * @param classesRemove - Class names to remove.
+ * @param options - The deconstructed options object.
+ * @param options.elements - The elements to modify.
+ * @param options.classesAdd - Class names to add.
+ * @param options.classesRemove - Class names to remove.
  */
-function classNameModification(
-   elements: any,
-   classesAdd: string,
-   classesRemove: string
-): void {
+function classNameModification({
+   elements,
+   classesAdd = undefined,
+   classesRemove = undefined
+}: ClassNameModificationOptions): void {
    /**
     * Do nothing should the elements not exist.
     */
@@ -101,10 +132,10 @@ function classNameModification(
     */
    elementsList.forEach((element: HTMLElement) => {
       if (classesRemoveAction) {
-         classNameRemoveExecute(element, classesRemoveList);
+         classNameRemoveExecute({element, classNames: classesRemoveList});
       }
       if (classesAddAction) {
-         classNameAddExecute(element, classesAddList);
+         classNameAddExecute({element, classNames: classesAddList});
       }
    });
 }
@@ -115,10 +146,10 @@ function classNameModification(
  * @param element - The element to remove from.
  * @param classNames - The class names.
  */
-function classNameRemoveExecute(
-   element: HTMLElement,
-   classNames: string[]
-): void {
+function classNameRemoveExecute({
+   element,
+   classNames
+}: ClassNameExecuteOptions): void {
    element.className = element.className
       .split(' ')
       .filter((value: string) => classNames.indexOf(value) < 0)
@@ -136,11 +167,15 @@ function classNameRemoveExecute(
 /**
  * Remove class names from elements.
  *
- * @param elements - The elements to remove from.
+ * @param options - The deconstructed options object.
+ * @param options.from - The elements to remove from.
  * @param classNames - The class names to remove.
  */
-function classNameRemoves(elements: any, classNames: string): void {
-   classNameModification(createElementList(elements), undefined, classNames);
+function classNameRemoves({ classNames, from }: ClassNameFromOptions): void {
+   classNameModification({
+      elements: createElementList(from),
+      classesRemove: classNames
+   });
 }
 
 /**
@@ -150,12 +185,16 @@ function classNameRemoves(elements: any, classNames: string): void {
  * @param classesAdd - The class names to add.
  * @param classesRemove - The class names to remove.
  */
-function classNamesReplace(
-   elements: any,
-   classesAdd: string,
-   classesRemove: string
-): void {
-   classNameModification(createElementList(elements), classesAdd, classesRemove);
+function classNamesReplace({
+   elements,
+   classesAdd,
+   classesRemove
+}: ClassNameModificationOptions): void {
+   classNameModification({
+      elements: createElementList(elements),
+      classesAdd,
+      classesRemove
+   });
 }
 
 /**
@@ -164,10 +203,10 @@ function classNamesReplace(
  * @param elements - The elements to toggle.
  * @param className - The class name to toggle.
  */
-function classNameToggle(
-   elements: any,
-   className: string
-): void {
+function classNameToggle({
+   elements,
+   className
+}: ClassNameToggleOptions): void {
    const elementList: HTMLElement[] = createElementList(elements);
 
    /**
@@ -182,10 +221,10 @@ function classNameToggle(
    }
 
    elementList.forEach((element: HTMLElement) => {
-      if (RocketHas.class(element, className)) {
-         classNameAddExecute(element, [className]);
+      if (RocketHas.class({check: element, has: className})) {
+         classNameAddExecute({element, classNames: [className]});
       } else {
-         classNameRemoveExecute(element, [className]);
+         classNameRemoveExecute({element, classNames: [className]});
       }
    });
 }

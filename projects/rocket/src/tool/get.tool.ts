@@ -35,7 +35,7 @@ function getSelectorType(selector: string): SelectorType {
    if (
       selector.indexOf('.') > -1
       || RocketHas.spaces(selector)
-      || RocketRegExTest(selector, RegEx.ATTRIBUTE)
+      || RocketRegExTest({check: selector, regEx: RegEx.ATTRIBUTE})
    ) {
       /**
        * The selector is of type query selector all.
@@ -46,7 +46,7 @@ function getSelectorType(selector: string): SelectorType {
        * The selector is of type id.
        */
       return SelectorType.GET_ELEMENT_BY_ID;
-   } else if (RocketRegExTest(selector, RegEx.TAG)) {
+   } else if (RocketRegExTest({check: selector, regEx: RegEx.TAG})) {
       /**
        * The selector is of type tag name.
        */

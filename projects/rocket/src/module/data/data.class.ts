@@ -13,17 +13,17 @@ export class DataEntry {
    sortOrder?: string;
 
    constructor(input: any = {}) {
-      this.asObservable = ValueGenerator(this, input, 'asObservable', true);
-      this.data = ValueGenerator(this, input, 'data');
-      this.force = ValueGenerator(this, input, 'force', false);
-      this.name = ValueGenerator(this, input, 'name', '');
-      this.sortOrder = ValueGenerator(this, input, 'sortOrder', 'asc');
+      this.asObservable = ValueGenerator({input: input.asObservable, fallback: true});
+      this.data = ValueGenerator({input: input.data});
+      this.force = ValueGenerator({input: input.force, fallback: false});
+      this.name = ValueGenerator({input: input.name, fallback: ''});
+      this.sortOrder = ValueGenerator({input: input.sortOrder, fallback: 'asc'});
 
       /**
        * Optionals.
        */
       if (input.sortBy) {
-         this.sortBy = ValueGenerator(this, input, 'sortBy');
+         this.sortBy = ValueGenerator({input: this.sortBy});
       }
    }
 }
@@ -34,8 +34,8 @@ export class SubscribeToOptions {
    safeEmit?: boolean;
 
    constructor(input: any = {}) {
-      this.name = ValueGenerator(this, input, 'name', '');
-      this.onEmit = ValueGenerator(this, input, 'onEmit', () => {});
-      this.safeEmit = ValueGenerator(this, input, 'safeEmit', true);
+      this.name = ValueGenerator({input: input.name, fallback: ''});
+      this.onEmit = ValueGenerator({input: input.onEmit, fallback: () => {}});
+      this.safeEmit = ValueGenerator({input: input.safeEmit, fallback: true});
    }
 }

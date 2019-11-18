@@ -3,12 +3,23 @@
  */
 
 import { RocketArray } from './array.tool';
-import { RocketError } from './development.tool';
 import { RocketExists } from './exists.tool';
 import { RocketGet } from './get.tool';
 import { RocketIs } from './is.tool';
 import { RocketString } from './string.tool';
 import { SelectorType } from '../store/selector.store';
+
+/**
+ * Interfaces.
+ */
+interface DomAddOptions {
+   element: HTMLElement;
+   to: any;
+}
+interface DomRatioOptions {
+   multiplier: number;
+   selector: any;
+}
 
 /**
  * Return the elements of a web client should they be available.
@@ -31,14 +42,15 @@ if (typeof window !== undefined) {
 /**
  * Add an element to the dom.
  *
- * @param selector - The selector of the DOM element.
- * @param element - The element to add.
+ * @param options - The deconstructed options object.
+ * @param options.element - The element to add.
+ * @param options.to - The DOM element to attach the element to. This can be a selector or an element
  */
-function domAdd(selector: any, element: HTMLElement): void {
+function domAdd({ element, to }: DomAddOptions): void {
    /**
     * Catch the passed in selector argument and the element itself.
     */
-   if (!RocketExists(selector) || !RocketIs.element(element)) {
+   if (!RocketExists(to) || !RocketIs.element(element)) {
       return;
    }
 
@@ -46,7 +58,7 @@ function domAdd(selector: any, element: HTMLElement): void {
     * First retrieve the parent elements and then attach the new element as a child
     * node to each one in the list.
     */
-   const parents = domSelect(selector);
+   const parents = domSelect(to);
 
    if (parents && parents.length > 0) {
       parents.forEach((item: HTMLElement) => {
@@ -59,10 +71,11 @@ function domAdd(selector: any, element: HTMLElement): void {
  * Set the height of an element based on the width but apply a ratio
  * multiplier if desired.
  *
- * @param selector - The selector of the DOM element.
- * @param multiplier - How much to multiply the width value by.
+ * @param options - The deconstructed options object.
+ * @param options.multiplier - How much to multiply the width value by.
+ * @param options.selector - The selector of the DOM element.
  */
-function domRatio(selector: any, multiplier: number = 1): void {
+function domRatio({ multiplier = 1, selector }: DomRatioOptions): void {
    const elements = domSelect(selector);
 
    /**
@@ -216,11 +229,11 @@ function domSelectByString(selector: string): HTMLElement[] {
                break;
 
             case SelectorType.GET_ELEMENT_BY_TAG:
-               elementList = elementList.concat(Array.prototype.slice.call(document.getElementsByTagName(item)));
+               elementList = elementList.concat(Array.from(document.getElementsByTagName(item)));
                break;
 
             case SelectorType.QUERY_SELECTOR_ALL:
-               elementList = elementList.concat(Array.prototype.slice.call(document.querySelectorAll(item)));
+               elementList = elementList.concat(Array.from(document.querySelectorAll(item)));
                break;
          }
       });
@@ -244,7 +257,7 @@ function domSelectElement(selector: any): HTMLElement {
     * Catch non-web client sessions.
     */
    if (typeof document === undefined) {
-      RocketError('You can only select an element within an html client.');
+      console.error('You can only select an element within a DOM window.');
       return undefined;
    }
    /**

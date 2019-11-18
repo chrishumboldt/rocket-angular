@@ -5,12 +5,21 @@
 import { RocketString } from './string.tool';
 
 /**
+ * The interfaces.
+ */
+interface EnumTransformOptions {
+   theEnum: any;
+   reverse: boolean;
+}
+
+/**
  * Transform an enum into an array of objects.
  *
- * @param theEnum - The passed in enum.
- * @param reverse - Reverse the key value mapping of the returned object.
+ * @param options - The deconstructed options object.
+ * @param options.reverse - Reverse the key value mapping of the returned object.
+ * @param options.theEnum - The passed in enum.
  */
-function enumToArray(theEnum: any, reverse: boolean = true): any[] {
+function enumToArray({ reverse = true, theEnum }: EnumTransformOptions): any[] {
    return Object.keys(theEnum).map((key: string) => {
       return {
          value: (reverse) ? theEnum[key] : key,
@@ -22,10 +31,11 @@ function enumToArray(theEnum: any, reverse: boolean = true): any[] {
 /**
  * Transform an enum into a map.
  *
- * @param theEnum - The passed in enum.
- * @param reverse - Reverse the key value mapping of the returned object.
+ * @param options - The deconstructed options object.
+ * @param options.reverse - Reverse the key value mapping of the returned object.
+ * @param options.theEnum - The passed in enum.
  */
-function enumToMap(theEnum: any, reverse: boolean = true): any {
+function enumToMap({ reverse = true, theEnum }: EnumTransformOptions): any {
    const theMap = {};
 
    Object.keys(theEnum).forEach((key: string) => {

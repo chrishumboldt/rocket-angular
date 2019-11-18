@@ -9,12 +9,20 @@ import { RocketIs } from './is.tool';
 import { RocketString } from './string.tool';
 
 /**
+ * Interface.
+ */
+interface SizeWidthOrHeightOptions {
+   element: any;
+   type: string;
+}
+
+/**
  * Get the height of an element.
  *
  * @param element - The element to check.
  */
 function sizeHeight(element: any): number {
-   return sizeWidthOrHeight(element, 'height');
+   return sizeWidthOrHeight({element, type: 'height'});
 }
 
 /**
@@ -33,16 +41,17 @@ function size(element: any): Size {
  * @param element - The element to check.
  */
 function sizeWidth(element: any): number {
-   return sizeWidthOrHeight(element, 'width');
+   return sizeWidthOrHeight({element, type: 'width'});
 }
 
 /**
  * Get the width or height of an element.
  *
- * @param element - The element to check.
- * @param type - The type to get, like height or width.
+ * @param options - The deconstructed options object.
+ * @param options.element - The element to check.
+ * @param options.type - The type to get, like height or width.
  */
-function sizeWidthOrHeight(element: any, type: string): number {
+function sizeWidthOrHeight({ element, type }: SizeWidthOrHeightOptions): number {
    /**
     * If there are any catches return 0 as a safe fallback.
     */

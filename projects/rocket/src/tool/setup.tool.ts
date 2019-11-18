@@ -62,7 +62,7 @@ body {
       /**
        * Attach the new style tag to the header.
        */
-      RocketDOM.add(RocketDOM.head, styleTag);
+      RocketDOM.add({to: RocketDOM.head, element: styleTag});
    } else {
       /**
        * The style element already exists so just replace the existing style content.
@@ -72,7 +72,7 @@ body {
    /**
     * Set the touch class.
     */
-   if (!RocketIs.touch() && !RocketHas.class(RocketDOM.html, noTouchClass)) {
-      RocketClass.add(RocketDOM.html, noTouchClass);
+   if (!RocketIs.touch() && !RocketHas.class({check: RocketDOM.html, has: noTouchClass})) {
+      RocketClass.add({to: RocketDOM.html, classNames: noTouchClass});
    }
 }

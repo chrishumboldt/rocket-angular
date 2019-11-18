@@ -3,11 +3,20 @@
  */
 
 /**
+ * Interfaces.
+ */
+interface RocketRegExTestOptions {
+   check: string;
+   regEx: RegExp;
+}
+
+/**
  * Regular expression test.
  *
- * @param check - The string to check for.
- * @param regExTest - The regular expression to check against.
+ * @param options - The deconstructed options object.
+ * @param options.check - The string to check for.
+ * @param options.regEx - The regular expression to check against.
  */
-export function RocketRegExTest(check: string, regExTest: RegExp): boolean {
-   return regExTest.test(check);
+export function RocketRegExTest({ check, regEx }: RocketRegExTestOptions): boolean {
+   return regEx.test(check);
 }

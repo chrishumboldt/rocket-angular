@@ -5,6 +5,7 @@
 import { RocketIs } from './is.tool';
 
 interface FormatBytesOptions {
+   bytes: string;
    decimals?: number;
 };
 
@@ -13,11 +14,11 @@ interface FormatBytesOptions {
  * As per Aliceljm:
  * http://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
  *
- * @param bytes - The bytes to format.
  * @param options - The deconstructed options object.
+ * @param options.bytes - The bytes to format.
  * @param options.decimals - The amount of decimals places to return.
  */
-function formatBytes(bytes: string, {decimals = 2}: FormatBytesOptions): string {
+function formatBytes({ bytes, decimals = 2 }: FormatBytesOptions): string {
    if (typeof bytes !== 'number' || bytes === 0) {
       return '0 Byte';
    }

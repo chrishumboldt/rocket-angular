@@ -32,7 +32,6 @@ export * from './tool/array.tool';
 export * from './tool/classes.tool';
 export * from './tool/clone.tool';
 export * from './tool/convert.tool';
-export * from './tool/development.tool';
 export * from './tool/dom.tool';
 export * from './tool/exists.tool';
 export * from './tool/extension.tool';

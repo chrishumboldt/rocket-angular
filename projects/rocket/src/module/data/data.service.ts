@@ -11,7 +11,6 @@ import { Pane } from '../pane/pane.class';
 import { DataName, RocketData } from '../../store/data.store';
 import { RocketArray } from '../../tool/array.tool';
 import { RocketIs } from '../../tool/is.tool';
-import { RocketLog } from '../../tool/development.tool';
 import { RocketSort } from '../../tool/sort.tool';
 
 import { DataEntry, SubscribeToOptions } from './data.class';
@@ -74,11 +73,11 @@ export class RocketDataService {
        * Make sure a date entry isn't being created that uses a reserved data key.
        */
       if (!force && this.isReservedName(name)) {
-         RocketLog(`ROCKET DATA CREATE: The data key name "${name}" that you submitted is reserved and therefore invalid. Please use a different name.`);
+         console.log(`ROCKET DATA CREATE: The data key name "${name}" that you submitted is reserved and therefore invalid. Please use a different name.`);
          return;
       }
       if (this.exists(name)) {
-         RocketLog(`ROCKET DATA CREATE: The data key name "${name}" that you submitted already exists. Rather use the update method to update the existing data.`);
+         console.log(`ROCKET DATA CREATE: The data key name "${name}" that you submitted already exists. Rather use the update method to update the existing data.`);
          return;
       }
 
@@ -109,7 +108,7 @@ export class RocketDataService {
        */
       if (this.isObservable(name)) {
          this.dataStore.delete(`${name}$`);
-         RocketArray.remove(this.dataIsObservable, {value: name});
+         RocketArray.remove({data: this.dataIsObservable, value: name});
       }
       /**
        * Now remove the actual data entry.
@@ -274,7 +273,7 @@ export class RocketDataService {
                 * Make sure we only create non-reservaed observables.
                 */
                if (!this.exists(item) && !this.isReservedName(item)) {
-                  RocketLog(`ROCKET DATA OBSERVABLE: No observable data with name "${item}" was found, so one has been created. This is not ideal. Create the observable data ahead of time instead.`);
+                  console.log(`ROCKET DATA OBSERVABLE: No observable data with name "${item}" was found, so one has been created. This is not ideal. Create the observable data ahead of time instead.`);
                   this.create(new DataEntry({name: item, data: RocketData.BLANK}));
                }
 
@@ -301,9 +300,9 @@ export class RocketDataService {
    private sortData({data, sortBy, sortOrder = 'asc'}: SortDataOptions): any {
       if (sortBy && sortBy.length > 0) {
          if (RocketIs.array(data)) {
-            RocketSort.array(data, {by: sortBy, order: sortOrder});
+            RocketSort.array({data, by: sortBy, order: sortOrder});
          } else if (RocketIs.map(data)) {
-            RocketSort.map(data, {by: sortBy, order: sortOrder});
+            RocketSort.map({data, by: sortBy, order: sortOrder});
          }
       }
 
@@ -329,7 +328,7 @@ export class RocketDataService {
        * If the observable does not exist, create it so that it can be managed.
        */
       if (!this.exists(name)) {
-         RocketLog(`ROCKET DATA UPDATE: No data with name "${name}" was found, so one has been created`);
+         console.log(`ROCKET DATA UPDATE: No data with name "${name}" was found, so one has been created`);
          this.create({name, data: RocketData.BLANK});
       }
 

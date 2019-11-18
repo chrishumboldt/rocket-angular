@@ -32,17 +32,17 @@ export class RocketConfigService {
    constructor(
       @Optional() config: RocketConfig = {}
    ) {
-      this.font = ValueGenerator(this, config, 'font', '\'Open Sans\', Helvetica, Arial, sans-serif');
-      this.initData = ValueGenerator(this, config, 'initData', []);
-      this.loaderColour = ValueGenerator(this, config, 'loaderColour', SecondaryColour.GREY_BLUE);
-      this.loaderSize = ValueGenerator(this, config, 'loaderSize', LoaderSize.DEFAULT);
-      this.loaderType = ValueGenerator(this, config, 'loaderType', LoaderType.SPINNER);
-      this.paneRenderContentOnActive = ValueGenerator(this, config, 'paneRenderContentOnActive', true);
-      this.paneStartingLevel = ValueGenerator(this, config, 'paneStartingLevel', 200);
-      this.sizeSmall = ValueGenerator(this, config, 'sizeSmall', 350);
-      this.sizeMedium = ValueGenerator(this, config, 'sizeMedium', 750);
-      this.storageName = ValueGenerator(this, config, 'storageName', 'RocketStorage');
-      this.storageType = ValueGenerator(this, config, 'storageType', StorageType.SESSION);
+      this.font = ValueGenerator({input: config.font, fallback: '\'Open Sans\', Helvetica, Arial, sans-serif'});
+      this.initData = ValueGenerator({input: config.initData, fallback: []});
+      this.loaderColour = ValueGenerator({input: config.loaderColour, fallback: SecondaryColour.GREY_BLUE});
+      this.loaderSize = ValueGenerator({input: config.loaderSize, fallback: LoaderSize.DEFAULT});
+      this.loaderType = ValueGenerator({input: config.loaderType, fallback: LoaderType.SPINNER});
+      this.paneRenderContentOnActive = ValueGenerator({input: config.paneRenderContentOnActive, fallback: true});
+      this.paneStartingLevel = ValueGenerator({input: config.paneStartingLevel, fallback: 200});
+      this.sizeSmall = ValueGenerator({input: config.sizeSmall, fallback: 350});
+      this.sizeMedium = ValueGenerator({input: config.sizeMedium, fallback: 750});
+      this.storageName = ValueGenerator({input: config.storageName, fallback: 'RocketStorage'});
+      this.storageType = ValueGenerator({input: config.storageType, fallback: StorageType.SESSION});
 
       /**
        * Setup the application since configuration should always be included.

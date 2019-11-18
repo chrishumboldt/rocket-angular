@@ -3,7 +3,6 @@
  */
 
 import { ValueGenerator } from '../../generator/value.generator';
-import { RocketData } from '../../store/data.store';
 import { State } from '../../store/state.store';
 import { RocketRandom } from '../../tool/random.tool';
 
@@ -14,9 +13,9 @@ export class Pane {
    visibility: State;
 
    constructor(input: any = {}) {
-      this.active = ValueGenerator(this, input, 'active', false);
-      this.level = ValueGenerator(this, input, 'level', 0);
-      this.name = ValueGenerator(this, input, 'name', RocketRandom.string(RocketData.RANDOM_NAME_LENGTH));
-      this.visibility = ValueGenerator(this, input, 'visibility', State.HIDDEN);
+      this.active = ValueGenerator({input: input.active, fallback: false});
+      this.level = ValueGenerator({input: input.level, fallback: 0});
+      this.name = ValueGenerator({input: input.name, fallback: RocketRandom.string({length:10})});
+      this.visibility = ValueGenerator({input: input.visibility, fallback: State.HIDDEN});
    }
 }

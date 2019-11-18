@@ -9,6 +9,5 @@ export enum DataName {
 }
 
 export enum RocketData {
-   BLANK = '__ROCKET_DATA_BLANK__',
-   RANDOM_NAME_LENGTH = 10
+   BLANK = '__ROCKET_DATA_BLANK__'
 }

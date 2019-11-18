@@ -9,8 +9,8 @@ export class Size {
    width: number;
 
    constructor(input: any = {}) {
-      this.height = ValueGenerator(this, input, 'height', 0);
-      this.width = ValueGenerator(this, input, 'width', 0);
+      this.height = ValueGenerator({input: input.height, fallback: 0});
+      this.width = ValueGenerator({input: input.width, fallback: 0});
    }
 }
 
@@ -19,7 +19,7 @@ export class SizeClasses {
    width: string;
 
    constructor(input: any = {}) {
-      this.height = ValueGenerator(this, input, 'height', '');
-      this.width = ValueGenerator(this, input, 'width', '');
+      this.height = ValueGenerator({input: input.height, fallback: ''});
+      this.width = ValueGenerator({input: input.width, fallback: ''});
    }
 }

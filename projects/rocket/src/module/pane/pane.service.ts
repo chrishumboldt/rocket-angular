@@ -9,7 +9,6 @@ import { RocketDataService } from '../data/data.service';
 import { DataName } from '../../store/data.store';
 import { Prefix } from '../../store/prefix.store';
 import { State } from '../../store/state.store';
-import { RocketLog } from '../../tool/development.tool';
 
 import { Pane } from './pane.class';
 import { PaneStateChangeOptions } from './pane.interface';
@@ -92,7 +91,7 @@ export class RocketPaneService {
           */
          this.updatePanes(panes);
       } else {
-         RocketLog(`${Prefix.LOG} A pane with the name "${name}" cannot be found thus the active state cannot be updated.`);
+         console.log(`${Prefix.LOG} A pane with the name "${name}" cannot be found thus the active state cannot be updated.`);
       }
    }
 
@@ -171,7 +170,7 @@ export class RocketPaneService {
 
          return newPane;
       } else {
-         RocketLog(`${Prefix.LOG} A pane with the name "${name}" already exists.`);
+         console.log(`${Prefix.LOG} A pane with the name "${name}" already exists.`);
       }
    }
 

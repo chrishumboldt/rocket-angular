@@ -6,22 +6,39 @@ import { extensionList } from './extension.tool';
 import { RocketIs } from './is.tool';
 
 /**
+ * Interfaces.
+ */
+interface HasClassOptions {
+   check: any;
+   has: string;
+}
+interface HasExtensionOptions {
+   allowedTypes: string[];
+   check: string;
+}
+
+/**
  * Check if an element has a class name.
  *
- * @param check - The element to check for.
- * @param classNames - The class names to check against.
+ * @param options - The deconstructed options object.
+ * @param options.check - The element to check for.
+ * @param options.has - The class names to check against.
  */
-function hasClass(check: any, classNames: string): boolean {
-   return (' ' + check.className + ' ').indexOf(' ' + classNames + ' ') > -1;
+function hasClass({ check, has }: HasClassOptions): boolean {
+   return (' ' + check.className + ' ').indexOf(' ' + has + ' ') > -1;
 }
 
 /**
  * Check to see if a string fulfils the allowed extensions check.
  *
- * @param check - The string to check for.
- * @param allowedTypes - The allowed types to check against.
+ * @param options - The deconstructed options object.
+ * @param options.allowedTypes - The allowed types to check against.
+ * @param options.check - The string to check for.
  */
-function hasExtension(check: string, allowedTypes: string[] = extensionList): boolean {
+function hasExtension({
+   allowedTypes = extensionList,
+   check
+}: HasExtensionOptions): boolean {
    /**
     * Make sure the allowed types is an array. This caters for user defined
     * lists. If not fail the check.
