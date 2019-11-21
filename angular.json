@@ -142,6 +142,7 @@
                "builder": "@angular-devkit/build-angular:karma",
                "options": {
                   "main": "projects/rocket/src/test.ts",
+                  "polyfills": "src/polyfills.ts",
                   "tsConfig": "projects/rocket/tsconfig.spec.json",
                   "karmaConfig": "projects/rocket/karma.conf.js"
                }
