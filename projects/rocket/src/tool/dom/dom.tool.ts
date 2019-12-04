@@ -236,9 +236,7 @@ function domSelectElement(selector: any): HTMLElement {
     * Determine the selector condition.
     */
    if (RocketIs.string(selector)) {
-      /**
-       * Work with a string selector data.
-       */
+      // Work with a string selector data.
       switch (RocketGet.selectorType(selector)) {
          case SelectorType.GET_ELEMENT_BY_ID:
             return document.getElementById(selector.substring(1));
@@ -253,9 +251,7 @@ function domSelectElement(selector: any): HTMLElement {
        */
       return selector;
    } else if (RocketIs.object(selector)) {
-      /**
-       * An object was detected so handle this use case properly.
-       */
+      // An object was detected so handle this use case properly.
       if (selector === window || selector === document) {
          // Return document and window references.
          return selector;

@@ -15,6 +15,7 @@ export * from './helper/rocket.helper';
 /**
  * Models.
  */
+export * from './model/config.model';
 export * from './model/data.model';
 export * from './model/size.model';
 /**
@@ -26,6 +27,7 @@ export * from './module/pane.module';
 /**
  * Services.
  */
+export * from './service/config/config.service';
 export * from './service/data/data.service';
 export * from './service/pane/pane.service';
 export * from './service/storage/storage.service';
@@ -62,6 +64,7 @@ export * from './tool/is/is.tool';
 export * from './tool/random/random.tool';
 export * from './tool/reg-ex/reg-ex.tool';
 export * from './tool/setup/setup.tool';
+export * from './tool/size/size.tool';
 export * from './tool/sort/sort.tool';
 export * from './tool/string/string.tool';
 export * from './tool/transform/transform.tool';

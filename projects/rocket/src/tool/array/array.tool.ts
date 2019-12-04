@@ -55,9 +55,7 @@ function arrayClean({ data, hardClean = false }: ArrayCleanOptions): any[] {
 function arrayMake({ data, unique = false }: ArrayMakeOptions): any[] {
    let returnArray = [];
 
-   /**
-    * Determine what the data type is.
-    */
+   // Determine what the data type is.
    if (RocketIs.array(data)) {
       returnArray = data;
    } else if (RocketIs.element(data)) {
@@ -65,10 +63,8 @@ function arrayMake({ data, unique = false }: ArrayMakeOptions): any[] {
    } else if (RocketIs.string(data)) {
       returnArray = data.split(' ');
    } else if (RocketIs.object(data)) {
-      /**
-       * Try and catch HTMLCollection and NodeList.
-       */
-      data = Array.prototype.slice.call(data);
+      // Try and catch HTMLCollection and NodeList.
+      data = Array.from(data);
 
       if (RocketIs.array(data) && data.length > 0) {
          returnArray = data;

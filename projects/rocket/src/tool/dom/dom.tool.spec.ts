@@ -37,4 +37,9 @@ describe('Rocket DOM tool:', () => {
       // Test the result.
       expect(parentElement.querySelector(`.${className}`)).toBeFalsy();
    });
+
+   it('Should select a tag on the page.', () => {
+      const header = RocketDOM.element('head');
+      expect(header).toBeTruthy();
+   });
 });

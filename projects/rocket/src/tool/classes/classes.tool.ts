@@ -21,6 +21,11 @@ import {
  * @param options.element - The HTML elements.
  */
 function classNameAddExecute({ classNames, element }: ClassNameExecuteOptions): void {
+   // Do nothing should the element not exist.
+   if (!RocketIs.element(element)) {
+      return;
+   }
+
    element.className = element.className
       .split(' ')
       .concat(classNames)
@@ -83,9 +88,7 @@ function classNameModification({
    add = undefined,
    remove = undefined
 }: ClassNameModificationOptions): void {
-   /**
-    * Do nothing should the elements not exist.
-    */
+   // Do nothing should the elements not exist.
    if (!RocketExists(elements)) {
       return;
    }
@@ -132,6 +135,11 @@ function classNameRemoveExecute({
    element,
    classNames
 }: ClassNameExecuteOptions): void {
+   // Do nothing should the elements not exist.
+   if (!RocketIs.element(element)) {
+      return;
+   }
+
    element.className = element.className
       .split(' ')
       .filter((value: string) => classNames.indexOf(value) < 0)
@@ -191,11 +199,7 @@ function classNameToggle({
 }: ClassNameToggleOptions): void {
    const elementList: HTMLElement[] = createElementList(elements);
 
-   // console.log(elementList);
-
-   /**
-    * Catch.
-    */
+   // Catch.
    if (
       !RocketExists(elementList)
       || !RocketIs.string(className)
@@ -221,10 +225,10 @@ function classNameToggle({
 function createElementList(elements: any): HTMLElement[] {
    if (RocketIs.string(elements)) {
       return RocketDOM.select(elements);
-   } else if (!RocketIs.array(elements)) {
-      return [elements];
-   } else {
+   } else if (RocketIs.array(elements)) {
       return elements;
+   } else {
+      return RocketArray.make({data: elements});
    }
 }
 

@@ -64,6 +64,15 @@ function isElement(check: any): boolean {
 }
 
 /**
+ * Determine if the data is an element array (HTMLCollection).
+ *
+ * @param check - The data to check.
+ */
+function isElementArray(check: any): boolean {
+   return (NodeList.prototype.isPrototypeOf(check));
+}
+
+/**
  * Determine if the data is in an email format.
  *
  * @param check - The email string to check.
@@ -213,6 +222,7 @@ export const RocketIs = {
    browser: isBrowser,
    date: isDate,
    element: isElement,
+   elementArray: isElementArray,
    email: isEmail,
    function: isFunction,
    hexColor: isHexColour,

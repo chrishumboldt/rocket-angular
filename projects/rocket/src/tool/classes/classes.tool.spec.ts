@@ -3,6 +3,8 @@
  */
 
 import { RocketClass } from './classes.tool';
+import { RocketIs } from '../is/is.tool';
+import { RocketArray } from '../array/array.tool';
 
 describe('Rocket Classes Tool:', () => {
    let testElement: HTMLElement;
@@ -23,14 +25,38 @@ describe('Rocket Classes Tool:', () => {
       const classNames = 'starWarsRocks ewoksRule';
 
       RocketClass.add({to: testElement, classNames: classNames});
-      expect(testElement.className).toEqual(classNames);
+      expect(testElement.className).toBe(classNames);
    });
 
    it('Should add class names to an element by array.', () => {
       const classNames = ['starWarsRocks', 'ewoksRule'];
 
       RocketClass.add({to: testElement, classNames: classNames});
-      expect(testElement.className).toEqual(classNames.join(' '));
+      expect(testElement.className).toBe(classNames.join(' '));
+   });
+
+   it('Should add a class name to multiple elements.', () => {
+      const className = 'jediRule';
+      const elements = [testElement, testElement2];
+
+      RocketClass.add({to: elements, classNames: className});
+      expect(elements[0].className).toBe(className);
+      expect(elements[1].className).toBe(className);
+   });
+
+   it('Should add a class name to the browser <a>\'s.', () => {
+      const className = 'starWarsIsTheBest';
+      const links = document.querySelectorAll('a');
+
+      RocketClass.add({
+         to: links,
+         classNames: className
+      });
+
+      // Test that the links have the class.
+      links.forEach((link: HTMLElement) => {
+         expect(link.className.split(' ').includes(className)).toBeTruthy();
+      });
    });
 
    it('Should remove all class names from an element.', () => {
@@ -38,7 +64,7 @@ describe('Rocket Classes Tool:', () => {
 
       // Make sure that the class names are there first.
       RocketClass.add({to: testElement, classNames});
-      expect(testElement.className).toEqual(classNames.join(' '));
+      expect(testElement.className).toBe(classNames.join(' '));
 
       // Now clear the class names.
       RocketClass.clear(testElement);
@@ -50,12 +76,12 @@ describe('Rocket Classes Tool:', () => {
 
       // Make sure that all the class names are there first.
       RocketClass.add({to: testElement, classNames});
-      expect(testElement.className).toEqual(classNames.join(' '));
+      expect(testElement.className).toBe(classNames.join(' '));
 
       // Let remove all class names except for "Hoth".
       const hothClass = classNames.pop();
       RocketClass.remove({from: testElement, classNames: classNames});
-      expect(testElement.className).toEqual(hothClass);
+      expect(testElement.className).toBe(hothClass);
    });
 
    it('Should replace the class name on an element.', () => {
@@ -64,11 +90,11 @@ describe('Rocket Classes Tool:', () => {
 
       // Assign the original class.
       RocketClass.add({to: testElement, classNames: startingClass});
-      expect(testElement.className).toEqual(startingClass);
+      expect(testElement.className).toBe(startingClass);
 
       // Replace the class name.
       RocketClass.replace({elements: testElement, add: newClass, remove: startingClass});
-      expect(testElement.className).toEqual(newClass);
+      expect(testElement.className).toBe(newClass);
    });
 
    it('Should toggle a class name on an element.', () => {
@@ -76,7 +102,7 @@ describe('Rocket Classes Tool:', () => {
 
       // Toggle the class on.
       RocketClass.toggle({elements: testElement, className: toggleClass});
-      expect(testElement.className).toEqual(toggleClass);
+      expect(testElement.className).toBe(toggleClass);
 
       // Toggle the class off.
       RocketClass.toggle({elements: testElement, className: toggleClass});
@@ -88,8 +114,8 @@ describe('Rocket Classes Tool:', () => {
 
       // Toggle the class on.
       RocketClass.toggle({elements: [testElement, testElement2], className: toggleClass});
-      expect(testElement.className).toEqual(toggleClass);
-      expect(testElement2.className).toEqual(toggleClass);
+      expect(testElement.className).toBe(toggleClass);
+      expect(testElement2.className).toBe(toggleClass);
 
       // Toggle the class off.
       RocketClass.toggle({elements: [testElement, testElement2], className: toggleClass});
