@@ -1,0 +1,71 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@import 'node_modules/@chrishumboldt/rocket-propel/import';
+@import './variables';
+
+/**
+ * Large.
+ */
+:host._size-large {
+   @include padding-vertical($loader-size-large);
+}
+:host._size-large .mod--loader {
+   @include square($loader-size-large);
+}
+:host._size-large._type-spinner .mod--part._number-1 {
+   @include square($loader-size-large);
+   border-width: 4px;
+}
+:host._size-large._type-pulse .mod--part._number-1,
+:host._size-large._type-pulse .mod--part._number-2 {
+   @include square($loader-size-large);
+   border-width: 4px;
+}
+:host._size-large._type-dots .mod--loader {
+   @include width(106px);
+}
+:host._size-large._type-dots .mod--part._number-1,
+:host._size-large._type-dots .mod--part._number-2,
+:host._size-large._type-dots .mod--part._number-3 {
+   @include position-set(margin-top $dot-size-half-large);
+   @include square($dot-size-large);
+}
+:host._size-large._type-dots .mod--part._number-2 {
+   @include position-set(left 50% margin-left $dot-size-half-large);
+}
+/**
+ * Small.
+ */
+:host._size-small {
+   @include padding-vertical($loader-size-small);
+}
+:host._size-small .mod--loader {
+   @include square($loader-size-small);
+}
+:host._size-small .mod--text {
+   @include padding-top($space-x-small);
+   @include text-size(14px);
+}
+:host._size-small._type-spinner .mod--part._number-1 {
+   @include square($loader-size-small);
+   border-width: 2px;
+}
+:host._size-small._type-pulse .mod--part._number-1,
+:host._size-small._type-pulse .mod--part._number-2 {
+   @include square($loader-size-small);
+   border-width: 2px;
+}
+:host._size-small._type-dots .mod--loader {
+   @include width(56px);
+}
+:host._size-small._type-dots .mod--part._number-1,
+:host._size-small._type-dots .mod--part._number-2,
+:host._size-small._type-dots .mod--part._number-3 {
+   @include position-set(margin-top $dot-size-half-small);
+   @include square($dot-size-small);
+}
+:host._size-small._type-dots .mod--part._number-2 {
+   @include position-set(left 50% margin-left $dot-size-half-small);
+}
