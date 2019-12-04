@@ -2,6 +2,7 @@
  * @author Chris Humboldt
  */
 
+import { RocketExists } from '../exists/exists.tool';
 import { RocketIs } from '../is/is.tool';
 import {
    ArrayCleanOptions,
@@ -62,7 +63,7 @@ function arrayMake({ data, unique = false }: ArrayMakeOptions): any[] {
       returnArray.push(data);
    } else if (RocketIs.string(data)) {
       returnArray = data.split(' ');
-   } else if (RocketIs.object(data)) {
+   } else if (RocketExists(data) && RocketIs.object(data)) {
       // Try and catch HTMLCollection and NodeList.
       data = Array.from(data);
 
