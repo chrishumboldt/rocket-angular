@@ -33,40 +33,27 @@ function getIndex(node: any): number {
  */
 function getSelectorType(selector: string): SelectorType {
    if (!selector) {
-      /**
-      * The selector type is unknow.
-      */
+      // The selector type is unknow.
       return SelectorType.UNKNOWN;
    } else if (
       selector.indexOf('.') > -1
       || RocketHas.spaces(selector)
       || RocketRegExTest({check: selector, regEx: RegEx.ATTRIBUTE})
    ) {
-      /**
-       * The selector is of type query selector all.
-       */
+      // The selector is of type query selector all.
       return SelectorType.QUERY_SELECTOR_ALL;
    } else if (selector.indexOf('#') > -1) {
-      /**
-       * The selector is of type id.
-       */
+      // The selector is of type id.
       return SelectorType.GET_ELEMENT_BY_ID;
    } else if (RocketRegExTest({check: selector, regEx: RegEx.TAG})) {
-      /**
-       * The selector is of type tag name.
-       */
+      // The selector is of type tag name.
       return SelectorType.GET_ELEMENT_BY_TAG;
    } else {
-      /**
-       * The selector type is unknow.
-       */
+      // The selector type is quite simply unknown.
       return SelectorType.UNKNOWN;
    }
 }
 
-/**
- * Export.
- */
 export const RocketGet = {
    extension: getExtension,
    index: getIndex,

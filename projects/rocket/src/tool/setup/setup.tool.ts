@@ -38,40 +38,29 @@ body {
    padding: 0;
 }`;
 
-   /**
-    * Get the style element.
-    */
+   // Get the style element.
    const styleElm = RocketDOM.element(`#${styleId}`);
-   /**
-    * Check if the style element exists.
-    */
+
+   // Check if the style element exists.
    if (!styleElm) {
-      /**
-       * Create the style tag first and set the id.
-       */
+      // Create the style tag first and set the id.
       const styleTag = document.createElement('style');
+
       styleTag.id = styleId;
-      /**
-       * Now create the content that will exist within the style tag.
-       */
+      
+      // Now create the content that will exist within the style tag.
       const styleTagContent = document.createTextNode(styleContent);
-      /**
-       * Append the style tag content to the tag itself.
-       */
+
+      // Append the style tag content to the tag itself.
       styleTag.appendChild(styleTagContent);
-      /**
-       * Attach the new style tag to the header.
-       */
+      // Attach the new style tag to the header.
       RocketDOM.add({to: RocketDOM.head, element: styleTag});
    } else {
-      /**
-       * The style element already exists so just replace the existing style content.
-       */
+      // The style element already exists so just replace the existing style content.
       styleElm.textContent = styleContent;
    }
-   /**
-    * Set the touch class.
-    */
+
+   // Set the touch class.
    if (!RocketIs.touch() && !RocketHas.class({check: RocketDOM.html, has: noTouchClass})) {
       RocketClass.add({to: RocketDOM.html, classNames: noTouchClass});
    }

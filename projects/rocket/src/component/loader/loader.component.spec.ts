@@ -13,9 +13,7 @@ import { RocketLoaderComponent } from './loader.component';
 describe('Rocket Loader Component:', () => {
    let rocketLoader: RocketLoaderComponent;
 
-   /**
-    * Setup the tests.
-    */
+   // Setup the tests.
    beforeEach(() => {
       TestBed.configureTestingModule({
          providers: [
@@ -28,9 +26,7 @@ describe('Rocket Loader Component:', () => {
       rocketLoader = TestBed.get(RocketLoaderComponent);
    });
 
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should initialise.', () => {
       expect(rocketLoader).toBeTruthy();
    });

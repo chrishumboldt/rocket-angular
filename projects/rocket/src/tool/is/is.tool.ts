@@ -37,7 +37,7 @@ function isBoolean(check: any): boolean {
  * Determine if the current client is a browser.
  */
 function isBrowser(): boolean {
-   /**
+   /*
     * A very basic check to detect if using a browser.
     * Lifted this directly from the Require.js check.
     * https://github.com/requirejs/requirejs/blob/master/require.js
@@ -111,7 +111,7 @@ function isImage({
    allowedTypes = imageExtensionList,
    check
 }: IsImageOptions): boolean {
-   /**
+   /*
     * Make sure the allowed types is an array. This caters for user defined
     * lists. If not fail the check.
     */
@@ -213,9 +213,6 @@ function isURL(check: string): boolean {
    return RocketRegExTest({check, regEx: RegEx.URL});
 }
 
-/**
- * Exports.
- */
 export const RocketIs = {
    array: isArray,
    boolean: isBoolean,

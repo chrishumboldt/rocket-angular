@@ -15,7 +15,7 @@ import { State } from '../../store/state.store';
    providedIn: 'root'
 })
 export class RocketPaneService {
-   /**
+   /*
     * The last active pane will carry this determined level (z-index). The ultimate
     * value is derived by adding this value to the pane starting level.found in
     * the config service.
@@ -48,14 +48,12 @@ export class RocketPaneService {
    public changeState({active = false, name}: PaneStateChangeOptions): void {
       const panes = this.getPanes();
 
-      /**
-       * Make sure that the pane exists. If not then just move along, Obi-wan style.
-       */
+      // Make sure that the pane exists. If not then just move along, Obi-wan style.
       if (panes.has(name)) {
          const namedPane = panes.get(name);
 
          namedPane.active = active;
-         /**
+         /*
           * Since we have found the pane the activation and deactivation will
           * determine the new level for all the panes.
           */
@@ -67,7 +65,7 @@ export class RocketPaneService {
             namedPane.level = 0;
             namedPane.visibility = State.HIDDEN;
 
-            /**
+            /*
              * Now if we are deactivating the highest level pane then we need to
              * decrement the active pane level to the highest active value, else
              * reset it.
@@ -84,9 +82,7 @@ export class RocketPaneService {
 
             this.activePaneLevel = newActivePaneLevel;
          }
-         /**
-          * Update the panes data.
-          */
+         // Update the panes data.
          this.updatePanes(panes);
       } else {
          console.log(`${Prefix.LOG} A pane with the name "${name}" cannot be found thus the active state cannot be updated.`);
@@ -111,16 +107,12 @@ export class RocketPaneService {
       const panes = this.getPanes();
 
       if (panes.size > 0) {
-         /**
-          * Iterate over the panes and change the active state of all to false.
-          */
+         // Iterate over the panes and change the active state of all to false.
          for (let pane of panes.values()) {
             pane.active = false;
          }
 
-         /**
-          * Update the data.
-          */
+         // Update the data.
          this.updatePanes(panes);
          this.activePaneLevel = 0;
       }
@@ -157,9 +149,7 @@ export class RocketPaneService {
    public register(name: string): Pane {
       const panes = this.getPanes();
 
-      /**
-       * Make sure that a pane with that name does not already exist.
-       */
+      // Make sure that a pane with that name does not already exist.
       if (!panes.has(name)) {
          const newPane = new Pane({name});
 

@@ -42,7 +42,7 @@ export abstract class RocketHelper implements OnDestroy {
     * Get the keys of the data stored in the data service.
     */
    public getDataKeys(): string[] {
-      /**
+      /*
        * Make sure the observable name is not returned and merely the
        * behaviour subjects.
        */
@@ -57,9 +57,7 @@ export abstract class RocketHelper implements OnDestroy {
     * @param options - The method options.
     */
    public subscribeToData(options: SubscribeToOptions): any {
-      /**
-       * Determine the subscription based on the amount of observables.
-       */
+      // Determine the subscription based on the amount of observables.
       this.subscriptionAdd(this.rocketData.getSubscriptionFromOptions(options));
    }
 

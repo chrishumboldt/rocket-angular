@@ -100,9 +100,6 @@ function urlsegments() {
    return urlAll().segments;
 }
 
-/**
- * Exports.
- */
 export const RocketUrl = {
    all: urlAll,
    base: urlBase,

@@ -86,9 +86,6 @@ function transformBytes({ bytes, decimals = 2 }: TransformBytesOptions): string 
    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
 
-/**
- * Exports.
- */
 export const RocketTransform = {
    bytes: transformBytes,
    enumToArray,

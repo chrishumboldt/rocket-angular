@@ -6,9 +6,7 @@ import { SortOrder } from '../../store/sort.store';
 import { RocketSort } from './sort.tool';
 
 describe('Rocket Sort Tool:', () => {
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should naturally sort an array in the desired direction.', () => {
       const testArray = ['Yoda', 'Darth Vader', 2, 'Luke Skywalker'];
       const resultAsc = [2, 'Darth Vader', 'Luke Skywalker', 'Yoda'];

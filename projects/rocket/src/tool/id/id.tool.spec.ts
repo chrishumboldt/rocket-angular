@@ -12,11 +12,9 @@ describe('Rocket Id Tool:', () => {
       divElm = document.createElement('div');
    });
 
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should add the id attribute to an element.', () => {
-      /**
+      /*
        * Starting state should be false.
        * Next add the id attribute.
        * Finally test that the id attribute is accessible.
@@ -28,7 +26,7 @@ describe('Rocket Id Tool:', () => {
    });
 
    it('Should remove the id attribute from an element.', () => {
-      /**
+      /*
        * Start this test by adding the id attribute.
        * First test that the id is there.
        * Then remove the id and test.

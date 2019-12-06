@@ -6,9 +6,7 @@ import { SelectorType } from '../../store/selector.store';
 import { RocketGet } from './get.tool';
 
 describe('Rocket Get Tool:', () => {
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should get the extension from a string.', () => {
       expect(RocketGet.extension('filename.jpg')).toEqual('jpg');
    });

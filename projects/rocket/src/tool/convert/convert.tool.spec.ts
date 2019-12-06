@@ -14,9 +14,7 @@ describe('Rocket Convert Tool:', () => {
    const seconds = 1209600;
    const weeks = 2;
 
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should convert days into milliseconds.', () => {
       expect(RocketConvert.daysToMilliseconds(days)).toEqual(milliseconds);
    });

@@ -73,14 +73,12 @@ export class RocketPaneComponent extends RocketHelper implements OnDestroy, OnIn
       this.subscribeToData({
          name: DataName.PANES,
          onEmit: (panesMap: Map<string, Pane>) => {
-            /**
-             * Set the pane values for this component should it be available.
-             */
+            // Set the pane values for this component should it be available.
             if (panesMap.has(this.name)) {
                const thisPane = panesMap.get(this.name);
 
                this.active = thisPane.active;
-               /**
+               /*
                 * Since these values are being set right away in the service, this
                 * will cause an issue for the presentation on inactive. We actually
                 * need the pane to "disappear" with an animation before setting the

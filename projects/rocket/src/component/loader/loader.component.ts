@@ -39,15 +39,11 @@ export class RocketLoaderComponent implements OnInit {
    private setColour(): void {
       let colourClass: string = this.rocketConfig.loaderColour;
 
-      /**
-       * Determine if the type is being set.
-       */
+      // Determine if the type is being set.
       if (this.colour && this.colour.length > 0) {
          colourClass = this.colour;
       }
-      /**
-       * Apply the class name.
-       */
+      // Apply the class name.
       this.classNames += `_colour-${colourClass} `;
    }
 
@@ -57,15 +53,11 @@ export class RocketLoaderComponent implements OnInit {
    private setSize(): void {
       let sizeClass: string = this.rocketConfig.loaderSize;
 
-      /**
-       * Determine if the type is being set.
-       */
+      // Determine if the type is being set.
       if (this.size && this.size.length > 0) {
          sizeClass = this.size;
       }
-      /**
-       * Apply the class name.
-       */
+      // Apply the class name.
       this.classNames += `_size-${sizeClass} `;
    }
 
@@ -76,15 +68,11 @@ export class RocketLoaderComponent implements OnInit {
    private setType(): void {
       let typeClass: string = this.rocketConfig.loaderType;
 
-      /**
-       * Determine if the type is being set.
-       */
+      // Determine if the type is being set.
       if (this.type && this.type.length > 0) {
          typeClass = this.type;
       }
-      /**
-       * Determine the amount of types.
-       */
+      // Determine the amount of types.
       switch (typeClass) {
          case LoaderType.DOTS:
             this.parts = [1, 2, 3];
@@ -95,15 +83,11 @@ export class RocketLoaderComponent implements OnInit {
             break;
 
          default:
-            /**
-             * Fallback the type class just in case the data is odd.
-             */
+            // Fallback the type class just in case the data is odd.
             this.parts = [1];
             typeClass = LoaderType.SPINNER;
       }
-      /**
-       * Apply the class name.
-       */
+      // Apply the class name.
       this.classNames += `_type-${typeClass} `;
    }
 }

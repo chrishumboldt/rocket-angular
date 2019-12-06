@@ -19,18 +19,16 @@ import { RocketConfigService } from '../config/config.service';
    providedIn: 'root'
 })
 export class RocketDataService {
-   /**
+   /*
     * This map stores all the data created via this service. This acts as an in
     * memory persistence and gives an abstracted later of control. The motivation
     * for this service is to keep all the data in one singleton instance as opposed
     * to storing data accross multiple files. It helps keep the application clean.
     */
    public dataStore = new Map<string, any>();
-   /**
-    * Keep a record of all observables stored in the data store.
-    */
+   // Keep a record of all observables stored in the data store.
    private dataIsObservable: string[] = [];
-   /**
+   /*
     * The reserved data keys is a list of data keys reserved for Rocket use. This
     * includes active states for things like menus and loaders.
     */
@@ -76,9 +74,7 @@ export class RocketDataService {
       sortBy,
       sortOrder = SortOrder.ASCENDING
    }: DataEntry): void {
-      /**
-       * Make sure a date entry isn't being created that uses a reserved data key.
-       */
+      // Make sure a date entry isn't being created that uses a reserved data key.
       if (!force && this.isReservedName(name)) {
          console.log(`ROCKET DATA CREATE: The data key name "${name}" that you submitted is reserved and therefore invalid. Please use a different name.`);
          return;
@@ -89,7 +85,7 @@ export class RocketDataService {
       }
 
       const sortedData = this.sortData({data, sortBy, sortOrder});
-      /**
+      /*
        * If the data is being stored as an observable we now need to create two
        * reference, once for the BehaviorSubject and one for the observable instance.
        */
@@ -110,16 +106,12 @@ export class RocketDataService {
     * @param name - The key name of the data in the data store map.
     */
    public destroy(name: string): void {
-      /**
-       * Start by deleting the observable data.
-       */
+      // Start by deleting the observable data.
       if (this.isObservable(name)) {
          this.dataStore.delete(`${name}$`);
          RocketArray.remove({data: this.dataIsObservable, value: name});
       }
-      /**
-       * Now remove the actual data entry.
-       */
+      // Now remove the actual data entry.
       this.dataStore.delete(name);
    }
 
@@ -141,9 +133,7 @@ export class RocketDataService {
    public get(name: string): any {
       const theData = this.dataStore.get(name);
 
-      /**
-       * Check to see if the data is of type observable.
-       */
+      // Check to see if the data is of type observable.
       return (theData && this.isObservable(name)) ? theData.getValue() : theData;
    }
 
@@ -181,11 +171,10 @@ export class RocketDataService {
       onEmit,
       safeEmit = true
    }: SubscribeToOptions): Subscription {
-      /**
-       * Sanitise the observables list.
-       */
+      // Sanitise the observables list.
       name = this.sanitiseObservables(name);
-      /**
+
+      /*
        * Now lets manage the subscription. If its one subscription then subscribe to
        * it directly else use a combineLatest and subscribe to all of the
        * observables.
@@ -199,7 +188,7 @@ export class RocketDataService {
             .pipe(
                filter((response: any) => {
                   if (safeEmit) {
-                     /**
+                     /*
                       * Since we are cleaning the array, we can check the length to
                       * make sure that all the observables have emited valid data.
                       */
@@ -230,9 +219,7 @@ export class RocketDataService {
          })
       ];
 
-      /**
-       * Iterate over the list and create the observables.
-       */
+      // Iterate over the list and create the observables.
       initData.forEach((options: DataEntry) => {
          this.create(options);
       });
@@ -262,21 +249,15 @@ export class RocketDataService {
     * @param observableNames - The observable names to sanitise.
     */
    private sanitiseObservables(observableNames: any): Observable<any>[] {
-      /**
-       * Make sure that "observables" is an array. If not then convert it into one.
-       */
+      // Make sure that "observables" is an array. If not then convert it into one.
       observableNames = RocketArray.make({data: observableNames});
-      /**
-       * Make sure the observables in the array are actually observables.
-       */
+      // Make sure the observables in the array are actually observables.
       observableNames = RocketArray.clean({
          hardClean: true,
          data: observableNames.map((item: any) => {
-            /**
-             * Handle a string entry.
-             */
+            // Handle a string entry.
             if (RocketIs.string(item)) {
-               /**
+               /*
                 * If no observable is found, then warn the user, create a data entry
                 * and return it. That way subscribers always have some data to work
                 * with but this is a concern and should be managed correctly.
@@ -294,9 +275,7 @@ export class RocketDataService {
             }
          })
       });
-      /**
-       * Return the observable list.
-       */
+
       return observableNames;
    }
 
@@ -336,21 +315,16 @@ export class RocketDataService {
       sortBy,
       sortOrder = SortOrder.ASCENDING
    }: DataEntry): void {
-      /**
-       * If the observable does not exist, create it so that it can be managed.
-       */
+      // If the observable does not exist, create it so that it can be managed.
       if (!this.exists(name)) {
          console.log(`ROCKET DATA UPDATE: No data with name "${name}" was found, so one has been created`);
          this.create({name, data: RocketData.BLANK});
       }
 
-      /**
-       * Sort the data if required.
-       */
+      // Sort the data if required.
       const sortedData = this.sortData({data, sortBy, sortOrder});
-      /**
-       * Update the data.
-       */
+
+      // Update the data.
       if (this.isObservable(name)) {
          this.dataStore.get(name).next(sortedData);
       } else {

@@ -5,9 +5,7 @@
 import { RocketHas } from './has.tool';
 
 describe('Rocket Has Tool:', () => {
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should have a class.', () => {
       const className = 'theDeathStar';
       const elm = document.createElement('div');

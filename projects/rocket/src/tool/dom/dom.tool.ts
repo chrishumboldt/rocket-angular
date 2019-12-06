@@ -40,7 +40,7 @@ function domAdd({ element, to }: DomAddOptions): void {
       return;
    }
 
-   /**
+   /*
     * First retrieve the parent elements and then attach the new element as a child
     * node to each one in the list.
     */
@@ -114,28 +114,18 @@ function domRemoveItem(element: HTMLElement): void {
 function domSelect(selector: any): HTMLElement[] {
    let elementList = [];
 
-   /**
-    * Determine the selection type.
-    */
+   // Determine the selection type.
    if (RocketIs.string(selector)) {
-      /**
-       * String selectors are returned via another function.
-       */
+      // String selectors are returned via another function.
       elementList = elementList.concat(domSelectByString(selector));
    } else if (RocketIs.element(selector)) {
-      /**
-       * The selector is already and element so just added it in and return.
-       */
+      // The selector is already and element so just added it in and return.
       elementList.push(selector);
    } else if (RocketIs.array(selector)) {
-      /**
-       * An array requires inspecting each item in the array.
-       */
+      // An array requires inspecting each item in the array.
       let stringSelectors = '';
 
-      /**
-       * Iterate over the selectors and determine the type.
-       */
+      // Iterate over the selectors and determine the type.
       selector.forEach((item: any) => {
          if (RocketIs.string(item)) {
             // The array item is a string.
@@ -145,7 +135,7 @@ function domSelect(selector: any): HTMLElement[] {
             elementList.push(item);
          }
       });
-      /**
+      /*
        * If there are any string selectors than fetch those and populate the
        * element list.
        */
@@ -153,9 +143,7 @@ function domSelect(selector: any): HTMLElement[] {
          elementList = elementList.concat(domSelectByString(stringSelectors));
       }
    } else if (RocketIs.object(selector)) {
-      /**
-       * An object has a few conditions that needs to be checked.
-       */
+      // An object has a few conditions that needs to be checked.
       if (selector === window || selector === document) {
          elementList = [selector];
       } else {
@@ -166,9 +154,7 @@ function domSelect(selector: any): HTMLElement[] {
          }
       }
    } else if (selector === window || selector === document) {
-      /**
-       * This is accomodating a strange interaction that can occur.
-       */
+      // This is accomodating a strange interaction that can occur.
       elementList = [selector];
    }
 
@@ -194,9 +180,7 @@ function domSelectByString(selector: string): HTMLElement[] {
          hardClean: true
       });
 
-      /**
-       * Iterate over the selector strings and get the elements.
-       */
+      // Iterate over the selector strings and get the elements.
       selectorSplit.forEach((item: string) => {
          switch (RocketGet.selectorType(item)) {
             case SelectorType.GET_ELEMENT_BY_ID:
@@ -214,7 +198,6 @@ function domSelectByString(selector: string): HTMLElement[] {
       });
    }
 
-   // Return the result.
    return elementList;
 }
 
@@ -232,9 +215,7 @@ function domSelectElement(selector: any): HTMLElement {
       return undefined;
    }
 
-   /**
-    * Determine the selector condition.
-    */
+   // Determine the selector condition.
    if (RocketIs.string(selector)) {
       // Work with a string selector data.
       switch (RocketGet.selectorType(selector)) {
@@ -245,7 +226,7 @@ function domSelectElement(selector: any): HTMLElement {
             return document.querySelector(selector);
       }
    } else if (RocketIs.element(selector)) {
-      /**
+      /*
        * If the selector is an element than who knows why this function is being
        * called but just return the element back.
        */
@@ -269,9 +250,6 @@ function domSelectElement(selector: any): HTMLElement {
    }
 }
 
-/**
- * Export.
- */
 export const RocketDOM = {
    add: domAdd,
    body: domBody,

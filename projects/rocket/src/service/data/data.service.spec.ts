@@ -16,9 +16,7 @@ describe('Rocket Data Service:', () => {
    const dataValue = 'Luke Skywalker';
    let rocketData: RocketDataService;
 
-   /**
-    * Setup each test.
-    */
+   // Setup each test.
    beforeEach(() => {
       TestBed.configureTestingModule({
          providers: [
@@ -31,14 +29,12 @@ describe('Rocket Data Service:', () => {
       rocketData = TestBed.get(RocketDataService);
    });
 
+   // Clear the data store after each test.
    afterEach(() => {
-      // Clear the data store after each test.
       rocketData.clear();
    });
 
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should initialise.', () => {
       expect(rocketData).toBeTruthy();
    });
@@ -120,7 +116,7 @@ describe('Rocket Data Service:', () => {
    });
 
    it('Should get the data entry from the data store if the data is an observable.', () => {
-      /**
+      /*
        * Of course we are going to create an observable entry and a
        * non-observalbe entry.
        */

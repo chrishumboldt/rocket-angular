@@ -100,9 +100,6 @@ function uppercaseLast(data: string = ''): string {
    return `${asString.slice(0, asString.length - 1)}${asString.charAt(asString.length - 1).toUpperCase()}`;
 }
 
-/**
- * Exports.
- */
 export const RocketString = {
    remove: {
       first: removeFirst,

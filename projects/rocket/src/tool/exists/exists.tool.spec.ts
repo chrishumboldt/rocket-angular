@@ -5,9 +5,7 @@
 import { RocketExists } from './exists.tool';
 
 describe('Rocket Exists Tool:', () => {
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should successfully test for the existence of a value.', () => {
       const nothing = undefined;
       const nonExistent = null;

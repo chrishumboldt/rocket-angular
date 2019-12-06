@@ -11,9 +11,7 @@ import { RocketStorageService } from './storage.service';
 describe('Rocket Storage Service:', () => {
    let rocketStorage: RocketStorageService;
 
-   /**
-    * Setup each test.
-    */
+   // Setup each test.
    beforeEach(() => {
       TestBed.configureTestingModule({
          providers: [
@@ -26,16 +24,12 @@ describe('Rocket Storage Service:', () => {
       rocketStorage = TestBed.get(RocketStorageService);
    });
 
-   /**
-    * Remove the storage after the tests.
-    */
+   // Remove the storage after the tests.
    afterEach(() => {
       sessionStorage.removeItem('RocketStorage');
    });
 
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should initialise.', () => {
       expect(rocketStorage).toBeTruthy();
    });

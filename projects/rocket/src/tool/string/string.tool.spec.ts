@@ -6,9 +6,7 @@ import { RocketString } from './string.tool';
 
 describe('Rocket String Tool:', () => {
 
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should lowercase an entire string.', () => {
       expect(RocketString.lowercase.all('Some text.')).toEqual('some text.');
    });

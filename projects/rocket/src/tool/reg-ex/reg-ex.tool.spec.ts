@@ -6,9 +6,7 @@ import { RocketRegExTest } from './reg-ex.tool';
 import { RegEx } from '../../store/reg-ex.store';
 
 describe('Rocket Regular Expression Tool:', () => {
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should successfully test an email regular expression.', () => {
       const functionTest = RocketRegExTest({
          check: 'rocket@rocket.com',

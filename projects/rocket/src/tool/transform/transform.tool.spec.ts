@@ -5,9 +5,7 @@
 import { RocketTransform } from './transform.tool';
 
 describe('Rocket Transform Tool:', () => {
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should transform bytes into a readable string.', () => {
       expect(RocketTransform.bytes({bytes: 2000})).toEqual('2 KB');
       expect(RocketTransform.bytes({bytes: 30000})).toEqual('30 KB');

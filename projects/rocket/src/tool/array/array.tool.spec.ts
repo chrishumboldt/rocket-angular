@@ -5,9 +5,7 @@
 import { RocketArray } from './array.tool';
 
 describe('Rocket Array Tool:', () => {
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should clean an array and return values that are declared.', () => {
       const testArray = [undefined, 'Darth Vader', 'Emperor Palpatine', null, ''];
 

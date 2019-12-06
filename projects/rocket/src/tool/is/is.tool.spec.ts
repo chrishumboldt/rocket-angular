@@ -13,9 +13,7 @@ describe('Rocket Is Tool:', () => {
    const numberArray = [1, 2, 3];
    const stringArray = ['Luke Skywalker', 'Darth Vader', 'Chewbacca'];
 
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should successfully test if something is an array.', () => {
       expect(RocketIs.array(stringArray)).toBeTruthy();
       expect(RocketIs.array(emptyArray)).toBeTruthy();

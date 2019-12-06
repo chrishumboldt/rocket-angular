@@ -44,9 +44,7 @@ function sizeWidth(element: any): number {
  * @param options.type - The type to get, like height or width.
  */
 function sizeWidthOrHeight({ element, type }: SizeWidthOrHeightOptions): number {
-   /**
-    * If there are any catches return 0 as a safe fallback.
-    */
+   // If there are any catches return 0 as a safe fallback.
    if (
       !RocketIs.browser()
       || !window
@@ -58,9 +56,7 @@ function sizeWidthOrHeight({ element, type }: SizeWidthOrHeightOptions): number 
    } else {
       let returnValue: any;
 
-      /**
-       * Check to see if the element is a window.
-       */
+      // Check to see if the element is a window.
       if (element === window) {
          type = RocketString.uppercase.first(type);
          returnValue = (
@@ -69,9 +65,7 @@ function sizeWidthOrHeight({ element, type }: SizeWidthOrHeightOptions): number 
             || document.body[`client${type}`]
          );
       } else {
-         /**
-          * Check if string selector.
-          */
+         // Check if string selector.
          if (RocketIs.string(element)) {
             element = RocketDOM.element(element);
          }
@@ -89,9 +83,6 @@ function sizeWidthOrHeight({ element, type }: SizeWidthOrHeightOptions): number 
    }
 }
 
-/**
- * Export.
- */
 export const RocketSize = {
    size,
    height: sizeHeight,

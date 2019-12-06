@@ -37,22 +37,18 @@ export class RocketStorageService {
    public add({ data, name }: StorageAddOptions): void {
       let storageData = this.getStorageData();
 
-      /**
+      /*
        * Check the name. If it is an object then replace the entire storage
        * with the object. If it is a string then assume that the name is
        * simply a key and bind the value to it.
        */
       if (RocketIs.string(name)) {
-         /**
-          * If there is no storage then create a new object.
-          */
+         // If there is no storage then create a new object.
          if (!storageData) {
             storageData = {};
          }
          storageData[name] = data;
-         /**
-          * Save the newly stored data into session storage by default.
-          */
+         // Save the newly stored data into session storage by default.
          this.saveStorageData(storageData);
       }
    }
@@ -65,16 +61,14 @@ export class RocketStorageService {
     * @param exclusions - Names to exlcude.
     */
    public clear(exclusions?: any): void {
-      /**
-       * Catch
-       */
+      // Catch
       if (!this.storageName) {
          return;
       }
 
       const exclusionsList = RocketArray.make({data: exclusions});
 
-      /**
+      /*
        * If there are no exclusions then simply delete the web storage
        * altogether, however should there be exclusions, edit the existing
        * storage and persist.
@@ -82,7 +76,7 @@ export class RocketStorageService {
       if (exclusionsList.length > 0) {
          const storageData = this.getStorageData();
 
-         /**
+         /*
           * Iterate over the storage data keys and delete all that fail to
           * exists in the exclusions collection.
           */
@@ -91,7 +85,7 @@ export class RocketStorageService {
                delete storageData[key];
             }
          });
-         /**
+         /*
           * Check to see if there is any data left. If not then simply delete
           * the web storage.
           */
@@ -109,9 +103,7 @@ export class RocketStorageService {
     * Delete the web storage.
     */
    private deleteStorageData(): void {
-      /**
-       * Catch
-       */
+      // Catch.
       if (!this.storageName) {
          return;
       }
@@ -141,7 +133,7 @@ export class RocketStorageService {
    private getStorageData(): object {
       let storageData: string;
 
-      /**
+      /*
        * Check to see if local storage is being used. Will default to session
        * storage always.
        */
@@ -152,10 +144,9 @@ export class RocketStorageService {
             storageData = sessionStorage.getItem(this.storageName);
          }
       }
-      /**
-       * Make sure that storage is found else return an empty object.
-       */
+      // Make sure that storage is found else return an empty object.
       return (storageData) ? RocketConvert.toJSON(storageData) : undefined;
+
    }
 
    /**
@@ -164,18 +155,14 @@ export class RocketStorageService {
     * @param name - The name of the storgae value to remove.
     */
    public remove(name: string): any {
-      /**
-       * Catch.
-       */
+      // Catch.
       if (!RocketIs.string(name)) {
          return;
       }
 
       const storageData = this.getStorageData();
 
-      /**
-       * Remove the key and update the storage again.
-       */
+      // Remove the key and update the storage again.
       if (storageData) {
          delete storageData[name];
          this.saveStorageData(storageData);

@@ -23,9 +23,7 @@ export class DataEntry {
          fallback: SortOrder.ASCENDING
       });
 
-      /**
-       * Optionals.
-       */
+      // Optionals.
       if (data.sortBy) {
          this.sortBy = ValueGenerator({data: this.sortBy});
       }

@@ -4,36 +4,24 @@
  * Public API for the Rocket library.
  */
 
-/**
- * Generators.
- */
+// Generators.
 export * from './generator/value.generator';
-/**
- * Helpers.
- */
+// Helpers.
 export * from './helper/rocket.helper';
-/**
- * Models.
- */
+// Models.
 export * from './model/config.model';
 export * from './model/data.model';
 export * from './model/size.model';
-/**
- * Modules.
- */
+// Modules.
 export * from './module/config.module';
 export * from './module/loader.module';
 export * from './module/pane.module';
-/**
- * Services.
- */
+// Services.
 export * from './service/config/config.service';
 export * from './service/data/data.service';
 export * from './service/pane/pane.service';
 export * from './service/storage/storage.service';
-/**
- * Cool storage stuff.
- */
+// Cool storage stuff.
 export * from './store/animation.store';
 export * from './store/character.store';
 export * from './store/colour.store';
@@ -48,9 +36,7 @@ export * from './store/size.store';
 export * from './store/state.store';
 export * from './store/storage.store';
 export * from './store/time.store';
-/**
- * Tools.
- */
+// Tools.
 export * from './tool/array/array.tool';
 export * from './tool/classes/classes.tool';
 export * from './tool/clone/clone.tool';

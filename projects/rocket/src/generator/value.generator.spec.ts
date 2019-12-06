@@ -18,9 +18,7 @@ describe('Rocket Value Generator:', () => {
       }
    }
 
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should apply a desired value.', () => {
       const hero = ValueGenerator({data: testValue});
 

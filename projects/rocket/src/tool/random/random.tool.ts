@@ -27,7 +27,7 @@ function randomString({ length = 5, textOnly = false }: RandomStringOptions): st
    const characters = (textOnly) ? Characters.ALPHABET : `${Characters.ALPHABET}${Characters.NUMBERS}`;
    let returnString = '';
 
-   /**
+   /*
     * Append to the return string a character randomly selected from the
     * character list.
     */

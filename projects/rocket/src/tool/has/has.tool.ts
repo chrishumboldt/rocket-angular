@@ -32,7 +32,7 @@ function hasExtension({
    allowedTypes = extensionList,
    check
 }: HasExtensionOptions): boolean {
-   /**
+   /*
     * Make sure the allowed types is an array. This caters for user defined
     * lists. If not fail the check.
     */
@@ -52,9 +52,6 @@ function hasSpaces(check: string): boolean {
    return /\s/.test(check);
 }
 
-/**
- * Export.
- */
 export const RocketHas = {
    class: hasClass,
    spaces: hasSpaces,

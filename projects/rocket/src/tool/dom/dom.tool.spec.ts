@@ -9,9 +9,7 @@ describe('Rocket DOM tool:', () => {
    let childElement: HTMLElement;
    let parentElement: HTMLElement;
 
-   /**
-    * Setup each test.
-    */
+   // Setup each test.
    beforeEach(() => {
       // Setup the DOM elements.
       childElement = document.createElement('div');
@@ -21,9 +19,7 @@ describe('Rocket DOM tool:', () => {
       RocketDOM.add({element: childElement, to: parentElement});
    });
 
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should add an element to another.', () => {
       // Lets test the dom add function worked.
       expect(parentElement.querySelector(`.${className}`)).toEqual(childElement);

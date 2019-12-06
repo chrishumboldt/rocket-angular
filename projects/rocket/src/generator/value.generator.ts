@@ -52,34 +52,24 @@ function classValue({
    applyClassToMap = false,
    data
 }: ClassValueOptions): any {
-   /**
-    * The data and class instance match, so we are happy.
-    */
+   // The data and class instance match, so we are happy.
    if (!(data instanceof applyClass)) {
       if (RocketIs.array(data)) {
-         /**
-          * Determined that this is an array.
-          */
+         // Determined to be an array.
          data = data.map((item: any) => {
             return new applyClass(item);
          });
       } else if (RocketIs.object(data) && applyClassToMap) {
-         /**
-          * Determined that this is an object.
-          */
+         // Determined to be an object.
          Object.keys(data).forEach((key: string) => {
             data[key] = new applyClass(data[key]);
          });
       } else {
-         /**
-          * Apply directly on the data itself.
-          */
+         // Apply directly on the data itself.
          data = new applyClass(data);
       }
    }
-   /**
-    * Return.
-    */
+
    return data;
 }
 

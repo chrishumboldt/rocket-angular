@@ -57,17 +57,14 @@ function classNameAdds({ to, classNames }: ClassNameToOptions): void {
 function classNameClear(elements: any): void {
    let elementList: HTMLElement[];
 
-   /**
-    * If the elements data is a string then select else simply make it a list.
-    */
+   // If the elements data is a string then select else simply make it a list.
    if (RocketIs.string(elements)) {
       elementList = RocketDOM.select(elements);
    } else {
       elementList = [elements];
    }
-   /**
-    * Make sure there are elements and then remove the class attribute.
-    */
+
+   // Make sure there are elements and then remove the class attribute.
    elementList.forEach((element: HTMLElement) => {
       if (RocketExists(element)) {
          element.removeAttribute('class');
@@ -93,7 +90,7 @@ function classNameModification({
       return;
    }
 
-   /**
+   /*
     * Create an array of elements. If the array is empty then kill the
     * function execution.
     */
@@ -102,7 +99,7 @@ function classNameModification({
       return;
    }
 
-   /**
+   /*
     * Since the elements check out create arrays for the classes that need
     * to be added and removed.
     */
@@ -111,7 +108,7 @@ function classNameModification({
    const classesRemoveList = RocketArray.make({data: remove, unique: true});
    const classesRemoveAction = (classesRemoveList.length > 0) ? true : false;
 
-   /**
+   /*
     * Iterate over each elements and remove and apply the class names as
     * needed.
     */
@@ -145,7 +142,7 @@ function classNameRemoveExecute({
       .filter((value: string) => classNames.indexOf(value) < 0)
       .join(' ');
 
-   /**
+   /*
     * If the class names is truly empty to a clean clear of the class
     * attribute as not to leave it empty.
     */
@@ -232,9 +229,6 @@ function createElementList(elements: any): HTMLElement[] {
    }
 }
 
-/**
- * Manage DOM class names.
- */
 export const RocketClass = {
    add: classNameAdds,
    clear: classNameClear,

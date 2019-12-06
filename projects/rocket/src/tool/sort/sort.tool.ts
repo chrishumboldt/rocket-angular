@@ -62,34 +62,24 @@ function sortCompareObjectValue({
    order = SortOrder.ASCENDING
 }: CompareObjectValueOptions): any {
    return (a: any, b: any) => {
-      /**
-       * Catch. Property doesnt exist on either object. Return a no sort value.
-       */
+      // Catch. Property doesnt exist on either object. Return a no sort value.
       if (!a.hasOwnProperty(by) || !b.hasOwnProperty(by)) {
          return 0;
       }
 
-      /**
-       * Make sure the case of the value doesn't affect the outcome.
-       */
+      // Make sure the case of the value doesn't affect the outcome.
       const valueA = makeSortableString(a[by]);
       const valueB = makeSortableString(b[by]);
-
-      /**
-       * Compare.
-       */
       let comparison = 0;
-      /**
-       * If numbers then sort the numbers else sort the strings.
-       */
+
+      // If numbers then sort the numbers else sort the strings.
       if (valueA > valueB) {
          comparison = 1;
       } else if (valueA < valueB) {
          comparison = -1;
       }
-      /**
-       * Return based on the order.
-       */
+
+      // Return based on the order.
       return (order === SortOrder.ASCENDING) ? comparison : (comparison * -1);
    }
 }
@@ -106,13 +96,10 @@ function sortMap({ by, data, order = SortOrder.ASCENDING }: SortMapOptions): any
    const backupMap = new Map(data);
    let orderArray: any[] = [];
 
-   /**
-    * Start by clearing the existing map reference.
-    */
+   // Start by clearing the existing map reference.
    data.clear();
-   /**
-    * Add to the list to order and then sort that list.
-    */
+
+   // Add to the list to order and then sort that list.
    for (const [key, value] of backupMap) {
       orderArray.push({
          key,
@@ -120,21 +107,15 @@ function sortMap({ by, data, order = SortOrder.ASCENDING }: SortMapOptions): any
       });
    }
    orderArray = sortArray({data: orderArray, by: 'theProperty', order});
-   /**
-    * Use the ordered list to repopulate the original data map.
-    */
+   // Use the ordered list to repopulate the original data map.
    orderArray.forEach((item: any) => {
       data.set(item.key, backupMap.get(item.key));
    });
-   /**
-    * Return the reordered data map.
-    */
+
+   // Return the reordered data map.
    return data;
 }
 
-/**
- * Exports.
- */
 export const RocketSort = {
    array: sortArray,
    map: sortMap

@@ -75,9 +75,7 @@ export class RocketConfigService {
          fallback: StorageType.SESSION
       });
 
-      /**
-       * Setup the application since configuration should always be included.
-       */
+      // Setup the application since configuration should always be included.
       RocketSetup(this.font);
    }
 }

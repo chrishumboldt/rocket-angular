@@ -5,9 +5,7 @@
 import { RocketClone } from './clone.tool';
 
 describe('Rocket Clone Tool:', () => {
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should clone a value.', () => {
       const testString = 'Clone Trooper';
       const testObject = {name: 'Clone Trooper', originalTrilogy: false};

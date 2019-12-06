@@ -3,24 +3,18 @@
  */
 
 import { RocketClass } from './classes.tool';
-import { RocketIs } from '../is/is.tool';
-import { RocketArray } from '../array/array.tool';
 
 describe('Rocket Classes Tool:', () => {
    let testElement: HTMLElement;
    let testElement2: HTMLElement;
 
-   /**
-    * Setup each test.
-    */
+   // Setup each test.
    beforeEach(() => {
       testElement = document.createElement('div');
       testElement2 = document.createElement('div');
    });
 
-   /**
-    * Tests.
-    */
+   // Tests.
    it('Should add class names to an element by string.', () => {
       const classNames = 'starWarsRocks ewoksRule';
 
