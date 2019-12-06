@@ -17,7 +17,7 @@ import { State } from '../../store/state.store';
 export class RocketPaneService {
    /*
     * The last active pane will carry this determined level (z-index). The ultimate
-    * value is derived by adding this value to the pane starting level.found in
+    * value is derived by adding this value to the pane starting level found in
     * the config service.
     */
    private activePaneLevel = 0;

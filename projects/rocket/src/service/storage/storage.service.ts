@@ -37,17 +37,13 @@ export class RocketStorageService {
    public add({ data, name }: StorageAddOptions): void {
       let storageData = this.getStorageData();
 
-      /*
-       * Check the name. If it is an object then replace the entire storage
-       * with the object. If it is a string then assume that the name is
-       * simply a key and bind the value to it.
-       */
       if (RocketIs.string(name)) {
          // If there is no storage then create a new object.
          if (!storageData) {
             storageData = {};
          }
          storageData[name] = data;
+
          // Save the newly stored data into session storage by default.
          this.saveStorageData(storageData);
       }
@@ -61,7 +57,6 @@ export class RocketStorageService {
     * @param exclusions - Names to exlcude.
     */
    public clear(exclusions?: any): void {
-      // Catch
       if (!this.storageName) {
          return;
       }
@@ -144,7 +139,8 @@ export class RocketStorageService {
             storageData = sessionStorage.getItem(this.storageName);
          }
       }
-      // Make sure that storage is found else return an empty object.
+
+      // Make sure that storage is found
       return (storageData) ? RocketConvert.toJSON(storageData) : undefined;
 
    }

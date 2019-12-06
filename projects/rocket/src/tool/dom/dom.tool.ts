@@ -64,7 +64,7 @@ function domAdd({ element, to }: DomAddOptions): void {
 function domRatio({ multiplier = 1, selector }: DomRatioOptions): void {
    const elements = domSelect(selector);
 
-   // DOM select will alwasy return an array.
+   // DOM select will always return an array.
    elements.forEach((item: HTMLElement) => {
       item.style.height = `${Math.floor(item.offsetWidth * multiplier)}px`;
    });
@@ -119,7 +119,7 @@ function domSelect(selector: any): HTMLElement[] {
       // String selectors are returned via another function.
       elementList = elementList.concat(domSelectByString(selector));
    } else if (RocketIs.element(selector)) {
-      // The selector is already and element so just added it in and return.
+      // The selector is already an element so just added it in and return.
       elementList.push(selector);
    } else if (RocketIs.array(selector)) {
       // An array requires inspecting each item in the array.
@@ -173,7 +173,7 @@ function domSelect(selector: any): HTMLElement[] {
 function domSelectByString(selector: string): HTMLElement[] {
    let elementList = [];
 
-   // Catch an empty selector.
+   // Check the selector.
    if (selector && RocketIs.string(selector)) {
       const selectorSplit = RocketArray.clean({
          data: selector.split(',').map((item: string) => item.trim()),

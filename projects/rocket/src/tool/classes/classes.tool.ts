@@ -21,7 +21,6 @@ import {
  * @param options.element - The HTML elements.
  */
 function classNameAddExecute({ classNames, element }: ClassNameExecuteOptions): void {
-   // Do nothing should the element not exist.
    if (!RocketIs.element(element)) {
       return;
    }
@@ -85,7 +84,6 @@ function classNameModification({
    add = undefined,
    remove = undefined
 }: ClassNameModificationOptions): void {
-   // Do nothing should the elements not exist.
    if (!RocketExists(elements)) {
       return;
    }
@@ -132,7 +130,6 @@ function classNameRemoveExecute({
    element,
    classNames
 }: ClassNameExecuteOptions): void {
-   // Do nothing should the elements not exist.
    if (!RocketIs.element(element)) {
       return;
    }
@@ -196,7 +193,6 @@ function classNameToggle({
 }: ClassNameToggleOptions): void {
    const elementList: HTMLElement[] = createElementList(elements);
 
-   // Catch.
    if (
       !RocketExists(elementList)
       || !RocketIs.string(className)

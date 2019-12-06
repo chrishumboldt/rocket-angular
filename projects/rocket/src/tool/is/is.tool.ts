@@ -16,7 +16,7 @@ const imageExtensionList = Object.keys(ImageExtension).map((key: string) => {
 });
 
 /**
- * Determine if an data is an array.
+ * Determine if the data is an array.
  *
  * @param check - The array to check.
  */
@@ -25,7 +25,7 @@ function isArray(check: any): boolean {
 }
 
 /**
- * Determine if an data is a boolean.
+ * Determine if the data is a boolean.
  *
  * @param check - The boolean to check.
  */
@@ -46,7 +46,7 @@ function isBrowser(): boolean {
 }
 
 /**
- * Determine is something is a date.
+ * Determine if something is a date.
  *
  * @param check - The date to check.
  */
@@ -91,7 +91,7 @@ function isFunction(check: any): boolean {
 }
 
 /**
- * Determine if a string is a colour.
+ * Determine if a string is a hex colour string.
  *
  * @param check - The colour string to check.
  */
@@ -140,7 +140,7 @@ function isJSON(check: any): boolean {
 }
 
 /**
- * Determine if an data is a map.
+ * Determine if the data is a map.
  *
  * @param check - The map to check.
  */
