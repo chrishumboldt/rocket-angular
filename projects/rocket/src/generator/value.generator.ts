@@ -10,8 +10,7 @@ import {
 import { RocketIs } from '../tool/is/is.tool';
 
 /**
- * This serves as a way to handle the assignment of value to class properties in a
- * very generic way.
+ * This serves as a way to handle the assignment of a value in a very generic way.
  *
  * @param options - The deconstructed options object.
  * @param options.applyClass - Apply a class to the determined value.

@@ -52,7 +52,7 @@ export class RocketPaneComponent extends RocketHelper implements OnDestroy, OnIn
       this.subscriptionsDestroy();
    }
 
-   /**
+   /*
     * Manage the animations that take effect based on state.
     */
    @HostBinding('@slideFromRight') get animationActive() {
@@ -86,7 +86,7 @@ export class RocketPaneComponent extends RocketHelper implements OnDestroy, OnIn
                 * end before "hidding" this component.
                 *
                 * As such only set these values on active state and on animation end,
-                * chich is managed elsewhere in this class.
+                * which is managed elsewhere in this class.
                 */
                if (this.active) {
                   this.contentActive = thisPane.active;

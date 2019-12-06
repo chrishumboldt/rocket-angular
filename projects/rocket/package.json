@@ -1,6 +1,6 @@
 {
    "name": "@chrishumboldt/rocket",
-   "version": "0.13.2",
+   "version": "0.13.3",
    "peerDependencies": {
       "@angular/common": "^8.2.14",
       "@angular/core": "^8.2.14"
