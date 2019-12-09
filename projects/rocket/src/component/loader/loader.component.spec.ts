@@ -11,7 +11,7 @@ import { SecondaryColour } from '../../store/colour.store';
 import { RocketLoaderComponent } from './loader.component';
 
 describe('Rocket Loader Component:', () => {
-   let rocketLoader: RocketLoaderComponent;
+   let rocketLoaderComponent: RocketLoaderComponent;
 
    // Setup the tests.
    beforeEach(() => {
@@ -23,20 +23,20 @@ describe('Rocket Loader Component:', () => {
          ]
       });
 
-      rocketLoader = TestBed.get(RocketLoaderComponent);
+      rocketLoaderComponent = TestBed.get(RocketLoaderComponent);
    });
 
    // Tests.
    it('Should initialise.', () => {
-      expect(rocketLoader).toBeTruthy();
+      expect(rocketLoaderComponent).toBeTruthy();
    });
 
    it('Should set all default config variables when initialised.', () => {
       // Run the initialiser.
-      rocketLoader.ngOnInit();
+      rocketLoaderComponent.ngOnInit();
 
       // Check the values.
-      const classNames = rocketLoader.getClassNames.split(' ');
+      const classNames = rocketLoaderComponent.getClassNames.split(' ');
 
       expect(classNames.includes(`_colour-${SecondaryColour.GREY_BLUE}`)).toBeTruthy();
       expect(classNames.includes(`_size-${LoaderSize.DEFAULT}`)).toBeTruthy();

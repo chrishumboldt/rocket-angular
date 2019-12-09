@@ -45,7 +45,7 @@ export class RocketPaneService {
     * @param options.active - The active state.
     * @param options.name - The name of the pane.
     */
-   public changeState({active = false, name}: PaneStateChangeOptions): void {
+   private changeState({active = false, name}: PaneStateChangeOptions): void {
       const panes = this.getPanes();
 
       // Make sure that the pane exists. If not then just move along, Obi-wan style.
