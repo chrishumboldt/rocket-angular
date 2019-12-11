@@ -14,6 +14,7 @@ export * from './model/data.model';
 export * from './model/size.model';
 // Modules.
 export * from './module/config.module';
+export * from './module/form.module';
 export * from './module/loader.module';
 export * from './module/pane.module';
 // Services.
@@ -27,6 +28,7 @@ export * from './store/character.store';
 export * from './store/colour.store';
 export * from './store/data.store';
 export * from './store/extension.store';
+export * from './store/form.store';
 export * from './store/loader.store';
 export * from './store/prefix.store';
 export * from './store/reg-ex.store';

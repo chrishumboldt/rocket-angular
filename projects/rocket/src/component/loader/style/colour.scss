@@ -3,17 +3,17 @@
  */
 
 @each $colour-name, $colour in $ar-colours-primary {
-   :host._colour-#{$colour-name} .mod--text {
+   :host._colour-#{$colour-name} .comp--text {
       @include text-colour($colour);
    }
-   :host._type-spinner._colour-#{$colour-name} .mod--part._number-1 {
+   :host._type-spinner._colour-#{$colour-name} .comp--part._number-1 {
       @include border(lighten($colour, 34%), 3px);
       @include border-top($colour, 3px);
    }
-   :host._type-dots._colour-#{$colour-name} .mod--part[class*='_number-'] {
+   :host._type-dots._colour-#{$colour-name} .comp--part[class*='_number-'] {
       @include background-colour($colour);
    }
-   :host._type-pulse._colour-#{$colour-name} .mod--part[class*='_number-'] {
+   :host._type-pulse._colour-#{$colour-name} .comp--part[class*='_number-'] {
       @include border($colour, 3px);
    }
 }

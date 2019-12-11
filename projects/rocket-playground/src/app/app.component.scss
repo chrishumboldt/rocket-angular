@@ -1,0 +1,10 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@import 'node_modules/@chrishumboldt/rocket-propel/import';
+
+:host {
+   @include show();
+   @include padding($space-base);
+}

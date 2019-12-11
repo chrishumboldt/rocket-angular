@@ -1,0 +1,9 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@import '../setup';
+
+:host._style-line .comp--element {
+   @include border-bottom(1px, $grey-form);
+}

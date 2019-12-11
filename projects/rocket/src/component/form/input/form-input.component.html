@@ -1,0 +1,6 @@
+<input
+(keyup)="handlChange()"
+[attr.disabled]="disabled ? '' : null"
+[(ngModel)]="data"
+type="{{type}}"
+class="comp--element">

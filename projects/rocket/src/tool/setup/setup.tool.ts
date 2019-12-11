@@ -47,7 +47,7 @@ body {
       const styleTag = document.createElement('style');
 
       styleTag.id = styleId;
-      
+
       // Now create the content that will exist within the style tag.
       const styleTagContent = document.createTextNode(styleContent);
 

@@ -15,13 +15,22 @@ import { RocketString } from '../string/string.tool';
  * @param options - The deconstructed options object.
  * @param options.data - The passed in enum.
  * @param options.reverse - Reverse the key value mapping of the returned object.
+ * @param options.values - Discard the keys and only return values.
  */
-function enumToArray({ data, reverse = true }: TransformEnumOptions): any[] {
+function enumToArray({
+   data,
+   reverse = true,
+   valuesOnly = false
+}: TransformEnumOptions): any[] {
    return Object.keys(data).map((key: string) => {
-      return {
-         value: (reverse) ? data[key] : key,
-         key: (reverse) ? this.enumKeyToPhrase(key) : data[key]
-      };
+      if (valuesOnly) {
+         return data[key];
+      } else {
+         return {
+            value: (reverse) ? data[key] : key,
+            key: (reverse) ? this.enumKeyToPhrase(key) : data[key]
+         };
+      }
    });
 }
 

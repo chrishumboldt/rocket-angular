@@ -3,6 +3,7 @@
  */
 
 export enum DataName {
+   DOCUMENT_CLICK = 'documentClick',
    LOADERS = 'loaders',
    MENUS = 'menus',
    PANES = 'panes'

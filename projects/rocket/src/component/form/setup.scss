@@ -1,0 +1,25 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@import 'node_modules/@chrishumboldt/rocket-propel/import';
+
+$grey-form: lighten(#000, 85%);
+
+:host {
+   @include show();
+   @include position(relative);
+}
+.comp--element {
+   @include width(100%);
+   @include padding(14px);
+   @include margin(0px);
+   @include margin-bottom(1.5em);
+   @include text-font(inherit);
+   @include text-size(14px);
+   @include background-colour($white);
+   @include border-none();
+   @include level(1);
+   outline: none;
+   -webkit-appearance: none;
+}

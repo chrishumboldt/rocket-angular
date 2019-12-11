@@ -2,15 +2,12 @@
  * @author Chris Humboldt
  */
 
-@import 'node_modules/@chrishumboldt/rocket-propel/import';
-@import './variables';
-
-:host._type-dots .mod--loader {
+:host._type-dots .comp--loader {
    @include width(76px);
 }
-:host._type-dots .mod--part._number-1,
-:host._type-dots .mod--part._number-2,
-:host._type-dots .mod--part._number-3 {
+:host._type-dots .comp--part._number-1,
+:host._type-dots .comp--part._number-2,
+:host._type-dots .comp--part._number-3 {
    @include position(absolute, top 50% margin-top $dot-size-half);
    @include square($dot-size);
    @include border-radius(50%);
@@ -19,14 +16,14 @@
    @include animation(rocket-loader-swell, 1s, infinite);
    @include animation-timing-function;
 }
-:host._type-dots .mod--part._number-1 {
+:host._type-dots .comp--part._number-1 {
    @include position-set(left 8px);
 }
-:host._type-dots .mod--part._number-2 {
+:host._type-dots .comp--part._number-2 {
    @include position-set(left 50% margin-left $dot-size-half);
    @include animation-delay(0.15s);
 }
-:host._type-dots .mod--part._number-3 {
+:host._type-dots .comp--part._number-3 {
    @include position-set(right 8px);
    @include animation-delay(0.3s);
 }

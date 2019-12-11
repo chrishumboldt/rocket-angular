@@ -34,9 +34,8 @@ export class RocketDataService {
     */
    private reservedDataKeys: string[] = [
       'data',
-      'loader',
+      DataName.DOCUMENT_CLICK,
       DataName.LOADERS,
-      'menu',
       DataName.MENUS,
       DataName.PANES,
       'storage'
@@ -215,6 +214,10 @@ export class RocketDataService {
          new DataEntry({
             name: DataName.PANES,
             data: new Map<string, Pane>(),
+            force: true
+         }),
+         new DataEntry({
+            name: DataName.DOCUMENT_CLICK,
             force: true
          })
       ];

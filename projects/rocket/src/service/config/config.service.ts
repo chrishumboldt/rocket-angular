@@ -7,6 +7,7 @@ import { Injectable, Optional } from '@angular/core';
 import { ValueGenerator } from '../../generator/value.generator';
 import { DataEntry } from '../../model/data.model';
 import { RocketConfig } from '../../model/config.model';
+import { FormInputType, FormStyle } from '../../store/form.store';
 import { LoaderSize, LoaderType } from '../../store/loader.store';
 import { SecondaryColour } from '../../store/colour.store';
 import { StorageType } from '../../store/storage.store';
@@ -17,6 +18,8 @@ import { RocketSetup } from '../../tool/setup/setup.tool';
 })
 export class RocketConfigService {
    public font: string;
+   public formInputType: FormInputType;
+   public formStyle: FormStyle;
    public initData: DataEntry[];
    public loaderColour: string;
    public loaderSize: LoaderSize;
@@ -34,6 +37,12 @@ export class RocketConfigService {
       this.font = ValueGenerator({
          data: config.font,
          fallback: '\'Open Sans\', Helvetica, Arial, sans-serif'
+      });
+      this.formInputType = ValueGenerator({
+         data: config.formInputType, fallback: FormInputType.TEXT
+      });
+      this.formStyle = ValueGenerator({
+         data: config.formStyle, fallback: FormStyle.LINE
       });
       this.initData = ValueGenerator({
          data: config.initData, fallback: []

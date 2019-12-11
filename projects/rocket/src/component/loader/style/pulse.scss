@@ -2,11 +2,8 @@
  * @author Chris Humboldt
  */
 
-@import 'node_modules/@chrishumboldt/rocket-propel/import';
-@import './variables';
-
-:host._type-pulse .mod--part._number-1,
-:host._type-pulse .mod--part._number-2 {
+:host._type-pulse .comp--part._number-1,
+:host._type-pulse .comp--part._number-2 {
    @include position(absolute);
    @include box-sizing(border-box);
    @include square($loader-size);
@@ -15,7 +12,7 @@
    @include opacity(0);
    @include animation(rocket-loader-pulse, 1.4s, infinite);
 }
-:host._type-pulse .mod--part._number-2 {
+:host._type-pulse .comp--part._number-2 {
    @include animation-delay(0.5s);
 }
 

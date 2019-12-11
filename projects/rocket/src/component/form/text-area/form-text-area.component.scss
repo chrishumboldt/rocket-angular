@@ -1,0 +1,9 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@import '../setup';
+
+.comp--element {
+   @include height(114px);
+}

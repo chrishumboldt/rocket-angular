@@ -9,5 +9,6 @@ export interface TransformBytesOptions {
 
 export interface TransformEnumOptions {
   data: any;
-  reverse: boolean;
+  reverse?: boolean;
+  valuesOnly?: boolean;
 }
