@@ -1,3 +1,11 @@
 <rocket-input [(data)]="textValue"></rocket-input>
-
+<rocket-text-area [(data)]="textValue"></rocket-text-area>
 <button (click)="testData()" type="button">Test Data</button>
+
+<br><br>
+<rocket-pane name="{{paneName}}">
+   This is a test.
+   <br><br>
+   <button (click)="paneClose()" type="button">Close Pane</button>
+</rocket-pane>
+<button (click)="paneOpen()" type="button">Open Pane</button>

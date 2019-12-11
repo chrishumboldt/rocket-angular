@@ -5,5 +5,12 @@
 @import '../setup';
 
 .comp--element {
+   @include show();
    @include height(114px);
+}
+:host._style-line .comp--element {
+   @include border-bottom(1px, $grey-form);
+}
+:host rocket-line-reveal {
+   @include margin-top(-1px);
 }

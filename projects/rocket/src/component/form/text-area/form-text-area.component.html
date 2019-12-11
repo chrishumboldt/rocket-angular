@@ -1,6 +1,10 @@
 <textarea
-(keyup)="handlChange()"
-[attr.disabled]="disabled ? '' : null"
-[(ngModel)]="data"
+(keyup)="handleDataChange($event)"
+(focus)="handleFocus(true)"
+(blur)="handleFocus(false)"
+[value]="data"
+[attr.disabled]="(disabled) ? '' : null"
 class="comp--element">
 </textarea>
+
+<rocket-line-reveal [width]="lineWidth"></rocket-line-reveal>

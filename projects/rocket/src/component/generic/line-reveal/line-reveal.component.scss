@@ -1,0 +1,33 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@import 'node_modules/@chrishumboldt/rocket-propel/import';
+
+:host {
+   @include show();
+   @include position(relative);
+}
+.comp--line {
+   @include show();
+   @include height(100%);
+   @include width(0%);
+   @include background-colour($black-base);
+}
+
+// Colours
+@each $colour-name, $colour in $ar-colours-mono {
+   .comp--line._colour-#{$colour-name} {
+      @include background-colour($colour);
+   }
+}
+@each $colour-name, $colour in $ar-colours-primary {
+   .comp--line._colour-#{$colour-name} {
+      @include background-colour($colour);
+   }
+}
+@each $colour-name, $colour in $ar-colours-secondary {
+   .comp--line._colour-#{$colour-name} {
+      @include background-colour($colour);
+   }
+}

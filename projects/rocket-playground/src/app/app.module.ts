@@ -8,7 +8,8 @@ import { NgModule } from '@angular/core';
 import {
    RocketConfigModule,
    RocketLoaderModule,
-   RocketFormModule
+   RocketFormModule,
+   RocketPaneModule
 } from '../../../rocket/src/public-api';
 
 import { AppComponent } from './app.component';
@@ -21,7 +22,8 @@ import { AppComponent } from './app.component';
       BrowserModule,
       RocketConfigModule.forRoot(),
       RocketLoaderModule,
-      RocketFormModule
+      RocketFormModule,
+      RocketPaneModule
    ],
    providers: [],
    bootstrap: [AppComponent]

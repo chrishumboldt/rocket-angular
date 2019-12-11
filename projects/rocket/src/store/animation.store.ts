@@ -5,25 +5,54 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 export const RevealDownTrigger = trigger('revealDown', [
-   state('activated', style({
-      height: '*',
+   state('true', style({
+      height: '{{height}}%',
       opacity: 1
-   })),
-   state('deActivated', style({
+   }), {params: {height: '100'}}),
+   state('false', style({
       height: 0,
       opacity: 0
    })),
-   transition('activated <=> deActivated', [animate('0.2s 0s ease-out')])
+   transition('true <=> false', [animate('0.3s 0s ease-out')])
+]);
+
+export const RevealRightTrigger = trigger('revealRight', [
+   state(
+      'true',
+      style({
+         width: '{{width}}%',
+         opacity: '{{endOpacity}}'
+      }),
+      {
+         params: {
+            endOpacity: 1,
+            width: '100'
+         }
+      }
+   ),
+   state(
+      'false',
+      style({
+         width: 0,
+         opacity: '{{startingOpacity}}'
+      }),
+      {
+         params: {
+            startingOpacity: 0
+         }
+      }
+   ),
+   transition('true <=> false', [animate('0.3s 0s ease-out')])
 ]);
 
 export const Rotate180Trigger = trigger('rotate180', [
-   state('activated', style({
+   state('true', style({
       transform: 'rotate(180deg)'
    })),
-   state('deActivated', style({
+   state('false', style({
       transform: 'rotate(0deg)'
    })),
-   transition('activated <=> deActivated', [animate('0.2s')])
+   transition('true <=> false', [animate('0.3s')])
 ]);
 
 

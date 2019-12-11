@@ -9,6 +9,7 @@ import { DataEntry } from './data.model';
 
 export class RocketConfig {
    font?: string;
+   formColour?: string;
    formInputType?: FormInputType;
    formStyle?: FormStyle;
    initData?: DataEntry[];

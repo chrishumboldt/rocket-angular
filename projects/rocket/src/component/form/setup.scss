@@ -4,17 +4,21 @@
 
 @import 'node_modules/@chrishumboldt/rocket-propel/import';
 
-$grey-form: lighten(#000, 85%);
+$grey-form: lighten(#000, 82%);
 
 :host {
    @include show();
    @include position(relative);
+   @include margin-bottom(1.25em);
+
+   @include breakpoint($bp-large) {
+      @include margin-bottom(1.5em);
+   }
 }
 .comp--element {
    @include width(100%);
-   @include padding(14px);
+   @include padding(11px);
    @include margin(0px);
-   @include margin-bottom(1.5em);
    @include text-font(inherit);
    @include text-size(14px);
    @include background-colour($white);
@@ -22,4 +26,8 @@ $grey-form: lighten(#000, 85%);
    @include level(1);
    outline: none;
    -webkit-appearance: none;
+
+   @include breakpoint($bp-large) {
+      @include padding(14px);
+   }
 }

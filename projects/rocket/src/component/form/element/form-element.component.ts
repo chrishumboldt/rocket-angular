@@ -14,10 +14,7 @@ import {
 import { RocketHelper } from '../../../helper/rocket.helper';
 import { RocketConfigService } from '../../../service/config/config.service';
 import { RocketDataService } from '../../../service/data/data.service';
-import {
-   FormStyle,
-   FormStyleArray
-} from '../../../store/form.store';
+import { FormStyle, FormStyleArray } from '../../../store/form.store';
 
 @Component({
    selector: 'rocket-form-element',
@@ -25,9 +22,12 @@ import {
 })
 export class RocketFormElementComponent extends RocketHelper implements OnInit {
    public classNames: string[] = [];
+   @Input() colour: string;
    @Input() data: any;
    @Output() dataChange = new EventEmitter();
    @Input() disabled = false;
+   public focus = false;
+   public lineWidth = 0;
    @Input() style: FormStyle;
 
    // Set the classes.
@@ -43,20 +43,54 @@ export class RocketFormElementComponent extends RocketHelper implements OnInit {
    }
 
    ngOnInit() {
+      this.setColour();
       this.setStyle();
       this.ngOnInitExtend();
    }
 
    /**
-    * Create an empty method that extends the onInit event.
+    * An empty method that extends the onInit event.
     */
    public ngOnInitExtend(): void {}
 
    /**
-    * handle the data value change.
+    * Handle the data value change.
+    *
+    * @param event - The key up event.
     */
-   public handlChange(): void {
+   public handleDataChange(event: any): void {
+      this.data = event.target.value;
       this.dataChange.emit(this.data);
+   }
+
+   /**
+    * Handle the form element focus state change.
+    *
+    * @param focusState - The new focus state to set.
+    */
+   public handleFocus(focusState: boolean): void {
+      this.focus = focusState;
+
+      // Handle the line style attribute if required.
+      if (this.style === FormStyle.LINE) {
+         this.lineWidth = (focusState) ? 100 : 0;
+      }
+      // Call the method extension.
+      this.handleFocusExtend();
+   }
+
+   /**
+    * An extension to the handle focus event. Is meant to be overwritten.
+    */
+   public handleFocusExtend(): void {}
+
+   /**
+    * Set the form colour value.
+    */
+   private setColour(): void {
+      if (!this.colour || this.colour.length > 0) {
+         this.colour = this.rocketConfig.formColour;
+      }
    }
 
    /**
