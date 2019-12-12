@@ -8,8 +8,14 @@ import { CommonModule } from '@angular/common';
 import { RocketLoaderComponent } from '../component/loader/loader.component';
 
 @NgModule({
-   imports: [CommonModule],
-   declarations: [RocketLoaderComponent],
-   exports: [RocketLoaderComponent]
+   imports: [
+      CommonModule
+   ],
+   declarations: [
+      RocketLoaderComponent
+   ],
+   exports: [
+      RocketLoaderComponent
+   ]
 })
 export class RocketLoaderModule {}

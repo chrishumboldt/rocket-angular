@@ -6,9 +6,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {
+   FormStyle,
    RocketConfigModule,
-   RocketLoaderModule,
    RocketFormModule,
+   RocketLayoutModule,
+   RocketLoaderModule,
    RocketPaneModule
 } from '../../../rocket/src/public-api';
 
@@ -21,6 +23,7 @@ import { AppComponent } from './app.component';
    imports: [
       BrowserModule,
       RocketConfigModule.forRoot(),
+      RocketLayoutModule,
       RocketLoaderModule,
       RocketFormModule,
       RocketPaneModule

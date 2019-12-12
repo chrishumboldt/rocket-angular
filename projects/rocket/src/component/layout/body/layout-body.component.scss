@@ -1,0 +1,48 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@import 'node_modules/@chrishumboldt/rocket-propel/import';
+
+:host {
+   @include show();
+}
+:host._center-true {
+   @include center();
+}
+/**
+ * Limits.
+ */
+:host._limit-small {
+   @include limit(40em);
+}
+:host._limit-medium {
+   @include limit(75em);
+}
+:host._limit-large {
+   @include limit(90em);
+}
+/**
+ * Padding.
+ */
+:host._padding-small {
+   @include padding($space-small);
+
+   @include breakpoint($bp-large) {
+      @include padding($space-base);
+   }
+}
+:host._padding-medium {
+   @include padding($space-base);
+
+   @include breakpoint($bp-large) {
+      @include padding($space-medium);
+   }
+}
+:host._padding-large {
+   @include padding($space-slight);
+
+   @include breakpoint($bp-large) {
+      @include padding($space-large);
+   }
+}

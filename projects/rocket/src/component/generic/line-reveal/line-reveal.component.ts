@@ -5,7 +5,7 @@
 import { Component, HostBinding, Input } from '@angular/core';
 
 import { RevealRightTrigger } from '../../../store/animation.store';
-import { PrimaryColour } from '../../../store/colour.store';
+import { ColourCode } from '../../../store/colour.store';
 
 @Component({
    selector: 'rocket-line-reveal',
@@ -14,7 +14,7 @@ import { PrimaryColour } from '../../../store/colour.store';
    animations: [RevealRightTrigger]
 })
 export class RocketLineRevealComponent {
-   @Input() colour: string = PrimaryColour.BLUE;
+   @Input() colour: string = ColourCode.BLUE;
    @HostBinding('style.height.px') @Input() height = 2;
    @Input() width = 0;
 

@@ -15,6 +15,7 @@ export * from './model/size.model';
 // Modules.
 export * from './module/config.module';
 export * from './module/form.module';
+export * from './module/layout.module';
 export * from './module/loader.module';
 export * from './module/pane.module';
 // Services.

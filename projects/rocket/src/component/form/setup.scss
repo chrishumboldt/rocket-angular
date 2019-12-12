@@ -15,9 +15,10 @@ $grey-form: lighten(#000, 82%);
       @include margin-bottom(1.5em);
    }
 }
-.comp--element {
+.comp--input {
    @include width(100%);
-   @include padding(11px);
+   @include padding-horizontal(14px);
+   @include padding-vertical(12px);
    @include margin(0px);
    @include text-font(inherit);
    @include text-size(14px);
@@ -28,6 +29,39 @@ $grey-form: lighten(#000, 82%);
    -webkit-appearance: none;
 
    @include breakpoint($bp-large) {
-      @include padding(14px);
+      @include padding-horizontal(16px);
+      @include padding-vertical(14px);
+   }
+}
+
+// Flat style
+:host._style-flat .comp--input {
+   @include background-color($grey-x-light);
+   @include border(1px, $grey-x-light);
+   @include border-radius(4px);
+}
+
+// Line style
+:host._style-line .comp--input {
+   @include padding-horizontal(0px);
+   @include border-bottom(1px, $grey-light);
+
+   @include breakpoint($bp-large) {
+      @include padding-horizontal(0px);
+   }
+}
+:host rocket-line-reveal {
+   @include margin-top(-1px);
+}
+
+// OUtline style
+:host._style-outline .comp--input {
+   @include padding-horizontal(20px);
+   @include border(3px, $grey-x-light);
+   @include border-radius(27px);
+
+   @include breakpoint($bp-large) {
+      @include padding-horizontal(22px);
+      @include border-radius(30px);
    }
 }

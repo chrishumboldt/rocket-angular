@@ -4,7 +4,20 @@
 (blur)="handleFocus(false)"
 [value]="data"
 [attr.disabled]="(disabled) ? '' : null"
-class="comp--element">
+[@changeBorder]="
+   {
+      value: (style !== formStyle.LINE && focus),
+      params: {
+         colourStart: colourStart,
+         colourEnd: colour
+      }
+   }
+"
+class="comp--input">
 </textarea>
 
-<rocket-line-reveal [width]="lineWidth"></rocket-line-reveal>
+<rocket-line-reveal
+*ngIf="style === formStyle.LINE"
+[colour]="colour"
+[width]="lineWidth">
+</rocket-line-reveal>

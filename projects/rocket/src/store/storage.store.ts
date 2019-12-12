@@ -3,6 +3,6 @@
  */
 
 export enum StorageType {
-   LOCAL = 'LOCAL',
-   SESSION = 'SESSION'
+   LOCAL = 'local',
+   SESSION = 'session'
 }

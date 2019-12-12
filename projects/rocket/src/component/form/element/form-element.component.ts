@@ -14,6 +14,7 @@ import {
 import { RocketHelper } from '../../../helper/rocket.helper';
 import { RocketConfigService } from '../../../service/config/config.service';
 import { RocketDataService } from '../../../service/data/data.service';
+import { ColourCode } from '../../../store/colour.store';
 import { FormStyle, FormStyleArray } from '../../../store/form.store';
 
 @Component({
@@ -23,10 +24,12 @@ import { FormStyle, FormStyleArray } from '../../../store/form.store';
 export class RocketFormElementComponent extends RocketHelper implements OnInit {
    public classNames: string[] = [];
    @Input() colour: string;
+   public colourStart = ColourCode.GREY_X_LIGHT;
    @Input() data: any;
    @Output() dataChange = new EventEmitter();
    @Input() disabled = false;
    public focus = false;
+   public formStyle = FormStyle;
    public lineWidth = 0;
    @Input() style: FormStyle;
 
@@ -101,5 +104,10 @@ export class RocketFormElementComponent extends RocketHelper implements OnInit {
          this.style = this.rocketConfig.formStyle;
       }
       this.classNames.push(`_style-${this.style}`);
+
+      // Set the border to a darker colour on the line style form elements.
+      if (this.style === FormStyle.LINE) {
+         this.colourStart = ColourCode.GREY_LIGHT;
+      }
    }
 }

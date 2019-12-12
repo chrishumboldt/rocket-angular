@@ -8,8 +8,7 @@ import { RocketPaneService } from '../../../rocket/src/public-api';
 
 @Component({
    selector: 'app-root',
-   templateUrl: './app.component.html',
-   styleUrls: ['./app.component.scss']
+   templateUrl: './app.component.html'
 })
 export class AppComponent {
    public paneName = 'testPane';
