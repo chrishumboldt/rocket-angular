@@ -91,7 +91,7 @@ export class RocketFormElementComponent extends RocketHelper implements OnInit {
     * Set the form colour value.
     */
    private setColour(): void {
-      if (!this.colour || this.colour.length > 0) {
+      if (!this.colour || this.colour.length < 1) {
          this.colour = this.rocketConfig.formColour;
       }
    }
