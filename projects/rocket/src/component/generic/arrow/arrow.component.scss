@@ -1,0 +1,31 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@import 'node_modules/@chrishumboldt/rocket-propel/import';
+
+:host {
+   @include show(inline-block);
+   @include border-right($grey, 2px);
+   @include border-top($grey, 2px);
+
+}
+
+// Sizes.
+:host._size-small {
+   @include square(7px);
+}
+
+// Types.
+:host._type-down {
+   @include transform-rotate(135deg);
+}
+:host._type-left {
+   @include transform-rotate(225deg);
+}
+:host._type-right {
+   @include transform-rotate(45deg);
+}
+:host._type-top {
+   @include transform-rotate(-45deg);
+}

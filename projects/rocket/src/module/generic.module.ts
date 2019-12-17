@@ -5,6 +5,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { RocketArrowComponent } from '../component/generic/arrow/arrow.component';
 import { RocketLineRevealComponent } from '../component/generic/line-reveal/line-reveal.component';
 
 @NgModule({
@@ -12,9 +13,11 @@ import { RocketLineRevealComponent } from '../component/generic/line-reveal/line
       BrowserAnimationsModule
    ],
    declarations: [
+      RocketArrowComponent,
       RocketLineRevealComponent
    ],
    exports: [
+      RocketArrowComponent,
       RocketLineRevealComponent
    ]
 })

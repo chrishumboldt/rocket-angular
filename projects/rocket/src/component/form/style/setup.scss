@@ -4,7 +4,8 @@
 
 @import 'node_modules/@chrishumboldt/rocket-propel/import';
 
-.comp--input {
+:host {
    @include show();
-   @include height(150px);
+   @include position(relative);
+   @include margin-bottom(1.6em);
 }

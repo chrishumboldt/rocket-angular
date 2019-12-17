@@ -4,21 +4,11 @@
 
 @import 'node_modules/@chrishumboldt/rocket-propel/import';
 
-$grey-form: lighten(#000, 82%);
-
-:host {
-   @include show();
-   @include position(relative);
-   @include margin-bottom(1.25em);
-
-   @include breakpoint($bp-large) {
-      @include margin-bottom(1.5em);
-   }
-}
 .comp--input {
+   @include position(relative);
    @include width(100%);
-   @include padding-horizontal(14px);
-   @include padding-vertical(12px);
+   @include padding-horizontal(16px);
+   @include padding-vertical(11px);
    @include margin(0px);
    @include text-font(inherit);
    @include text-size(14px);
@@ -29,19 +19,18 @@ $grey-form: lighten(#000, 82%);
    -webkit-appearance: none;
 
    @include breakpoint($bp-large) {
-      @include padding-horizontal(16px);
-      @include padding-vertical(14px);
+      @include padding-horizontal(18px);
    }
 }
 
-// Flat style
+// Flat style.
 :host._style-flat .comp--input {
    @include background-color($grey-x-light);
    @include border(1px, $grey-x-light);
    @include border-radius(4px);
 }
 
-// Line style
+// Line style.
 :host._style-line .comp--input {
    @include padding-horizontal(0px);
    @include border-bottom(1px, $grey-light);
@@ -54,7 +43,7 @@ $grey-form: lighten(#000, 82%);
    @include margin-top(-1px);
 }
 
-// OUtline style
+// Outline style.
 :host._style-outline .comp--input {
    @include padding-horizontal(20px);
    @include border(3px, $grey-x-light);

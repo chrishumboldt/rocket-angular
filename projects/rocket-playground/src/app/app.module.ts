@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {
+   ColourCode,
    FormStyle,
    RocketConfigModule,
    RocketFormModule,
@@ -22,7 +23,7 @@ import { AppComponent } from './app.component';
    ],
    imports: [
       BrowserModule,
-      RocketConfigModule.forRoot(),
+      RocketConfigModule.forRoot({formStyle: FormStyle.FLAT}),
       RocketLayoutModule,
       RocketLoaderModule,
       RocketFormModule,

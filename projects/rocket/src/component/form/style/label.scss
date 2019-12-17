@@ -1,0 +1,34 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@import 'node_modules/@chrishumboldt/rocket-propel/import';
+
+.comp--label {
+   @include position(absolute, top 11px);
+   @include text-colour($grey);
+   @include text-size(14px);
+   @include animate(all, 0.3s);
+   @include level(1);
+}
+.comp--label._state-active {
+   @include position-set(top -10px);
+   @include text-colour(lighten($grey, 25%));
+   @include text-size(12px);
+}
+
+// Flat style.
+:host._style-flat .comp--label {
+   @include position-set(top 12px left 17px);
+
+   @include breakpoint($bp-large) {
+      @include position-set(left 19px);
+   }
+}
+:host._style-flat .comp--label._state-active {
+   @include position-set(top -20px left 0);
+
+   @include breakpoint($bp-large) {
+      @include position-set(left 0);
+   }
+}

@@ -1,20 +1,29 @@
-<input
-(keyup)="handleDataChange($event)"
-(focus)="handleFocus(true)"
-(blur)="handleFocus(false)"
-[value]="data"
-[attr.disabled]="(disabled) ? '' : null"
-[@changeBorder]="
-   {
-      value: (style !== formStyle.LINE && focus),
-      params: {
-         colourStart: colourStart,
-         colourEnd: colour
+<div class="comp--container">
+   <label
+   *ngIf="label"
+   class="comp--label"
+   [ngClass]="{'_state-active': focus || (data && data.length > 0)}">
+      {{label}}
+   </label>
+
+   <input
+   (keyup)="handleDataChange($event.target.value)"
+   (focus)="handleFocus(true)"
+   (blur)="handleFocus(false)"
+   [value]="(data) ? data : ''"
+   [attr.disabled]="(disabled) ? '' : null"
+   [@changeBorder]="
+      {
+         value: (style !== formStyle.LINE && focus),
+         params: {
+            colourStart: colourStart,
+            colourEnd: colour
+         }
       }
-   }
-"
-type="{{type}}"
-class="comp--input">
+   "
+   type="{{type}}"
+   class="comp--input">
+</div>
 
 <rocket-line-reveal
 *ngIf="style === formStyle.LINE"

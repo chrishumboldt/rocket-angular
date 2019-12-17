@@ -59,10 +59,10 @@ export class RocketFormElementComponent extends RocketHelper implements OnInit {
    /**
     * Handle the data value change.
     *
-    * @param event - The key up event.
+    * @param value - The the new value.
     */
-   public handleDataChange(event: any): void {
-      this.data = event.target.value;
+   public handleDataChange(value: any): void {
+      this.data = value;
       this.dataChange.emit(this.data);
    }
 

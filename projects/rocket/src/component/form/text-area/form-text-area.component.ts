@@ -2,7 +2,7 @@
  * @author Chris Humboldt
  */
 
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { RocketConfigService } from '../../../service/config/config.service';
 import { RocketDataService } from '../../../service/data/data.service';
@@ -12,10 +12,17 @@ import { RocketFormElementComponent } from '../element/form-element.component';
 @Component({
    selector: 'rocket-text-area',
    templateUrl: './form-text-area.component.html',
-   styleUrls: ['./form-text-area.component.scss'],
+   styleUrls: [
+      '../style/setup.scss',
+      '../style/input.scss',
+      '../style/label.scss',
+      './form-text-area.component.scss'
+   ],
    animations: [ChangeBorderTrigger]
 })
 export class RocketFormTextAreaComponent extends RocketFormElementComponent {
+   @Input() label: string;
+
    constructor(
       public rocketConfig: RocketConfigService,
       public rocketData: RocketDataService

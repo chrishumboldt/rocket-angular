@@ -12,7 +12,19 @@ import { RocketPaneService } from '../../../rocket/src/public-api';
 })
 export class AppComponent {
    public paneName = 'testPane';
-   public textValue = 'Look At Me!'
+   public selectOptions = [{
+      body: 'Option One',
+      value: 'one'
+   }, {
+      body: 'Option Two',
+      value: 'two'
+   }, {
+      body: 'Option Three',
+      value: 'three'
+   }];
+   public selectValue: string;
+   public textValue: string;
+   public textAreaValue: string;
 
    constructor(
       private rocketPane: RocketPaneService
@@ -27,6 +39,6 @@ export class AppComponent {
    }
 
    public testData(): void {
-      console.log(this.textValue);
+      console.log(this.textValue, this.textAreaValue, this.selectValue);
    }
 }

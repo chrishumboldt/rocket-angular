@@ -13,10 +13,15 @@ import { RocketFormElementComponent } from '../element/form-element.component';
 @Component({
    selector: 'rocket-input',
    templateUrl: './form-input.component.html',
-   styleUrls: ['./form-input.component.scss'],
+   styleUrls: [
+      '../style/setup.scss',
+      '../style/input.scss',
+      '../style/label.scss'
+   ],
    animations: [ChangeBorderTrigger]
 })
 export class RocketFormInputComponent extends RocketFormElementComponent {
+   @Input() label: string;
    @Input() type: FormInputType;
 
    constructor(

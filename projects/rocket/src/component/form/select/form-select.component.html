@@ -6,23 +6,22 @@
       {{label}}
    </label>
 
-   <textarea
-   (keyup)="handleDataChange($event.target.value)"
+   <rocket-arrow type="down"></rocket-arrow>
+
+   <select
+   (change)="handleDataChange($event.target.value)"
    (focus)="handleFocus(true)"
    (blur)="handleFocus(false)"
-   [value]="(data) ? data : ''"
+   [value]="data"
    [attr.disabled]="(disabled) ? '' : null"
-   [@changeBorder]="
-      {
-         value: (style !== formStyle.LINE && focus),
-         params: {
-            colourStart: colourStart,
-            colourEnd: colour
-         }
-      }
-   "
-   class="comp--input">
-   </textarea>
+   class="comp--select">
+      <option
+      *ngFor="let option of options"
+      [value]="option[valueKey]"
+      class="comp--option">
+         {{option[bodyKey]}}
+      </option>
+   </select>
 </div>
 
 <rocket-line-reveal
