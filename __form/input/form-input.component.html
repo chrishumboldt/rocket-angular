@@ -1,30 +1,28 @@
-<div
-[@changeBorder]="
-   {
-      value: (style !== formStyle.LINE && focus),
-      params: {
-         colourStart: colourStart,
-         colourEnd: colour
-      }
-   }
-"
-class="comp--container">
+<div class="comp--container">
    <label
-   *ngIf="label && slideLabel"
-   class="comp--slideLabel"
+   *ngIf="label"
+   class="comp--label"
    [ngClass]="{'_state-active': focus || (data && data.length > 0)}">
       {{label}}
    </label>
 
-   <textarea
+   <input
    (keyup)="handleDataChange($event.target.value)"
    (focus)="handleFocus(true)"
    (blur)="handleFocus(false)"
    [value]="(data) ? data : ''"
    [attr.disabled]="(disabled) ? '' : null"
-   [attr.placeholder]="(label && !slideLabel) ? label : null"
+   [@changeBorder]="
+      {
+         value: (style !== formStyle.LINE && focus),
+         params: {
+            colourStart: colourStart,
+            colourEnd: colour
+         }
+      }
+   "
+   type="{{type}}"
    class="comp--input">
-   </textarea>
 </div>
 
 <rocket-line-reveal

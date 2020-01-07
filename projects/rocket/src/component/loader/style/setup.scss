@@ -5,19 +5,19 @@
 :host {
    @include position(relative);
    @include show();
-   @include padding-vertical($loader-size);
+   @include padding-vertical($loaderSize);
    @include text-align(center);
-   @include text-colour($grey-blue);
+   @include text-colour($greyBlue);
 }
 .comp--loader {
    @include spacing-none();
    @include position(relative);
-   @include square($loader-size);
+   @include square($loaderSize);
    @include center();
    @include animate(all);
 }
 .comp--text {
    @include show();
-   @include padding-top($space-small);
+   @include padding-top($spaceSmall);
    @include text-size(16px);
 }

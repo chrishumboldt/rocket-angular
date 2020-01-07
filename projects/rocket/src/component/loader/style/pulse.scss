@@ -6,17 +6,17 @@
 :host._type-pulse .comp--part._number-2 {
    @include position(absolute);
    @include box-sizing(border-box);
-   @include square($loader-size);
+   @include square($loaderSize);
    @include border-radius(50%);
-   @include border($grey-blue, 3px);
+   @include border($greyBlue, 3px);
    @include opacity(0);
-   @include animation(rocket-loader-pulse, 1.4s, infinite);
+   @include animation(rocketLoaderPulse, 1.4s, infinite);
 }
 :host._type-pulse .comp--part._number-2 {
    @include animation-delay(0.5s);
 }
 
-@include keyframes(rocket-loader-pulse) {
+@include keyframes(rocketLoaderPulse) {
    0% {
       @include opacity(0);
       @include transform-scale-3d(0, 0, 0);

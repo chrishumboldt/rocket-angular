@@ -13,6 +13,7 @@ export class RocketConfig {
    formColour?: string;
    formInputType?: FormInputType;
    formSize?: SizeText;
+   formSlideLabel?: boolean;
    formStyle?: FormStyle;
    initData?: DataEntry[];
    loaderColour?: any;

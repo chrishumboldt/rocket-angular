@@ -16,7 +16,7 @@ import { RocketFormElementComponent } from '../element/form-element.component';
    styleUrls: [
       '../style/setup.scss',
       '../style/input.scss',
-      '../style/label.scss'
+      '../style/slide-label.scss'
    ],
    animations: [ChangeBorderTrigger]
 })

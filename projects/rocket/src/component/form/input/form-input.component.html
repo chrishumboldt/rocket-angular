@@ -1,8 +1,19 @@
-<div class="comp--container">
+<div
+[@changeBorder]="
+   {
+      value: (style !== formStyle.LINE && focus),
+      params: {
+         colourStart: colourStart,
+         colourEnd: colour
+      }
+   }
+"
+class="comp--container">
    <label
-   *ngIf="label"
-   class="comp--label"
+   *ngIf="label && slideLabel"
+   class="comp--slideLabel"
    [ngClass]="{'_state-active': focus || (data && data.length > 0)}">
+   <!-- [ngClass]="{'_state-active': focus || (data && data.length > 0)}"> -->
       {{label}}
    </label>
 
@@ -12,15 +23,7 @@
    (blur)="handleFocus(false)"
    [value]="(data) ? data : ''"
    [attr.disabled]="(disabled) ? '' : null"
-   [@changeBorder]="
-      {
-         value: (style !== formStyle.LINE && focus),
-         params: {
-            colourStart: colourStart,
-            colourEnd: colour
-         }
-      }
-   "
+   [attr.placeholder]="(label && !slideLabel) ? label : null"
    type="{{type}}"
    class="comp--input">
 </div>

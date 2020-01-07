@@ -6,18 +6,18 @@
  * Large.
  */
 :host._size-large {
-   @include padding-vertical($loader-size-large);
+   @include padding-vertical($loaderSizeLarge);
 }
 :host._size-large .comp--loader {
-   @include square($loader-size-large);
+   @include square($loaderSizeLarge);
 }
 :host._size-large._type-spinner .comp--part._number-1 {
-   @include square($loader-size-large);
+   @include square($loaderSizeLarge);
    border-width: 4px;
 }
 :host._size-large._type-pulse .comp--part._number-1,
 :host._size-large._type-pulse .comp--part._number-2 {
-   @include square($loader-size-large);
+   @include square($loaderSizeLarge);
    border-width: 4px;
 }
 :host._size-large._type-dots .comp--loader {
@@ -26,32 +26,32 @@
 :host._size-large._type-dots .comp--part._number-1,
 :host._size-large._type-dots .comp--part._number-2,
 :host._size-large._type-dots .comp--part._number-3 {
-   @include position-set(margin-top $dot-size-half-large);
-   @include square($dot-size-large);
+   @include position-set(margin-top $dotSizeHalfLarge);
+   @include square($dotSizeLarge);
 }
 :host._size-large._type-dots .comp--part._number-2 {
-   @include position-set(left 50% margin-left $dot-size-half-large);
+   @include position-set(left 50% margin-left $dotSizeHalfLarge);
 }
 /**
  * Small.
  */
 :host._size-small {
-   @include padding-vertical($loader-size-small);
+   @include padding-vertical($loaderSizeSmall);
 }
 :host._size-small .comp--loader {
-   @include square($loader-size-small);
+   @include square($loaderSizeSmall);
 }
 :host._size-small .comp--text {
-   @include padding-top($space-x-small);
+   @include padding-top($spaceSmall / 2);
    @include text-size(14px);
 }
 :host._size-small._type-spinner .comp--part._number-1 {
-   @include square($loader-size-small);
+   @include square($loaderSizeSmall);
    border-width: 2px;
 }
 :host._size-small._type-pulse .comp--part._number-1,
 :host._size-small._type-pulse .comp--part._number-2 {
-   @include square($loader-size-small);
+   @include square($loaderSizeSmall);
    border-width: 2px;
 }
 :host._size-small._type-dots .comp--loader {
@@ -60,9 +60,9 @@
 :host._size-small._type-dots .comp--part._number-1,
 :host._size-small._type-dots .comp--part._number-2,
 :host._size-small._type-dots .comp--part._number-3 {
-   @include position-set(margin-top $dot-size-half-small);
-   @include square($dot-size-small);
+   @include position-set(margin-top $dotSizeHalfSmall);
+   @include square($dotSizeSmall);
 }
 :host._size-small._type-dots .comp--part._number-2 {
-   @include position-set(left 50% margin-left $dot-size-half-small);
+   @include position-set(left 50% margin-left $dotSizeHalfSmall);
 }

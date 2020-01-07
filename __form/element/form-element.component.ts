@@ -31,7 +31,6 @@ export class RocketFormElementComponent extends RocketHelper implements OnInit {
    public focus = false;
    public formStyle = FormStyle;
    public lineWidth = 0;
-   @Input() slideLabel = this.rocketConfig.formSlideLabel;
    @Input() style: FormStyle;
 
    // Set the classes.

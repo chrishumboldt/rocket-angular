@@ -4,14 +4,14 @@
 
 :host._type-spinner .comp--part {
    @include box-sizing(border-box);
-   @include square($loader-size);
+   @include square($loaderSize);
    @include border-radius(50%);
-   @include border(lighten($grey-blue, 20%), 3px);
-   @include border-top($grey-blue, 3px);
-   @include animation(rocket-loader-spinner, 1s, infinite);
+   @include border(lighten($greyBlue, 20%), 3px);
+   @include border-top($greyBlue, 3px);
+   @include animation(rocketLoaderSpinner, 1s, infinite);
 }
 
-@include keyframes(rocket-loader-spinner) {
+@include keyframes(rocketLoaderSpinner) {
    0% {
       @include transform-rotate(0deg);
    }

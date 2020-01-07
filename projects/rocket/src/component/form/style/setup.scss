@@ -9,3 +9,26 @@
    @include position(relative);
    @include margin-bottom(1.6em);
 }
+.comp--container {
+   @include show();
+   @include position(relative);
+}
+
+// The reveal line.
+:host rocket-line-reveal {
+   @include margin-top(-1px);
+}
+
+// Styles.
+:host._style-flat .comp--container {
+   @include background-color($greyXLight);
+   @include border(1px, $greyXLight);
+   @include border-radius(4px);
+}
+:host._style-line .comp--container {
+   @include border-bottom(1px, $greyLight);
+}
+:host._style-outline .comp--container {
+   @include border(3px, $greyXLight);
+   @include border-radius(30px);
+}

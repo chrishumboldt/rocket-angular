@@ -26,23 +26,23 @@
  * Padding.
  */
 :host._padding-small {
-   @include padding($space-small);
+   @include padding($spaceSmall);
 
-   @include breakpoint($bp-large) {
-      @include padding($space-base);
+   @include breakpoint($bpMedium) {
+      @include padding($spaceBase);
    }
 }
 :host._padding-medium {
-   @include padding($space-base);
+   @include padding($spaceBase);
 
-   @include breakpoint($bp-large) {
-      @include padding($space-medium);
+   @include breakpoint($bpMedium) {
+      @include padding($spaceMedium);
    }
 }
 :host._padding-large {
-   @include padding($space-slight);
+   @include padding($spaceBase + $spaceSmall);
 
-   @include breakpoint($bp-large) {
-      @include padding($space-large);
+   @include breakpoint($bpMedium) {
+      @include padding($spaceLarge);
    }
 }

@@ -23,7 +23,7 @@ import { AppComponent } from './app.component';
    ],
    imports: [
       BrowserModule,
-      RocketConfigModule.forRoot({formStyle: FormStyle.FLAT}),
+      RocketConfigModule.forRoot({formStyle: FormStyle.LINE}),
       RocketLayoutModule,
       RocketLoaderModule,
       RocketFormModule,
