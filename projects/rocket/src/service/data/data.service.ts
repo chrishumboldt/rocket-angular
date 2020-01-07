@@ -75,11 +75,11 @@ export class RocketDataService {
    }: DataEntry): void {
       // Make sure a date entry isn't being created that uses a reserved data key.
       if (!force && this.isReservedName(name)) {
-         console.log(`ROCKET DATA CREATE: The data key name "${name}" that you submitted is reserved and therefore invalid. Please use a different name.`);
+         console.log('ROCKET DATA CREATE:', `The data key name "${name}" that you submitted is reserved and therefore invalid. Please use a different name.`);
          return;
       }
       if (this.exists(name)) {
-         console.log(`ROCKET DATA CREATE: The data key name "${name}" that you submitted already exists. Rather use the update method to update the existing data.`);
+         console.log('ROCKET DATA CREATE:', `The data key name "${name}" that you submitted already exists. Rather use the update method to update the existing data.`);
          return;
       }
 
