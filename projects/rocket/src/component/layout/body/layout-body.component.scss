@@ -10,9 +10,8 @@
 :host._center-true {
    @include center();
 }
-/**
- * Limits.
- */
+
+// Limits.
 :host._limit-small {
    @include limit(40em);
 }
@@ -22,9 +21,8 @@
 :host._limit-large {
    @include limit(90em);
 }
-/**
- * Padding.
- */
+
+// Padding.
 :host._padding-small {
    @include padding($spaceSmall);
 

@@ -12,9 +12,8 @@
    @include width(100vw);
    @include background-colour($white);
 }
-/**
- * Content section.
- */
+
+// Content section.
 .comp--paneContent {
    @include flex(1, 1, 1);
    @include overflow(auto);

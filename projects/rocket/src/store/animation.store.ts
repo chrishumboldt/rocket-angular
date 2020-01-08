@@ -32,6 +32,23 @@ export const ChangeBorderTrigger = trigger('changeBorder', [
    transition('true <=> false', [animate('0.3s 0s ease-out')])
 ]);
 
+export const FormSlideLabelTrigger = trigger('formSlideLabel', [
+   state(
+      'true',
+      style({
+         top: '{{top}}',
+         fontSize: '0.750rem',
+         color: '#bfbfbf'
+      }),
+      {
+         params: {
+            top: '0px'
+         }
+      }
+   ),
+   transition('* <=> true', [animate('0.3s 0s ease-out')])
+]);
+
 export const RevealDownTrigger = trigger('revealDown', [
    state(
       'false',

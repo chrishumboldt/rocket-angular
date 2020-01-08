@@ -4,8 +4,8 @@
 
 import { Component, HostBinding, Input } from '@angular/core';
 
-import { Direction } from '../../../store/direction.store';
-import { SizeText } from '../../../store/size.store';
+import { Direction } from '../../store/direction.store';
+import { SizeText } from '../../store/size.store';
 
 @Component({
    selector: 'rocket-arrow',

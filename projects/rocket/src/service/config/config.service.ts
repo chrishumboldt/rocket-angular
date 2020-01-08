@@ -10,6 +10,7 @@ import { RocketConfig } from '../../model/config.model';
 import { FormInputType, FormStyle } from '../../store/form.store';
 import { LoaderSize, LoaderType } from '../../store/loader.store';
 import { ColourCode, SecondaryColour } from '../../store/colour.store';
+import { State } from '../../store/state.store';
 import { SizeText } from '../../store/size.store';
 import { StorageType } from '../../store/storage.store';
 import { RocketSetup } from '../../tool/setup/setup.tool';
@@ -22,7 +23,7 @@ export class RocketConfigService {
    public formColour: string;
    public formInputType: FormInputType;
    public formSize: SizeText;
-   public formSlideLabel: boolean;
+   public formSlideLabel: State;
    public formStyle: FormStyle;
    public initData: DataEntry[];
    public loaderColour: string;
@@ -52,7 +53,7 @@ export class RocketConfigService {
          data: config.formSize, fallback: SizeText.MEDIUM
       });
       this.formSlideLabel = ValueGenerator({
-         data: config.formSlideLabel, fallback: true
+         data: config.formSlideLabel, fallback: State.ON
       });
       this.formStyle = ValueGenerator({
          data: config.formStyle, fallback: FormStyle.LINE

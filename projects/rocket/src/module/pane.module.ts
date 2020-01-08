@@ -4,12 +4,14 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { RocketPaneComponent } from '../component/pane/pane.component';
 
 @NgModule({
    imports: [
-      CommonModule
+      CommonModule,
+      BrowserAnimationsModule
    ],
    declarations: [
       RocketPaneComponent

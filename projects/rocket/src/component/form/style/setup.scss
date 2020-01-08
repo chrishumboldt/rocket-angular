@@ -4,31 +4,41 @@
 
 @import 'node_modules/@chrishumboldt/rocket-propel/import';
 
-:host {
+:host,
+.comp--container,
+.comp--inner {
    @include show();
    @include position(relative);
+}
+:host {
    @include margin-bottom(1.6em);
 }
-.comp--container {
-   @include show();
-   @include position(relative);
+.comp--inner {
+   @include level(2);
 }
 
 // The reveal line.
 :host rocket-line-reveal {
    @include margin-top(-1px);
+   @include level(3);
 }
 
 // Styles.
 :host._style-flat .comp--container {
    @include background-color($greyXLight);
+   @include border-radius(4px);
+}
+:host._style-flat .comp--inner {
    @include border(1px, $greyXLight);
    @include border-radius(4px);
 }
-:host._style-line .comp--container {
+:host._style-line .comp--inner {
    @include border-bottom(1px, $greyLight);
 }
 :host._style-outline .comp--container {
+   @include border-radius(30px);
+}
+:host._style-outline .comp--inner {
    @include border(3px, $greyXLight);
    @include border-radius(30px);
 }

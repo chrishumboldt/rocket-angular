@@ -3,7 +3,6 @@
  */
 
 @import 'node_modules/@chrishumboldt/rocket-propel/import';
-
 @import './variable';
 
 :host {
@@ -74,6 +73,9 @@
 :host._style-line rocket-arrow {
    @include position-set(top $spaceVerticalLine + 6px);
 }
+:host._style-outline {
+   @include width-min(200px);
+}
 :host._style-outline .comp--select {
    @include padding-left($spaceHorizontalOutline);
    @include padding-right($spaceHorizontalOutline * 2);
@@ -84,9 +86,9 @@
    }
 }
 :host._style-outline rocket-arrow {
-   @include position-set(right $spaceHorizontalOutline);
+   @include position-set(right $spaceHorizontalOutline top $spaceVerticalOutline + 6px);
 
    @include breakpoint($bpMedium) {
-      @include position-set(right $spaceHorizontalOutlineMedium + 2px);
+      @include position-set(right $spaceHorizontalOutlineMedium + 2px  top $spaceVerticalOutlineMedium + 6px);
    }
 }

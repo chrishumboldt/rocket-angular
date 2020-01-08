@@ -11,6 +11,7 @@ export * from './helper/rocket.helper';
 // Models.
 export * from './model/config.model';
 export * from './model/data.model';
+export * from './model/form.model';
 export * from './model/size.model';
 // Modules.
 export * from './module/config.module';

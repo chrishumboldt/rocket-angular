@@ -5,9 +5,9 @@
 @import 'node_modules/@chrishumboldt/rocket-propel/import';
 @import './variable';
 
-.comp--slideLabel {
+rocket-slide-label {
    @include position(absolute, top $spaceVertical left $spaceHorizontal);
-   @include text-colour($grey);
+   @include text-colour($greyLight);
    @include text-size($textSize);
    @include level(1);
 
@@ -17,13 +17,13 @@
 }
 
 // Styles.
-:host._style-line .comp--slideLabel {
+:host._style-line rocket-slide-label {
    @include position-set(top $spaceVerticalLine left 0px);
 }
-:host._style-outline .comp--slideLabel {
-   @include position-set(left $spaceHorizontalOutline);
+:host._style-outline rocket-slide-label {
+   @include position-set(top $spaceVerticalOutline left $spaceHorizontalOutline);
 
    @include breakpoint($bpMedium) {
-      @include position-set(left $spaceHorizontalOutlineMedium);
+      @include position-set(top $spaceVerticalOutlineMedium left $spaceHorizontalOutlineMedium);
    }
 }

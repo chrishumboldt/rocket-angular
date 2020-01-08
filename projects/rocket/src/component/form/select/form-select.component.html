@@ -1,42 +1,46 @@
-<div
-[@changeBorder]="
-   {
-      value: (style !== formStyle.LINE && focus),
-      params: {
-         colourStart: colourStart,
-         colourEnd: colour
-      }
-   }
-"
-class="comp--container">
-   <label
-   *ngIf="label && slideLabel"
-   class="comp--slideLabel"
-   [ngClass]="{'_state-active': focus || (data && data.length > 0)}">
-      {{label}}
-   </label>
+<div class="comp--container">
+   <rocket-slide-label
+   *ngIf="label && slideLabel === states.ON"
+   [active]="(focus || data) ? true : false"
+   label={{label}}
+   positionTop="{{slideLabelTop}}">
+   </rocket-slide-label>
 
    <rocket-arrow type="down"></rocket-arrow>
 
-   <select
-   (change)="handleDataChange($event.target.value)"
-   (focus)="handleFocus(true)"
-   (blur)="handleFocus(false)"
-   [value]="data"
-   [attr.disabled]="(disabled) ? '' : null"
-   [attr.placeholder]="(label && !slideLabel) ? label : null"
-   class="comp--select">
-      <option
-      *ngFor="let option of options"
-      [value]="option[valueKey]"
-      class="comp--option">
-         {{option[bodyKey]}}
-      </option>
-   </select>
+   <div
+   [@changeBorder]="
+      {
+         value: (formStyle !== formStyles.LINE && focus),
+         params: {
+            colourStart: colourStart,
+            colourEnd: colour
+         }
+      }
+   "
+   class="comp--inner">
+      <select
+      (change)="handleDataChange($event.target.value)"
+      (focus)="handleFocus(true)"
+      (blur)="handleFocus(false)"
+      [value]="data"
+      [attr.autocomplete]="(autocomplete) ? autocomplete : null"
+      [attr.disabled]="(disabled) ? '' : null"
+      [attr.placeholder]="(label && slideLabel === states.OFF) ? label : null"
+      [attr.size]="(size) ? size : null"
+      class="comp--select">
+         <option
+         *ngFor="let option of options"
+         [value]="option[valueKey]"
+         class="comp--option">
+            {{option[bodyKey]}}
+         </option>
+      </select>
+   </div>
 </div>
 
 <rocket-line-reveal
-*ngIf="style === formStyle.LINE"
+*ngIf="formStyle === formStyles.LINE"
 [colour]="colour"
 [width]="lineWidth">
 </rocket-line-reveal>

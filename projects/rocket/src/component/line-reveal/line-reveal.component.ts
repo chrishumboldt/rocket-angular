@@ -4,8 +4,8 @@
 
 import { Component, HostBinding, Input } from '@angular/core';
 
-import { RevealRightTrigger } from '../../../store/animation.store';
-import { ColourCode } from '../../../store/colour.store';
+import { RevealRightTrigger } from '../../store/animation.store';
+import { ColourCode } from '../../store/colour.store';
 
 @Component({
    selector: 'rocket-line-reveal',

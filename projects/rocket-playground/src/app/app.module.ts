@@ -6,13 +6,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {
-   ColourCode,
    FormStyle,
    RocketConfigModule,
    RocketFormModule,
-   RocketLayoutModule,
-   RocketLoaderModule,
-   RocketPaneModule
+   RocketLayoutModule
 } from '../../../rocket/src/public-api';
 
 import { AppComponent } from './app.component';
@@ -25,9 +22,7 @@ import { AppComponent } from './app.component';
       BrowserModule,
       RocketConfigModule.forRoot({formStyle: FormStyle.LINE}),
       RocketLayoutModule,
-      RocketLoaderModule,
-      RocketFormModule,
-      RocketPaneModule
+      RocketFormModule
    ],
    providers: [],
    bootstrap: [AppComponent]

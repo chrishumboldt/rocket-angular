@@ -4,7 +4,7 @@
 
 import { Component } from '@angular/core';
 
-import { RocketPaneService } from '../../../rocket/src/public-api';
+import { FormSelectOption, RocketPaneService } from '../../../rocket/src/public-api';
 
 @Component({
    selector: 'app-root',
@@ -12,16 +12,15 @@ import { RocketPaneService } from '../../../rocket/src/public-api';
 })
 export class AppComponent {
    public paneName = 'testPane';
-   public selectOptions = [{
-      body: 'Option One',
-      value: 'one'
-   }, {
-      body: 'Option Two',
-      value: 'two'
-   }, {
-      body: 'Option Three',
-      value: 'three'
-   }];
+   public selectOptions = [
+      new FormSelectOption({body: 'Option One', value: 'one'}),
+      new FormSelectOption({body: 'Option Two', value: 'two'}),
+      new FormSelectOption({body: 'Option Three'}),
+      new FormSelectOption({body: 'Option Four'}),
+      new FormSelectOption({body: 'Option Five'}),
+      new FormSelectOption({body: 'Option Six'}),
+      new FormSelectOption({body: 'Option Seven'})
+   ];
    public selectValue: string;
    public textValue: string;
    public textAreaValue: string;

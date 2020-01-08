@@ -16,25 +16,17 @@
 
    <rocket-text-area
    [(data)]="address"
-   label="Full Address">
+   label="Full Address"
+   spellcheck="off">
    </rocket-text-area>
 
    <rocket-select
    [(data)]="selectValue"
    [options]="selectOptions"
-   label="Option One">
+   label="Option Selection">
    </rocket-select>
 
    <br>
 
    <button (click)="testData()" type="button">Test Data</button>
-   <button (click)="paneOpen()" type="button">Open Pane</button>
 </rocket-body>
-
-<rocket-pane name="{{paneName}}">
-   <rocket-body>
-      This is a test.
-      <br><br>
-      <button (click)="paneClose()" type="button">Close Pane</button>
-   </rocket-body>
-</rocket-pane>

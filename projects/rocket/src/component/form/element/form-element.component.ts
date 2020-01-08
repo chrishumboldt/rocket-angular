@@ -16,28 +16,33 @@ import { RocketConfigService } from '../../../service/config/config.service';
 import { RocketDataService } from '../../../service/data/data.service';
 import { ColourCode } from '../../../store/colour.store';
 import { FormStyle, FormStyleArray } from '../../../store/form.store';
+import { State } from '../../../store/state.store';
 
 @Component({
    selector: 'rocket-form-element',
    template: ''
 })
 export class RocketFormElementComponent extends RocketHelper implements OnInit {
-   public classNames: string[] = [];
+   @Input() autocomplete: State;
+   @Input() autocorrect: State;
+   @Input() autocapitalize: State;
+   @HostBinding('class') classes = '';
    @Input() colour: string;
    public colourStart = ColourCode.GREY_X_LIGHT;
    @Input() data: any;
    @Output() dataChange = new EventEmitter();
    @Input() disabled = false;
    public focus = false;
-   public formStyle = FormStyle;
+   @Input() formStyle: FormStyle;
+   public formStyles = FormStyle;
    public lineWidth = 0;
+   @Input() max: number;
+   @Input() min: number;
+   @Input() size: number;
+   @Input() spellcheck: State;
+   public states = State;
    @Input() slideLabel = this.rocketConfig.formSlideLabel;
-   @Input() style: FormStyle;
-
-   // Set the classes.
-   @HostBinding('class') get getClassNames() {
-      return this.classNames.join(' ');
-   };
+   public slideLabelTop = '-12px';
 
    constructor(
       public rocketConfig: RocketConfigService,
@@ -76,7 +81,7 @@ export class RocketFormElementComponent extends RocketHelper implements OnInit {
       this.focus = focusState;
 
       // Handle the line style attribute if required.
-      if (this.style === FormStyle.LINE) {
+      if (this.formStyle === FormStyle.LINE) {
          this.lineWidth = (focusState) ? 100 : 0;
       }
       // Call the method extension.
@@ -84,7 +89,7 @@ export class RocketFormElementComponent extends RocketHelper implements OnInit {
    }
 
    /**
-    * An extension to the handle focus event. Is meant to be overwritten.
+    * An extension to the handle focus event. Its designed to be overwritten.
     */
    public handleFocusExtend(): void {}
 
@@ -101,14 +106,21 @@ export class RocketFormElementComponent extends RocketHelper implements OnInit {
     * Set the form style.
     */
    private setStyle(): void {
-      if (!this.style || !FormStyleArray.includes(this.style)) {
-         this.style = this.rocketConfig.formStyle;
+      if (!this.formStyle || !FormStyleArray.includes(this.formStyle)) {
+         this.formStyle = this.rocketConfig.formStyle;
       }
-      this.classNames.push(`_style-${this.style}`);
+      this.classes = `_style-${this.formStyle}`;
 
-      // Set the border to a darker colour on the line style form elements.
-      if (this.style === FormStyle.LINE) {
+      /*
+       * Set the border to a darker colour on the line style form elements. Also set the
+       * top value of the slide label when active.
+       */
+      if (this.formStyle === FormStyle.LINE) {
          this.colourStart = ColourCode.GREY_LIGHT;
+      } else if (this.formStyle === FormStyle.FLAT) {
+         this.slideLabelTop = '-20px';
+      } else if (this.formStyle === FormStyle.OUTLINE) {
+         this.slideLabelTop = '-20px';
       }
    }
 }
