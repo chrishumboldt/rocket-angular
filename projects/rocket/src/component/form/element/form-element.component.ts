@@ -54,6 +54,7 @@ export class RocketFormElementComponent extends RocketHelper implements OnInit {
    ngOnInit() {
       this.setColour();
       this.setStyle();
+      this.setSlideLabelTop();
       this.ngOnInitExtend();
    }
 
@@ -112,12 +113,22 @@ export class RocketFormElementComponent extends RocketHelper implements OnInit {
       this.classes = `_style-${this.formStyle}`;
 
       /*
-       * Set the border to a darker colour on the line style form elements. Also set the
-       * top value of the slide label when active.
+       * Set the border to a darker colour on the line style form elements.
        */
       if (this.formStyle === FormStyle.LINE) {
          this.colourStart = ColourCode.GREY_LIGHT;
       } else if (this.formStyle === FormStyle.FLAT) {
+         this.slideLabelTop = '-20px';
+      } else if (this.formStyle === FormStyle.OUTLINE) {
+         this.slideLabelTop = '-20px';
+      }
+   }
+
+   /**
+    * Set the form slide label top position.
+    */
+   private setSlideLabelTop(): void {
+      if (this.formStyle === FormStyle.FLAT) {
          this.slideLabelTop = '-20px';
       } else if (this.formStyle === FormStyle.OUTLINE) {
          this.slideLabelTop = '-20px';
