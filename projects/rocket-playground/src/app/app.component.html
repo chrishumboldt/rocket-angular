@@ -1,32 +1,5 @@
 <rocket-body limit="small">
-   <rocket-input
-   [(data)]="firstName"
-   label="First Name">
-   </rocket-input>
-
-   <rocket-input
-   [(data)]="lastName"
-   label="Last Name">
-   </rocket-input>
-
-   <rocket-input
-   [(data)]="title"
-   label="Title">
-   </rocket-input>
-
-   <rocket-text-area
-   [(data)]="address"
-   label="Full Address"
-   spellcheck="off">
-   </rocket-text-area>
-
-   <rocket-select
-   [(data)]="selectValue"
-   [options]="selectOptions"
-   label="Option Selection">
-   </rocket-select>
-
-   <br>
-
-   <button (click)="testData()" type="button">Test Data</button>
+   <rocket-button
+   (click)="handleClick()">
+   </rocket-button>
 </rocket-body>

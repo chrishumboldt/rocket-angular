@@ -5,7 +5,7 @@
 import { Component, HostBinding, Input } from '@angular/core';
 
 import { Direction } from '../../store/direction.store';
-import { SizeText } from '../../store/size.store';
+import { SizeType } from '../../store/size.store';
 
 @Component({
    selector: 'rocket-arrow',
@@ -13,7 +13,7 @@ import { SizeText } from '../../store/size.store';
    styleUrls: ['./arrow.component.scss']
 })
 export class RocketArrowComponent {
-   @Input() size = SizeText.SMALL;
+   @Input() size = SizeType.SMALL;
    @Input() type = Direction.RIGHT;
 
    @HostBinding('class') get getClassNames() {

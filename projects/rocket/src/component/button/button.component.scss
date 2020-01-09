@@ -1,0 +1,93 @@
+/**
+ * @author Chris Humboldt
+ */
+
+@import 'node_modules/@chrishumboldt/rocket-propel/import';
+
+$lightnessThreshold: 68%;
+$lightnessThresholdLine: 98%;
+$paddingDefault: 28px;
+$paddingSmall: 14px;
+$paddingLarge: 32px;
+$sizeDefault: 48px;
+$sizeSmall: 30px;
+$sizeLarge: 54px;
+$shapePill: 100px;
+$shapeRounded: 4px;
+$shapeSquare: 0px;
+$textDefault: 14px;
+$textSmall: 12px;
+$textLarge: 16px;
+
+// Setup.
+button {
+   @include position(relative);
+   @include padding-horizontal($paddingDefault);
+   @include padding-vertical(0px);
+   @include height($sizeDefault);
+   @include display(inline-block);
+   @include text-align(center);
+   @include text-decoration(none);
+   @include text-line-height($sizeDefault);
+   @include text-size($textDefault);
+   @include vertical-align(middle);
+   @include border-none();
+   @include background-colour($greyLight);
+   outline: none;
+   -webkit-appearance: none;
+}
+button:hover {
+   @include cursor(pointer);
+}
+
+// Mixin.
+@mixin text-colour-with-visited($colour) {
+   @include text-colour($colour);
+   &:visited {
+      @include text-colour($colour);
+   }
+}
+
+// Colours and style.
+@each $colourName, $colour in $coloursButtons {
+   :host._style-flat._colour-#{$colourName} button {
+      @if lightness($colour) < $lightnessThreshold {
+			@include text-colour-with-visited($white);
+		}
+      @include background-color($colour);
+   }
+   :host._style-line._colour-#{$colourName} button {
+      @if lightness($colour) < $lightnessThresholdLine {
+			@include text-colour-with-visited($colour);
+		} @else {
+			@include text-colour-with-visited($white);
+		}
+		background: transparent;
+		@include border($colour);
+   }
+}
+
+// Shapes.
+:host._shape-pill button {
+   @include border-radius($shapePill);
+}
+:host._shape-rounded button {
+   @include border-radius($shapeRounded);
+}
+:host._shape-square button {
+   @include border-radius($shapeSquare);
+}
+
+// Sizes.
+:host._size-small button {
+   @include padding-horizontal($paddingSmall);
+   @include height($sizeSmall);
+   @include text-line-height($sizeSmall);
+   @include text-size($textSmall);
+}
+:host._size-large button {
+   @include padding-horizontal($paddingLarge);
+   @include height($sizeLarge);
+   @include text-line-height($sizeLarge);
+   @include text-size($textLarge);
+}

@@ -41,7 +41,7 @@ export class RocketLoaderComponent implements OnInit {
     * should they see fit.
     */
    private setColour(): void {
-      if (this.colour && this.colour.length > 0) {
+      if (this.colour) {
          this.classNames.push(`_colour-${this.colour}`);
       } else {
          this.classNames.push(`_colour-${this.rocketConfig.loaderColour}`);
@@ -67,7 +67,7 @@ export class RocketLoaderComponent implements OnInit {
       let typeClass: string = this.rocketConfig.loaderType;
 
       // Determine if the type is being set.
-      if (this.type && this.type.length > 0) {
+      if (this.type) {
          typeClass = this.type;
       }
 

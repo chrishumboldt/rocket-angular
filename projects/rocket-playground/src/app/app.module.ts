@@ -6,7 +6,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {
+   ButtonShape,
    FormStyle,
+   ButtonColour,
+   RocketButtonModule,
    RocketConfigModule,
    RocketFormModule,
    RocketLayoutModule
@@ -20,7 +23,12 @@ import { AppComponent } from './app.component';
    ],
    imports: [
       BrowserModule,
-      RocketConfigModule.forRoot({formStyle: FormStyle.LINE}),
+      RocketButtonModule,
+      RocketConfigModule.forRoot({
+         buttonColour: ButtonColour.BLUE,
+         buttonShape: ButtonShape.PILL,
+         formStyle: FormStyle.LINE
+      }),
       RocketLayoutModule,
       RocketFormModule
    ],

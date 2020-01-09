@@ -9,7 +9,6 @@ export enum LoaderSize {
    LARGE = 'large',
    SMALL = 'small'
 }
-
 export const LoaderSizeArray = RocketTransform.enumToArray({
    data: LoaderSize,
    valuesOnly: true

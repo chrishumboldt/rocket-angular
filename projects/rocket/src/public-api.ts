@@ -14,6 +14,7 @@ export * from './model/data.model';
 export * from './model/form.model';
 export * from './model/size.model';
 // Modules.
+export * from './module/button.module';
 export * from './module/config.module';
 export * from './module/form.module';
 export * from './module/layout.module';
@@ -26,6 +27,7 @@ export * from './service/pane/pane.service';
 export * from './service/storage/storage.service';
 // Cool storage stuff.
 export * from './store/animation.store';
+export * from './store/button.store';
 export * from './store/character.store';
 export * from './store/colour.store';
 export * from './store/data.store';

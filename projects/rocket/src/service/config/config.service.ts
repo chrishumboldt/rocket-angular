@@ -7,11 +7,13 @@ import { Injectable, Optional } from '@angular/core';
 import { ValueGenerator } from '../../generator/value.generator';
 import { DataEntry } from '../../model/data.model';
 import { RocketConfig } from '../../model/config.model';
+import { ButtonShape, ButtonSize, ButtonStyle } from '../../store/button.store';
 import { FormInputType, FormStyle } from '../../store/form.store';
 import { LoaderSize, LoaderType } from '../../store/loader.store';
+import { ButtonColour } from '../../store/button.store';
 import { ColourCode, SecondaryColour } from '../../store/colour.store';
 import { State } from '../../store/state.store';
-import { SizeText } from '../../store/size.store';
+import { SizeType } from '../../store/size.store';
 import { StorageType } from '../../store/storage.store';
 import { RocketSetup } from '../../tool/setup/setup.tool';
 
@@ -19,10 +21,14 @@ import { RocketSetup } from '../../tool/setup/setup.tool';
    providedIn: 'root'
 })
 export class RocketConfigService {
+   public buttonColour: ButtonColour;
+   public buttonShape: ButtonShape;
+   public buttonSize: ButtonSize;
+   public buttonStyle: ButtonStyle;
    public font: string;
    public formColour: string;
    public formInputType: FormInputType;
-   public formSize: SizeText;
+   public formSize: SizeType;
    public formSlideLabel: State;
    public formStyle: FormStyle;
    public initData: DataEntry[];
@@ -39,6 +45,18 @@ export class RocketConfigService {
    constructor(
       @Optional() config: RocketConfig = {}
    ) {
+      this.buttonColour = ValueGenerator({
+         data: config.buttonColour, fallback: ButtonColour.BLUE
+      });
+      this.buttonShape = ValueGenerator({
+         data: config.buttonShape, fallback: ButtonShape.ROUNDED
+      });
+      this.buttonSize = ValueGenerator({
+         data: config.buttonSize, fallback: ButtonSize.DEFAULT
+      });
+      this.buttonStyle = ValueGenerator({
+         data: config.buttonStyle, fallback: ButtonStyle.FLAT
+      });
       this.font = ValueGenerator({
          data: config.font,
          fallback: '\'Open Sans\', Helvetica, Arial, sans-serif'
@@ -50,7 +68,7 @@ export class RocketConfigService {
          data: config.formInputType, fallback: FormInputType.TEXT
       });
       this.formSize = ValueGenerator({
-         data: config.formSize, fallback: SizeText.MEDIUM
+         data: config.formSize, fallback: SizeType.MEDIUM
       });
       this.formSlideLabel = ValueGenerator({
          data: config.formSlideLabel, fallback: State.ON
