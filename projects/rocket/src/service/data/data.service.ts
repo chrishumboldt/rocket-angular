@@ -268,7 +268,7 @@ export class RocketDataService {
                 * Make sure we only create non-reservaed observables.
                 */
                if (!this.exists(item) && !this.isReservedName(item)) {
-                  console.log(`ROCKET DATA OBSERVABLE: No observable data with name "${item}" was found, so one has been created. This is not ideal. Create the observable data ahead of time instead.`);
+                  console.log('ROCKET DATA OBSERVABLE:', `No observable data with name "${item}" was found, so one has been created. This is not ideal. Create the observable data ahead of time instead.`);
                   this.create(new DataEntry({name: item, data: RocketData.BLANK}));
                }
 
@@ -320,7 +320,7 @@ export class RocketDataService {
    }: DataEntry): void {
       // If the observable does not exist, create it so that it can be managed.
       if (!this.exists(name)) {
-         console.log(`ROCKET DATA UPDATE: No data with name "${name}" was found, so one has been created`);
+         console.log('ROCKET DATA UPDATE:', `No data with name "${name}" was found, so one has been created`);
          this.create({name, data: RocketData.BLANK});
       }
 

@@ -7,6 +7,7 @@ export enum State {
    CLOSED = 'closed',
    HIDDEN = 'hidden',
    INACTIVE = 'inactive',
+   LOADING = 'loading',
    OFF = 'off',
    ON = 'on',
    OPEN = 'open',

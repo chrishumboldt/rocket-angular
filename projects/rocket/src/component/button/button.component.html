@@ -1,3 +1,12 @@
-<button type="{{type}}">
-   {{text}}
+<button
+[@buttonClick]="clickedState"
+type="{{type}}">
+   <ng-container *ngIf="state !== states.LOADING">{{text}}</ng-container>
+
+   <rocket-loader
+   *ngIf="state === states.LOADING"
+   colour="{{loaderColour}}"
+   size="{{loaderSize}}"
+   spacing="0">
+   </rocket-loader>
 </button>

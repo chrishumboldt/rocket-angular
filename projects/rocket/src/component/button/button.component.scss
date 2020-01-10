@@ -4,9 +4,12 @@
 
 @import 'node_modules/@chrishumboldt/rocket-propel/import';
 
+$animationTime: 0.2s;
+$borderSize: 2px;
+$lighten: 25%;
 $lightnessThreshold: 68%;
 $lightnessThresholdLine: 98%;
-$paddingDefault: 28px;
+$paddingDefault: 26px;
 $paddingSmall: 14px;
 $paddingLarge: 32px;
 $sizeDefault: 48px;
@@ -33,11 +36,15 @@ button {
    @include vertical-align(middle);
    @include border-none();
    @include background-colour($greyLight);
+   @include animate(box-shadow, $animationTime);
    outline: none;
    -webkit-appearance: none;
 }
 button:hover {
    @include cursor(pointer);
+}
+button:active {
+   @include drop-shadow-none();
 }
 
 // Mixin.
@@ -49,13 +56,27 @@ button:hover {
 }
 
 // Colours and style.
+:host._style-line button {
+   @include text-line-height($sizeDefault - ($borderSize * 2));
+}
+
 @each $colourName, $colour in $coloursButtons {
+   // Flat colours
    :host._style-flat._colour-#{$colourName} button {
       @if lightness($colour) < $lightnessThreshold {
 			@include text-colour-with-visited($white);
 		}
       @include background-color($colour);
    }
+   // States
+   :host._style-flat._colour-#{$colourName} button:hover {
+      @include drop-shadow(lighten($colour, $lighten), 16px, 2px);
+   }
+   :host._style-flat._colour-#{$colourName} button:active {
+      @include drop-shadow-none();
+   }
+
+   // Line colours
    :host._style-line._colour-#{$colourName} button {
       @if lightness($colour) < $lightnessThresholdLine {
 			@include text-colour-with-visited($colour);
@@ -63,7 +84,7 @@ button:hover {
 			@include text-colour-with-visited($white);
 		}
 		background: transparent;
-		@include border($colour);
+		@include border($colour, 2px);
    }
 }
 

@@ -5,7 +5,6 @@
 :host {
    @include position(relative);
    @include show();
-   @include padding-vertical($loaderSize);
    @include text-align(center);
    @include text-colour($greyBlue);
 }

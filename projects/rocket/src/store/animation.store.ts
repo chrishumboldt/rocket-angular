@@ -6,6 +6,22 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 
 import { ColourCode } from './colour.store';
 
+export const ButtonClickTrigger = trigger('buttonClick', [
+   state(
+      'false',
+      style({
+         transform: 'scale3d(1, 1, 1)'
+      })
+   ),
+   state(
+      'true',
+      style({
+         transform: 'scale3d(0.95, 0.95, 0.95)'
+      })
+   ),
+   transition('false <=> true', [animate('0.2s 0s ease-out')])
+]);
+
 export const ChangeBorderTrigger = trigger('changeBorder', [
    state(
       'false',

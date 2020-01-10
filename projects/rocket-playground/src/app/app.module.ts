@@ -7,8 +7,8 @@ import { NgModule } from '@angular/core';
 
 import {
    ButtonShape,
+   ButtonStyle,
    FormStyle,
-   ButtonColour,
    RocketButtonModule,
    RocketConfigModule,
    RocketFormModule,
@@ -25,8 +25,8 @@ import { AppComponent } from './app.component';
       BrowserModule,
       RocketButtonModule,
       RocketConfigModule.forRoot({
-         buttonColour: ButtonColour.BLUE,
          buttonShape: ButtonShape.PILL,
+         buttonStyle: ButtonStyle.FLAT,
          formStyle: FormStyle.LINE
       }),
       RocketLayoutModule,

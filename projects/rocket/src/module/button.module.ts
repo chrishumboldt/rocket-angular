@@ -5,11 +5,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { RocketLoaderModule } from './loader.module';
 import { RocketButtonComponent } from '../component/button/button.component';
 
 @NgModule({
    imports: [
-      CommonModule
+      CommonModule,
+      RocketLoaderModule
    ],
    declarations: [
       RocketButtonComponent

@@ -19,11 +19,12 @@ export class RocketLoaderComponent implements OnInit {
    @Input() text: string;
    @Input() type: LoaderType;
    public parts: number[] = [];
-
-   // Set the classes.
+   // Host bindings
    @HostBinding('class') get getClassNames() {
       return this.classNames.join(' ');
    };
+   @HostBinding('style.padding.px')
+   @Input() spacing = 40;
 
    constructor(
       private rocketConfig: RocketConfigService

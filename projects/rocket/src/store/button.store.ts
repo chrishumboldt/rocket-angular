@@ -54,3 +54,8 @@ export const ButtonStyleArray = RocketTransform.enumToArray({
    data: ButtonStyle,
    valuesOnly: true
 });
+
+export enum ButtonType {
+   BUTTON = 'button',
+   SUBMIT = 'submit'
+}

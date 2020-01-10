@@ -85,7 +85,7 @@ export class RocketPaneService {
          // Update the panes data.
          this.updatePanes(panes);
       } else {
-         console.log(`${Prefix.LOG} A pane with the name "${name}" cannot be found thus the active state cannot be updated.`);
+         console.log(Prefix.LOG, `A pane with the name "${name}" cannot be found thus the active state cannot be updated.`);
       }
    }
 
@@ -158,7 +158,7 @@ export class RocketPaneService {
 
          return newPane;
       } else {
-         console.log(`${Prefix.LOG} A pane with the name "${name}" already exists.`);
+         console.log(Prefix.LOG, `A pane with the name "${name}" already exists.`);
       }
    }
 
