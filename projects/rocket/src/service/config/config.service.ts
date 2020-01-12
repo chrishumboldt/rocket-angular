@@ -115,8 +115,13 @@ export class RocketConfigService {
          data: config.storageType,
          fallback: StorageType.SESSION
       });
+   }
 
-      // Setup the application since configuration should always be included.
+   /**
+    * This method is used to make sure that non-component configuration is always executed
+    * even in the absense of any component initialisations.
+    */
+   public initialise(): void {
       RocketSetup(this.font);
    }
 }
