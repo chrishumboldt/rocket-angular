@@ -18,10 +18,12 @@ export class RocketLayoutBodyComponent {
    @Input() padding = SizeType.MEDIUM;
 
    // Apply classes to the host element.
-   @HostBinding('class') classes = [
-      `_center-${this.center}`,
-      `_limit-${this.limit}`,
-      `_padding-${this.padding}`,
-      `${this.classNames}`
-   ].join(' ');
+   @HostBinding('class') get classes() {
+      return [
+         `_center-${this.center}`,
+         `_limit-${this.limit}`,
+         `_padding-${this.padding}`,
+         `${this.classNames}`
+      ].join(' ');
+   }
 }

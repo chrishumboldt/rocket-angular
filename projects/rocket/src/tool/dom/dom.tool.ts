@@ -183,6 +183,10 @@ function domSelectByString(selector: string): HTMLElement[] {
       // Iterate over the selector strings and get the elements.
       selectorSplit.forEach((item: string) => {
          switch (RocketGet.selectorType(item)) {
+            case SelectorType.DOCUMENT:
+               elementList = elementList.concat(document);
+               break;
+
             case SelectorType.GET_ELEMENT_BY_ID:
                elementList.push(document.getElementById(item.substring(1)));
                break;
@@ -193,6 +197,10 @@ function domSelectByString(selector: string): HTMLElement[] {
 
             case SelectorType.QUERY_SELECTOR_ALL:
                elementList = elementList.concat(Array.from(document.querySelectorAll(item)));
+               break;
+
+            case SelectorType.WINDOW:
+               elementList = elementList.concat(RocketDOM.window);
                break;
          }
       });

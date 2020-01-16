@@ -23,6 +23,7 @@ export * from './module/pane.module';
 // Services.
 export * from './service/config/config.service';
 export * from './service/data/data.service';
+export * from './service/launch/launch.service';
 export * from './service/pane/pane.service';
 export * from './service/storage/storage.service';
 // Cool storage stuff.
@@ -48,6 +49,7 @@ export * from './tool/classes/classes.tool';
 export * from './tool/clone/clone.tool';
 export * from './tool/convert/convert.tool';
 export * from './tool/dom/dom.tool';
+export * from './tool/event/event.tool';
 export * from './tool/exists/exists.tool';
 export * from './tool/get/get.tool';
 export * from './tool/has/has.tool';

@@ -97,11 +97,6 @@ export class RocketButtonComponent implements OnInit {
       }
 
       this.classNames.push(`_size-${this.size}`);
-
-      // Set the loader size.
-      if (this.size === ButtonSize.LARGE) {
-         this.loaderSize = LoaderSize.DEFAULT;
-      }
    }
 
    /**

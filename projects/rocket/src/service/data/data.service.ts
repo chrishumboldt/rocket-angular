@@ -38,7 +38,9 @@ export class RocketDataService {
       DataName.LOADERS,
       DataName.MENUS,
       DataName.PANES,
-      'storage'
+      'storage',
+      DataName.WINDOW_SIZE,
+      DataName.WINDOW_SIZE_VALUE
    ];
 
    constructor(
@@ -218,6 +220,14 @@ export class RocketDataService {
          }),
          new DataEntry({
             name: DataName.DOCUMENT_CLICK,
+            force: true
+         }),
+         new DataEntry({
+            name: DataName.WINDOW_SIZE,
+            force: true
+         }),
+         new DataEntry({
+            name: DataName.WINDOW_SIZE_VALUE,
             force: true
          })
       ];

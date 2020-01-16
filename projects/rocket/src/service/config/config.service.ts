@@ -15,7 +15,6 @@ import { ColourCode, SecondaryColour } from '../../store/colour.store';
 import { State } from '../../store/state.store';
 import { SizeType } from '../../store/size.store';
 import { StorageType } from '../../store/storage.store';
-import { RocketSetup } from '../../tool/setup/setup.tool';
 
 @Injectable({
    providedIn: 'root'
@@ -115,13 +114,5 @@ export class RocketConfigService {
          data: config.storageType,
          fallback: StorageType.SESSION
       });
-   }
-
-   /**
-    * This method is used to make sure that non-component configuration is always executed
-    * even in the absense of any component initialisations.
-    */
-   public initialise(): void {
-      RocketSetup(this.font);
    }
 }

@@ -35,6 +35,10 @@ function getSelectorType(selector: string): SelectorType {
    if (!selector) {
       // The selector type is unknow.
       return SelectorType.UNKNOWN;
+   } else if (selector === 'document') {
+      return SelectorType.DOCUMENT;
+   } else if (selector === 'window') {
+      return SelectorType.WINDOW;
    } else if (
       selector.indexOf('.') > -1
       || RocketHas.spaces(selector)

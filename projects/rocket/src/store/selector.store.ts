@@ -56,8 +56,10 @@ export enum FormElementDisableable {
 }
 
 export enum SelectorType {
+   DOCUMENT,
    GET_ELEMENT_BY_ID,
    GET_ELEMENT_BY_TAG,
    UNKNOWN,
    QUERY_SELECTOR_ALL,
+   WINDOW
 }

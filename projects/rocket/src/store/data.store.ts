@@ -6,7 +6,9 @@ export enum DataName {
    DOCUMENT_CLICK = 'documentClick',
    LOADERS = 'loaders',
    MENUS = 'menus',
-   PANES = 'panes'
+   PANES = 'panes',
+   WINDOW_SIZE = 'windowSize',
+   WINDOW_SIZE_VALUE = 'windowSizeValue'
 }
 
 export enum RocketData {
