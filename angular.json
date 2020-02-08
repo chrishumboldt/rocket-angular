@@ -7,7 +7,7 @@
          "projectType": "library",
          "root": "projects/rocket",
          "sourceRoot": "projects/rocket/src",
-         "prefix": "lib",
+         "prefix": "rocket",
          "architect": {
             "build": {
                "builder": "@angular-devkit/build-ng-packagr:build",
