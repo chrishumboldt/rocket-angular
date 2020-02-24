@@ -1,0 +1,9 @@
+# Folders to ignore
+node_modules
+projects
+
+# Files to ignore
+angular.json
+publish.js
+tsconfig.json
+tslint.json

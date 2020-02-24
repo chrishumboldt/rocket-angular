@@ -17,6 +17,7 @@ const commands = [
   `npm version ${version}`,
   `cd ../../`,
   `ng build ${appName} --prod`,
+  `cp ./.npmrc  ${distDirectory}`,
   `cd ${distDirectory}`,
   `npm publish --access public`
 ];

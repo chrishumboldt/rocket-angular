@@ -15,7 +15,12 @@
                   "tsConfig": "projects/rocket/tsconfig.lib.json",
                   "project": "projects/rocket/ng-package.json"
                }
-            },
+            ,          "configurations": {
+            "production": {
+              "tsConfig": "projects/rocket/tsconfig.lib.prod.json"
+            }
+          }
+},
             "test": {
                "builder": "@angular-devkit/build-angular:karma",
                "options": {
@@ -57,7 +62,7 @@
                   "main": "projects/rocket-playground/src/main.ts",
                   "polyfills": "projects/rocket-playground/src/polyfills.ts",
                   "tsConfig": "projects/rocket-playground/tsconfig.app.json",
-                  "aot": false,
+                  "aot": true,
                   "assets": [
                      "projects/rocket-playground/src/favicon.ico"
                   ],
@@ -76,7 +81,6 @@
                      "sourceMap": false,
                      "extractCss": true,
                      "namedChunks": false,
-                     "aot": true,
                      "extractLicenses": true,
                      "vendorChunk": false,
                      "buildOptimizer": true,
