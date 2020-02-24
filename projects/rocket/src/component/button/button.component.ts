@@ -11,8 +11,8 @@ import {
    ButtonSizeArray,
    ButtonShape,
    ButtonShapeArray,
-   ButtonStyle,
-   ButtonStyleArray,
+   ButtonRender,
+   ButtonRenderArray,
    ButtonType
 } from '../../store/button.store';
 import { MonoColour } from '../../store/colour.store';
@@ -31,11 +31,11 @@ export class RocketButtonComponent implements OnInit {
    @Input() colour: string;
    public loaderColour: string;
    public loaderSize = LoaderSize.SMALL;
+   @Input() render: ButtonRender;
    @Input() shape: ButtonShape;
    @Input() size: ButtonSize;
    @Input() state = State.ACTIVE;
    public states = State;
-   @Input() style: ButtonStyle;
    @Input() text = 'Button';
    @Input() type = ButtonType.BUTTON;
    // Host bindings.
@@ -50,8 +50,8 @@ export class RocketButtonComponent implements OnInit {
    ngOnInit() {
       this.setColour();
       this.setShape();
+      this.setRender();
       this.setSize();
-      this.setStyle();
    }
 
    /**
@@ -78,6 +78,20 @@ export class RocketButtonComponent implements OnInit {
    }
 
    /**
+    * Set the button render style.
+    */
+   private setRender(): void {
+      if (!this.render && !ButtonRenderArray.includes(this.render)) {
+         this.render = this.rocketConfig.buttonRender;
+      }
+
+      this.classNames.push(`_render-${this.render}`);
+
+      // Set the loader colour.
+      this.loaderColour = (this.render === ButtonRender.FLAT) ? MonoColour.WHITE : this.colour;
+   }
+
+   /**
     * Set the button shape.
     */
    private setShape(): void {
@@ -97,19 +111,5 @@ export class RocketButtonComponent implements OnInit {
       }
 
       this.classNames.push(`_size-${this.size}`);
-   }
-
-   /**
-    * Set the button style.
-    */
-   private setStyle(): void {
-      if (!this.style && !ButtonStyleArray.includes(this.style)) {
-         this.style = this.rocketConfig.buttonStyle;
-      }
-
-      this.classNames.push(`_style-${this.style}`);
-
-      // Set the loader colour.
-      this.loaderColour = (this.style === ButtonStyle.FLAT) ? MonoColour.WHITE : this.colour;
    }
 }

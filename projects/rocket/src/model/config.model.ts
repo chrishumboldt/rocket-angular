@@ -2,7 +2,7 @@
  * @author Chris Humboldt
  */
 
-import { ButtonColour, ButtonShape, ButtonSize, ButtonStyle } from '../store/button.store';
+import { ButtonColour, ButtonShape, ButtonSize, ButtonRender } from '../store/button.store';
 import { FormInputType, FormStyle } from '../store/form.store';
 import { LoaderSize, LoaderType } from '../store/loader.store';
 import { SizeType } from '../store/size.store';
@@ -12,9 +12,9 @@ import { DataEntry } from './data.model';
 
 export class RocketConfig {
    buttonColour?: ButtonColour;
+   buttonRender?: ButtonRender;
    buttonShape?: ButtonShape;
    buttonSize?: ButtonSize;
-   buttonStyle?: ButtonStyle;
    font?: string;
    formColour?: string;
    formInputType?: FormInputType;

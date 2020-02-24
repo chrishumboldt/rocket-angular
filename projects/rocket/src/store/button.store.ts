@@ -45,13 +45,13 @@ export const ButtonSizeArray = RocketTransform.enumToArray({
    valuesOnly: true
 });
 
-export enum ButtonStyle {
+export enum ButtonRender {
    FLAT = 'flat',
    LINE = 'line'
 }
 
-export const ButtonStyleArray = RocketTransform.enumToArray({
-   data: ButtonStyle,
+export const ButtonRenderArray = RocketTransform.enumToArray({
+   data: ButtonRender,
    valuesOnly: true
 });
 

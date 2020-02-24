@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 
 import {
    ButtonShape,
-   ButtonStyle,
+   ButtonRender,
    FormStyle,
    RocketButtonModule,
    RocketConfigModule,
@@ -26,7 +26,7 @@ import { AppComponent } from './app.component';
       RocketButtonModule,
       RocketConfigModule.forRoot({
          buttonShape: ButtonShape.PILL,
-         buttonStyle: ButtonStyle.FLAT,
+         buttonRender: ButtonRender.FLAT,
          formStyle: FormStyle.LINE
       }),
       RocketLayoutModule,

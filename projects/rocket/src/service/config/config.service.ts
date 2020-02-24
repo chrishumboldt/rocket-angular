@@ -7,7 +7,7 @@ import { Injectable, Optional } from '@angular/core';
 import { ValueGenerator } from '../../generator/value.generator';
 import { DataEntry } from '../../model/data.model';
 import { RocketConfig } from '../../model/config.model';
-import { ButtonShape, ButtonSize, ButtonStyle } from '../../store/button.store';
+import { ButtonShape, ButtonSize, ButtonRender } from '../../store/button.store';
 import { FormInputType, FormStyle } from '../../store/form.store';
 import { LoaderSize, LoaderType } from '../../store/loader.store';
 import { ButtonColour } from '../../store/button.store';
@@ -21,9 +21,9 @@ import { StorageType } from '../../store/storage.store';
 })
 export class RocketConfigService {
    public buttonColour: ButtonColour;
+   public buttonRender: ButtonRender;
    public buttonShape: ButtonShape;
    public buttonSize: ButtonSize;
-   public buttonStyle: ButtonStyle;
    public font: string;
    public formColour: string;
    public formInputType: FormInputType;
@@ -53,8 +53,8 @@ export class RocketConfigService {
       this.buttonSize = ValueGenerator({
          data: config.buttonSize, fallback: ButtonSize.DEFAULT
       });
-      this.buttonStyle = ValueGenerator({
-         data: config.buttonStyle, fallback: ButtonStyle.FLAT
+      this.buttonRender = ValueGenerator({
+         data: config.buttonRender, fallback: ButtonRender.FLAT
       });
       this.font = ValueGenerator({
          data: config.font,

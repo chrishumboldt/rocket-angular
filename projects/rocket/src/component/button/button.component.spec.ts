@@ -9,7 +9,7 @@ import { RocketConfigService } from '../../service/config/config.service';
 import {
    ButtonSize,
    ButtonShape,
-   ButtonStyle,
+   ButtonRender,
    ButtonType
 } from '../../store/button.store';
 import { PrimaryColour, MonoColour } from '../../store/colour.store';
@@ -47,7 +47,7 @@ describe('Rocket Button Component:', () => {
       expect(rocketButton.shape).toEqual(ButtonShape.ROUNDED);
       expect(rocketButton.size).toEqual(ButtonSize.DEFAULT);
       expect(rocketButton.state).toEqual(State.ACTIVE);
-      expect(rocketButton.style).toEqual(ButtonStyle.FLAT);
+      expect(rocketButton.render).toEqual(ButtonRender.FLAT);
       expect(rocketButton.text).toEqual('Button');
       expect(rocketButton.type).toEqual(ButtonType.BUTTON);
    });
@@ -58,6 +58,6 @@ describe('Rocket Button Component:', () => {
       expect(classNames.includes(`_colour-${rocketButton.colour}`)).toBeTruthy();
       expect(classNames.includes(`_shape-${rocketButton.shape}`)).toBeTruthy();
       expect(classNames.includes(`_size-${rocketButton.size}`)).toBeTruthy();
-      expect(classNames.includes(`_style-${rocketButton.style}`)).toBeTruthy();
+      expect(classNames.includes(`_render-${rocketButton.render}`)).toBeTruthy();
    });
 });
