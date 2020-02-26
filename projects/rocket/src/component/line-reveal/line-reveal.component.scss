@@ -5,11 +5,11 @@
 @import 'node_modules/@chrishumboldt/rocket-propel/import';
 
 :host {
-   @include show();
-   @include position(relative);
+  @include show();
+  @include position(relative);
 }
 .comp--line {
-   @include show();
-   @include height(100%);
-   @include width(0%);
+  @include show();
+  @include height(100%);
+  @include width(0%);
 }

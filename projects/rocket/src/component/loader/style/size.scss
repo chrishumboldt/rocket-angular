@@ -6,63 +6,63 @@
  * Large.
  */
 :host._size-large {
-   @include padding-vertical($loaderSizeLarge);
+  @include padding-vertical($loaderSizeLarge);
 }
 :host._size-large .comp--loader {
-   @include square($loaderSizeLarge);
+  @include square($loaderSizeLarge);
 }
 :host._size-large._type-spinner .comp--part._number-1 {
-   @include square($loaderSizeLarge);
-   border-width: 4px;
+  @include square($loaderSizeLarge);
+  border-width: 4px;
 }
 :host._size-large._type-pulse .comp--part._number-1,
 :host._size-large._type-pulse .comp--part._number-2 {
-   @include square($loaderSizeLarge);
-   border-width: 4px;
+  @include square($loaderSizeLarge);
+  border-width: 4px;
 }
 :host._size-large._type-dots .comp--loader {
-   @include width(106px);
+  @include width(106px);
 }
 :host._size-large._type-dots .comp--part._number-1,
 :host._size-large._type-dots .comp--part._number-2,
 :host._size-large._type-dots .comp--part._number-3 {
-   @include position-set(margin-top $dotSizeHalfLarge);
-   @include square($dotSizeLarge);
+  @include position-set(margin-top $dotSizeHalfLarge);
+  @include square($dotSizeLarge);
 }
 :host._size-large._type-dots .comp--part._number-2 {
-   @include position-set(left 50% margin-left $dotSizeHalfLarge);
+  @include position-set(left 50% margin-left $dotSizeHalfLarge);
 }
 /**
  * Small.
  */
 :host._size-small {
-   @include padding-vertical($loaderSizeSmall);
+  @include padding-vertical($loaderSizeSmall);
 }
 :host._size-small .comp--loader {
-   @include square($loaderSizeSmall);
+  @include square($loaderSizeSmall);
 }
 :host._size-small .comp--text {
-   @include padding-top($spaceSmall / 2);
-   @include text-size(14px);
+  @include padding-top($spaceSmall / 2);
+  @include text-size(14px);
 }
 :host._size-small._type-spinner .comp--part._number-1 {
-   @include square($loaderSizeSmall);
-   border-width: 2px;
+  @include square($loaderSizeSmall);
+  border-width: 2px;
 }
 :host._size-small._type-pulse .comp--part._number-1,
 :host._size-small._type-pulse .comp--part._number-2 {
-   @include square($loaderSizeSmall);
-   border-width: 2px;
+  @include square($loaderSizeSmall);
+  border-width: 2px;
 }
 :host._size-small._type-dots .comp--loader {
-   @include width(56px);
+  @include width(56px);
 }
 :host._size-small._type-dots .comp--part._number-1,
 :host._size-small._type-dots .comp--part._number-2,
 :host._size-small._type-dots .comp--part._number-3 {
-   @include position-set(margin-top $dotSizeHalfSmall);
-   @include square($dotSizeSmall);
+  @include position-set(margin-top $dotSizeHalfSmall);
+  @include square($dotSizeSmall);
 }
 :host._size-small._type-dots .comp--part._number-2 {
-   @include position-set(left 50% margin-left $dotSizeHalfSmall);
+  @include position-set(left 50% margin-left $dotSizeHalfSmall);
 }

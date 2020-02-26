@@ -14,10 +14,12 @@ import { RocketIs } from '../is/is.tool';
  *
  * @param font - The font to apply to the page.
  */
-export function RocketSetup(font = '\'Open Sans\', Helvetica, Arial, sans-serif') {
-   const noTouchClass = 'rocketNoTouch';
-   const styleId = 'rocketStyles';
-   const styleContent = `
+export function RocketSetup(
+  font = "'Open Sans', Helvetica, Arial, sans-serif"
+) {
+  const noTouchClass = 'rocketNoTouch';
+  const styleId = 'rocketStyles';
+  const styleContent = `
 *,
 *:before,
 *:after {
@@ -38,30 +40,33 @@ body {
    padding: 0;
 }`;
 
-   // Get the style element.
-   const styleElm = RocketDOM.element(`#${styleId}`);
+  // Get the style element.
+  const styleElm = RocketDOM.element(`#${styleId}`);
 
-   // Check if the style element exists.
-   if (!styleElm) {
-      // Create the style tag first and set the id.
-      const styleTag = document.createElement('style');
+  // Check if the style element exists.
+  if (!styleElm) {
+    // Create the style tag first and set the id.
+    const styleTag = document.createElement('style');
 
-      styleTag.id = styleId;
+    styleTag.id = styleId;
 
-      // Now create the content that will exist within the style tag.
-      const styleTagContent = document.createTextNode(styleContent);
+    // Now create the content that will exist within the style tag.
+    const styleTagContent = document.createTextNode(styleContent);
 
-      // Append the style tag content to the tag itself.
-      styleTag.appendChild(styleTagContent);
-      // Attach the new style tag to the header.
-      RocketDOM.add({to: RocketDOM.head, element: styleTag});
-   } else {
-      // The style element already exists so just replace the existing style content.
-      styleElm.textContent = styleContent;
-   }
+    // Append the style tag content to the tag itself.
+    styleTag.appendChild(styleTagContent);
+    // Attach the new style tag to the header.
+    RocketDOM.add({ to: RocketDOM.head, element: styleTag });
+  } else {
+    // The style element already exists so just replace the existing style content.
+    styleElm.textContent = styleContent;
+  }
 
-   // Set the touch class.
-   if (!RocketIs.touch() && !RocketHas.class({check: RocketDOM.html, has: noTouchClass})) {
-      RocketClass.add({to: RocketDOM.html, classNames: noTouchClass});
-   }
+  // Set the touch class.
+  if (
+    !RocketIs.touch() &&
+    !RocketHas.class({ check: RocketDOM.html, has: noTouchClass })
+  ) {
+    RocketClass.add({ to: RocketDOM.html, classNames: noTouchClass });
+  }
 }

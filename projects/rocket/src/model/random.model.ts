@@ -2,11 +2,11 @@
  * @author Chris Humboldt
  */
 
-export interface RandomIntegerOptions {
-   max?: number;
-   min?: number;
+export interface RandomIntegerParams {
+  max?: number;
+  min?: number;
 }
-export interface RandomStringOptions {
-   length?: number;
-   textOnly?: boolean;
+export interface RandomStringParams {
+  length?: number;
+  textOnly?: boolean;
 }

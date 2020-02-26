@@ -5,42 +5,42 @@
 @import 'node_modules/@chrishumboldt/rocket-propel/import';
 
 :host {
-   @include show();
+  @include show();
 }
 :host._center-true {
-   @include center();
+  @include center();
 }
 
 // Limits.
 :host._limit-small {
-   @include limit(40em);
+  @include limit(40em);
 }
 :host._limit-medium {
-   @include limit(75em);
+  @include limit(75em);
 }
 :host._limit-large {
-   @include limit(90em);
+  @include limit(90em);
 }
 
 // Padding.
 :host._padding-small {
-   @include padding($spaceSmall);
+  @include padding($spaceSmall);
 
-   @include breakpoint($bpMedium) {
-      @include padding($spaceBase);
-   }
+  @include breakpoint($bpMedium) {
+    @include padding($spaceBase);
+  }
 }
 :host._padding-medium {
-   @include padding($spaceBase);
+  @include padding($spaceBase);
 
-   @include breakpoint($bpMedium) {
-      @include padding($spaceMedium);
-   }
+  @include breakpoint($bpMedium) {
+    @include padding($spaceMedium);
+  }
 }
 :host._padding-large {
-   @include padding($spaceBase + $spaceSmall);
+  @include padding($spaceBase + $spaceSmall);
 
-   @include breakpoint($bpMedium) {
-      @include padding($spaceLarge);
-   }
+  @include breakpoint($bpMedium) {
+    @include padding($spaceLarge);
+  }
 }

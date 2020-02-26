@@ -9,15 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RocketPaneComponent } from '../component/pane/pane.component';
 
 @NgModule({
-   imports: [
-      CommonModule,
-      BrowserAnimationsModule
-   ],
-   declarations: [
-      RocketPaneComponent
-   ],
-   exports: [
-      RocketPaneComponent
-   ]
+  imports: [CommonModule, BrowserAnimationsModule],
+  declarations: [RocketPaneComponent],
+  exports: [RocketPaneComponent]
 })
 export class RocketPaneModule {}

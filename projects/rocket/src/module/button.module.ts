@@ -9,15 +9,8 @@ import { RocketLoaderModule } from './loader.module';
 import { RocketButtonComponent } from '../component/button/button.component';
 
 @NgModule({
-   imports: [
-      CommonModule,
-      RocketLoaderModule
-   ],
-   declarations: [
-      RocketButtonComponent
-   ],
-   exports: [
-      RocketButtonComponent
-   ]
+  imports: [CommonModule, RocketLoaderModule],
+  declarations: [RocketButtonComponent],
+  exports: [RocketButtonComponent]
 })
 export class RocketButtonModule {}

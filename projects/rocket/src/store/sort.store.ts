@@ -3,6 +3,6 @@
  */
 
 export enum SortOrder {
-   ASCENDING,
-   DESCENDING
+  ASCENDING,
+  DESCENDING
 }

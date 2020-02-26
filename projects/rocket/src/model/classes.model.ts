@@ -2,24 +2,24 @@
  * @author Chris Humboldt
  */
 
-export interface ClassNameFromOptions {
-   from: any;
-   classNames: any;
+export interface ClassNameFromParams {
+  from: any;
+  classNames: any;
 }
-export interface ClassNameToOptions {
-   to: any;
-   classNames: any;
+export interface ClassNameToParams {
+  to: any;
+  classNames: any;
 }
-export interface ClassNameExecuteOptions {
-   element: HTMLElement;
-   classNames: string[];
+export interface ClassNameExecuteParams {
+  element: HTMLElement;
+  classNames: string[];
 }
-export interface ClassNameModificationOptions {
-   elements: any;
-   add?: string;
-   remove?: string;
+export interface ClassNameModificationParams {
+  elements: any;
+  add?: string;
+  remove?: string;
 }
-export interface ClassNameToggleOptions {
-   elements: any;
-   className: string;
+export interface ClassNameToggleParams {
+  elements: any;
+  className: string;
 }

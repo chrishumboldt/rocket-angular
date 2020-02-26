@@ -2,7 +2,7 @@
  * @author Chris Humboldt
  */
 
-export interface RegExTestOptions {
-   check: string;
-   regEx: RegExp;
+export interface RegExTestParams {
+  check: string;
+  regEx: RegExp;
 }

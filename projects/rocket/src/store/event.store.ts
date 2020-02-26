@@ -3,6 +3,6 @@
  */
 
 export enum EventAction {
-   ADD = 'add',
-   REMOVE = 'remove'
+  ADD = 'add',
+  REMOVE = 'remove'
 }

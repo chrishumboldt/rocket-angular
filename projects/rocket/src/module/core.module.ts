@@ -9,16 +9,8 @@ import { RocketArrowComponent } from '../component/arrow/arrow.component';
 import { RocketLineRevealComponent } from '../component/line-reveal/line-reveal.component';
 
 @NgModule({
-   imports: [
-      BrowserAnimationsModule
-   ],
-   declarations: [
-      RocketArrowComponent,
-      RocketLineRevealComponent
-   ],
-   exports: [
-      RocketArrowComponent,
-      RocketLineRevealComponent
-   ]
+  imports: [BrowserAnimationsModule],
+  declarations: [RocketArrowComponent, RocketLineRevealComponent],
+  exports: [RocketArrowComponent, RocketLineRevealComponent]
 })
 export class RocketCoreModule {}

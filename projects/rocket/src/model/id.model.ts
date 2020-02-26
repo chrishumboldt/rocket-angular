@@ -2,7 +2,7 @@
  * @author Chris Humboldt
  */
 
-export interface IdAddOptions {
-   element: HTMLElement;
-   id: string;
+export interface IdAddParams {
+  element: HTMLElement;
+  id: string;
 }

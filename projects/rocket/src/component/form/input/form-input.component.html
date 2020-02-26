@@ -1,41 +1,39 @@
 <div class="comp--container">
-   <rocket-slide-label
-   *ngIf="label && slideLabel === states.ON"
-   [active]="(focus || data) ? true : false"
-   label={{label}}
-   positionTop="{{slideLabelTop}}">
-   </rocket-slide-label>
+  <rocket-slide-label
+    *ngIf="label && slideLabel === states.ON"
+    [active]="focus || data ? true : false"
+    label="{{ label }}"
+    positionTop="{{ slideLabelTop }}"
+  >
+  </rocket-slide-label>
 
-   <div
-   [@changeBorder]="
-      {
-         value: (formStyle !== formStyles.LINE && focus),
-         params: {
-            colourStart: colourStart,
-            colourEnd: colour
-         }
+  <div
+    [@changeBorder]="{
+      value: formStyle !== formStyles.LINE && focus,
+      params: {
+        colourStart: colourStart,
+        colourEnd: colour
       }
-   "
-   class="comp--inner">
-      <input
+    }"
+    class="comp--inner"
+  >
+    <input
       (keyup)="handleDataChange($event.target.value)"
       (focus)="handleFocus(true)"
       (blur)="handleFocus(false)"
-      [value]="(data) ? data : ''"
-      [attr.autocomplete]="(autocomplete) ? autocomplete : null"
-      [attr.autocorrect]="(autocorrect) ? autocorrect : null"
-      [attr.autocapitalize]="(autocapitalize) ? autocapitalize : null"
-      [attr.disabled]="(disabled) ? '' : null"
-      [attr.maxlength]="(max) ? max : null"
-      [attr.minlength]="(min) ? min : null"
-      [attr.placeholder]="(label && slideLabel === states.OFF) ? label : null"
-      [attr.spellcheck]="(spellcheck === states.OFF) ? false : null"
-      type="{{type}}"
-      class="comp--input">
-   </div>
+      [value]="data ? data : ''"
+      [attr.autocomplete]="autocomplete ? autocomplete : null"
+      [attr.autocorrect]="autocorrect ? autocorrect : null"
+      [attr.autocapitalize]="autocapitalize ? autocapitalize : null"
+      [attr.disabled]="disabled ? '' : null"
+      [attr.maxlength]="max ? max : null"
+      [attr.minlength]="min ? min : null"
+      [attr.placeholder]="label && slideLabel === states.OFF ? label : null"
+      [attr.spellcheck]="spellcheck === states.OFF ? false : null"
+      type="{{ type }}"
+      class="comp--input"
+    />
+  </div>
 </div>
 
-<rocket-line-reveal
-[colour]="colour"
-[width]="lineWidth">
-</rocket-line-reveal>
+<rocket-line-reveal [colour]="colour" [width]="lineWidth"> </rocket-line-reveal>

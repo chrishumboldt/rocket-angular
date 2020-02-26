@@ -13,7 +13,10 @@ import { RocketRegExTest } from '../reg-ex/reg-ex.tool';
  * @param data - The data.
  */
 function getExtension(data: string): string {
-   return data.split('.').pop().toLowerCase();
+  return data
+    .split('.')
+    .pop()
+    .toLowerCase();
 }
 
 /**
@@ -22,7 +25,7 @@ function getExtension(data: string): string {
  * @param node - The node of the element list.
  */
 function getIndex(node: any): number {
-   return [].indexOf.call(node.parentNode.children, node);
+  return [].indexOf.call(node.parentNode.children, node);
 }
 
 /**
@@ -32,34 +35,34 @@ function getIndex(node: any): number {
  * @param selector - The selector of the DOM element.
  */
 function getSelectorType(selector: string): SelectorType {
-   if (!selector) {
-      // The selector type is unknow.
-      return SelectorType.UNKNOWN;
-   } else if (selector === 'document') {
-      return SelectorType.DOCUMENT;
-   } else if (selector === 'window') {
-      return SelectorType.WINDOW;
-   } else if (
-      selector.indexOf('.') > -1
-      || RocketHas.spaces(selector)
-      || RocketRegExTest({check: selector, regEx: RegEx.ATTRIBUTE})
-   ) {
-      // The selector is of type query selector all.
-      return SelectorType.QUERY_SELECTOR_ALL;
-   } else if (selector.indexOf('#') > -1) {
-      // The selector is of type id.
-      return SelectorType.GET_ELEMENT_BY_ID;
-   } else if (RocketRegExTest({check: selector, regEx: RegEx.TAG})) {
-      // The selector is of type tag name.
-      return SelectorType.GET_ELEMENT_BY_TAG;
-   } else {
-      // The selector type is quite simply unknown.
-      return SelectorType.UNKNOWN;
-   }
+  if (!selector) {
+    // The selector type is unknow.
+    return SelectorType.UNKNOWN;
+  } else if (selector === 'document') {
+    return SelectorType.DOCUMENT;
+  } else if (selector === 'window') {
+    return SelectorType.WINDOW;
+  } else if (
+    selector.indexOf('.') > -1 ||
+    RocketHas.spaces(selector) ||
+    RocketRegExTest({ check: selector, regEx: RegEx.ATTRIBUTE })
+  ) {
+    // The selector is of type query selector all.
+    return SelectorType.QUERY_SELECTOR_ALL;
+  } else if (selector.indexOf('#') > -1) {
+    // The selector is of type id.
+    return SelectorType.GET_ELEMENT_BY_ID;
+  } else if (RocketRegExTest({ check: selector, regEx: RegEx.TAG })) {
+    // The selector is of type tag name.
+    return SelectorType.GET_ELEMENT_BY_TAG;
+  } else {
+    // The selector type is quite simply unknown.
+    return SelectorType.UNKNOWN;
+  }
 }
 
 export const RocketGet = {
-   extension: getExtension,
-   index: getIndex,
-   selectorType: getSelectorType
+  extension: getExtension,
+  index: getIndex,
+  selectorType: getSelectorType
 };

@@ -6,89 +6,94 @@
 @import './variable';
 
 :host {
-   @include show(inline-block);
-   @include position(relative);
-   @include width(auto);
-   @include width-min(180px);
-   @include border-radius-none();
+  @include show(inline-block);
+  @include position(relative);
+  @include width(auto);
+  @include width-min(180px);
+  @include border-radius-none();
 }
 
 // Selector.
 .comp--select {
-   @include position(relative);
-   @include height(50px);
-   @include width(100%);
-   @include margin(0px);
-   @include padding-left($spaceHorizontal);
-   @include padding-right($spaceHorizontal * 2);
-   @include text-font(inherit);
-   @include text-letter-spacing(normal);
-   @include text-size(16px);
-   @include border-none();
-   @include border-radius-none();
-   @include background-colour(transparent);
-   @include level(2);
-   text-transform: none;
-   word-spacing: normal;
-   word-wrap: normal;
-   outline: none;
-   -webkit-user-select: text;
-   -webkit-font-smoothing: antialiased;
-   -webkit-appearance: none;
-   -moz-appearance: none;
-   appearance: none;
+  @include position(relative);
+  @include height(50px);
+  @include width(100%);
+  @include margin(0px);
+  @include padding-left($spaceHorizontal);
+  @include padding-right($spaceHorizontal * 2);
+  @include text-font(inherit);
+  @include text-letter-spacing(normal);
+  @include text-size(16px);
+  @include border-none();
+  @include border-radius-none();
+  @include background-colour(transparent);
+  @include level(2);
+  text-transform: none;
+  word-spacing: normal;
+  word-wrap: normal;
+  outline: none;
+  -webkit-user-select: text;
+  -webkit-font-smoothing: antialiased;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 
-   @include breakpoint($bpMedium) {
-      @include height(54px);
-      @include padding-left($spaceHorizontalMedium);
-      @include padding-right($spaceHorizontalMedium * 2);
-   }
+  @include breakpoint($bpMedium) {
+    @include height(54px);
+    @include padding-left($spaceHorizontalMedium);
+    @include padding-right($spaceHorizontalMedium * 2);
+  }
 }
 .rocketNoTouch :host .comp--select:hover {
-   @include cursor(pointer);
+  @include cursor(pointer);
 }
 
 // Down arrow.
 :host rocket-arrow {
-   @include position(absolute, right 2px top $spaceVertical + 6px);
-   @include level(1);
+  @include position(absolute, right 2px top $spaceVertical + 6px);
+  @include level(1);
 
-   @include breakpoint($bpMedium) {
-      @include position-set(top $spaceVerticalMedium + 6px);
-   }
+  @include breakpoint($bpMedium) {
+    @include position-set(top $spaceVerticalMedium + 6px);
+  }
 }
 
 // Styles.
 :host._style-flat rocket-arrow {
-   @include position-set(right $spaceHorizontal);
+  @include position-set(right $spaceHorizontal);
 
-   @include breakpoint($bpMedium) {
-      @include position-set(right $spaceHorizontalMedium);
-   }
+  @include breakpoint($bpMedium) {
+    @include position-set(right $spaceHorizontalMedium);
+  }
 }
 :host._style-line .comp--select {
-   @include height(46px);
-   @include padding-left(0px);
+  @include height(46px);
+  @include padding-left(0px);
 }
 :host._style-line rocket-arrow {
-   @include position-set(top $spaceVerticalLine + 6px);
+  @include position-set(top $spaceVerticalLine + 6px);
 }
 :host._style-outline {
-   @include width-min(200px);
+  @include width-min(200px);
 }
 :host._style-outline .comp--select {
-   @include padding-left($spaceHorizontalOutline);
-   @include padding-right($spaceHorizontalOutline * 2);
+  @include padding-left($spaceHorizontalOutline);
+  @include padding-right($spaceHorizontalOutline * 2);
 
-   @include breakpoint($bpMedium) {
-      @include padding-left($spaceHorizontalOutlineMedium);
-      @include padding-right($spaceHorizontalOutlineMedium * 2);
-   }
+  @include breakpoint($bpMedium) {
+    @include padding-left($spaceHorizontalOutlineMedium);
+    @include padding-right($spaceHorizontalOutlineMedium * 2);
+  }
 }
 :host._style-outline rocket-arrow {
-   @include position-set(right $spaceHorizontalOutline top $spaceVerticalOutline + 6px);
+  @include position-set(
+    right $spaceHorizontalOutline top $spaceVerticalOutline + 6px
+  );
 
-   @include breakpoint($bpMedium) {
-      @include position-set(right $spaceHorizontalOutlineMedium + 2px  top $spaceVerticalOutlineMedium + 6px);
-   }
+  @include breakpoint($bpMedium) {
+    @include position-set(
+      right $spaceHorizontalOutlineMedium + 2px top $spaceVerticalOutlineMedium +
+        6px
+    );
+  }
 }

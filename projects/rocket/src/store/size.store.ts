@@ -5,10 +5,10 @@
 import { Prefix } from './prefix.store';
 
 export enum SizeType {
-   NONE = 'none',
-   SMALL = 'small',
-   MEDIUM = 'medium',
-   LARGE = 'large'
+  NONE = 'none',
+  SMALL = 'small',
+  MEDIUM = 'medium',
+  LARGE = 'large'
 }
 
 /**
@@ -16,9 +16,9 @@ export enum SizeType {
  */
 const sizeTypeClasses = [];
 (function() {
-   Object.keys(SizeType).forEach((key: string) => {
-      sizeTypeClasses.push(`${Prefix.SIZE}h-${SizeType[key]}`);
-      sizeTypeClasses.push(`${Prefix.SIZE}w-${SizeType[key]}`);
-   });
+  Object.keys(SizeType).forEach((key: string) => {
+    sizeTypeClasses.push(`${Prefix.SIZE}h-${SizeType[key]}`);
+    sizeTypeClasses.push(`${Prefix.SIZE}w-${SizeType[key]}`);
+  });
 })();
 export const SizeTypeClasses = sizeTypeClasses;

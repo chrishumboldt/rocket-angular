@@ -6,39 +6,39 @@
 @import './variable';
 
 .comp--input {
-   @include show();
-   @include position(relative);
-   @include width(100%);
-   @include margin(0px);
-   @include padding-horizontal($spaceHorizontal);
-   @include padding-vertical($spaceVertical);
-   @include text-font(inherit);
-   @include text-size($textSize);
-   @include background-colour(transparent);
-   @include border-none();
-   @include level(1);
-   outline: none;
-   -webkit-appearance: none;
+  @include show();
+  @include position(relative);
+  @include width(100%);
+  @include margin(0px);
+  @include padding-horizontal($spaceHorizontal);
+  @include padding-vertical($spaceVertical);
+  @include text-font(inherit);
+  @include text-size($textSize);
+  @include background-colour(transparent);
+  @include border-none();
+  @include level(1);
+  outline: none;
+  -webkit-appearance: none;
 
-   @include breakpoint($bpMedium) {
-      @include padding-horizontal($spaceHorizontalMedium);
-      @include padding-vertical($spaceVerticalMedium);
-   }
+  @include breakpoint($bpMedium) {
+    @include padding-horizontal($spaceHorizontalMedium);
+    @include padding-vertical($spaceVerticalMedium);
+  }
 }
 
 // Styles.
 :host._style-line .comp--input {
-   @include padding-horizontal(0px);
-   @include padding-vertical($spaceVerticalLine);
+  @include padding-horizontal(0px);
+  @include padding-vertical($spaceVerticalLine);
 
-   @include breakpoint($bpMedium) {
-      @include padding-vertical($spaceVerticalLine);
-   }
+  @include breakpoint($bpMedium) {
+    @include padding-vertical($spaceVerticalLine);
+  }
 }
 :host._style-outline .comp--input {
-   @include padding-horizontal($spaceHorizontalOutline);
+  @include padding-horizontal($spaceHorizontalOutline);
 
-   @include breakpoint($bpMedium) {
-      @include padding-horizontal($spaceHorizontalOutlineMedium);
-   }
+  @include breakpoint($bpMedium) {
+    @include padding-horizontal($spaceHorizontalOutlineMedium);
+  }
 }

@@ -2,16 +2,16 @@
  * @author Chris Humboldt
  */
 
-export interface ArrayCleanOptions {
-   data: any,
-   hardClean?: boolean
+export interface ArrayCleanParams {
+  data: any;
+  hardClean?: boolean;
 }
-export interface ArrayMakeOptions {
-   data: any;
-   unique?: boolean;
+export interface ArrayMakeParams {
+  data: any;
+  unique?: boolean;
 }
-export interface ArrayRemoveOptions {
-   data: any[];
-   index?: number;
-   value?: any;
+export interface ArrayRemoveParams {
+  data: any[];
+  index?: number;
+  value?: any;
 }

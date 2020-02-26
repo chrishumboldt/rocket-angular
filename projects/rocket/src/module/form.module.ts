@@ -13,22 +13,19 @@ import { RocketFormTextAreaComponent } from '../component/form/text-area/form-te
 import { RocketCoreModule } from './core.module';
 
 @NgModule({
-   imports: [
-      CommonModule,
-      RocketCoreModule
-   ],
-   declarations: [
-      RocketFormElementComponent,
-      RocketFormInputComponent,
-      RocketFormSelectComponent,
-      RocketFormSlideLabelComponent,
-      RocketFormTextAreaComponent
-   ],
-   exports: [
-      RocketFormElementComponent,
-      RocketFormInputComponent,
-      RocketFormSelectComponent,
-      RocketFormTextAreaComponent
-   ]
+  imports: [CommonModule, RocketCoreModule],
+  declarations: [
+    RocketFormElementComponent,
+    RocketFormInputComponent,
+    RocketFormSelectComponent,
+    RocketFormSlideLabelComponent,
+    RocketFormTextAreaComponent
+  ],
+  exports: [
+    RocketFormElementComponent,
+    RocketFormInputComponent,
+    RocketFormSelectComponent,
+    RocketFormTextAreaComponent
+  ]
 })
 export class RocketFormModule {}

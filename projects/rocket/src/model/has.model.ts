@@ -2,11 +2,11 @@
  * @author Chris Humboldt
  */
 
-export interface HasClassOptions {
-   check: any;
-   has: string;
+export interface HasClassParams {
+  check: any;
+  has: string;
 }
-export interface HasExtensionOptions {
-   allowedTypes?: string[];
-   check: string;
+export interface HasExtensionParams {
+  allowedTypes?: string[];
+  check: string;
 }

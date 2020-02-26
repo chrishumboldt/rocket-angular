@@ -5,9 +5,9 @@
 @import 'node_modules/@chrishumboldt/rocket-propel/import';
 
 .comp--input {
-   @include height(160px);
+  @include height(160px);
 
-   @include breakpoint($bpMedium) {
-      @include height(185px);
-   }
+  @include breakpoint($bpMedium) {
+    @include height(185px);
+  }
 }

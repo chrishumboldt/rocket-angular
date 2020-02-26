@@ -13,88 +13,88 @@ import { State } from '../../store/state.store';
 import { RocketPaneComponent } from './pane.component';
 
 describe('Rocket Pane Component:', () => {
-   const paneName = 'armPane';
-   let rocketConfigService: RocketConfigService;
-   let rocketPane: RocketPaneComponent;
-   let rocketPaneService: RocketPaneService;
+  const paneName = 'armPane';
+  let rocketConfigService: RocketConfigService;
+  let rocketPane: RocketPaneComponent;
+  let rocketPaneService: RocketPaneService;
 
-   // Setup the tests.
-   beforeEach(() => {
-      TestBed.configureTestingModule({
-         providers: [
-            RocketConfig,
-            RocketConfigService,
-            RocketPaneComponent,
-            RocketPaneService
-         ]
-      });
+  // Setup the tests.
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [
+        RocketConfig,
+        RocketConfigService,
+        RocketPaneComponent,
+        RocketPaneService
+      ]
+    });
 
-      rocketConfigService = TestBed.get(RocketConfigService);
-      rocketPane = TestBed.get(RocketPaneComponent);
-      rocketPaneService = TestBed.get(RocketPaneService);
-   });
+    rocketConfigService = TestBed.get(RocketConfigService);
+    rocketPane = TestBed.get(RocketPaneComponent);
+    rocketPaneService = TestBed.get(RocketPaneService);
+  });
 
-   // Destroy subscriptions after each test.
-   afterEach(() => {
-      rocketPane.subscriptionsDestroy();
-   });
+  // Destroy subscriptions after each test.
+  afterEach(() => {
+    rocketPane.subscriptionsDestroy();
+  });
 
-   // Tests.
-   it('Should initialise.', () => {
-      expect(rocketPane).toBeTruthy();
-   });
+  // Tests.
+  it('Should initialise.', () => {
+    expect(rocketPane).toBeTruthy();
+  });
 
-   it('Should correctly set the default configuration of the component.', () => {
-      expect(rocketPane.active).toBe(false);
-      expect(rocketPane.contentActive).toBe(false);
-      expect(rocketPane.level).toEqual(0);
-      expect(rocketPane.name).toBeUndefined();
-      expect(rocketPane.renderContentOnActive).toBe(true);
-      expect(rocketPane.visibility).toBe(State.HIDDEN);
-   });
+  it('Should correctly set the default configuration of the component.', () => {
+    expect(rocketPane.active).toBe(false);
+    expect(rocketPane.contentActive).toBe(false);
+    expect(rocketPane.level).toEqual(0);
+    expect(rocketPane.name).toBeUndefined();
+    expect(rocketPane.renderContentOnActive).toBe(true);
+    expect(rocketPane.visibility).toBe(State.HIDDEN);
+  });
 
-   it('Should subscribe to the pane service and keep pane state.', async(() => {
-      rocketPane.name = paneName;
+  it('Should subscribe to the pane service and keep pane state.', async(() => {
+    rocketPane.name = paneName;
 
-      // Initialise the component.
-      rocketPane.ngOnInit();
+    // Initialise the component.
+    rocketPane.ngOnInit();
 
-      // Test that the subscription works.
-      rocketPane.subscribeToData({
-         name: DataName.PANES,
-         onEmit: (panesMap: Map<string, Pane>) => {
-            expect(panesMap.size).toEqual(1);
-            expect(panesMap.has(paneName)).toBe(true);
+    // Test that the subscription works.
+    rocketPane.subscribeToData({
+      name: DataName.PANES,
+      onEmit: (panesMap: Map<string, Pane>) => {
+        expect(panesMap.size).toEqual(1);
+        expect(panesMap.has(paneName)).toBe(true);
 
-            // Test the pane state.
-            const thisPane = panesMap.get(paneName);
-            expect(thisPane.active).toBe(false);
-            expect(thisPane.level).toBe(0);
-            expect(thisPane.visibility).toBe(State.HIDDEN);
-         }
-      });
-   }));
+        // Test the pane state.
+        const thisPane = panesMap.get(paneName);
+        expect(thisPane.active).toBe(false);
+        expect(thisPane.level).toBe(0);
+        expect(thisPane.visibility).toBe(State.HIDDEN);
+      }
+    });
+  }));
 
-   it('Should subscribe to the pane service and change the state to active.', async(() => {
-      rocketPane.name = paneName;
+  it('Should subscribe to the pane service and change the state to active.', async(() => {
+    rocketPane.name = paneName;
 
-      // Initialise the component.
-      rocketPane.ngOnInit();
-      rocketPaneService.activate(paneName);
+    // Initialise the component.
+    rocketPane.ngOnInit();
+    rocketPaneService.activate(paneName);
 
-      // Test that the subscription works.
-      rocketPane.subscribeToData({
-         name: DataName.PANES,
-         onEmit: (panesMap: Map<string, Pane>) => {
-            expect(panesMap.size).toEqual(1);
-            expect(panesMap.has(paneName)).toBe(true);
+    // Test that the subscription works.
+    rocketPane.subscribeToData({
+      name: DataName.PANES,
+      onEmit: (panesMap: Map<string, Pane>) => {
+        expect(panesMap.size).toEqual(1);
+        expect(panesMap.has(paneName)).toBe(true);
 
-            // Test the pane state.
-            const thisPane = panesMap.get(paneName);
-            expect(thisPane.active).toBe(true);
-            expect(thisPane.level).toBe(rocketConfigService.paneStartingLevel + 1);
-            expect(thisPane.visibility).toBe(State.VISIBLE);
-         }
-      });
-   }));
+        // Test the pane state.
+        const thisPane = panesMap.get(paneName);
+        expect(thisPane.active).toBe(true);
+        expect(thisPane.level).toBe(rocketConfigService.paneStartingLevel + 1);
+        expect(thisPane.visibility).toBe(State.VISIBLE);
+      }
+    });
+  }));
 });

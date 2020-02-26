@@ -2,15 +2,15 @@
  * @author Chris Humboldt
  */
 
-import { RegExTestOptions } from '../../model/reg-ex.model';
+import { RegExTestParams } from '../../model/reg-ex.model';
 
 /**
  * Regular expression test.
  *
- * @param options - The deconstructed options object.
- * @param options.check - The string to check for.
- * @param options.regEx - The regular expression to check against.
+ * @param params - The deconstructed options object.
+ * @param params.check - The string to check for.
+ * @param params.regEx - The regular expression to check against.
  */
-export function RocketRegExTest({ check, regEx }: RegExTestOptions): boolean {
-   return regEx.test(check);
+export function RocketRegExTest({ check, regEx }: RegExTestParams): boolean {
+  return regEx.test(check);
 }

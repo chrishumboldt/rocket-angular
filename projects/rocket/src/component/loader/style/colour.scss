@@ -3,32 +3,32 @@
  */
 
 @each $colourName, $colour in $coloursPrimary {
-   :host._colour-#{$colourName} .comp--text {
-      @include text-colour($colour);
-   }
-   :host._type-spinner._colour-#{$colourName} .comp--part._number-1 {
-      @include border(lighten($colour, 34%), 3px);
-      @include border-top($colour, 3px);
-   }
-   :host._type-dots._colour-#{$colourName} .comp--part[class*='_number-'] {
-      @include background-colour($colour);
-   }
-   :host._type-pulse._colour-#{$colourName} .comp--part[class*='_number-'] {
-      @include border($colour, 3px);
-   }
+  :host._colour-#{$colourName} .comp--text {
+    @include text-colour($colour);
+  }
+  :host._type-spinner._colour-#{$colourName} .comp--part._number-1 {
+    @include border(lighten($colour, 34%), 3px);
+    @include border-top($colour, 3px);
+  }
+  :host._type-dots._colour-#{$colourName} .comp--part[class*='_number-'] {
+    @include background-colour($colour);
+  }
+  :host._type-pulse._colour-#{$colourName} .comp--part[class*='_number-'] {
+    @include border($colour, 3px);
+  }
 }
 
 // White version.
 :host._colour-white .comp--text {
-   @include text-colour($white);
+  @include text-colour($white);
 }
 :host._type-spinner._colour-white .comp--part._number-1 {
-   @include border(fade-out($white, 0.7), 3px);
-   @include border-top($white, 3px);
+  @include border(fade-out($white, 0.7), 3px);
+  @include border-top($white, 3px);
 }
 :host._type-dots._colour-white .comp--part[class*='_number-'] {
-   @include background-colour($white);
+  @include background-colour($white);
 }
 :host._type-pulse._colour-white .comp--part[class*='_number-'] {
-   @include border($white, 3px);
+  @include border($white, 3px);
 }

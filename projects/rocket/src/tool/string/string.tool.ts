@@ -10,7 +10,7 @@ import { RocketIs } from '../is/is.tool';
  * @param data - The string modify.
  */
 function lowercaseAll(data: string = ''): string {
-   return data.toString().toLowerCase();
+  return data.toString().toLowerCase();
 }
 
 /**
@@ -19,8 +19,8 @@ function lowercaseAll(data: string = ''): string {
  * @param data - The string modify.
  */
 function lowercaseFirst(data: string = ''): string {
-   const asString = data.toString();
-   return `${asString.charAt(0).toLowerCase()}${asString.slice(1)}`;
+  const asString = data.toString();
+  return `${asString.charAt(0).toLowerCase()}${asString.slice(1)}`;
 }
 
 /**
@@ -29,8 +29,10 @@ function lowercaseFirst(data: string = ''): string {
  * @param data - The string modify.
  */
 function lowercaseLast(data: string = ''): string {
-   const asString = data.toString();
-   return `${asString.slice(0, asString.length - 1)}${asString.charAt(asString.length - 1).toLowerCase()}`;
+  const asString = data.toString();
+  return `${asString.slice(0, asString.length - 1)}${asString
+    .charAt(asString.length - 1)
+    .toLowerCase()}`;
 }
 
 /**
@@ -39,7 +41,7 @@ function lowercaseLast(data: string = ''): string {
  * @param data - The string modify.
  */
 function removeFirst(data: string = ''): string {
-   return data.toString().substring(1);
+  return data.toString().substring(1);
 }
 
 /**
@@ -48,8 +50,8 @@ function removeFirst(data: string = ''): string {
  * @param data - The string modify.
  */
 function removeFirstAndLast(data: string = ''): string {
-   const asString = data.toString();
-   return asString.substring(1, asString.length - 1);
+  const asString = data.toString();
+  return asString.substring(1, asString.length - 1);
 }
 
 /**
@@ -58,8 +60,8 @@ function removeFirstAndLast(data: string = ''): string {
  * @param data - The string modify.
  */
 function removeLast(data: string = ''): string {
-   const asString = data.toString();
-   return asString.substring(0, asString.length - 1);
+  const asString = data.toString();
+  return asString.substring(0, asString.length - 1);
 }
 
 /**
@@ -68,7 +70,7 @@ function removeLast(data: string = ''): string {
  * @param data - The string modify.
  */
 function removeSpaces(data: string = ''): string {
-   return data.toString().replace(/ /g, '');
+  return data.toString().replace(/ /g, '');
 }
 
 /**
@@ -77,7 +79,7 @@ function removeSpaces(data: string = ''): string {
  * @param data - The string modify.
  */
 function uppercaseAll(data: string = ''): string {
-   return (RocketIs.string(data)) ? data.toUpperCase() : data;
+  return RocketIs.string(data) ? data.toUpperCase() : data;
 }
 
 /**
@@ -86,8 +88,8 @@ function uppercaseAll(data: string = ''): string {
  * @param data - The string modify.
  */
 function uppercaseFirst(data: string = ''): string {
-   const asString = data.toString();
-   return `${asString.charAt(0).toUpperCase()}${asString.slice(1)}`;
+  const asString = data.toString();
+  return `${asString.charAt(0).toUpperCase()}${asString.slice(1)}`;
 }
 
 /**
@@ -96,25 +98,27 @@ function uppercaseFirst(data: string = ''): string {
  * @param data - The string modify.
  */
 function uppercaseLast(data: string = ''): string {
-   const asString = data.toString();
-   return `${asString.slice(0, asString.length - 1)}${asString.charAt(asString.length - 1).toUpperCase()}`;
+  const asString = data.toString();
+  return `${asString.slice(0, asString.length - 1)}${asString
+    .charAt(asString.length - 1)
+    .toUpperCase()}`;
 }
 
 export const RocketString = {
-   remove: {
-      first: removeFirst,
-      firstAndLast: removeFirstAndLast,
-      last: removeLast,
-      spaces: removeSpaces
-   },
-   lowercase: {
-      all: lowercaseAll,
-      first: lowercaseFirst,
-      last: lowercaseLast
-   },
-   uppercase: {
-      all: uppercaseAll,
-      first: uppercaseFirst,
-      last: uppercaseLast
-   }
+  remove: {
+    first: removeFirst,
+    firstAndLast: removeFirstAndLast,
+    last: removeLast,
+    spaces: removeSpaces
+  },
+  lowercase: {
+    all: lowercaseAll,
+    first: lowercaseFirst,
+    last: lowercaseLast
+  },
+  uppercase: {
+    all: uppercaseAll,
+    first: uppercaseFirst,
+    last: uppercaseLast
+  }
 };

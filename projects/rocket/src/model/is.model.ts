@@ -2,7 +2,7 @@
  * @author Chris Humboldt
  */
 
-export interface IsImageOptions {
-   allowedTypes?: string[];
-   check: any;
+export interface IsImageParams {
+  allowedTypes?: string[];
+  check: any;
 }

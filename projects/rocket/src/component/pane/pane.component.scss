@@ -5,17 +5,17 @@
 @import 'node_modules/@chrishumboldt/rocket-propel/import';
 
 :host {
-   @include flex-display();
-   @include flex-direction(column);
-   @include position(fixed, top 0 left 0);
-   @include height(100vh);
-   @include width(100vw);
-   @include background-colour($white);
+  @include flex-display();
+  @include flex-direction(column);
+  @include position(fixed, top 0 left 0);
+  @include height(100vh);
+  @include width(100vw);
+  @include background-colour($white);
 }
 
 // Content section.
 .comp--paneContent {
-   @include flex(1, 1, 1);
-   @include overflow(auto);
-   @include level(1);
+  @include flex(1, 1, 1);
+  @include overflow(auto);
+  @include level(1);
 }

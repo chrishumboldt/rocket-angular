@@ -3,19 +3,19 @@
  */
 
 :host._type-spinner .comp--part {
-   @include box-sizing(border-box);
-   @include square($loaderSize);
-   @include border-radius(50%);
-   @include border(lighten($greyBlue, 20%), 3px);
-   @include border-top($greyBlue, 3px);
-   @include animation(rocketLoaderSpinner, 1s, infinite);
+  @include box-sizing(border-box);
+  @include square($loaderSize);
+  @include border-radius(50%);
+  @include border(lighten($greyBlue, 20%), 3px);
+  @include border-top($greyBlue, 3px);
+  @include animation(rocketLoaderSpinner, 1s, infinite);
 }
 
 @include keyframes(rocketLoaderSpinner) {
-   0% {
-      @include transform-rotate(0deg);
-   }
-   100% {
-      @include transform-rotate(360deg);
-   }
+  0% {
+    @include transform-rotate(0deg);
+  }
+  100% {
+    @include transform-rotate(360deg);
+  }
 }

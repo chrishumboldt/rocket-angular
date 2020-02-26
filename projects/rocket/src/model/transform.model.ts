@@ -2,12 +2,12 @@
  * @author Chris Humboldt
  */
 
-export interface TransformBytesOptions {
-   bytes: number;
-   decimals?: number;
-};
+export interface TransformBytesParams {
+  bytes: number;
+  decimals?: number;
+}
 
-export interface TransformEnumOptions {
+export interface TransformEnumParams {
   data: any;
   reverse?: boolean;
   valuesOnly?: boolean;
