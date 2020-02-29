@@ -1,6 +1,7 @@
 <rocket-body limit="small">
-   <rocket-button
-   (click)="handleClick()"
-   [state]="state">
-   </rocket-button>
+  <rocket-select
+    [(data)]="value"
+    [options]="options"
+  >
+  </rocket-select>
 </rocket-body>

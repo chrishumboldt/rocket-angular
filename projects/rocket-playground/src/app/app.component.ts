@@ -7,22 +7,31 @@ import { Component, OnInit } from '@angular/core';
 import { RocketLaunchService, State } from '../../../rocket/src/public-api';
 
 @Component({
-   selector: 'app-root',
-   templateUrl: './app.component.html'
+  selector: 'app-root',
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-   public state = State.ACTIVE;
+  public value = 2;
+  public options = [
+    {
+      body: 'Test One',
+      value: 1
+    },
+    {
+      body: 'Test Two',
+      value: 2
+    },
+    {
+      body: 'Test Three',
+      value: 3
+    }
+  ];
 
-   constructor(
-      private rocketLaunch: RocketLaunchService
-   ) {}
+  constructor(private rocketLaunch: RocketLaunchService) {}
 
-   ngOnInit() {
-      this.rocketLaunch.ignition();
-   }
+  ngOnInit() {
+    this.rocketLaunch.ignition();
+  }
 
-   public handleClick(): void {
-      console.log('Button Clicked!');
-      this.state = State.LOADING;
-   }
+  public handleClick(): void {}
 }

@@ -2,7 +2,7 @@
  * @author Chris Humboldt
  */
 
-@import "node_modules/@chrishumboldt/rocket-propel/import";
+@import 'node_modules/@chrishumboldt/rocket-propel/import';
 
 $animationTime: 0.2s;
 $borderSize: 2px;
@@ -44,7 +44,7 @@ button {
   -webkit-appearance: none;
 }
 button:hover {
-  @include cursor(pointer);Î
+  @include cursor(pointer);
 }
 button:active {
   @include drop-shadow-none();
