@@ -27,6 +27,10 @@ export function RocketSetup(
    -moz-box-sizing: border-box;
    box-sizing: border-box;
 }
+html, 
+body {
+  font-size: 16px;
+}
 html {
    font-family: ${font};
    color: #333;
