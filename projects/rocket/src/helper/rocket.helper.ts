@@ -20,7 +20,11 @@ export abstract class RocketHelper implements OnDestroy {
   /**
    * Create data via the Rocket Data Service create method.
    *
-   * @param params - The options.
+   * @param params.asObservable - Create the data as an observable.
+   * @param params.data - The optional data to create.
+   * @param params.name - The name identifier of the data.
+   * @param params.sortBy - The optional sort by key.
+   * @param params.sortOrder - The order of the sort.
    */
   public createData(options: DataEntry): void {
     return this.rocketData.create(options);
@@ -51,7 +55,9 @@ export abstract class RocketHelper implements OnDestroy {
   /**
    * Subscribe to an observable and react to the responses.
    *
-   * @param params - The function parameters.
+   * @param params.name - The name(s) of the data to subscribe to.
+   * @param params.onEmit - The function to call when data emits.
+   * @param params.safeEmit - Check to only emuit if there is data.
    */
   public subscribeToData(params: SubscribeToParams): any {
     // Determine the subscription based on the amount of observables.
@@ -81,7 +87,11 @@ export abstract class RocketHelper implements OnDestroy {
   /**
    * Update data via the Rocket Data Service update method.
    *
-   * @param params - The function parameters.
+   * @param params.asObservable - Create the data as an observable.
+   * @param params.data - The optional data to create.
+   * @param params.name - The name identifier of the data.
+   * @param params.sortBy - The optional sort by key.
+   * @param params.sortOrder - The order of the sort.
    */
   public updateData(params: DataEntry): void {
     return this.rocketData.update(params);
