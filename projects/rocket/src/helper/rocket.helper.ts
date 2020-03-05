@@ -57,7 +57,7 @@ export abstract class RocketHelper implements OnDestroy {
    *
    * @param params.name - The name(s) of the data to subscribe to.
    * @param params.onEmit - The function to call when data emits.
-   * @param params.safeEmit - Check to only emuit if there is data.
+   * @param params.safeEmit - Check to only emit if there is data.
    */
   public subscribeToData(params: SubscribeToParams): any {
     // Determine the subscription based on the amount of observables.
