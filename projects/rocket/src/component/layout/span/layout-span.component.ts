@@ -4,6 +4,8 @@
 
 import { Component, HostBinding, Input } from '@angular/core';
 
+import { RocketArray } from '../../../tool/array/array.tool';
+
 @Component({
   selector: 'rocket-span',
   template: '<ng-content></ng-content>',
@@ -14,7 +16,7 @@ export class RocketLayoutSpanComponent {
   @Input() offset: number;
   @Input() width = 1;
 
-  @HostBinding('class') getClasses(): string {
+  @HostBinding('class') get getClasses(): string {
     const returnArray = [`_span-${this.width}`, this.classes];
 
     // Check for an offset.
@@ -22,6 +24,6 @@ export class RocketLayoutSpanComponent {
       returnArray.push(`_offset-${this.offset}`);
     }
 
-    return returnArray.join(' ');
+    return RocketArray.clean({ data: returnArray, hardClean: true }).join(' ');
   }
 }

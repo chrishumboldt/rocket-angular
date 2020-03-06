@@ -9,6 +9,11 @@
   @include center();
 }
 
+// As a row
+:host._row-true {
+  @include row();
+}
+
 // Limits.
 :host._limit-small {
   @include limit(40em);
