@@ -1,4 +1,5 @@
 # Folders to ignore
+.storybook
 node_modules
 projects
 

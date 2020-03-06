@@ -1,0 +1,79 @@
+// @author Chris Humboldt
+
+@import 'node_modules/@chrishumboldt/rocket-propel/import';
+
+// The span width.
+:host._span-1 {
+  @include span(1);
+}
+:host._span-2 {
+  @include span(2);
+}
+:host._span-3 {
+  @include span(3);
+}
+:host._span-4 {
+  @include span(4);
+}
+:host._span-5 {
+  @include span(5);
+}
+:host._span-6 {
+  @include span(6);
+}
+:host._span-7 {
+  @include span(7);
+}
+:host._span-8 {
+  @include span(8);
+}
+:host._span-9 {
+  @include span(9);
+}
+:host._span-10 {
+  @include span(10);
+}
+:host._span-11 {
+  @include span(11);
+}
+:host._span-12 {
+  @include span(12);
+}
+
+// The offset
+:host._offset-1 {
+  @include offset(1);
+}
+:host._offset-2 {
+  @include offset(2);
+}
+:host._offset-3 {
+  @include offset(3);
+}
+:host._offset-4 {
+  @include offset(4);
+}
+:host._offset-5 {
+  @include offset(5);
+}
+:host._offset-6 {
+  @include offset(6);
+}
+:host._offset-7 {
+  @include offset(7);
+}
+:host._offset-8 {
+  @include offset(8);
+}
+:host._offset-9 {
+  @include offset(9);
+}
+:host._offset-10 {
+  @include offset(10);
+}
+:host._offset-11 {
+  @include offset(11);
+}
+:host._offset-12 {
+  @include offset(12);
+}

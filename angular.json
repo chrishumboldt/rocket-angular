@@ -1,161 +1,46 @@
 {
-   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-   "version": 1,
-   "newProjectRoot": "projects",
-   "projects": {
-      "rocket": {
-         "projectType": "library",
-         "root": "projects/rocket",
-         "sourceRoot": "projects/rocket/src",
-         "prefix": "rocket",
-         "architect": {
-            "build": {
-               "builder": "@angular-devkit/build-ng-packagr:build",
-               "options": {
-                  "tsConfig": "projects/rocket/tsconfig.lib.json",
-                  "project": "projects/rocket/ng-package.json"
-               }
-            ,          "configurations": {
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "rocket": {
+      "projectType": "library",
+      "root": "projects/rocket",
+      "sourceRoot": "projects/rocket/src",
+      "prefix": "rocket",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/rocket/tsconfig.lib.json",
+            "project": "projects/rocket/ng-package.json"
+          },
+          "configurations": {
             "production": {
               "tsConfig": "projects/rocket/tsconfig.lib.prod.json"
             }
           }
-},
-            "test": {
-               "builder": "@angular-devkit/build-angular:karma",
-               "options": {
-                  "main": "projects/rocket/src/test.ts",
-                  "tsConfig": "projects/rocket/tsconfig.spec.json",
-                  "karmaConfig": "projects/rocket/karma.conf.js"
-               }
-            },
-            "lint": {
-               "builder": "@angular-devkit/build-angular:tslint",
-               "options": {
-                  "tsConfig": [
-                     "projects/rocket/tsconfig.lib.json",
-                     "projects/rocket/tsconfig.spec.json"
-                  ],
-                  "exclude": [
-                     "**/node_modules/**"
-                  ]
-               }
-            }
-         }
-      },
-      "rocket-playground": {
-         "projectType": "application",
-         "schematics": {
-            "@schematics/angular:component": {
-               "style": "scss"
-            }
-         },
-         "root": "projects/rocket-playground",
-         "sourceRoot": "projects/rocket-playground/src",
-         "prefix": "app",
-         "architect": {
-            "build": {
-               "builder": "@angular-devkit/build-angular:browser",
-               "options": {
-                  "outputPath": "dist/rocket-playground",
-                  "index": "projects/rocket-playground/src/index.html",
-                  "main": "projects/rocket-playground/src/main.ts",
-                  "polyfills": "projects/rocket-playground/src/polyfills.ts",
-                  "tsConfig": "projects/rocket-playground/tsconfig.app.json",
-                  "aot": true,
-                  "assets": [
-                     "projects/rocket-playground/src/favicon.ico"
-                  ],
-                  "scripts": []
-               },
-               "configurations": {
-                  "production": {
-                     "fileReplacements": [
-                        {
-                           "replace": "projects/rocket-playground/src/environments/environment.ts",
-                           "with": "projects/rocket-playground/src/environments/environment.prod.ts"
-                        }
-                     ],
-                     "optimization": true,
-                     "outputHashing": "all",
-                     "sourceMap": false,
-                     "extractCss": true,
-                     "namedChunks": false,
-                     "extractLicenses": true,
-                     "vendorChunk": false,
-                     "buildOptimizer": true,
-                     "budgets": [
-                        {
-                           "type": "initial",
-                           "maximumWarning": "2mb",
-                           "maximumError": "5mb"
-                        },
-                        {
-                           "type": "anyComponentStyle",
-                           "maximumWarning": "6kb",
-                           "maximumError": "10kb"
-                        }
-                     ]
-                  }
-               }
-            },
-            "serve": {
-               "builder": "@angular-devkit/build-angular:dev-server",
-               "options": {
-                  "browserTarget": "rocket-playground:build"
-               },
-               "configurations": {
-                  "production": {
-                     "browserTarget": "rocket-playground:build:production"
-                  }
-               }
-            },
-            "extract-i18n": {
-               "builder": "@angular-devkit/build-angular:extract-i18n",
-               "options": {
-                  "browserTarget": "rocket-playground:build"
-               }
-            },
-            "test": {
-               "builder": "@angular-devkit/build-angular:karma",
-               "options": {
-                  "main": "projects/rocket-playground/src/test.ts",
-                  "polyfills": "projects/rocket-playground/src/polyfills.ts",
-                  "tsConfig": "projects/rocket-playground/tsconfig.spec.json",
-                  "karmaConfig": "projects/rocket-playground/karma.conf.js",
-                  "assets": [
-                     "projects/rocket-playground/src/favicon.ico"
-                  ],
-                  "scripts": []
-               }
-            },
-            "lint": {
-               "builder": "@angular-devkit/build-angular:tslint",
-               "options": {
-                  "tsConfig": [
-                     "projects/rocket-playground/tsconfig.app.json",
-                     "projects/rocket-playground/tsconfig.spec.json",
-                     "projects/rocket-playground/e2e/tsconfig.json"
-                  ],
-                  "exclude": [
-                     "**/node_modules/**"
-                  ]
-               }
-            },
-            "e2e": {
-               "builder": "@angular-devkit/build-angular:protractor",
-               "options": {
-                  "protractorConfig": "projects/rocket-playground/e2e/protractor.conf.js",
-                  "devServerTarget": "rocket-playground:serve"
-               },
-               "configurations": {
-                  "production": {
-                     "devServerTarget": "rocket-playground:serve:production"
-                  }
-               }
-            }
-         }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/rocket/src/test.ts",
+            "tsConfig": "projects/rocket/tsconfig.spec.json",
+            "karmaConfig": "projects/rocket/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/rocket/tsconfig.lib.json",
+              "projects/rocket/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
       }
-   },
-   "defaultProject": "rocket"
+    }
+  },
+  "defaultProject": "rocket"
 }

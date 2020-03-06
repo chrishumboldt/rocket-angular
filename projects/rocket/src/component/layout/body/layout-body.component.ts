@@ -8,7 +8,7 @@ import { SizeType } from '../../../store/size.store';
 
 @Component({
   selector: 'rocket-body',
-  template: '<ng-content></ng-content>',
+  templateUrl: './layout-body.component.html',
   styleUrls: ['./layout-body.component.scss']
 })
 export class RocketLayoutBodyComponent {
@@ -16,6 +16,7 @@ export class RocketLayoutBodyComponent {
   @Input() classNames = '';
   @Input() limit = SizeType.MEDIUM;
   @Input() padding = SizeType.MEDIUM;
+  @Input() row = 'off';
 
   // Apply classes to the host element.
   @HostBinding('class') get classes() {
