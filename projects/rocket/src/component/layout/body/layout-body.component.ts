@@ -13,7 +13,7 @@ import { SizeType } from '../../../store/size.store';
   styleUrls: ['./layout-body.component.scss']
 })
 export class RocketLayoutBodyComponent {
-  @Input() center = true;
+  @Input() center = false;
   @Input() classNames = '';
   @Input() limit = SizeType.MEDIUM;
   @Input() padding = SizeType.MEDIUM;

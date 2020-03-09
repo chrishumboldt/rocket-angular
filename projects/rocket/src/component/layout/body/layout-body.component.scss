@@ -16,13 +16,13 @@
 
 // Limits.
 :host._limit-small {
-  @include limit(40em);
+  @include width(100%, 45em);
 }
 :host._limit-medium {
-  @include limit(75em);
+  @include width(100%, 75em);
 }
 :host._limit-large {
-  @include limit(90em);
+  @include width(100%, 90em);
 }
 
 // Padding.
