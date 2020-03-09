@@ -4,6 +4,7 @@
 
 import { Component, HostBinding, Input } from '@angular/core';
 
+import { RocketConfigService } from '../../../service/config/config.service';
 import { RocketArray } from '../../../tool/array/array.tool';
 import { SizeType } from '../../../store/size.store';
 
@@ -16,8 +17,10 @@ export class RocketLayoutBodyComponent {
   @Input() center = false;
   @Input() classNames = '';
   @Input() limit = SizeType.MEDIUM;
-  @Input() padding = SizeType.MEDIUM;
+  @Input() padding = this.rocketConfig.bodyPadding;
   @Input() row = false;
+
+  constructor(private rocketConfig: RocketConfigService) {}
 
   // Apply classes to the host element.
   @HostBinding('class') get classes() {

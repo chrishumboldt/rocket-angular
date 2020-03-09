@@ -6,6 +6,7 @@ import { moduleMetadata } from '@storybook/angular';
 
 import { RocketLayoutBodyComponent } from './body/layout-body.component';
 import { RocketLayoutRowComponent } from './row/layout-row.component';
+import { RocketLayoutSpacerComponent } from './spacer/layout-spacer.component';
 import { RocketLayoutSpanComponent } from './span/layout-span.component';
 
 export default {
@@ -15,6 +16,7 @@ export default {
       declarations: [
         RocketLayoutBodyComponent,
         RocketLayoutRowComponent,
+        RocketLayoutSpacerComponent,
         RocketLayoutSpanComponent
       ]
     })
@@ -60,5 +62,16 @@ export const BodyAsRowWithSpans = () => ({
       <rocket-span width="4">Span Two</rocket-span>
       <rocket-span width="4">Span Three</rocket-span>
     </rocket-body>
+  `
+});
+
+/**
+ * Rocket spacer story.
+ */
+export const Spacer = () => ({
+  template: `
+    <div>Line One</div>
+    <rocket-spacer size="medium"></rocket-spacer>
+    <div>Line Two</div>
   `
 });

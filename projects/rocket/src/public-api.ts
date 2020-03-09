@@ -12,6 +12,9 @@ export * from './component/form/input/form-input.component';
 export * from './component/form/select/form-select.component';
 export * from './component/form/text-area/form-text-area.component';
 export * from './component/layout/body/layout-body.component';
+export * from './component/layout/row/layout-row.component';
+export * from './component/layout/spacer/layout-spacer.component';
+export * from './component/layout/span/layout-span.component';
 export * from './component/loader/loader.component';
 export * from './component/pane/pane.component';
 // Generators.

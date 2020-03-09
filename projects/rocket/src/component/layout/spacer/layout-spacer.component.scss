@@ -1,0 +1,28 @@
+// @author Chris Humboldt
+
+@import 'node_modules/@chrishumboldt/rocket-propel/import';
+
+:host {
+  @include show();
+  @include height($spaceSmall);
+
+  @include breakpoint($bpMedium) {
+    @include height($spaceBase);
+  }
+}
+
+// Other sizes.
+:host._size-medium {
+  @include height($spaceBase);
+
+  @include breakpoint($bpMedium) {
+    @include height($spaceMedium);
+  }
+}
+:host._size-large {
+  @include height($spaceBase + $spaceSmall);
+
+  @include breakpoint($bpMedium) {
+    @include height($spaceLarge);
+  }
+}

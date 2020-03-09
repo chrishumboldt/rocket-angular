@@ -24,6 +24,7 @@ import { StorageType } from '../../store/storage.store';
   providedIn: 'root'
 })
 export class RocketConfigService {
+  public bodyPadding?: SizeType;
   public buttonColour: ButtonColour;
   public buttonRender: ButtonRender;
   public buttonShape: ButtonShape;
@@ -46,84 +47,88 @@ export class RocketConfigService {
   public storageType: StorageType;
 
   constructor(@Optional() config: RocketConfig = {}) {
+    this.bodyPadding = ValueGenerator({
+      data: config && config.bodyPadding,
+      fallback: SizeType.MEDIUM
+    });
     this.buttonColour = ValueGenerator({
-      data: config.buttonColour,
+      data: config && config.buttonColour,
       fallback: ButtonColour.BLUE
     });
     this.buttonShape = ValueGenerator({
-      data: config.buttonShape,
+      data: config && config.buttonShape,
       fallback: ButtonShape.ROUNDED
     });
     this.buttonSize = ValueGenerator({
-      data: config.buttonSize,
+      data: config && config.buttonSize,
       fallback: ButtonSize.DEFAULT
     });
     this.buttonRender = ValueGenerator({
-      data: config.buttonRender,
+      data: config && config.buttonRender,
       fallback: ButtonRender.FLAT
     });
     this.font = ValueGenerator({
-      data: config.font,
+      data: config && config.font,
       fallback: "'Open Sans', Helvetica, Arial, sans-serif"
     });
     this.formColour = ValueGenerator({
-      data: config.formColour,
+      data: config && config.formColour,
       fallback: ColourCode.BLUE
     });
     this.formInputType = ValueGenerator({
-      data: config.formInputType,
+      data: config && config.formInputType,
       fallback: FormInputType.TEXT
     });
     this.formSize = ValueGenerator({
-      data: config.formSize,
+      data: config && config.formSize,
       fallback: SizeType.MEDIUM
     });
     this.formSlideLabel = ValueGenerator({
-      data: config.formSlideLabel,
+      data: config && config.formSlideLabel,
       fallback: State.ON
     });
     this.formStyle = ValueGenerator({
-      data: config.formStyle,
+      data: config && config.formStyle,
       fallback: FormStyle.LINE
     });
     this.initData = ValueGenerator({
-      data: config.initData,
+      data: config && config.initData,
       fallback: []
     });
     this.loaderColour = ValueGenerator({
-      data: config.loaderColour,
+      data: config && config.loaderColour,
       fallback: SecondaryColour.GREY_BLUE
     });
     this.loaderSize = ValueGenerator({
-      data: config.loaderSize,
+      data: config && config.loaderSize,
       fallback: LoaderSize.DEFAULT
     });
     this.loaderType = ValueGenerator({
-      data: config.loaderType,
+      data: config && config.loaderType,
       fallback: LoaderType.SPINNER
     });
     this.paneRenderContentOnActive = ValueGenerator({
-      data: config.paneRenderContentOnActive,
+      data: config && config.paneRenderContentOnActive,
       fallback: true
     });
     this.paneStartingLevel = ValueGenerator({
-      data: config.paneStartingLevel,
+      data: config && config.paneStartingLevel,
       fallback: 200
     });
     this.sizeSmall = ValueGenerator({
-      data: config.sizeSmall,
+      data: config && config.sizeSmall,
       fallback: 350
     });
     this.sizeMedium = ValueGenerator({
-      data: config.sizeMedium,
+      data: config && config.sizeMedium,
       fallback: 750
     });
     this.storageName = ValueGenerator({
-      data: config.storageName,
+      data: config && config.storageName,
       fallback: 'RocketStorage'
     });
     this.storageType = ValueGenerator({
-      data: config.storageType,
+      data: config && config.storageType,
       fallback: StorageType.SESSION
     });
   }

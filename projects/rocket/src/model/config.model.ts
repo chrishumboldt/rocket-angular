@@ -16,6 +16,7 @@ import { StorageType } from '../store/storage.store';
 import { DataEntry } from './data.model';
 
 export class RocketConfig {
+  bodyPadding?: SizeType;
   buttonColour?: ButtonColour;
   buttonRender?: ButtonRender;
   buttonShape?: ButtonShape;
