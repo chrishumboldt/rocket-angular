@@ -27,7 +27,7 @@ export abstract class RocketHelper implements OnDestroy {
    * @param params.sortOrder - The order of the sort.
    */
   public createData(options: DataEntry): void {
-    return this.rocketData.create(options);
+    this.rocketData.create(options);
   }
 
   /**
@@ -35,7 +35,7 @@ export abstract class RocketHelper implements OnDestroy {
    *
    * @param name - The key name of the data in the data store map.
    */
-  public getData(name: string): void {
+  public getData(name: string): any {
     return this.rocketData.get(name);
   }
 
@@ -94,6 +94,6 @@ export abstract class RocketHelper implements OnDestroy {
    * @param params.sortOrder - The order of the sort.
    */
   public updateData(params: DataEntry): void {
-    return this.rocketData.update(params);
+    this.rocketData.update(params);
   }
 }
