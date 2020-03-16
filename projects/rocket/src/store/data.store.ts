@@ -11,6 +11,11 @@ export enum DataName {
   WINDOW_SIZE_VALUE = 'windowSizeValue'
 }
 
+export enum ObservableType {
+  BEHAVIOR_SUBJECT = 'BEHAVIOR_SUBJECT',
+  SUBJECT = 'SUBJECT'
+}
+
 export enum RocketData {
   BLANK = '__ROCKET_DATA_BLANK__'
 }

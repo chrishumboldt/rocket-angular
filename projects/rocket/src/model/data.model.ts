@@ -3,6 +3,7 @@
  */
 
 import { ValueGenerator } from '../generator/value.generator';
+import { ObservableType } from '../store/data.store';
 import { SortOrder } from '../store/sort.store';
 
 export class DataEntry {
@@ -10,6 +11,7 @@ export class DataEntry {
   data?: any;
   force?: boolean;
   name: string;
+  observableType?: ObservableType;
   sortBy?: string;
   sortOrder?: SortOrder;
 
@@ -21,6 +23,10 @@ export class DataEntry {
     this.data = ValueGenerator({ data: data.data });
     this.force = ValueGenerator({ data: data.force, fallback: false });
     this.name = ValueGenerator({ data: data.name, fallback: '' });
+    this.observableType = ValueGenerator({
+      data: data.observableType,
+      fallback: ObservableType.BEHAVIOR_SUBJECT
+    });
     this.sortOrder = ValueGenerator({
       data: data.sortOrder,
       fallback: SortOrder.ASCENDING

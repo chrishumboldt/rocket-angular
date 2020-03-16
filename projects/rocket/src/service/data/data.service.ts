@@ -3,7 +3,13 @@
  */
 
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, combineLatest, Observable, Subscription } from 'rxjs';
+import {
+  BehaviorSubject,
+  combineLatest,
+  Observable,
+  Subject,
+  Subscription
+} from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 import {
@@ -12,7 +18,7 @@ import {
   SubscribeToParams
 } from '../../model/data.model';
 import { Pane } from '../../model/pane.model';
-import { DataName, RocketData } from '../../store/data.store';
+import { DataName, RocketData, ObservableType } from '../../store/data.store';
 import { SortOrder } from '../../store/sort.store';
 import { RocketArray } from '../../tool/array/array.tool';
 import { RocketIs } from '../../tool/is/is.tool';
@@ -66,6 +72,7 @@ export class RocketDataService {
    * @param params.name - The key name of the data in the data store map.
    * @param params.asObservable - Determine if the data is going to be an observable.
    * @param params.data - The new updated data.
+   * @param params.observableType - The type of observable to create.
    * @param params.sortBy - Sort the data by a property.
    * @param params.sortOrder - The order to sort the data.
    */
@@ -74,6 +81,7 @@ export class RocketDataService {
     data,
     force = false,
     name,
+    observableType = ObservableType.BEHAVIOR_SUBJECT,
     sortBy,
     sortOrder = SortOrder.ASCENDING
   }: DataEntry): void {
@@ -99,8 +107,17 @@ export class RocketDataService {
      * reference, once for the BehaviorSubject and one for the observable instance.
      */
     if (asObservable) {
+      // Make an observable based on the type.
+      if (observableType === ObservableType.SUBJECT) {
+        const subjectItem = new Subject();
+        subjectItem.next(sortedData);
+        this.dataStore.set(name, subjectItem);
+      } else {
+        this.dataStore.set(name, new BehaviorSubject(sortedData));
+      }
+
+      // Set the rest of the data.
       this.dataIsObservable.push(name);
-      this.dataStore.set(name, new BehaviorSubject(sortedData));
       this.dataStore.set(`${name}$`, this.dataStore.get(name).asObservable());
     } else {
       this.dataStore.set(name, sortedData);
