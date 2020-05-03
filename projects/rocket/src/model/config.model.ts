@@ -6,7 +6,7 @@ import {
   ButtonColour,
   ButtonShape,
   ButtonSize,
-  ButtonRender
+  ButtonRender,
 } from '../store/button.store';
 import { FormInputType, FormStyle } from '../store/form.store';
 import { LoaderSize, LoaderType } from '../store/loader.store';
@@ -28,6 +28,7 @@ export class RocketConfig {
   formSlideLabel?: State;
   formStyle?: FormStyle;
   initData?: DataEntry[];
+  loaderAlignment?: string;
   loaderColour?: string;
   loaderSize?: LoaderSize;
   loaderType?: LoaderType;

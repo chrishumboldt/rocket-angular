@@ -42,8 +42,10 @@
   @include square($loaderSizeSmall);
 }
 :host._size-small .comp--text {
-  @include padding-top($spaceSmall / 2);
   @include text-size(14px);
+}
+:host._size-small._align-center .comp--text {
+  @include padding-top($spaceSmall / 2);
 }
 :host._size-small._type-spinner .comp--part._number-1 {
   @include square($loaderSizeSmall);

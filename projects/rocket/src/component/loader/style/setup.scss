@@ -5,18 +5,33 @@
 :host {
   @include position(relative);
   @include show();
-  @include text-align(center);
   @include text-colour($greyBlue);
 }
 .comp--loader {
   @include spacing-none();
   @include position(relative);
   @include square($loaderSize);
-  @include center();
   @include animate(all);
 }
 .comp--text {
   @include show();
-  @include padding-top($spaceSmall);
   @include text-size(16px);
+}
+
+// Alignment
+:host._align-center {
+  @include text-align(center);
+}
+:host._align-center .comp--loader {
+  @include center();
+}
+:host._align-center .comp--text {
+  @include padding-top($spaceSmall);
+}
+:host._align-left {
+  @include flex-display();
+  @include align-items(center);
+}
+:host._align-left .comp--text {
+  @include padding-left($spaceSmall);
 }

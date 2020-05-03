@@ -8,16 +8,17 @@ import { RocketConfigService } from '../../service/config/config.service';
 import {
   LoaderSize,
   LoaderSizeArray,
-  LoaderType
+  LoaderType,
 } from '../../store/loader.store';
 
 @Component({
   selector: 'rocket-loader',
   templateUrl: './loader.component.html',
-  styleUrls: ['./loader.component.scss']
+  styleUrls: ['./loader.component.scss'],
 })
 export class RocketLoaderComponent implements OnInit {
   private classNames: string[] = [];
+  @Input() alignment: string;
   @Input() colour: string;
   @Input() size: LoaderSize;
   @Input() text: string;
@@ -27,16 +28,28 @@ export class RocketLoaderComponent implements OnInit {
   @HostBinding('class') get getClassNames() {
     return this.classNames.join(' ');
   }
-  @HostBinding('style.padding.px')
+  @HostBinding('style.padding.rem')
   @Input()
-  spacing = 40;
+  spacing = 2;
 
   constructor(private rocketConfig: RocketConfigService) {}
 
   ngOnInit() {
+    this.setAlignment();
     this.setColour();
     this.setSize();
     this.setType();
+  }
+
+  /**
+   * Set the alignment of the loader.
+   */
+  private setAlignment(): void {
+    if (this.alignment) {
+      this.classNames.push(`_align-${this.alignment}`);
+    } else {
+      this.classNames.push(`_align-${this.rocketConfig.loaderAlignment}`);
+    }
   }
 
   /**
