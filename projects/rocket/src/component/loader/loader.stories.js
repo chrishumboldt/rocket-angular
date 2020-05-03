@@ -44,6 +44,13 @@ export const SmallLoaders = () => ({
     <rocket-loader size="small" type="dots"></rocket-loader>
   `,
 });
+export const LarfeLoaders = () => ({
+  template: `
+    <rocket-loader size="large"></rocket-loader>
+    <rocket-loader size="large" type="pulse"></rocket-loader>
+    <rocket-loader size="large" type="dots"></rocket-loader>
+  `,
+});
 export const LeftAlignedSmallLoaders = () => ({
   template: `
     <rocket-loader size="small" alignment="left" text="Loading"></rocket-loader>

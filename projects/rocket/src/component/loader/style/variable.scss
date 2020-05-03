@@ -2,9 +2,9 @@
  * @author Chris Humboldt
  */
 
-$loaderSize: 40px;
-$loaderSizeSmall: $loaderSize - 14px;
-$loaderSizeLarge: $loaderSize + 10px;
+$loaderSize: 32px;
+$loaderSizeSmall: $loaderSize - 8px;
+$loaderSizeLarge: $loaderSize + 16px;
 $loaderSizeHalf: -$loaderSize / 2;
 $loaderSizeHalfSmall: -$loaderSizeSmall / 2;
 $loaderSizeHalfLarge: -$loaderSizeLarge / 2;
